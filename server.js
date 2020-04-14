@@ -22,6 +22,7 @@ app.use(passport.session());
 // Requiring our routes
 app.use(require("./controllers/htmlController.js"))
 app.use(require("./controllers/authController.js"))
+app.use(require("./controllers/breweryController.js"))
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
