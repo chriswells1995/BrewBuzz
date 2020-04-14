@@ -2,15 +2,16 @@
 // =============================================================
 
 // This may be confusing but here Sequelize (capital) references the standard library
-var Sequelize = require("sequelize");
-// sequelize (lowercase) references our connection to the DB.
-var sequelize = require("../config/connection.js");
+// var Sequelize = require("sequelize");
+// // sequelize (lowercase) references our connection to the DB.
+// var sequelize = require("../config/connection.js");
 
 // Creates a "Review" model that matches up with DB
-var Review = sequelize.define("review", {
-  review: Sequelize.STRING,
-  userID: Sequelize.INTEGER,
-  breweryID: Sequelize.INTEGER
+module.exports = function(sequelize, DataTypes) {
+var Review = sequelize.define("Review", {
+  review: DataTypes.STRING
+  // userID: DataTypes.INTEGER,
+  // breweryID: DataTypes.INTEGER
 });
 
 
@@ -37,10 +38,9 @@ Review.associate = function(models){
 
 
 }
-
-
 // Syncs with DB
-Review.sync();
+// Review.sync();
 
 // Makes the Review Model available for other files (will also create a table)
-module.exports = Review;
+return Review;
+}

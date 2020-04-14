@@ -1,32 +1,32 @@
-DROP DATABASE IF EXISTS brewBuzzLibrary_db;
-CREATE DATABASE brewBuzzLibrary_db;
+-- DROP DATABASE IF EXISTS brewBuzzLibrary_db;
+-- CREATE DATABASE brewBuzzLibrary_db;
 -- sets dependency on brewBuzzLibrary_db
 USE brewBuzzLibrary_db;
 
 
-CREATE TABLE breweries(
-  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+-- CREATE TABLE breweries(
+--   id INTEGER(11) AUTO_INCREMENT NOT NULL,
 
-  name VARCHAR(100) NOT NULL,
-  website VARCHAR(100),
-  streetAddress VARCHAR(100) NOT NULL,
-  PRIMARY KEY (id)
-);
+--   name VARCHAR(100) NOT NULL,
+--   website VARCHAR(100),
+--   streetAddress VARCHAR(100) NOT NULL,
+--   PRIMARY KEY (id)
+-- );
 
-CREATE TABLE reviews(
-  id INTEGER(11) AUTO_INCREMENT NOT NULL,
-  review VARCHAR(100)NOT NULL,
-  userID INT (10) NOT NULL,
-  breweryID INT (10) NOT NULL,
-  PRIMARY KEY (id)
-);
+-- CREATE TABLE reviews(
+--   id INTEGER(11) AUTO_INCREMENT NOT NULL,
+--   review VARCHAR(100)NOT NULL,
+--   userID INT (10) NOT NULL,
+--   breweryID INT (10) NOT NULL,
+--   PRIMARY KEY (id)
+-- );
 
-CREATE TABLE users(
-  id INTEGER(11) AUTO_INCREMENT NOT NULL,
-  email VARCHAR(100) NOT NULL,
-  password VARCHAR(100) NOT NULL,
-  PRIMARY KEY (id)
-);
+-- CREATE TABLE users(
+--   id INTEGER(11) AUTO_INCREMENT NOT NULL,
+--   email VARCHAR(100) NOT NULL,
+--   password VARCHAR(100) NOT NULL,
+--   PRIMARY KEY (id)
+-- );
 
 INSERT INTO users (email, password) values ('rwilliams01101@gmail.com', 'beerpassword');
 INSERT INTO users (email, password) values ('wells457@umn.edu', 'beerpassword');
@@ -37,12 +37,12 @@ INSERT INTO breweries (name, website, streetAddress) values ('Surly Brewing Co',
 INSERT INTO breweries (name, website, streetAddress) values ('Invictus', 'http://invictusbrewingco.com/', '2025 105th Ave NE, Blaine, MN 55449');
 
 
-INSERT INTO reviews (review, userID, breweryID) values ('Test 1', 1,1);
-INSERT INTO reviews (review, userID, breweryID) values ('Test 2', 1,2);
-INSERT INTO reviews (review, userID, breweryID) values ('Test 3', 2,2);
-INSERT INTO reviews (review, userID, breweryID) values ('Test 4', 2,3);
-INSERT INTO reviews (review, userID, breweryID) values ('Test 5', 3,1);
-INSERT INTO reviews (review, userID, breweryID) values ('Test 6', 3,3);
+INSERT INTO reviews (Review, UserId, BreweryId) values ('Test 1', 1,1);
+INSERT INTO reviews (Review, UserId, BreweryId) values ('Test 2', 1,2);
+INSERT INTO reviews (Review, UserId, BreweryId) values ('Test 3', 2,2);
+INSERT INTO reviews (Review, UserId, BreweryId) values ('Test 4', 2,3);
+INSERT INTO reviews (Review, UserId, BreweryId) values ('Test 5', 3,1);
+INSERT INTO reviews (Review, UserId, BreweryId) values ('Test 6', 3,3);
 
 
 

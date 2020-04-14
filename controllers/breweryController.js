@@ -2,7 +2,7 @@
 // =============================================================
 const express = require('express')
 const router = express.Router();
-const Brewery = require("../models/breweryModel.js");
+const db = require("../models");
 
 // Routes
 // =============================================================
@@ -11,7 +11,7 @@ const Brewery = require("../models/breweryModel.js");
 router.get("/api/breweries", function(req, res) {
   // Finding all Breweries, and then returning them to the user as JSON.
   // Sequelize queries are asynchronous, which helps with perceived speed.
-  Brewery.findAll({})
+  db.Brewery.findAll({})
   .then(results => res.json(results))
   .catch(err => res.status(500).json(err))
 });
@@ -19,7 +19,7 @@ router.get("/api/breweries", function(req, res) {
 router.get("/api/brewery/:id", function(req, res) {
     // Finding all Breweries, and then returning them to the user as JSON.
     // Sequelize queries are asynchronous, which helps with perceived speed.
-    Brewery.findAll({
+    db.Brewery.findAll({
         where: {
             id: req.params.id
         }
@@ -34,7 +34,7 @@ router.post("/api/brewery", function(req, res) {
   // built in method to create a new brewery
   // inside .create() we reference the author and body columns we feed
   // those columns values from req.body
-  Brewery.create({
+  db.Brewery.create({
     // adding req.body(response) to name, website, streetAddress
     name: req.body.name,
     website: req.body.website,
