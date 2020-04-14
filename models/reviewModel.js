@@ -13,6 +13,32 @@ var Review = sequelize.define("review", {
   breweryID: Sequelize.INTEGER
 });
 
+
+Review.associate = function(models){
+  // models will allow us to referoecne other models synced with databse 
+  // ie we are going to referecne the Reviewmodel
+  Review.belongsTo(models.User, {
+    // this will add a column called UserID
+
+    foreignKey: {
+      allowNull: false
+    }
+
+  })
+
+  Review.belongsTo(models.Brewery, {
+    // this will add a column called BreweryID
+
+    foreignKey: {
+      allowNull: false
+    }
+
+  })
+
+
+}
+
+
 // Syncs with DB
 Review.sync();
 
