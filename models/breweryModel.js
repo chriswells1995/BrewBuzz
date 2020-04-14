@@ -13,6 +13,16 @@ var Brewery = sequelize.define("brewery", {
   streetAdress: Sequelize.INTEGER
 });
 
+// Brewery has many reviews
+// utlize the .associate() method to create an association between them
+Brewery.associate =function (models){
+  // models will allow us to reference other models synced with this database
+  // ie we are going to referecne the Review model
+  Brewery.hasMany(models.Review, {} )
+
+
+}
+
 // Syncs with DB
 Brewery.sync();
 

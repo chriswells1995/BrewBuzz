@@ -18,6 +18,15 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
+
+  User.associate =function (models){
+    // models will allow us to reference other models synced with this database
+    // ie we are going to referecne the Review model
+    User.hasMany(models.Review, {} )
+  
+  
+  }
+
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
