@@ -7,68 +7,53 @@ USE brewBuzzLibrary_db;
 CREATE TABLE breweries(
   id INTEGER(11) AUTO_INCREMENT NOT NULL,
 
-  name VARCHAR(100),
+  name VARCHAR(100) NOT NULL,
   website VARCHAR(100),
-  streetAddress VARCHAR(100),
-  PRIMARY KEY (id)
-);
-
-CREATE TABLE users(
-  id INTEGER(11) AUTO_INCREMENT NOT NULL,
-  review VARCHAR(100),
-  userID INT (10),
-  breweryID INT (10),
+  streetAddress VARCHAR(100) NOT NULL,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE reviews(
   id INTEGER(11) AUTO_INCREMENT NOT NULL,
-  firstName VARCHAR(100),
-  lastName VARCHAR(100),
+  review VARCHAR(100)NOT NULL,
+  userID INT (10) NOT NULL,
+  breweryID INT (10) NOT NULL,
   PRIMARY KEY (id)
 );
 
-INSERT INTO users (email, password) values ('Jane', 'Austen');
-INSERT INTO users (email, password) values ('Mark', 'Twain');
-INSERT INTO users (email, password) values ('Lewis', 'Carroll');
+CREATE TABLE users(
+  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id)
+);
 
-INSERT INTO breweries (id, name, website, streetAddress) values ('Pride and Prejudice', 1);
-INSERT INTO breweries (id, name, website, streetAddress) values ('Emma', 1);
-INSERT INTO breweries (id, name, website, streetAddress) values ('The Adventures of Tom Sawyer', 2);
-INSERT INTO breweries (id, name, website, streetAddress) values ('Adventures of Huckleberry Finn', 2);
-INSERT INTO breweries (id, name, website, streetAddress) values ('Alices Adventures in Wonderland', 3);
-INSERT INTO breweries (id, name, website, streetAddress) values ('Dracula', null);
+INSERT INTO users (email, password) values ('rwilliams01101@gmail.com', 'beerpassword');
+INSERT INTO users (email, password) values ('wells457@umn.edu', 'beerpassword');
+INSERT INTO users (email, password) values ('cwbatman007@yahoo.com', 'beerpassword');
 
-INSERT INTO reviews (id, review, userID, breweryID) values ('Pride and Prejudice', 1);
-INSERT INTO reviews (id, review, userID, breweryID) values ('Emma', 1);
-INSERT INTO reviews (id, review, userID, breweryID) values ('The Adventures of Tom Sawyer', 2);
-INSERT INTO reviews (id, review, userID, breweryID) values ('Adventures of Huckleberry Finn', 2);
-INSERT INTO reviews (id, review, userID, breweryID) values ('Alices Adventures in Wonderland', 3);
-INSERT INTO reviews (id, review, userID, breweryID) values ('Dracula', null);
+INSERT INTO breweries (name, website, streetAddress) values ('Venn Brewing', 'https://www.vennbrewing.com/', '3550 E 46th St Suite 140, Minneapolis, MN 55406');
+INSERT INTO breweries (name, website, streetAddress) values ('Surly Brewing Co', 'https://surlybrewing.com/','520 Malcolm Ave SE, Minneapolis, MN 55414');
+INSERT INTO breweries (name, website, streetAddress) values ('Invictus', 'http://invictusbrewingco.com/', '2025 105th Ave NE, Blaine, MN 55449');
 
--- SELECT * FROM users;
--- SELECT * FROM breweries;
 
--- -- show ALL breweries with users
--- -- INNER JOIN will only return all matching values from both tables
--- SELECT title, id, email, password
+INSERT INTO reviews (review, userID, breweryID) values ('Test 1', 1,1);
+INSERT INTO reviews (review, userID, breweryID) values ('Test 2', 1,2);
+INSERT INTO reviews (review, userID, breweryID) values ('Test 3', 2,2);
+INSERT INTO reviews (review, userID, breweryID) values ('Test 4', 2,3);
+INSERT INTO reviews (review, userID, breweryID) values ('Test 5', 3,1);
+INSERT INTO reviews (review, userID, breweryID) values ('Test 6', 3,3);
+
+
+
+-- -- This will show the reviews for each brewery
+-- SELECT name, review
 -- FROM breweries
--- INNER JOIN users ON breweries.authorId = users.id;
+-- RIGHT JOIN reviews ON breweries.id = reviews.breweryID;
+-- -- IS null rather than equals null
+-- -- WHERE breweries.authorId IS NULL;
 
--- -- show ALL breweries, even if we don't know the author
--- -- LEFT JOIN returns all of the values from the left table, and the matching ones from the right table
--- SELECT title, id, email, password
--- FROM breweries
--- LEFT JOIN users ON breweries.authorId = users.id;
-
--- -- show ALL breweries, even if we don't know the author
--- -- RIGHT JOIN returns all of the values from the right table, and the matching ones from the left table
--- SELECT title, id, email, password
--- FROM breweries
--- RIGHT JOIN users ON breweries.authorId = users.id;
-
-SELECT title, id, email, password
-FROM breweries
-LEFT JOIN users ON breweries.authorId = users.id
--- IS null rather than equals null
-WHERE breweries.authorId IS NULL;
+-- -- This will show the reviews from each user
+-- SELECT email, review
+-- FROM users
+-- RIGHT JOIN reviews ON users.id = reviews.userID;
