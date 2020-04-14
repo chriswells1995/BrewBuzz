@@ -48,4 +48,7 @@ router.get("/api/user_data", function(req, res) {
   }
 });
 
+
+// TODO: create a findAll() route for Users
+
   module.exports = router;
