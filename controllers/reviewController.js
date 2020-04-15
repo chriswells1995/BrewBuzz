@@ -21,11 +21,11 @@ router.get('/api/reviews', (req, res) => {
 
 
 // get all of the reviews a specific user made
-router.get('/api/reviews/:UserID', (req, res) => {
+router.get('/api/reviews/:UserId', (req, res) => {
   db.Review.findAll({
 
     where: {
-        UserID: req.params.UserID
+        UserId: req.params.UserId
     },
     //   TODO: double check if user and brewery can be on the same line or not
     include: [db.User, db.Brewery]
@@ -38,11 +38,11 @@ router.get('/api/reviews/:UserID', (req, res) => {
 });
 
 // get all of the reviews for a specific brewery
-router.get('/api/reviews/:BreweryID', (req, res) => {
+router.get('/api/reviews/:BreweryId', (req, res) => {
     db.Review.findAll({
   
       where: {
-          BreweryID: req.params.BreweryID
+          BreweryId: req.params.BreweryId
       },
       //   TODO: double check if user and brewery can be on the same line or not
       include: [db.User, db.Brewery]
