@@ -21,7 +21,7 @@ router.get('/api/reviews', (req, res) => {
 
 
 // get all of the reviews a specific user made
-router.get('/api/reviews/:UserId', (req, res) => {
+router.get('/api/user/reviews/:UserId', (req, res) => {
   db.Review.findAll({
 
     where: {
@@ -38,7 +38,7 @@ router.get('/api/reviews/:UserId', (req, res) => {
 });
 
 // get all of the reviews for a specific brewery
-router.get('/api/reviews/:BreweryId', (req, res) => {
+router.get('/api/brewery/reviews/:BreweryId', (req, res) => {
     db.Review.findAll({
   
       where: {
