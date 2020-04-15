@@ -5,7 +5,7 @@ const router = express.Router();
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
-router.get("/", function(req, res) {
+router.get("/signup", function(req, res) {
   // If the user already has an account send them to the members page
   if (req.user) {
     res.redirect("/members");
@@ -13,12 +13,22 @@ router.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/signup.html"));
 });
 
-router.get("/login", function(req, res) {
+router.get("/", function(req, res) {
   // If the user already has an account send them to the members page
   if (req.user) {
     res.redirect("/members");
   }
   res.sendFile(path.join(__dirname, "../public/login.html"));
+});
+
+// brewery html
+router.get("/brewery", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/brewery.html"));
+});
+
+// user html
+router.get("/user", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/user.html"));
 });
 
 // Here we've add our isAuthenticated middleware to this route.
