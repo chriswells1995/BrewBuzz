@@ -1,53 +1,31 @@
 function displayCards() {
-  //  console.log(searchResult);
   var settings = {
     url: "http://localhost:8080/api/reviews/",
     method: "GET",
     timeout: 0,
-    // "headers": {
-    //   "Cookie": "connect.sid=s%3AWonUzQhp09cdIZjjmEUsVh6Z5lDyP72o.Zfm8WwKpzjxd7kcyBTbnGxlDXsNNIEerisDXqBVqFSg"
-    // },
   };
   $.ajax(settings).then(function (response) {
-    // console.log(response);
     var responseData = response;
-    console.log(responseData);
     for (let i = 0; i < 5; i++) {
+      var review_id = responseData[i].id;
       var review = responseData[i].review;
       var email = responseData[i].User.email;
       var brewery = responseData[i].Brewery.name;
-      buildCard(brewery, email, review);
+      buildCard(review_id, brewery, email, review);
     }
-    // [3]
-
-    // var breweryName = [review][0]['User'][0]
-    console.log(
-      "Review: ",
-      review,
-      "\n",
-      "Email: ",
-      email,
-      "\n",
-      "Brewery: ",
-      brewery
-    );
-
-    // for (let [reviewID, reviewValues] of Object.entries(responseData)) {
-    //   console.log("reviewID", reviewID)
-    //   console.log("reviewvalues", reviewValues)
-    //   for (let [reviewDisplayValues] of Object.entries(reviewValues)) {
-    //     buildCard(reviewID, reviewDisplayValues);
-    //   }
-    // }
   });
 
-  function buildCard(brewery, email, review) {
-    var cardDiv = $("<div>").addClass("col-sm-12 coinCard ");
-    // .attr("id", review_id);
+  function buildCard(review_id, brewery, email, review) {
+    var cardDiv = $("<div>")
+    .addClass("col-sm-12 coinCard ")
+    .attr("id", "review" + review_id);
 
     var cardBrewery = $("<h4>")
       .addClass("card-header")
-      .text("Brewery: " + brewery); // this will display the brewery
+      // .text("Brewery: " + brewery) // this will display the brewery
+      .html(
+        "<a href = http://localhost:8080/brewery.html>" + brewery + "</a>"
+      )
 
     var cardUser = $("<div style=font-size:125%;>")
       .attr("id", "cardBack")
