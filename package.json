@@ -1,7 +1,7 @@
 {
   "name": "1-passport-example",
   "version": "1.0.0",
-  "description": "",
+  "description": "* [Usage](#usage) \r * [Contributing](#contributing) \r * [License](#license)\r ## Description\r BrewBuzz is an application that will let you search, review, and locate your local breweries.  \r ## Usage\r BrewBuzz is live at https://brewbuzz.herokuapp.com/.\r ## License\r ![shields.io](https://img.shields.io/badge/license-MIT-green) \r ## Contributing\r * Chris Wells\r * R. Alan Williams",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -28,5 +28,6 @@
   "bugs": {
     "url": "https://github.com/chriswells1995/BrewBuzz/issues"
   },
-  "homepage": "https://github.com/chriswells1995/BrewBuzz#readme"
+  "homepage": "https://github.com/chriswells1995/BrewBuzz#readme",
+  "devDependencies": {}
 }
