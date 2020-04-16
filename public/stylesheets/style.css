@@ -15,3 +15,12 @@ form.login {
   background-color: rgb(255, 196, 0);
   font-family: impact, charcoal, sans-serif;
 }
+/* fix this garbage later */
+#headerName:hover {
+  text-decoration: none;
+  background-color: white;
+}
+
+li {
+  list-style-type: none;
+}

@@ -1,6 +1,6 @@
 function displayCards() {
   var settings = {
-    url: "http://localhost:8080/api/reviews/",
+    url: "api/reviews/",
     method: "GET",
     timeout: 0,
   };
@@ -16,15 +16,15 @@ function displayCards() {
   });
 
   function buildCard(review_id, brewery, email, review) {
-    var cardDiv = $("<div>")
-    .addClass("col-sm-12 coinCard ")
+    var cardDiv = $("<li>")
+    .addClass("col-sm-12 coinCard center")
     .attr("id", "review" + review_id);
 
     var cardBrewery = $("<h4>")
       .addClass("card-header")
       // .text("Brewery: " + brewery) // this will display the brewery
       .html(
-        "<a href = http://localhost:8080/brewery.html>" + brewery + "</a>"
+        "<a href = brewery.html id=headerName style=color:black;>" + brewery + "</a>"
       )
 
     var cardUser = $("<div style=font-size:125%;>")
@@ -37,14 +37,15 @@ function displayCards() {
       .addClass("card-body")
       .text("Review: " + review); // this will display the review
 
-    var deleteBtn = $("<div>")
-      .attr("id", "cardBack")
-      .html(
-        "<button type=button class=btn btn-outline-secondary id=deleteBtn>Delete</button>"
-      )
-      .addClass("card-body"); // this probably won't be needed but could potentially be used on other pages
+    // var deleteBtn = $("<div>")
+    //   .attr("id", "cardBack")
+    //   .html(
+    //     "<button type=button class=btn btn-outline-secondary id=deleteBtn>Delete</button>"
+    //   )
+    //   .addClass("card-body");
 
-    cardDiv.append(cardBrewery, cardUser, cardReview, deleteBtn);
+    cardDiv.append(cardBrewery, cardUser, cardReview);
+    // cardDiv.append(cardBrewery, cardUser, cardReview, deleteBtn); if we decide to use deleteBtn
 
     $("#add-reviewcards").append(cardDiv);
   }
