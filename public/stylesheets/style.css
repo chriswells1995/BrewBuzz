@@ -41,4 +41,7 @@ ul {
 
 .addBtn {
   margin-bottom: 15px;
+  position: relative;
+  left: 20px;
+  bottom: 3px;
 }
