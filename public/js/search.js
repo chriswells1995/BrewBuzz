@@ -53,7 +53,7 @@ $(document).ready(function () {
       renderedBreweryAddress = $("<h3>")
         .attr("id", "cardBack")
         .addClass("card-body")
-        .text("Address: " + AllBreweryObjects[i].breweryAddress);
+        .text(AllBreweryObjects[i].breweryAddress);
 
       // TODO: Create an IF statement that checks if these breweries exist in our current database. If not, do this.
       AddBreweryButton = $("<button>")
