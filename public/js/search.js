@@ -59,7 +59,7 @@ $(document).ready(function () {
       AddBreweryButton = $("<button>")
         .attr("value", i)
         .text("Click here to write the first review!")
-        .addClass("addBtn");
+        .addClass("addBtn btn btn-outline-dark");
 
       cardDiv.append(
         renderedBreweryName,

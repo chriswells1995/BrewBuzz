@@ -38,3 +38,7 @@ ul {
   border-bottom:4px solid rgba(187, 187, 187, 0.699);
   border-top:3px solid rgba(221, 221, 221, 0.719);
 }
+
+.addBtn {
+  margin-bottom: 15px;
+}
