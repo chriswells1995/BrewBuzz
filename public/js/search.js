@@ -36,21 +36,44 @@ var FullArray=[];
             console.log('FullArray: ', FullArray)
             // a for loop puts all the brewery names in one breweryNames array
             var breweryNames=[];
+            var breweryStreet=[];
+            var breweryCity=[];
+            var breweryWebsites=[];
+            var BreweryObject={};
+            var AllBreweryObjects=[];
             for (i=0; i<response.length; i++){
-                breweryNames.push(response[i].name) ;
+                // breweryNames.push(response[i].name) ;
+                // breweryStreet.push(response[i].street);
+                // breweryCity.push(response[i].city)
+                // breweryWebsites.push(response[i].website_url)
+                // breweryAddress=(breweryStreet[i] + ", " + breweryCity[i]);
+                // console.log(breweryAddress)
+
+                BreweryObject={
+                     breweryName: response[i].name,
+                    //  breweryStreet: breweryStreet[i],
+                    //  breweryCity: breweryCity[i],
+                    breweryAddress: response[i].street + ", " + response[i].city + ", " + response[i].state,
+                    breweryWebsite: response[i].website_url       
+                }
+                AllBreweryObjects.push(BreweryObject);
             }
 
-            console.log("names: ", breweryNames)
+ 
+
+            // console.log("names: ", breweryNames)
+            console.log("objects: ",AllBreweryObjects)
+
 
             // call a seperate function responsible for rendering these names to the page
-            renderReturnedBreweries(breweryNames);
+            renderReturnedBreweries(AllBreweryObjects);
 
         })
         //This ends the event listener's callback function
     })
 
     // This function will render our returned breweries to the page
-    function renderReturnedBreweries(breweryNames){
+    function renderReturnedBreweries(AllBreweryObjects){
 
          //  This empy function makes it so only one set of breweries appears on screen at a time
         $("#OpenBreweries").empty()
@@ -62,16 +85,41 @@ var FullArray=[];
         // "No reviews yet! Click Here to make the first!" with the "Click Here" on a button that POSTS that brewery to our databse.
 
         // CURRENT METHOD WE'RE USING FOR TESTING
-        // then we create the AddBreweryButton variable, which we'll use to create a <button> element, "Button-Name" class, 
+        // then we create the AddBreweryButton variable, which we'll use to create a <button> element, "Button-add" class, 
         // and add the brewery Names through a for loop, and append these buttons
         var AddBreweryButton;
-        for (i = 0; i < breweryNames.length; i++) {
+        var renderedBreweryName;
+        var renderedBreweryAddress;
+        var lineBreak=$("<br>"); 
+        for (i = 0; i < AllBreweryObjects.length; i++) {
+
+
+            renderedBreweryName=$("<h2>");
+            renderedBreweryName.text(AllBreweryObjects[i].breweryName)
+            
+            renderedBreweryAddress=$("<h3>")
+            renderedBreweryAddress.text(AllBreweryObjects[i].breweryAddress)
+
+            // Append Brewey Name
+            $("#OpenBreweries").append(renderedBreweryName)
+
+            // Append Brewery Address
+            $("#OpenBreweries").append(renderedBreweryAddress)
+
+            // TODO: Create an IF statement that checks if these breweries exist in our current database. If not, do this.
             AddBreweryButton = $("<button>")
-            AddBreweryButton.attr("class", "Button-Name")
-            AddBreweryButton.text(breweryNames[i])
-    
-    
-            $("#OpenBreweries").append(AddBreweryButton)
+            AddBreweryButton.attr("class", "Button-add")
+            AddBreweryButton.text("Click Here to Write Their First Review!")
+            // Append AddBreweryButton
+            $("#OpenBreweries").append(AddBreweryButton);
+
+            // Append a Line Break to sepereate eveything
+            // $("#OpenBreweries").append(lineBreak);
+            // $("#OpenBreweries").append(lineBreak);
+            // $("#OpenBreweries").append(lineBreak);
+
+
+            
         }
         // Currently, this will create a bunch of buttons with the names of breweries that match the search result. 
         // TODO: create an assignClick function and call it here. This function will put event listeners on everything

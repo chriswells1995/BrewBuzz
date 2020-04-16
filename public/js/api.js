@@ -7,7 +7,7 @@ function test(){
     // use this for testing
     // "http://localhost:8080/api/reviews/"
 var settings = {
-    "url": "http://localhost:8080/api/reviews/",
+    "url": "api/reviews/",
     "method": "GET",
     "timeout": 0
     // "headers": {
