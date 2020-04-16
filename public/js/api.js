@@ -17,8 +17,11 @@ var settings = {
   
   $.ajax(settings)
   .then(function (response) {
-
-    console.log(response);
+    var responseData = response[3];
+    var breweryName = [responseData][1]['User'][1]
+    console.log("brewname", breweryName)
+    console.log("response data: ", responseData)
+   
 //  $("#randomBreweries").append(response[0].review)
 
   })
