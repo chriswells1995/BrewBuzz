@@ -1,43 +1,41 @@
 function displayCards() {
-  //  console.log(searchResult);
   var settings = {
-    "url": "http://localhost:8080/api/reviews/",
-    "method": "GET",
-    "timeout": 0
-    // "headers": {
-    //   "Cookie": "connect.sid=s%3AWonUzQhp09cdIZjjmEUsVh6Z5lDyP72o.Zfm8WwKpzjxd7kcyBTbnGxlDXsNNIEerisDXqBVqFSg"
-    // },
+    url: "http://localhost:8080/api/reviews/",
+    method: "GET",
+    timeout: 0,
   };
-  $.ajax(settings)
-  .then(function(response) {
-      console.log(response);
-    var responseData = response.DISPLAY;
-    for (let [coinID, coinValues] of Object.entries(responseData)) {
-      for (let [coinFiat, coinDisplayValues] of Object.entries(coinValues)) {
-        buildCard(coinID, coinDisplayValues);
-      }
+  $.ajax(settings).then(function (response) {
+    var responseData = response;
+    for (let i = 0; i < 5; i++) {
+      var review_id = responseData[i].id;
+      var review = responseData[i].review;
+      var email = responseData[i].User.email;
+      var brewery = responseData[i].Brewery.name;
+      buildCard(review_id, brewery, email, review);
     }
   });
 
-  function buildCard(coin_id, coinDisplayValues) {
-    var { PRICE, VOLUME24HOUR, HIGH24HOUR } = coinDisplayValues;
+  function buildCard(review_id, brewery, email, review) {
     var cardDiv = $("<div>")
-      .addClass("col-sm-12 coinCard " + coin_id)
-      .attr("id", coin_id);
+    .addClass("col-sm-12 coinCard ")
+    .attr("id", "review" + review_id);
 
     var cardBrewery = $("<h4>")
       .addClass("card-header")
-      .text("Brewery: " + HIGH24HOUR); // this will display the brewery 
+      // .text("Brewery: " + brewery) // this will display the brewery
+      .html(
+        "<a href = http://localhost:8080/brewery.html>" + brewery + "</a>"
+      )
 
     var cardUser = $("<div style=font-size:125%;>")
       .attr("id", "cardBack")
       .addClass("card-body")
-      .text("User: " + PRICE); // this will display the user
+      .text("User: " + email); // this will display the user
 
     var cardReview = $("<div style=font-size:125%;>")
       .attr("id", "cardBack")
       .addClass("card-body")
-      .text("Review: " + VOLUME24HOUR); // this will display the review
+      .text("Review: " + review); // this will display the review
 
     var deleteBtn = $("<div>")
       .attr("id", "cardBack")
@@ -46,13 +44,10 @@ function displayCards() {
       )
       .addClass("card-body"); // this probably won't be needed but could potentially be used on other pages
 
-    cardDiv.append(
-      cardBrewery,
-      cardUser,
-      cardReview,
-      deleteBtn
-    );
+    cardDiv.append(cardBrewery, cardUser, cardReview, deleteBtn);
 
     $("#add-reviewcards").append(cardDiv);
   }
 }
+
+displayCards();
