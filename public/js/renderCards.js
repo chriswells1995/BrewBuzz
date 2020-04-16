@@ -17,7 +17,7 @@ function displayCards() {
 
   function buildCard(review_id, brewery, email, review) {
     var cardDiv = $("<li>")
-    .addClass("col-sm-12 coinCard center")
+    .addClass("col-sm-12")
     .attr("id", "review" + review_id);
 
     var cardBrewery = $("<h4>")
