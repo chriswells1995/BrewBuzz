@@ -45,3 +45,15 @@ ul {
   left: 20px;
   bottom: 3px;
 }
+
+.oneOfUs {
+  background-image: url("assets/cheers.png");
+  background-size: cover;
+  resize: both;
+  overflow: scroll;
+}
+
+.formBackground {
+  margin-top: 50px;
+  background-color: rgba(245, 245, 245, 0.883);
+}
