@@ -1,27 +1,26 @@
-// look up in js how to log url
-// then use .split to split everything at the slash and grab the next index (the ID number)
-
+// TODO: clean up console logs
+// TODO: Make sure review-less breweries have their names rendered too.
+// will need getone ajax call to brewery based on id
 
 
 var path =  window.location.pathname;
-var thisIndex =path.split("/")[2];
+var thisBreweryId =path.split("/")[2];
 
-console.log(thisIndex);
+// var firstBrewerySettings = {
+//   "url": "http://localhost:8080/api/brewery/"+thisBreweryId,
+//   "method": "GET",
+//   "timeout": 0
+// };
+
+// $.ajax(firstBrewerySettings).done(function (thisbreweryinfo) {
+//   console.log(thisbreweryinfo[0].name);
+// });
 
 
-var settings = {
-    "url": "/api/brewery/reviews/" + thisIndex,
-    "method": "GET",
-    "timeout": 0
 
-  };
-  
-  $.ajax(settings).done(function (response) {
-    console.log(response);
+console.log(thisBreweryId);
 
-    buildCard(response[0].id, response[0].Brewery.name, response[0].User.email, response[0].review )
 
-  });
 
   function buildCard(review_id, brewery, email, review) {
     var cardDiv = $("<li>")
@@ -32,7 +31,7 @@ var settings = {
       .addClass("card-header")
       // .text("Brewery: " + brewery) // this will display the brewery
       .html(
-        "<a href = brewery.html id=headerName style=color:black;>" + brewery + "</a>"
+        "<h1 id=headerName style=color:black;>" + brewery + "</h1>"
       )
 
     var cardUser = $("<div style=font-size:125%;>")
@@ -55,5 +54,94 @@ var settings = {
     cardDiv.append(cardBrewery, cardUser, cardReview);
     // cardDiv.append(cardBrewery, cardUser, cardReview, deleteBtn); if we decide to use deleteBtn
 
-    $("#OpenBreweries").append(cardDiv);
+    $("#brewery-title").empty();
+
+    $("#brewery-title").append(cardBrewery);
+    $("#OpenBreweries").prepend(cardDiv);
+
   }
+
+
+  // event listener for review input
+
+  $("#reviewButton").on("click", function(){
+    event.preventDefault();
+
+    var reviewInput = $("#reviewInput").val();
+
+    console.log(reviewInput)
+
+    // make ajax get for user ID
+
+    var userSettings = {
+      "url": "/api/user_data",
+      "method": "GET",
+      "timeout": 0
+    };
+    
+    $.ajax(userSettings).then(function (response) {
+      console.log("user")
+      console.log(response)
+
+      if (response.id){
+      console.log("it works")
+      console.log(response.id);
+      var currentUserId=response.id;
+
+      var postSettings = {
+        "url": "/api/review",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+  
+        "data": {
+          "review": reviewInput,
+          "UserId": currentUserId,
+          "BreweryId": thisBreweryId
+        }
+      };
+      
+      $.ajax(postSettings).then(function (response) {
+        console.log(response);
+  
+        $("#OpenBreweries").empty();
+
+        renderTheseReviews();
+      });
+
+
+      }
+      else{
+        // TODO: something more fancy than an alert maybe
+        alert("You need to sign in to post a review")
+      }
+    });
+
+
+  })
+
+
+
+
+  function renderTheseReviews(){  
+    // ajax call to get all reviews for this brewey
+    var settings = {
+        "url": "/api/brewery/reviews/" + thisBreweryId,
+        "method": "GET",
+        "timeout": 0
+    
+      };
+      
+      $.ajax(settings).then(function (response) {
+        console.log(response);
+    
+        for (i=0; i<response.length; i++){
+              buildCard(response[i].id, response[i].Brewery.name, response[i].User.email, response[i].review )
+        }    
+      });
+  }
+
+  $("#OpenBreweries").empty();
+  renderTheseReviews();
