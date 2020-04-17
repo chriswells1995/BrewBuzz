@@ -87,12 +87,20 @@ $(document).ready(function () {
       AddBreweryButton = $("<button>")
         .attr("value", i)
         .text("Click here to write the first review!")
-        .addClass("addBtn btn btn-outline-dark");
+        .addClass("addBtn btn btn-outline-dark")
+        // .attr("href", "brewery.html");
 
-        AddReviewButton = $("<button>")
-        // .attr("value", i)
+        // AddReviewButton = $("<button>")
+        // // .attr("value", i)
+        // .text("Write a review!")
+        // .addClass("reviewBtn btn btn-outline-dark")
+        // .html("<a href=brewery.html></a>");
+
+          AddReviewButton = $("<a>")
+        .attr("value", i)
         .text("Write a review!")
-        .addClass("reviewBtn btn btn-outline-dark");
+        .addClass("reviewBtn btn btn-outline-dark")
+        .attr("href", "brewery.html");
 
       cardDiv.append(
         renderedBreweryName,
@@ -139,6 +147,8 @@ $(document).ready(function () {
   function assignClick(AllBreweryObjects) {
     $(".addBtn").on("click", function (event) {
       event.preventDefault();
+      console.log("event");
+      console.log(event.target.value)
       var settings = {
         url: "/api/brewery",
         method: "POST",
