@@ -11,11 +11,12 @@ function displayCards() {
       var review = responseData[i].review;
       var email = responseData[i].User.email;
       var brewery = responseData[i].Brewery.name;
-      buildCard(review_id, brewery, email, review);
+      var breweryId = responseData[i].Brewery.id;
+      buildCard(review_id, breweryId, brewery, email, review);
     }
   });
 
-  function buildCard(review_id, brewery, email, review) {
+  function buildCard(review_id, breweryId, brewery, email, review) {
     var cardDiv = $("<li>")
     .addClass("col-sm-12")
     .attr("id", "review" + review_id);
@@ -24,7 +25,7 @@ function displayCards() {
       .addClass("card-header")
       // .text("Brewery: " + brewery) // this will display the brewery
       .html(
-        "<a href = brewery.html id=headerName style=color:black;>" + brewery + "</a>"
+        "<a href = /brewery/" + breweryId + ">" + brewery + "</a>"
       )
 
     var cardUser = $("<div style=font-size:125%;>")
