@@ -32,27 +32,23 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input id=searchInput class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button id=searchButton class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
-      </form>
+        <input id="email-input" type="email" class="form-control mr-sm2" placeholder="Email"aria-label="Email">
+        <input id="password-input" type="password" class="form-control mr-sm2" placeholder="Password"aria-label="Password">
+        <button type="submit" class="btn btn-outline-warning loginBtn">Login</button>
+      </form>    
     </div>
   </nav>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <img class="bannerlogo" src="stylesheets/assets/BrewBuzz_Banner_Clear.png" alt="Brew Buzz logo, bumblebee holding frothy beer and the words brew buzz to the right">
-        <form class="login" id = loginHide>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
-          </div>
-          <button type="submit" class="btn btn-outline-warning">Login</button>
+      </br>
+        <form class="form-inline my-2 my-lg-0" id="searchCluster">
+          <input id=searchInput class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button id=searchButton class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
         </form>
-        <br />
+      </br>
+    </br>
         <ul>
           <li id="OpenBreweries">
           </li>

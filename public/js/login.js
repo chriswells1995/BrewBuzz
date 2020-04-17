@@ -29,12 +29,12 @@ $(document).ready(function() {
       password: password
     })
       .then(function() {
-        var x = document.getElementById("loginHide");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        } // If there's an error, log the error
+        // var x = document.getElementById("loginHide");
+        // if (x.style.display === "none") {
+        //   x.style.display = "block";
+        // } else {
+        //   x.style.display = "none";
+        // } // If there's an error, log the error
       })
       .catch(function(err) {
         console.log(err);
