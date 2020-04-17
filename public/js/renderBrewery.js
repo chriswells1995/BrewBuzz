@@ -10,7 +10,7 @@ console.log(thisIndex);
 
 
 var settings = {
-    "url": "http://localhost:8080/api/brewery/reviews/" + thisIndex,
+    "url": "/api/brewery/reviews/" + thisIndex,
     "method": "GET",
     "timeout": 0
 
