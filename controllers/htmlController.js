@@ -8,7 +8,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 router.get("/signup", function(req, res) {
   // If the user already has an account send them to the members page
   if (req.user) {
-    res.redirect("/login");
+    res.redirect("/signup");
   }
   res.sendFile(path.join(__dirname, "../public/signup.html"));
 });
