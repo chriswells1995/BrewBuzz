@@ -47,7 +47,7 @@ function displayCards() {
     cardDiv.append(cardBrewery, cardUser, cardReview);
     // cardDiv.append(cardBrewery, cardUser, cardReview, deleteBtn); if we decide to use deleteBtn
 
-    $("#add-reviewcards").append(cardDiv);
+    $("#OpenBreweries").append(cardDiv);
   }
 }
 

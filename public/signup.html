@@ -9,17 +9,24 @@
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="oneOfUs">
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/logout">
+        Logout
+      </a>
     </div>
-  </nav>
+  </div>
+</nav>
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Sign Up Form</h2>
+      <div class="col-md-6 col-md-offset-3 formBackground">
+        <h2 class="text-center"><img
+          class="logo"
+          src="stylesheets/assets/BrewBuzz_Icon_Clear.png"
+          alt="Brew Buzz Icon, bumblebee holding frothy beer mug"
+        />One of us, one of us!</h2>
         <form class="signup">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
@@ -36,7 +43,6 @@
           <button type="submit" class="btn btn-default">Sign Up</button>
         </form>
         <br />
-        <p>Or log in <a href="/login">here</a></p>
       </div>
     </div>
   </div>
