@@ -45,7 +45,7 @@ $(document).ready(function () {
                                 // but for some reason I struggled with passing the resonse out of it. 
                                 // Would still like to re-structure, so it's seperate from the rest right now.
                                 var settings = {
-                                  "url": "http://localhost:8080/api/breweries/",
+                                  "url": "/api/breweries/",
                                   "method": "GET",
                                   "timeout": 0,
                                   "headers": {
