@@ -170,7 +170,27 @@ $(document).ready(function () {
         console.log("response is: ")
         console.log(response)
 
-        window.location.href = "/brewery/";
+
+        // ajax call to get this brewery id
+        var settings2 = {
+          "url": "/api/breweries/",
+          "method": "GET",
+          "timeout": 0,
+          "headers": {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+
+        };
+        
+        $.ajax(settings2).then(function (ourBreweryDB) {
+          console.log(ourBreweryDB.length);
+          var newestID =ourBreweryDB.length - 1;
+          console.log(newestID);
+
+        window.location.href = "/brewery/"+ newestID;
+
+        });
+
         // allOurBreweries[j].id
 
         // return response;
