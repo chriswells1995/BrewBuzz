@@ -100,7 +100,7 @@ $(document).ready(function () {
         .attr("value", i)
         .text("Write a review!")
         .addClass("reviewBtn btn btn-outline-dark")
-        .attr("href", "brewery.html");
+        // .attr("href", "brewery.html");
 
       cardDiv.append(
         renderedBreweryName,
@@ -119,6 +119,9 @@ $(document).ready(function () {
           && allOurBreweries[j].streetAddress===AllBreweryObjects[i].breweryAddress){
 
             matchCheck=true;
+            // take ID from allOurBreweries[j].id and give the AddReviewButton that value
+            AddReviewButton.attr("href", "/brewery/"+allOurBreweries[j].id)
+
           }
       }
 
@@ -164,8 +167,16 @@ $(document).ready(function () {
       };
 
       $.ajax(settings).then(function (response) {
-        return response;
+        console.log("response is: ")
+        console.log(response)
+
+        window.location.href = "/brewery/";
+        // allOurBreweries[j].id
+
+        // return response;
       });
+
+
     });
 
 

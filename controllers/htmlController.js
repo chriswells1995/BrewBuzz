@@ -22,7 +22,7 @@ router.get("/", function(req, res) {
 });
 
 // brewery html
-router.get("/brewery", function(req, res) {
+router.get("/brewery/:id", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/brewery.html"));
 });
 
