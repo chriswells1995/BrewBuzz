@@ -1,8 +1,8 @@
 $(document).ready(function() {
   // Getting references to our form and inputs
-  var loginForm = $("form.login");
-  var emailInput = $("input#email-input");
-  var passwordInput = $("input#password-input");
+  var loginForm = $("form#login-nav");
+  var emailInput = $("input#exampleInputEmail2");
+  var passwordInput = $("input#exampleInputPassword2");
 
   console.log(loginForm, emailInput, passwordInput);
 
@@ -31,12 +31,7 @@ $(document).ready(function() {
       password: password
     })
       .then(function() {
-        // var x = document.getElementById("loginHide");
-        // if (x.style.display === "none") {
-        //   x.style.display = "block";
-        // } else {
-        //   x.style.display = "none";
-        // } // If there's an error, log the error
+       location.reload();
       })
       .catch(function(err) {
         console.log(err);
@@ -52,14 +47,15 @@ $(document).ready(function() {
     };
  
     $.ajax(userSettings).then(function (response) {
-      console.log("user")
-      console.log(response)
       var currentUserId=response.id;
-      var x = document.getElementById("login")
+      var login = document.getElementById("loginVisibility")
+      var logout = document.getElementById("logout")
       if (currentUserId){
-        x.style.display = "none"
+        login.style.display = "none",
+        logout.style.display = "block"
       } else {
-        x.style.display = "block"
+        login.style.display = "block"
+        logout.style.display = "none"
       }
     })
   }
