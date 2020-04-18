@@ -5,8 +5,7 @@
   <title>BrewBuzz | If it's beer, it's here</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
@@ -31,52 +30,39 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Login
           </a>
-        <ul id="login-dp" class="dropdown-menu">
-          <li>
-             <div class="row">
+          <ul id="login-dp" class="dropdown-menu">
+            <li>
+              <div class="row">
                 <div class="col-md-12">
-                   <form class="form" id="login-nav">
-                      <div class="form-group" id="login">
-                        
-                         <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                         <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                  <form class="form" id="login-nav">
+                      <div class="form-group" id="login"> 
+                        <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
                       </div>
                       <div class="form-group">
-                         <label class="sr-only" for="exampleInputPassword2">Password</label>
-                         <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                        <label class="sr-only" for="exampleInputPassword2">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
                         <div class="help-block text-right"><a style="font-weight: bolder; background-color: white; color: rgb(255, 196, 0);" href="#">Forget your password?</a></div>
                       </div>
                       <div class="form-group">
-                         <button type="submit" class="btn btn-warning btn-block loginBtn">Sign in</button>
+                        <button type="submit" class="btn btn-warning btn-block loginBtn">Sign in</button>
                       </div>
-                   </form>
+                  </form>
                 </div>
                 <div style="padding: 15px; margin-left: 45px;" class="text-center">
                   <!-- I am 100% aware this is crazy sloppy. Will fix properly in the polishing phase -->
                   New here? <a style="color: rgb(255, 196, 0);" href="/signup"><b>Join Us</b></a>
                 </div>
-             </div>
-          </li>
-        </ul>
+              </div>
+            </li>
+          </ul>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <!-- input now has ID searchInput -->
-        <input
-          id="searchInput"
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
+        <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
         <!-- The search button now has ID searchButton -->
-        <button
-          id="searchButton"
-          class="btn btn-outline-warning my-2 my-sm-0"
-          type="submit"
-        >
-          Search
-        </button>
+        <button id="searchButton" class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
   </nav>
