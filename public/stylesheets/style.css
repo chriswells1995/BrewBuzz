@@ -88,7 +88,8 @@ ul {
   background-color:rgba(255,255,255,.8);
 }
 #login-dp .help-block{
-  font-size:12px    
+  font-size:12px;
+  color: black;  
 }
 #login-dp .bottom{
   background-color:rgba(255,255,255,.8);
