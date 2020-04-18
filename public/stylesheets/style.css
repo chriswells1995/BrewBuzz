@@ -57,3 +57,32 @@ ul {
   margin-top: 50px;
   background-color: rgba(245, 245, 245, 0.883);
 }
+
+#searchCluster {
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  left: 71%; 
+}
+
+.show {
+  border-radius: 10px;
+}
+
+.pull-right {
+  position:absolute;
+  right: 5%;
+}
+
+#email-input,
+#password-input {
+  margin: 5px;
+}
+
+.loginBtn {
+  margin-left: 5px;
+}
+
+.navbar-light {
+  background: white;
+}

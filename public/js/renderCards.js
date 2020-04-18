@@ -23,9 +23,8 @@ function displayCards() {
 
     var cardBrewery = $("<h4>")
       .addClass("card-header")
-      // .text("Brewery: " + brewery) // this will display the brewery
       .html(
-        "<a href = /brewery/" + breweryId + ">" + brewery + "</a>"
+        "<a id=headerName style=color:black; href = /brewery/" + breweryId + ">" + brewery + "</a>"
       )
 
     var cardUser = $("<div style=font-size:125%;>")
