@@ -1,8 +1,10 @@
 $(document).ready(function() {
   // Getting references to our form and inputs
-  var loginForm = $("form.login");
-  var emailInput = $("input#email-input");
-  var passwordInput = $("input#password-input");
+  var loginForm = $("form#login-nav");
+  var emailInput = $("input#exampleInputEmail2");
+  var passwordInput = $("input#exampleInputPassword2");
+
+  console.log(loginForm, emailInput, passwordInput);
 
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", function(event) {
@@ -29,15 +31,33 @@ $(document).ready(function() {
       password: password
     })
       .then(function() {
-        // var x = document.getElementById("loginHide");
-        // if (x.style.display === "none") {
-        //   x.style.display = "block";
-        // } else {
-        //   x.style.display = "none";
-        // } // If there's an error, log the error
+       location.reload();
       })
       .catch(function(err) {
         console.log(err);
       });
   }
+
+  function userCheck(){
+    // make ajax get for user ID
+    var userSettings = {
+      "url": "/api/user_data",
+      "method": "GET",
+      "timeout": 0
+    };
+ 
+    $.ajax(userSettings).then(function (response) {
+      var currentUserId=response.id;
+      var login = document.getElementById("loginVisibility")
+      var logout = document.getElementById("logout")
+      if (currentUserId){
+        login.style.display = "none",
+        logout.style.display = "block"
+      } else {
+        login.style.display = "block"
+        logout.style.display = "none"
+      }
+    })
+  }
+  userCheck();
 });

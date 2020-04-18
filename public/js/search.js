@@ -6,6 +6,7 @@ $(document).ready(function () {
     event.preventDefault();
     $("#OpenBreweries").empty();
     var input = $("#searchInput").val();
+    $("#searchInput").val("");
     var inputURL =
       "https://api.openbrewerydb.org/breweries/search?query=" + input;
 
