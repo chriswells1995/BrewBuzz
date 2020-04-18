@@ -4,6 +4,9 @@ $(document).ready(function () {
   // event listener that goes off when the search button is clicked. The input in the search bar is sent to the Open Brewery DB API. Then renderCards() is called
   $("#searchButton").on("click", function () {
     event.preventDefault();
+    $("#brewery-title").empty();
+    $("#addReviewDiv").empty();
+
     $("#OpenBreweries").empty();
     var input = $("#searchInput").val();
     $("#searchInput").val("");
@@ -70,12 +73,13 @@ $(document).ready(function () {
 
       renderedBreweryName = $("<h2>")
         .text(AllBreweryObjects[i].breweryName)
-        .addClass("card-header")
-        .html(
-          "<a href = brewery.html id=headerName style=color:black;>" +
-            AllBreweryObjects[i].breweryName +
-            "</a>"
-        );
+        .attr("value", i)
+        .addClass("card-header");
+        // .html(
+        //   "<a href = brewery.html id=headerName style=color:black;>" +
+        //     AllBreweryObjects[i].breweryName +
+        //     "</a>"
+        // );
 
       renderedBreweryAddress = $("<h3>")
         .attr("id", "cardBack")
@@ -113,6 +117,8 @@ $(document).ready(function () {
 
       // currently using a nested for loop to check the properties of EVERY brewery in OUR databse,
       // to see if they match the properties of ANY brewery returned from the search function.
+      // if there is a match, the AddReviewButton and Brewery Name will get an a href that takes the user to the correct brewery page
+      // if there is not a match, the Brewery Name will have the .addBtn class, so it may function the same as the AddBreweryBtn
       for (j=0; j<allOurBreweries.length; j++){
 
         if (allOurBreweries[j].name===AllBreweryObjects[i].breweryName  
@@ -122,6 +128,10 @@ $(document).ready(function () {
             matchCheck=true;
             // take ID from allOurBreweries[j].id and give the AddReviewButton that value
             AddReviewButton.attr("href", "/brewery/"+allOurBreweries[j].id)
+            renderedBreweryName.html(
+              "<a href = /brewery/"+allOurBreweries[j].id+ " id=headerName style=color:black;>" +
+                AllBreweryObjects[i].breweryName +
+                "</a>")
 
           }
       }
@@ -136,6 +146,11 @@ $(document).ready(function () {
       );
       }
       else{
+
+
+      // renderedBreweryName.addClass("addBtn btn")
+                          
+
       cardDiv.append(
         AddBreweryButton
       );
@@ -185,7 +200,7 @@ $(document).ready(function () {
         
         $.ajax(settings2).then(function (ourBreweryDB) {
           console.log(ourBreweryDB.length);
-          var newestID =ourBreweryDB.length - 1;
+          var newestID =ourBreweryDB.length;
           console.log(newestID);
 
         window.location.href = "/brewery/"+ newestID;
