@@ -4,6 +4,8 @@ $(document).ready(function() {
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
 
+  console.log(loginForm, emailInput, passwordInput);
+
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", function(event) {
     event.preventDefault();
@@ -40,4 +42,26 @@ $(document).ready(function() {
         console.log(err);
       });
   }
+
+  function userCheck(){
+    // make ajax get for user ID
+    var userSettings = {
+      "url": "/api/user_data",
+      "method": "GET",
+      "timeout": 0
+    };
+ 
+    $.ajax(userSettings).then(function (response) {
+      console.log("user")
+      console.log(response)
+      var currentUserId=response.id;
+      var x = document.getElementById("login")
+      if (currentUserId){
+        x.style.display = "none"
+      } else {
+        x.style.display = "block"
+      }
+    })
+  }
+  userCheck();
 });
