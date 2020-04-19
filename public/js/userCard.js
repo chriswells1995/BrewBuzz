@@ -5,31 +5,38 @@ var currentUserId =path.split("/")[2];
 
 function displayUserCards() {
   var settings = {
-    url: "api/user/" + currentUserId,
+    url: "/api/user/" + currentUserId,
     method: "GET",
     timeout: 0,
   };
   $.ajax(settings).then(function (response) {
     var responseData = response;
-    for (let i = 0; i < 5; i++) {
-      var review_id = responseData[i].id;
-      var review = responseData[i].review;
-      var brewery = responseData[i].Brewery.name;
-      var breweryId = responseData[i].Brewery.id;
-      userCards(review_id, breweryId, brewery, review);
-    }
+    console.log(response);
+    userCardsHeader(response[0].email)
+    
+      var email = responseData[0].email;
+      // var review = responseData[i].review;
+      // var brewery = responseData[i].Brewery.name;
+      // var breweryId = responseData[i].Brewery.id;
+      userCards(email)
   });
 
-  function userCards(review_id, breweryId, brewery, review) {
-    var cardDiv = $("<li>")
-    .addClass("col-sm-12")
-    .attr("id", "review" + review_id);
+  function userCardsHeader (email) {
+    var cardDiv = $("<h4>")
+    .addClass("col-sm-12");
 
-    var cardBrewery = $("<h4>")
+    cardDiv.append(email)
+    $("#userEmail").prepend(cardDiv);
+  }
+
+  function userCards(breweryId, brewery, review) {
+    var cardDiv = $("<h4>")
+    .addClass("col-sm-12");   
+    var cardBrewery = $("<h5>")
       .addClass("card-header")
       .text("Brewery: " + brewery) // this will display the brewery
       .html(
-        "<a id=headerName style=color:black; href = /brewery/" + breweryId + ">" + brewery + "</a>"
+        "<a id=headerName style=color:black; href = /brewery/" + breweryId + ">" + brewery+ "</a>"
       )
 
     var cardReview = $("<div style=font-size:125%;>")
@@ -62,14 +69,16 @@ function displayUserCards() {
   function renderTheseReviews(){  
     // ajax call to get all reviews for this brewey
     var settings = {
-        "url": "/api/user/" + currentUserId,
+        "url": "/api/user/reviews/" + currentUserId,
         "method": "GET",
         "timeout": 0
       };
       
       $.ajax(settings).then(function (response) {   
+        console.log("ajax response")
+        console.log(response)
         for (i=0; i<response.length; i++){
-              userCards(response[i].id, response[i].Brewery.name, response[i].review )
+              userCards(response[i].Brewery.id, response[i].Brewery.name, response[i].review)
         }    
       });
   }
