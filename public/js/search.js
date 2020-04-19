@@ -66,96 +66,102 @@ $(document).ready(function () {
 
     // This for loop will go through each brewery returned by the third party API, and render them to the page along with a button
     for (i = 0; i < AllBreweryObjects.length; i++) {
-      matchCheck=false;
-      var cardDiv = $("<li>")
-        .addClass("col-sm-12")
-        .attr("id", "cardNumber " + i);
+      if (AllBreweryObjects[i].breweryName!==null  &&  AllBreweryObjects[i].breweryWebsite!==null && AllBreweryObjects[i].breweryAddress[0]!==","){
 
-      renderedBreweryName = $("<h2>")
-        .text(AllBreweryObjects[i].breweryName)
-        .attr("value", i)
-        .addClass("card-header");
-        // .html(
-        //   "<a href = brewery.html id=headerName style=color:black;>" +
-        //     AllBreweryObjects[i].breweryName +
-        //     "</a>"
-        // );
+        matchCheck=false;
+        var cardDiv = $("<li>")
+          .addClass("col-sm-12")
+          .attr("id", "cardNumber " + i);
+  
+        renderedBreweryName = $("<h2>")
+          .text(AllBreweryObjects[i].breweryName)
+          .attr("value", i)
+          .addClass("card-header");
+          // .html(
+          //   "<a href = brewery.html id=headerName style=color:black;>" +
+          //     AllBreweryObjects[i].breweryName +
+          //     "</a>"
+          // );
+  
+        renderedBreweryAddress = $("<h3>")
+          .attr("id", "cardBack")
+          .addClass("card-body")
+          .text(AllBreweryObjects[i].breweryAddress);
+  
+  
+  
+  
+        AddBreweryButton = $("<button>")
+          .attr("value", i)
+          .text("Click here to write the first review!")
+          .addClass("addBtn btn btn-outline-dark")
+          // .attr("href", "brewery.html");
+  
+          // AddReviewButton = $("<button>")
+          // // .attr("value", i)
+          // .text("Write a review!")
+          // .addClass("reviewBtn btn btn-outline-dark")
+          // .html("<a href=brewery.html></a>");
+  
+            AddReviewButton = $("<a>")
+          .attr("value", i)
+          .text("Write a review!")
+          .addClass("reviewBtn btn btn-outline-dark")
+          // .attr("href", "brewery.html");
+  
+        cardDiv.append(
+          renderedBreweryName,
+          renderedBreweryAddress
+        );
+  
+  
+              // TODO: There's a better way to do this using filter, I'm sure
+  
+        // currently using a nested for loop to check the properties of EVERY brewery in OUR databse,
+        // to see if they match the properties of ANY brewery returned from the search function.
+        // if there is a match, the AddReviewButton and Brewery Name will get an a href that takes the user to the correct brewery page
+        // if there is not a match, the Brewery Name will have the .addBtn class, so it may function the same as the AddBreweryBtn
+        for (j=0; j<allOurBreweries.length; j++){
+  
+          if (allOurBreweries[j].name===AllBreweryObjects[i].breweryName  
+            && allOurBreweries[j].website===AllBreweryObjects[i].breweryWebsite  
+            && allOurBreweries[j].streetAddress===AllBreweryObjects[i].breweryAddress){
+  
+              matchCheck=true;
+              // take ID from allOurBreweries[j].id and give the AddReviewButton that value
+              AddReviewButton.attr("href", "/brewery/"+allOurBreweries[j].id)
+              renderedBreweryName.html(
+                "<a href = /brewery/"+allOurBreweries[j].id+ " id=headerName style=color:black;>" +
+                  AllBreweryObjects[i].breweryName +
+                  "</a>")
+  
+            }
+        }
+  
+        // This IF statment will append an "AddReview" or "AddBrewery" button, if the given rewery is or is not in our databse, respectively.
+        if (matchCheck){
+  
+  
+        cardDiv.append(
+          AddReviewButton
+        );
+        }
+        else{
+  
+  
+        // renderedBreweryName.addClass("addBtn btn")
+                            
+  
+        cardDiv.append(
+          AddBreweryButton
+        );
+        }
+        $("#OpenBreweries").append(cardDiv);
 
-      renderedBreweryAddress = $("<h3>")
-        .attr("id", "cardBack")
-        .addClass("card-body")
-        .text(AllBreweryObjects[i].breweryAddress);
 
-
-
-
-      AddBreweryButton = $("<button>")
-        .attr("value", i)
-        .text("Click here to write the first review!")
-        .addClass("addBtn btn btn-outline-dark")
-        // .attr("href", "brewery.html");
-
-        // AddReviewButton = $("<button>")
-        // // .attr("value", i)
-        // .text("Write a review!")
-        // .addClass("reviewBtn btn btn-outline-dark")
-        // .html("<a href=brewery.html></a>");
-
-          AddReviewButton = $("<a>")
-        .attr("value", i)
-        .text("Write a review!")
-        .addClass("reviewBtn btn btn-outline-dark")
-        // .attr("href", "brewery.html");
-
-      cardDiv.append(
-        renderedBreweryName,
-        renderedBreweryAddress
-      );
-
-
-            // TODO: There's a better way to do this using filter, I'm sure
-
-      // currently using a nested for loop to check the properties of EVERY brewery in OUR databse,
-      // to see if they match the properties of ANY brewery returned from the search function.
-      // if there is a match, the AddReviewButton and Brewery Name will get an a href that takes the user to the correct brewery page
-      // if there is not a match, the Brewery Name will have the .addBtn class, so it may function the same as the AddBreweryBtn
-      for (j=0; j<allOurBreweries.length; j++){
-
-        if (allOurBreweries[j].name===AllBreweryObjects[i].breweryName  
-          && allOurBreweries[j].website===AllBreweryObjects[i].breweryWebsite  
-          && allOurBreweries[j].streetAddress===AllBreweryObjects[i].breweryAddress){
-
-            matchCheck=true;
-            // take ID from allOurBreweries[j].id and give the AddReviewButton that value
-            AddReviewButton.attr("href", "/brewery/"+allOurBreweries[j].id)
-            renderedBreweryName.html(
-              "<a href = /brewery/"+allOurBreweries[j].id+ " id=headerName style=color:black;>" +
-                AllBreweryObjects[i].breweryName +
-                "</a>")
-
-          }
       }
 
-      // This IF statment will append an "AddReview" or "AddBrewery" button, if the given rewery is or is not in our databse, respectively.
-      if (matchCheck){
-        //TODO: Give the add review button a new value, the ID of the Brewery as it appears in OUR databse
-        // TODO: Give buttons an <a href=brewery.html> tag
 
-      cardDiv.append(
-        AddReviewButton
-      );
-      }
-      else{
-
-
-      // renderedBreweryName.addClass("addBtn btn")
-                          
-
-      cardDiv.append(
-        AddBreweryButton
-      );
-      }
-      $("#OpenBreweries").append(cardDiv);
     }
     assignClick(AllBreweryObjects);
                           // end of Ajax.then
