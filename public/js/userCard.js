@@ -22,34 +22,34 @@ function displayUserCards() {
   });
 
   function userCardsHeader (email) {
-    var cardDiv = $("<h4>")
-    .addClass("col-sm-12");
+    var cardDiv = $("<li>")
+    .addClass("col-sm-12")
+    .attr("id", "review");
 
-    cardDiv.append(email)
-    $("#userEmail").prepend(cardDiv);
+    cardDiv.append("Welcome back " + email + "," + "\n" + "let's see what you have to say:")
+    $("#userEmail").prepend(cardDiv)
+    .addClass("text-center");
   }
 
   function userCards(breweryId, brewery, review) {
     var cardDiv = $("<h4>")
     .addClass("col-sm-12");   
     var cardBrewery = $("<h5>")
-      .addClass("card-header")
+      .addClass("card-body headerFont")
       .text("Brewery: " + brewery) // this will display the brewery
       .html(
         "<a id=headerName style=color:black; href = /brewery/" + breweryId + ">" + brewery+ "</a>"
       )
 
-    var cardReview = $("<div style=font-size:125%;>")
+    var cardReview = $("<div>")
       .attr("id", "cardBack")
-      .addClass("card-body")
-      .text("Review: " + review); // this will display the review
+      .addClass("card-body userBackground")
+      .text("You said: " + review); // this will display the review
 
-    var deleteBtn = $("<div>")
+    var deleteBtn = $("<button>")
       .attr("id", "cardBack")
-      .html(
-        "<button type=button class=btn btn-outline-secondary id=deleteBtn>Delete</button>"
-      )
-      .addClass("card-body");
+      .text("Delete")
+      .addClass("reviewBtn deleteBtn btn btn-dark")
 
     cardDiv.append(cardBrewery, cardReview, deleteBtn);
 

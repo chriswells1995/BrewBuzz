@@ -6,7 +6,7 @@ var thisBreweryId = path.split("/")[2];
 // This function takes in a brewery name and renders it to the page
 function cardHearder(brewery) {
   var cardBrewery = $("<h4>")
-    .addClass("card-header")
+    .addClass("card-body headerBrewery")
     .html(
       "<h1 id=headerName style=color:black;>" + brewery + "</h1>"
     )
@@ -31,13 +31,12 @@ function buildCard(review_id, brewery, email, review) {
 
   var cardUser = $("<div style=font-size:125%;>")
     .attr("id", "cardBack")
-    .addClass("card-body")
-    .text("User: " + email); // this will display the user
+    .addClass("card-body headerFont")
 
   var cardReview = $("<div style=font-size:125%;>")
     .attr("id", "cardBack")
-    .addClass("card-body")
-    .text("Review: " + review); // this will display the review
+    .addClass("card-body userBackground")
+    .text(email + " said: " + review); // this will display the review
 
   // var deleteBtn = $("<div>")
   //   .attr("id", "cardBack")
@@ -63,7 +62,7 @@ $("#reviewButton").on("click", function () {
   event.preventDefault();
 
   var reviewInput = $("#reviewInput").val();
-
+  
   console.log(reviewInput)
 
   // make ajax get for user ID

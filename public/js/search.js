@@ -76,25 +76,22 @@ $(document).ready(function () {
         renderedBreweryName = $("<h2>")
           .text(AllBreweryObjects[i].breweryName)
           .attr("value", i)
-          .addClass("card-header");
+          .addClass("card-body headerFont");
           // .html(
           //   "<a href = brewery.html id=headerName style=color:black;>" +
           //     AllBreweryObjects[i].breweryName +
           //     "</a>"
           // );
   
-        renderedBreweryAddress = $("<h3>")
+        renderedBreweryAddress = $("<div style=font-size:125%;>")
           .attr("id", "cardBack")
-          .addClass("card-body")
+          .addClass("card-body userBackground")
           .text(AllBreweryObjects[i].breweryAddress);
-  
-  
-  
   
         AddBreweryButton = $("<button>")
           .attr("value", i)
-          .text("Click here to write the first review!")
-          .addClass("addBtn btn btn-outline-dark")
+          .text("Write their first review!")
+          .addClass("addBtn btn btn-dark")
           // .attr("href", "brewery.html");
   
           // AddReviewButton = $("<button>")
@@ -106,7 +103,7 @@ $(document).ready(function () {
             AddReviewButton = $("<a>")
           .attr("value", i)
           .text("Write a review!")
-          .addClass("reviewBtn btn btn-outline-dark")
+          .addClass("reviewBtn btn btn-dark")
           // .attr("href", "brewery.html");
   
         cardDiv.append(

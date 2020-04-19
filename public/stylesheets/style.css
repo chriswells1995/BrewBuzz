@@ -30,10 +30,29 @@ ul {
 }
 
 .addBtn {
+  margin-top: 10px;
   margin-bottom: 15px;
   position: relative;
   left: 20px;
   bottom: 3px;
+}
+
+.addBtn:hover {
+  background-color:rgb(255, 196, 0); 
+  color: black;
+}
+
+.reviewBtn {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  position: relative;
+  left: 20px;
+  bottom: 3px;
+}
+
+.reviewBtn:hover {
+  background-color:rgb(255, 196, 0);
+  color: black;
 }
 
 .oneOfUs {
@@ -44,22 +63,13 @@ ul {
 }
 
 .formBackground {
+  margin-left: 300px;
   margin-top: 50px;
   background-color: rgba(245, 245, 245, 0.883);
 }
 
 .show {
   border-radius: 10px;
-}
-
-/* .pull-right {
-  position:absolute;
-  right: 5%;
-} */
-
-#email-input,
-#password-input {
-  max-width: 170px;
 }
 
 .navbar-light {
@@ -104,10 +114,12 @@ ul {
 .headerFont {
   background-color: transparent;
   font-family: impact, charcoal, sans-serif;
+  font-size: 225%;
 }
 
 #headerName {
   border: transparent;
+  font-size: 36px;
   border-radius: 5px;
   padding-left: 5px;
   padding-right: 5px;
@@ -130,4 +142,24 @@ ul {
   margin-right: 20px;
   margin-bottom: 20px;
   padding: 5px;
+}
+
+#review {
+  font-family: impact, charcoal, sans-serif;
+  font-size: 225%;
+  margin-bottom: 20px;
+  padding: 30px;
+}
+
+#addReviewDiv {
+  margin-top: 15px;
+  margin-left: -15px;
+  margin-bottom: 15px;
+}
+
+.headerBrewery {
+  margin-left: -20px;
+  margin-bottom: -25px;
+  font-size: 36px;
+  font-family: impact, charcoal, sans-serif;
 }
