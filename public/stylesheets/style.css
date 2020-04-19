@@ -63,9 +63,17 @@ ul {
 }
 
 .formBackground {
-  margin-left: 300px;
+  left: 25%;
   margin-top: 50px;
   background-color: rgba(245, 245, 245, 0.883);
+}
+@media(max-width:768px){
+  .formBackground {
+    left: 0%;
+    margin-top: 50px;
+    background-color: rgba(245, 245, 245, 0.883);
+  }
+
 }
 
 .show {
