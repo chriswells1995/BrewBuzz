@@ -11,10 +11,19 @@ form.login {
   max-width: 100%;
 }
 
-.card-header {
+.headerFont {
   background-color: transparent;
   font-family: impact, charcoal, sans-serif;
 }
+
+#headerName {
+  border: solid;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: rgba(255, 255, 255, 0.733);
+}
+
 /* fix this garbage later */
 #headerName:hover {
   text-decoration: none;
@@ -109,4 +118,15 @@ ul {
       background-color: inherit;
       border-top:0 none;
   }
+}
+
+.userBackground {
+  background-color: rgba(255, 255, 255, 0.733);
+  border-style: solid;
+  border-radius: 5px;
+  /* margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px; */
+  margin: 20px;
+  padding: 5px;
 }

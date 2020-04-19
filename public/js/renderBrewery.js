@@ -18,7 +18,7 @@ var thisBreweryId =path.split("/")[2];
 
 
 
-console.log(thisBreweryId);
+// console.log(thisBreweryId);
 
 
 
@@ -135,7 +135,7 @@ console.log(thisBreweryId);
       };
       
       $.ajax(settings).then(function (response) {
-        console.log(response);
+        // console.log(response);
     
         for (i=0; i<response.length; i++){
               buildCard(response[i].id, response[i].Brewery.name, response[i].User.email, response[i].review )
