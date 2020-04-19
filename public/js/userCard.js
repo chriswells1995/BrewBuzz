@@ -100,7 +100,7 @@ function userCheck(){
             displayUserCards()
         } else {
             var img = document.createElement("img");
-            img.src = "https://st2.depositphotos.com/2274151/5435/i/950/depositphotos_54356977-stock-photo-missing-red-grungy-stamp-on.jpg"
+            img.src = "../stylesheets/assets/No_Reviews.png"
             var src = document.getElementById("OpenBreweries");
             src.appendChild(img);
         }
