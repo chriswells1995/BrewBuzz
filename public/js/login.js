@@ -31,6 +31,8 @@ $(document).ready(function() {
       password: password
     })
       .then(function() {
+        // TODO: perform another ajax to get UserID in this scope (or put the current ajax call in seperate)
+        // TODO: change to window.location.href = "/brewery/"+ UserID;
        location.reload();
       })
       .catch(function(err) {
