@@ -140,27 +140,21 @@ function renderTheseReviews() {
 
     // ajax call to get all reviews for this brewey
     var settings = {
-      "url": "/api/brewery/reviews/" + thisBreweryId,
-      "method": "GET",
-      "timeout": 0
+        "url": "/api/brewery/reviews/" + thisBreweryId,
+        "method": "GET",
+        "timeout": 0
+    
+      };
+      
+      $.ajax(settings).then(function (response) {
+        // console.log(response);
+    
+        for (i=0; i<response.length; i++){
+              buildCard(response[i].id, response[i].Brewery.name, response[i].User.email, response[i].review )
+        }    
+      });
+  }
 
-    };
-
-    $.ajax(settings).then(function (response) {
-      console.log(response);
-
-      for (i = 0; i < response.length; i++) {
-        buildCard(response[i].id, response[i].Brewery.name, response[i].User.email, response[i].review)
-      }
-    });
-
-
-  });
-
-
-
-
-}
 
 $("#OpenBreweries").empty();
 renderTheseReviews();

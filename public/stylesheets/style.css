@@ -11,16 +11,6 @@ form.login {
   max-width: 100%;
 }
 
-.card-header {
-  background-color: transparent;
-  font-family: impact, charcoal, sans-serif;
-}
-/* fix this garbage later */
-#headerName:hover {
-  text-decoration: none;
-  background-color: white;
-}
-
 li {
   list-style-type: none;
 }
@@ -109,4 +99,35 @@ ul {
       background-color: inherit;
       border-top:0 none;
   }
+}
+
+.headerFont {
+  background-color: transparent;
+  font-family: impact, charcoal, sans-serif;
+}
+
+#headerName {
+  border: transparent;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: rgba(255, 255, 255, 0.733);
+}
+
+/* fix this garbage later */
+#headerName:hover {
+  text-decoration: none;
+  background-color: white;
+}
+
+.userBackground {
+  background-color: rgba(255, 255, 255, 0.733);
+  /* background-image: url(assets/Honeycomb_Text_Background.png); */
+  border-style: transparent;
+  /* border-color: rgb(255, 208, 0); */
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
 }

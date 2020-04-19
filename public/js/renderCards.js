@@ -22,20 +22,20 @@ function displayCards() {
     .attr("id", "review" + review_id);
 
     var cardBrewery = $("<h4>")
-      .addClass("card-header")
+      .addClass("card-body headerFont")
       .html(
         "<a id=headerName style=color:black; href = /brewery/" + breweryId + ">" + brewery + "</a>"
       )
 
     var cardUser = $("<div style=font-size:125%;>")
       .attr("id", "cardBack")
-      .addClass("card-body")
-      .text("User: " + email); // this will display the user
+      .addClass("card-body userBackground")
+      .text(email + " said: " + review); // this will display the user review
 
-    var cardReview = $("<div style=font-size:125%;>")
-      .attr("id", "cardBack")
-      .addClass("card-body")
-      .text("Review: " + review); // this will display the review
+    // var cardReview = $("<div style=font-size:125%;>")
+    //   .attr("id", "cardBack")
+    //   .addClass("card-body reviewBackground")
+    //   .text(review); // this will display the review
 
     // var deleteBtn = $("<div>")
     //   .attr("id", "cardBack")
@@ -44,7 +44,7 @@ function displayCards() {
     //   )
     //   .addClass("card-body");
 
-    cardDiv.append(cardBrewery, cardUser, cardReview);
+    cardDiv.append(cardBrewery, cardUser);
     // cardDiv.append(cardBrewery, cardUser, cardReview, deleteBtn); if we decide to use deleteBtn
 
     $("#OpenBreweries").append(cardDiv);

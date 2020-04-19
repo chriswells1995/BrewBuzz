@@ -38,6 +38,10 @@ $(document).ready(function() {
       });
   }
 
+  function addLinkToDashboard (currentUserId) {
+    $("#dashboardLink").attr("href", "/user/" + currentUserId)
+  }
+
   function userCheck(){
     // make ajax get for user ID
     var userSettings = {
@@ -46,6 +50,8 @@ $(document).ready(function() {
       "timeout": 0
     };
  
+
+    // add var dashboard to hide link if not logged in
     $.ajax(userSettings).then(function (response) {
       var currentUserId=response.id;
       var login = document.getElementById("loginVisibility")
@@ -57,7 +63,9 @@ $(document).ready(function() {
         login.style.display = "block"
         logout.style.display = "none"
       }
+      addLinkToDashboard (currentUserId);
     })
   }
+
   userCheck();
 });

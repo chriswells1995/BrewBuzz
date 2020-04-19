@@ -10,7 +10,7 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link href="stylesheets/style.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css"/>
   </head>
 
   <body>
@@ -25,7 +25,7 @@
             <a class="nav-link" href="/login">Home <span class="sr-only">(current)</span></a>
           </li>
           <li>
-            <a class="nav-link" href="/user">Dashboard</a>
+            <a class="nav-link" id="dashboardLink">Dashboard</a>
           </li>
           <li class="nav-item" id="logout">
             <a class="nav-link" href="/logout">Log Out</a>
@@ -73,8 +73,17 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
+            <h2 id="userEmail">
+            </h2>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
           <ul>
-            <li id="OpenBreweries"></li>
+            <li id="OpenBreweries">
+            </li>
           </ul>
         </div>
       </div>
@@ -92,8 +101,8 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script type="text/javascript" src="js/login.js"></script>
-    <script type="text/javascript" src="js/search.js"></script>
-    <script type="text/javascript" src="/js/renderBrewery.js"></script>
+    <script type="text/javascript" src="/js/login.js"></script>
+    <script type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript" src="/js/userCard.js"></script>
   </body>
 </html>

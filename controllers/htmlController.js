@@ -27,7 +27,7 @@ router.get("/brewery/:id", function(req, res) {
 });
 
 // user html
-router.get("/user", function(req, res) {
+router.get("/user/:id", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/user.html"));
 });
 
