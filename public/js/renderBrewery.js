@@ -153,8 +153,8 @@ function renderTheseReviews() {
               buildCard(response[i].id, response[i].Brewery.name, response[i].User.email, response[i].review )
         }    
       });
-  }
-
+  })
+}
 
 $("#OpenBreweries").empty();
 renderTheseReviews();
