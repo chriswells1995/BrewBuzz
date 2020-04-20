@@ -46,12 +46,15 @@ function displayUserCards() {
       .addClass("card-body userBackground")
       .text("You said: " + review); // this will display the review
 
-    var deleteBtn = $("<button>")
-      .attr("id", "cardBack")
-      .text("Delete")
-      .addClass("reviewBtn deleteBtn btn btn-dark")
+    // The delete function will be added back in after presentation. The look of the website took precedence over this function
+    // var deleteBtn = $("<button>")
+    //   .attr("id", "cardBack")
+    //   .text("Delete")
+    //   .addClass("reviewBtn deleteBtn btn btn-dark")
 
-    cardDiv.append(cardBrewery, cardReview, deleteBtn);
+    // Will need to swap these when delete button is added back in
+    cardDiv.append(cardBrewery, cardReview);
+    // cardDiv.append(cardBrewery, cardReview, deleteBtn);
 
     // $("#user-title").append(cardBrewery) -- will add in a welcome whoever part here
 
