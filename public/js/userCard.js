@@ -18,7 +18,7 @@ function displayUserCards() {
       // var review = responseData[i].review;
       // var brewery = responseData[i].Brewery.name;
       // var breweryId = responseData[i].Brewery.id;
-      userCards(email)
+      return email;
   });
 
   function userCardsHeader (email) {
@@ -26,8 +26,8 @@ function displayUserCards() {
     .addClass("col-sm-12")
     .attr("id", "review");
 
-    // TODO: make more genral
-    cardDiv.append(email + "'s reviews!")
+    // TODO: make more general
+    cardDiv.append("You've been a busy bee:")
     $("#userEmail").empty()
     $("#userEmail").prepend(cardDiv)
     .addClass("text-center");
@@ -50,14 +50,14 @@ function displayUserCards() {
       .text(review); // this will display the review
 
     // The delete function will be added back in after presentation. The look of the website took precedence over this function
-    // var deleteBtn = $("<button>")
-    //   .attr("id", "cardBack")
-    //   .text("Delete")
-    //   .addClass("reviewBtn deleteBtn btn btn-dark")
+    var deleteBtn = $("<button>")
+      .attr("id", "cardBack")
+      .text("Delete")
+      .addClass("reviewBtn deleteBtn btn btn-dark")
 
     // Will need to swap these when delete button is added back in
-    cardDiv.append(cardBrewery, cardReview);
-    // cardDiv.append(cardBrewery, cardReview, deleteBtn);
+    // cardDiv.append(cardBrewery, cardReview);
+    cardDiv.append(cardBrewery, cardReview, deleteBtn);
 
     // $("#user-title").append(cardBrewery) -- will add in a welcome whoever part here
 
@@ -106,39 +106,19 @@ function userCheck(){
       var path =  window.location.pathname;
       var pathUserID =path.split("/")[2];
       if (currentUserId){
-            displayUserCards()
-        } 
-        
-        if(pathUserID!=="undefined"){
-          console.log('should be undefined')
-          console.log(pathUserID)
-          displayUserCards()
-        }
-        else {
-
-            var img = document.createElement("img");
-            img.src = "../stylesheets/assets/No_Reviews.png"
-            var src = document.getElementById("OpenBreweries");
-            src.appendChild(img);
+        displayUserCards()
+      } 
+      if (pathUserID === "undefined"){
+        // TODO: Should probably do something better here
+        alert("You must be logged in.");
+      }
+      else {
+        var img = document.createElement("img");
+        img.src = "../stylesheets/assets/No_Reviews.png"
+        var src = document.getElementById("OpenBreweries");
+        src.appendChild(img);
         }
     })
 }
-// function displayUserCards() {
-//     var settings = {
-//       url: "api/user/:id",
-//       method: "GET",
-//       timeout: 0,
-//     };
-//     $.ajax(settings).then(function (response) {
-//       var responseData = response;
-//       for (let i = 0; i < 5; i++) {
-//         var review_id = responseData[i].id;
-//         var review = responseData[i].review;
-//         var brewery = responseData[i].Brewery.name;
-//         var breweryId = responseData[i].Brewery.id;
-//         userCards(review_id, breweryId, brewery, review);
-//       }
-//     })
-// }
 
 userCheck();

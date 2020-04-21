@@ -58,12 +58,15 @@ $(document).ready(function() {
       var currentUserId=response.id;
       var login = document.getElementById("loginVisibility")
       var logout = document.getElementById("logout")
+      var dashboard = document.getElementById("dashboardLink")
       if (currentUserId){
         login.style.display = "none",
-        logout.style.display = "block"
+        logout.style.display = "block",
+        dashboard.style.display = "block"
       } else {
-        login.style.display = "block"
-        logout.style.display = "none"
+        login.style.display = "block",
+        logout.style.display = "none",
+        dashboard.style.display = "none"
       }
       addLinkToDashboard (currentUserId);
     })
