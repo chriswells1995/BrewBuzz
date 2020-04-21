@@ -172,3 +172,19 @@ ul {
   font-size: 36px;
   font-family: impact, charcoal, sans-serif;
 }
+
+.emailLinks {
+  color: black;
+  /* font-family: impact, charcoal, sans-serif;
+  font-size: 100%; */
+  margin-left: -5px;
+  margin-bottom: 20px;
+  padding: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.emailLinks:hover {
+  color: rgb(122, 100, 0);
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+}

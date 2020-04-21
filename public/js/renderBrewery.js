@@ -40,8 +40,9 @@ function buildCard(review_id, brewery, email, review, userID) {
     .text(email + " said: " + review); // this will display the review
 
     var profile= $("<a>")
-    .attr("href", "/user/"+userID )
-    .text(email)
+    .attr("href", "/user/"+userID)
+    .addClass("emailLinks")
+    .text("See what else " + email + " has to say!")
 
   // var deleteBtn = $("<div>")
   //   .attr("id", "cardBack")
