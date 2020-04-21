@@ -104,19 +104,19 @@ function userCheck(){
       var currentUserId=response.id;
 
       var path =  window.location.pathname;
-      var pathUserID =path.split("/")[2];
+      // var pathUserID =path.split("/")[2];
       if (currentUserId){
         displayUserCards()
       } 
-      if (pathUserID === "undefined"){
-        // TODO: Should actually doesn't need to exist. "Dashboard" is hidden when user isn't logged in, so unless the type in
-        // /user/1 to the url, there's no way they can get there.
-        alert("You must be logged in.");
-      }
+      // if (pathUserID === "undefined"){
+      //   // TODO: Should actually doesn't need to exist. "Dashboard" is hidden when user isn't logged in, so unless the type in
+      //   // /user/1 to the url, there's no way they can get there.
+      //   alert("You must be logged in.");
+      // }
       else {
         var img = document.createElement("img");
         img.src = "../stylesheets/assets/No_Reviews.png"
-        var src = document.getElementById("OpenBreweries");
+        var src = document.getElementById("beeChasing");
         src.appendChild(img);
         }
     })
