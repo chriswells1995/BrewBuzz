@@ -1,7 +1,7 @@
 var path =  window.location.pathname;
 var currentUserId =path.split("/")[2];
 
-// console.log(thisUserId);
+// console.log(currentUserId);
 
 function displayUserCards() {
   var settings = {
@@ -26,7 +26,9 @@ function displayUserCards() {
     .addClass("col-sm-12")
     .attr("id", "review");
 
-    cardDiv.append("Welcome back " + email + "," + "\n" + "let's see what you have to say:")
+    // TODO: make more genral
+    cardDiv.append(email + "'s reviews!")
+    $("#userEmail").empty()
     $("#userEmail").prepend(cardDiv)
     .addClass("text-center");
   }
@@ -44,7 +46,8 @@ function displayUserCards() {
     var cardReview = $("<div>")
       .attr("id", "cardBack")
       .addClass("card-body userBackground")
-      .text("You said: " + review); // this will display the review
+      // make more general
+      .text(review); // this will display the review
 
     // The delete function will be added back in after presentation. The look of the website took precedence over this function
     // var deleteBtn = $("<button>")
@@ -99,17 +102,27 @@ function userCheck(){
  
     $.ajax(userSettings).then(function (response) {
       var currentUserId=response.id;
+
+      var path =  window.location.pathname;
+      var pathUserID =path.split("/")[2];
       if (currentUserId){
             displayUserCards()
-        } else {
+        } 
+        
+        if(pathUserID!=="undefined"){
+          console.log('should be undefined')
+          console.log(pathUserID)
+          displayUserCards()
+        }
+        else {
+
             var img = document.createElement("img");
-            img.src = "https://st2.depositphotos.com/2274151/5435/i/950/depositphotos_54356977-stock-photo-missing-red-grungy-stamp-on.jpg"
+            img.src = "../stylesheets/assets/No_Reviews.png"
             var src = document.getElementById("OpenBreweries");
             src.appendChild(img);
         }
     })
 }
-
 // function displayUserCards() {
 //     var settings = {
 //       url: "api/user/:id",

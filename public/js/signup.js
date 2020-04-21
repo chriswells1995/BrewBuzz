@@ -37,7 +37,8 @@ $(document).ready(function() {
 
   function handleLoginErr(err) {
     console.log(err.responseJSON)
-    $("#alert .msg").text(err.responseJSON);
+    $("#alert .msg").text("Email already registered.");
+    // $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
 });

@@ -16,6 +16,7 @@ $(document).ready(function () {
     $.ajax({
       url: inputURL,
       method: "GET",
+      crossDomain: true
     }).then(function (response) {
      
       var BreweryObject = {};
