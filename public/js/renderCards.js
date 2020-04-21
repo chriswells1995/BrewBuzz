@@ -6,7 +6,11 @@ function displayCards() {
   };
   $.ajax(settings).then(function (response) {
     var responseData = response;
-    for (let i = 0; i < 5; i++) {
+    // for (let index = 0; index < array.length; index++) {
+    //   const element = array[index];
+      
+    // }
+    for (let i = responseData.length - 1; i >= 0; i--) {
       var review_id = responseData[i].id;
       var review = responseData[i].review;
       var email = responseData[i].User.email;
