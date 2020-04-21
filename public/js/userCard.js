@@ -83,7 +83,7 @@ function displayUserCards() {
       $.ajax(settings).then(function (response) {   
         console.log("ajax response")
         console.log(response)
-        for (i=0; i<response.length; i++){
+        for (i=response.length-1; i<response.length; i--){
               userCards(response[i].Brewery.id, response[i].Brewery.name, response[i].review)
         }    
       });
@@ -109,7 +109,8 @@ function userCheck(){
         displayUserCards()
       } 
       if (pathUserID === "undefined"){
-        // TODO: Should probably do something better here
+        // TODO: Should actually doesn't need to exist. "Dashboard" is hidden when user isn't logged in, so unless the type in
+        // /user/1 to the url, there's no way they can get there.
         alert("You must be logged in.");
       }
       else {
