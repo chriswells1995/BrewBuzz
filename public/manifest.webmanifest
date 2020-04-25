@@ -1,0 +1,15 @@
+{
+    "name": "BrewBuzz",
+    "short_name": "BrewBuzz",
+    "icons": [
+      {
+        "src": "/stylesheets/assets/BrewBuzz_Icon_Clear.png",
+        "sizes": "72x72",
+        "type": "image/png"
+      }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "start_url": "/",
+    "display": "standalone"
+  }
