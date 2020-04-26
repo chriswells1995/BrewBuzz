@@ -3,8 +3,8 @@
     "short_name": "BrewBuzz",
     "icons": [
       {
-        "src": "/stylesheets/assets/BrewBuzz_Icon_Clear.png",
-        "sizes": "369x365",
+        "src": "/stylesheets/assets/BrewBuzz_Icon_Clear_72.png",
+        "sizes": "72x72",
         "type": "image/png"
       }
     ],
