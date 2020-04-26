@@ -1,15 +1,25 @@
 const FILES_TO_CACHE = [
     "/",
     "/login.html",
-    "../public/js/login.js",
-    "../public/js/renderBrewery.js",
-    "../public/js/renderCards.js",
-    "../public/js/search.js",
-    "../public/js/signup.js",
-    "../public/js/userCard.js",
-    "/stylesheets/css/style.css",
-    "./manifest.webmanifest",
+    "/signup.html",
+    "/user.html",
+    "/brewery.html",
+    "/js/login.js",
+    "/js/renderBrewery.js",
+    "/js/renderCards.js",
+    "/js/search.js",
+    "/js/signup.js",
+    "/js/userCard.js",
+    "/manifest.webmanifest",
+    "/stylesheets/assets/style.css",
     "/stylesheets/assets/BrewBuzz_Icon_Clear.png",
+    "/stylesheets/assets/BrewBuzz_Banner_Clear.png",
+    "/stylesheets/assets/cheers.png",
+    "/stylesheets/assets/Honeycomb_Light.png",
+    "/stylesheets/assets/Honeycomb_Text_Background.png",
+    "/stylesheets/assets/Honeycomb.png",
+    "/stylesheets/assets/No_Reviews.png",
+    "/stylesheets/assets/OneofUs.png"
   ];
   
   const CACHE_NAME = "static-cache-v2";
