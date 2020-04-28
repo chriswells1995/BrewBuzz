@@ -11,7 +11,7 @@ const FILES_TO_CACHE = [
     "/js/signup.js",
     "/js/userCard.js",
     "/manifest.webmanifest",
-    "/stylesheets/assets/style.css",
+    "/stylesheets/style.css",
     "/stylesheets/assets/BrewBuzz_Icon_Clear.png",
     "/stylesheets/assets/BrewBuzz_Banner_Clear.png",
     "/stylesheets/assets/cheers.png",
