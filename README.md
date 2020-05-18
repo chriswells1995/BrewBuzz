@@ -2,6 +2,8 @@
 
 The BrewBuzz team is comprised of two guys who love beer. As we all know, it can be hard to make critical decisions after knocking back a few, and that's where BrewBuzz comes in! BrewBuzz is an application that will let you search, review, and locate your local breweries (so you can call an Uber). Once you have enjoyed your chosen establishment's delicious nectar, you can write a review and help spread the word!
 
+![BrewBuzz Demo](public/stylesheets/assets/brewbuzz_demo.gif)
+
 ## Table of Contents
 * [Getting Started](#getting_started) 
 * [Deployment](#deployment) 
