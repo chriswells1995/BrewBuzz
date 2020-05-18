@@ -21,17 +21,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 menuMargin">
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Home </a>
+          <li class="nav-item active">
+            <a class="nav-link navFont" href="/login">Home <span class="sr-only">(current)</span></a>
           </li>
           <li>
-            <a class="nav-link active" id="dashboardLink">Dashboard <span class="sr-only">(current)</span></a>
+            <a class="nav-link navActive" id="dashboardLink">Dashboard</a>
           </li>
           <li class="nav-item" id="logout">
-            <a class="nav-link" href="/logout">Log Out</a>
+            <a class="nav-link navFont" href="/logout">Log Out</a>
           </li>
           <li class="nav-item dropdown" id="loginVisibility">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle navFont" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Login
             </a>
             <ul id="login-dp" class="dropdown-menu">
@@ -66,7 +66,7 @@
           <!-- input now has ID searchInput -->
           <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
           <!-- The search button now has ID searchButton -->
-          <button id="searchButton" class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+          <button id="searchButton" class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
