@@ -1,3 +1,7 @@
+body{
+  background-image: url(assets/beehive_reversed.png);
+}
+
 form.signup,
 form.login {
   margin-top: 50px;
@@ -22,7 +26,8 @@ ul {
 
 .col-sm-12 {
   margin-bottom: 15px;
-  background-image: url(assets/Honeycomb.png);
+  background-color: rgb(255, 185, 25);
+  opacity: 80%;
   border-radius: 15px;
   border:3px solid #ccc;
   border-bottom:4px solid rgba(187, 187, 187, 0.699);
@@ -121,9 +126,9 @@ ul {
 }
 
 .headerFont {
-  background-color: transparent;
   font-family: impact, charcoal, sans-serif;
   font-size: 225%;
+  margin-bottom: -20px;
 }
 
 #headerName {
@@ -132,25 +137,12 @@ ul {
   border-radius: 5px;
   padding-left: 5px;
   padding-right: 5px;
-  background-color: rgba(255, 255, 255, 0.733);
 }
 
 /* fix this garbage later */
 #headerName:hover {
   text-decoration: none;
-  background-color: white;
-}
-
-.userBackground {
-  background-color: rgba(255, 255, 255, 0.733);
-  /* background-image: url(assets/Honeycomb_Text_Background.png); */
-  border-style: transparent;
-  /* border-color: rgb(255, 208, 0); */
-  border-radius: 5px;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  padding: 5px;
+  color: rgb(255, 208, 0);
 }
 
 #review {
