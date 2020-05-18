@@ -12,6 +12,7 @@ form.login {
 }
 
 .bannerlogo {
+  margin-top: 25px;
   max-width: 100%;
 }
 
@@ -32,6 +33,18 @@ ul {
   border:3px solid #ccc;
   border-bottom:4px solid rgba(187, 187, 187, 0.699);
   border-top:3px solid rgba(221, 221, 221, 0.719);
+}
+
+.navFont {
+  color: white !important;
+}
+
+.navFont:hover {
+  color: rgba(255, 186, 25, 0.521) !important;
+}
+
+.navActive {
+  color:rgb(255, 185, 25) !important;
 }
 
 .addBtn {
@@ -92,7 +105,9 @@ ul {
 
 #navBackgroundClear {
   background-image: none;
-  background: transparent !important;
+  background: rgba(0, 0, 0, 0.89) !important;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #login-dp{
@@ -175,8 +190,14 @@ ul {
   transition: all 0.3s ease-in-out;
 }
 
+
 .emailLinks:hover {
   color: rgb(122, 100, 0);
   transition: 0.3s ease-in-out;
   text-decoration: none;
+}
+
+#beeChasing {
+  background-size: cover;
+  background-repeat: no-repeat;
 }

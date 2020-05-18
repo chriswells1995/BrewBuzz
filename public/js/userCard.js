@@ -115,7 +115,7 @@ function userCheck(){
       // }
       else {
         var img = document.createElement("img");
-        img.src = "../stylesheets/assets/No_Reviews.png"
+        img.src = "../stylesheets/assets/No_Reviews_Clear.png"
         var src = document.getElementById("beeChasing");
         src.appendChild(img);
         }
