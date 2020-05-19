@@ -201,3 +201,7 @@ ul {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.navbar-toggler.collapse {
+  color:white !important;
+}
