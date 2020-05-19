@@ -44,6 +44,7 @@ $(document).ready(function () {
     var AddBreweryButton;
     var renderedBreweryName;
     var renderedBreweryAddress;
+    var renderedBreweryWebsite;
     var matchCheck;
                                 // This makes the ajax call to OUR breweries API to GET all of out breweries.
                                 // TODO: This looks weird because I wanted to put this ajax call in a seperate function, 
@@ -83,6 +84,11 @@ $(document).ready(function () {
           //     AllBreweryObjects[i].breweryName +
           //     "</a>"
           // );
+
+        renderedBreweryWebsite = $("<div style=font-size:125%;>")
+          .attr("id", "cardBack")
+          .addClass("card-body userBackground")
+          .text(AllBreweryObjects[i].breweryWebsite);
   
         renderedBreweryAddress = $("<div style=font-size:125%;>")
           .attr("id", "cardBack")
@@ -109,6 +115,7 @@ $(document).ready(function () {
   
         cardDiv.append(
           renderedBreweryName,
+          renderedBreweryWebsite,
           renderedBreweryAddress
         );
   
@@ -215,22 +222,9 @@ $(document).ready(function () {
 
         // return response;
       });
-
-
     });
-
-
         // TODO: Add event listener that makes ajax call to Reviews API, using this BreweryId
         // TODO: Render returned reviews from that ajax call to brewery.html
-
-
   }
-
-
-
-
-
-
-
 });
 

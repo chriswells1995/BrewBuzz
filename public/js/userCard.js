@@ -46,7 +46,6 @@ function displayUserCards() {
     var cardReview = $("<div>")
       .attr("id", "cardBack")
       .addClass("card-body userBackground")
-      // make more general
       .text(review); // this will display the review
 
     // The delete function will be added back in after presentation. The look of the website took precedence over this function
@@ -55,8 +54,6 @@ function displayUserCards() {
       .text("Delete")
       .addClass("reviewBtn deleteBtn btn btn-dark")
 
-    // Will need to swap these when delete button is added back in
-    // cardDiv.append(cardBrewery, cardReview);
     cardDiv.append(cardBrewery, cardReview, deleteBtn);
 
     // $("#user-title").append(cardBrewery) -- will add in a welcome whoever part here
@@ -73,7 +70,7 @@ function displayUserCards() {
   //   console.log(reviewInput)
 
   function renderTheseReviews(){  
-    // ajax call to get all reviews for this brewey
+    // ajax call to get all reviews for this brewery
     var settings = {
         "url": "/api/user/reviews/" + currentUserId,
         "method": "GET",
@@ -107,13 +104,7 @@ function userCheck(){
       // var pathUserID =path.split("/")[2];
       if (currentUserId){
         displayUserCards()
-      } 
-      // if (pathUserID === "undefined"){
-      //   // TODO: Should actually doesn't need to exist. "Dashboard" is hidden when user isn't logged in, so unless the type in
-      //   // /user/1 to the url, there's no way they can get there.
-      //   alert("You must be logged in.");
-      // }
-      else {
+      } else {
         var img = document.createElement("img");
         img.src = "../stylesheets/assets/No_Reviews_Clear.png"
         var src = document.getElementById("beeChasing");
