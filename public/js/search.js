@@ -88,13 +88,13 @@ $(document).ready(function () {
         renderedBreweryWebsite = $("<div style=font-size:125%;>")
           .attr("id", "cardBack")
           .addClass("card-body userBackground")
-          .html(AllBreweryObjects[i].breweryWebsite);
+          .attr("href", AllBreweryObjects[i].breweryAddress);
+          // .html(AllBreweryObjects[i].breweryWebsite);
   
         renderedBreweryAddress = $("<div style=font-size:125%;>")
           .attr("id", "cardBack")
           .addClass("card-body userBackground")
-          .attr("href", AllBreweryObjects[i].breweryAddress);
-          // .text(AllBreweryObjects[i].breweryAddress);
+          .text(AllBreweryObjects[i].breweryAddress);
   
         AddBreweryButton = $("<button>")
           .attr("value", i)
