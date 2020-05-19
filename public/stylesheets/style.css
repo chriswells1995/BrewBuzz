@@ -190,7 +190,6 @@ ul {
   transition: all 0.3s ease-in-out;
 }
 
-
 .emailLinks:hover {
   color: rgb(122, 100, 0);
   transition: 0.3s ease-in-out;
@@ -200,8 +199,4 @@ ul {
 #beeChasing {
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-.navbar-toggler.collapse {
-  color:white !important;
 }
