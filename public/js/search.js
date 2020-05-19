@@ -93,7 +93,8 @@ $(document).ready(function () {
         renderedBreweryAddress = $("<div style=font-size:125%;>")
           .attr("id", "cardBack")
           .addClass("card-body userBackground")
-          .text(AllBreweryObjects[i].breweryAddress);
+          .attr("href", AllBreweryObjects[i].breweryAddress);
+          // .text(AllBreweryObjects[i].breweryAddress);
   
         AddBreweryButton = $("<button>")
           .attr("value", i)
