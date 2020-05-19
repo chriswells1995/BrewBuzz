@@ -89,7 +89,7 @@ $(document).ready(function () {
           .attr("id", "cardBack")
           .addClass("card-body userBackground")
           .html(
-            "<a style=color:black; href = " + AllBreweryObjects[i].breweryAddress + "</a>"
+            "<a style=color:black; href = " + AllBreweryObjects[i].breweryWebsite + "</a>"
           )
           // .attr("href", AllBreweryObjects[i].breweryAddress);
           // .html(AllBreweryObjects[i].breweryWebsite);
