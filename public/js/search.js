@@ -46,6 +46,8 @@ $(document).ready(function () {
     var renderedBreweryAddress;
     var renderedBreweryWebsite;
     var matchCheck;
+    var directionsLink;
+    var directions;
                                 // This makes the ajax call to OUR breweries API to GET all of out breweries.
                                 // TODO: This looks weird because I wanted to put this ajax call in a seperate function, 
                                 // but for some reason I struggled with passing the resonse out of it. 
@@ -94,6 +96,17 @@ $(document).ready(function () {
           .attr("id", "cardBack")
           .addClass("card-body userBackground")
           .text(AllBreweryObjects[i].breweryAddress);
+
+           directions = AllBreweryObjects[i].breweryAddress.replace(/,/g, "%2C")
+           directions = directions.replace(/ /g, "+")
+          directions = 'https://www.google.com/maps/search/?api=1&query='+directions
+          console.log("working")
+         console.log(directions)
+
+          directionsLink = $("<div style=font-size:125%;>")
+          .attr("id", "cardBack")
+          .addClass("card-body userBackground")
+          .html("<a href=" + directions + "target=_blank" + ">" + "Directions" + "</a>");
   
         AddBreweryButton = $("<button>")
           .attr("value", i)
@@ -116,7 +129,8 @@ $(document).ready(function () {
         cardDiv.append(
           renderedBreweryName,
           renderedBreweryWebsite,
-          renderedBreweryAddress
+          renderedBreweryAddress,
+          directionsLink
         );
   
   
