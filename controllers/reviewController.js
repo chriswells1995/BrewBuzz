@@ -37,6 +37,24 @@ router.get('/api/user/reviews/:UserId', (req, res) => {
   })
 });
 
+// delete a specific review a specific user made
+// TODO: :UserId needs to be changed to simply use the existing url
+router.delete('/api/user/reviews/2/:id', (req, res) => {
+  db.Review.destroy({
+
+    where: {
+        id: req.params.id
+    },
+    //   TODO: double check if user and brewery can be on the same line or not
+    // include: [db.User, db.Brewery]
+  })
+  .then(results => res.json(results))
+  .catch(error => {
+    console.log(error)
+    res.status(500).json(error)
+  })
+});
+
 // get all of the reviews for a specific brewery
 router.get('/api/brewery/reviews/:BreweryId', (req, res) => {
     db.Review.findAll({
