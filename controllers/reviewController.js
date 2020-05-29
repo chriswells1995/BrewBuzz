@@ -45,8 +45,6 @@ router.delete('/api/user/reviews/2/:id', (req, res) => {
     where: {
         id: req.params.id
     },
-    //   TODO: double check if user and brewery can be on the same line or not
-    // include: [db.User, db.Brewery]
   })
   .then(results => res.json(results))
   .catch(error => {
