@@ -38,8 +38,10 @@ router.get('/api/user/reviews/:UserId', (req, res) => {
 });
 
 // delete a specific review a specific user made
+// router.delete('/api/user/reviews/2/:id', (req, res) => { < original line 43
 // TODO: :UserId needs to be changed to simply use the existing url
-router.delete('/api/user/reviews/2/:id', (req, res) => {
+router.delete('/api/reviews/:id', (req, res) => {
+
   db.Review.destroy({
 
     where: {
