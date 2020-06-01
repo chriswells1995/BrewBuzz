@@ -27,6 +27,7 @@ BrewBuzz is deployed and available for use at https://brewbuzz.herokuapp.com/.
 ## Versioning
 
 BrewBuzz 1.0 - Release Date 20 April, 2020
+BrewBuzz 1.1 - Release Date 1 June, 2020
 
 ## Authors
 
