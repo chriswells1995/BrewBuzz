@@ -143,6 +143,42 @@ function renderTheseReviews() {
 
     cardHearder(breweryName);
 
+    if (breweryResponse[0].logo){
+      // TODO: Grab image from response and render it
+
+    }
+    else{
+     var q = breweryName.replace(/ /g, "+")
+     q = breweryName.replace(/&/g, "+")
+    console.log("name", breweryName)
+    console.log("q")
+    console.log(q)
+      var logoURL = "https://api.serpwow.com/live/search?api_key=B03F416BACF94C8C86F2123D183281B8&q="+q+"+brewery+logo&search_type=images&num=1"
+      console.log(logoURL)
+    var settingsLogo = {
+  "url": "https://api.serpwow.com/live/search?api_key=B03F416BACF94C8C86F2123D183281B8&q="+q+"+brewery+logo&search_type=images&num=1",
+  "method": "GET",
+  "timeout": 0,
+};
+var logoSRC;
+$.ajax(settingsLogo).then(function (response) {
+console.log("logo response")
+console.log(response)
+  console.log(response.image_results[0].image);
+   logoSRC= response.image_results[0].image;
+      // end
+
+    var testImage = $("<img>")
+   .attr("src", response.image_results[0].image)
+   .attr("height", "10%" )
+   .attr("width", "10%")
+   $("#brewery-title").append(testImage);
+
+  //  TODO: Update brewery in DB by adding logoSRC
+
+})
+  }
+
     // ajax call to get all reviews for this brewey
     var settings = {
         "url": "/api/brewery/reviews/" + thisBreweryId,
