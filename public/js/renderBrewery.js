@@ -17,7 +17,7 @@ function cardHearder(brewery) {
 }
 
 // this function takes in the review properties and renders a review to the page
-function buildCard(review_id, brewery, email, review, userID) {
+function buildCard(review_id, brewery, email, review, userID, username) {
   var cardDiv = $("<li>")
     .addClass("col-sm-12")
     .attr("id", "review" + review_id);
@@ -37,7 +37,7 @@ function buildCard(review_id, brewery, email, review, userID) {
     .attr("id", "cardBack")
     .addClass("card-body userBackground")
     // .html("<a href = /user/"+ user_id+"></a>")
-    .text(email + " said: " + review); // this will display the review
+    .text(username + " said: " + review); // this will display the review
 
     var profile= $("<a>")
     .attr("href", "/user/"+userID)
@@ -191,7 +191,7 @@ console.log(response)
         // console.log(response);
     
         for (i=0; i<response.length; i++){
-              buildCard(response[i].id, response[i].Brewery.name, response[i].User.email, response[i].review, response[i].User.id )
+              buildCard(response[i].id, response[i].Brewery.name, response[i].User.email, response[i].review, response[i].User.id, response[i].User.username )
         }    
       });
   })
