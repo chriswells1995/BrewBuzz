@@ -11,7 +11,8 @@ module.exports = function(sequelize, DataTypes) {
 var Brewery = sequelize.define("Brewery", {
   name: DataTypes.STRING,
   website: DataTypes.STRING,
-  streetAddress: DataTypes.STRING
+  streetAddress: DataTypes.STRING,
+  logo: DataTypes.STRING
 });
 
 // Brewery has many reviews

@@ -44,5 +44,16 @@ router.post("/api/brewery", function(req, res) {
     .catch((err) => res.status(500).json(err))
 });
 
+router.put("/api/brewery/:id", function(req, res){
+  db.Brewery.update(
+    {logo: req.body.logo},
+    {where: req.params.id}
+  )
+  .then(()=> res.json(true))
+  .catch((err)=>res.status(500).json(err))
+
+});
+
+
 
 module.exports = router;
