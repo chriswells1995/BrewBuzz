@@ -16,11 +16,12 @@ function displayCards() {
       var email = responseData[i].User.email;
       var brewery = responseData[i].Brewery.name;
       var breweryId = responseData[i].Brewery.id;
-      buildCard(review_id, breweryId, brewery, email, review);
+      var username = responseData[i].User.username;
+      buildCard(review_id, breweryId, brewery, email, review, username);
     }
   });
 
-  function buildCard(review_id, breweryId, brewery, email, review) {
+  function buildCard(review_id, breweryId, brewery, email, review, username) {
     var cardDiv = $("<li>")
     .addClass("col-sm-12")
     .attr("id", "review" + review_id);
@@ -34,7 +35,7 @@ function displayCards() {
     var cardUser = $("<div style=font-size:125%;>")
       .attr("id", "cardBack")
       .addClass("card-body userBackground")
-      .text(email + " said: " + review); // this will display the user review
+      .text(username + " said: " + review); // this will display the user review
 
     // var cardReview = $("<div style=font-size:125%;>")
     //   .attr("id", "cardBack")
