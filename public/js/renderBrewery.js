@@ -42,7 +42,7 @@ function buildCard(review_id, brewery, email, review, userID, username) {
     var profile= $("<a>")
     .attr("href", "/user/"+userID)
     .addClass("emailLinks")
-    .text("See all their reviews")
+    .text("See all of "+username+"'s reviews")
 
   // var deleteBtn = $("<div>")
   //   .attr("id", "cardBack")
