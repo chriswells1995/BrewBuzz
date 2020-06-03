@@ -83,6 +83,7 @@ ul {
 #reviewButton {
   text-align: center;
   margin: auto;
+  margin-left: 40px;
 }
 
 .oneOfUs {
@@ -186,10 +187,15 @@ ul {
 }
 
 .headerBrewery {
-  margin-left: -20px;
+  margin-left: -65px;
   margin-bottom: -25px;
   font-size: 36px;
   font-family: impact, charcoal, sans-serif;
+}
+
+#brewery-title {
+  text-align: center;
+  margin-left: 80px;
 }
 
 .emailLinks {
