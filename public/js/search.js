@@ -93,7 +93,7 @@ $(document).ready(function () {
         renderedBreweryPhone = $("<div style=font-size:125%;>")
           .attr("id", "phone")
           .addClass("card-body userBackground")
-          .html("<a href=" + AllBreweryObjects[i].breweryPhone + " + target=_blank" + ">" + "Give them a buzz" + "</a>");
+          .html("<a href=" + "tel:" + AllBreweryObjects[i].breweryPhone + ">" + "Give them a buzz" + "</a>");
 
         renderedBreweryWebsite = $("<div style=font-size:125%;>")
           .attr("id", "cardBack")
