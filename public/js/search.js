@@ -83,26 +83,21 @@ $(document).ready(function () {
         renderedBreweryName = $("<h2>")
           .text(AllBreweryObjects[i].breweryName)
           .attr("value", i)
-          .addClass("card-body headerFont");
-          // .html(
-          //   "<a href = brewery.html id=headerName style=color:black;>" +
-          //     AllBreweryObjects[i].breweryName +
-          //     "</a>"
-          // );
+          .addClass("card-body headerFont")
 
         renderedBreweryPhone = $("<div style=font-size:125%;>")
-          .attr("id", "phone")
-          .addClass("card-body userBackground")
-          .html("<a href=" + "tel:" + AllBreweryObjects[i].breweryPhone + ">" + "Give them a buzz" + "</a>");
+          .addClass("card-body userBackground linkStyle")
+          .html("<a href=" + "tel:" + AllBreweryObjects[i].breweryPhone + ">" + "Give them a buzz" + "</a>")
+          .attr("id", "phone");
 
         renderedBreweryWebsite = $("<div style=font-size:125%;>")
           .attr("id", "cardBack")
-          .addClass("card-body userBackground")
+          .addClass("card-body userBackground linkStyle")
           .html("<a href=" + AllBreweryObjects[i].breweryWebsite + " + target=_blank" + ">" + "Visit Site" + "</a>");
   
         renderedBreweryAddress = $("<div style=font-size:125%;>")
           .attr("id", "cardBack")
-          .addClass("card-body userBackground")
+          .addClass("card-body userBackground linkStyle")
           .text(AllBreweryObjects[i].breweryAddress);
 
           directionName = AllBreweryObjects[i].breweryName.replace(/,/g, "%2C")
@@ -115,7 +110,7 @@ $(document).ready(function () {
 
           directionsLink = $("<div style=font-size:125%;>")
           .attr("id", "cardBack")
-          .addClass("card-body userBackground")
+          .addClass("card-body userBackground linkStyle")
           .html("<a href=" + directions + ">" + "Directions" + "</a>");
   
         AddBreweryButton = $("<button>")
@@ -138,9 +133,9 @@ $(document).ready(function () {
   
         cardDiv.append(
           renderedBreweryName,
+          renderedBreweryAddress,
           renderedBreweryPhone,
           renderedBreweryWebsite,
-          renderedBreweryAddress,
           directionsLink
         );
   
