@@ -31,6 +31,7 @@ $(document).ready(function () {
             ", " +
             response[i].state,
           breweryWebsite: response[i].website_url,
+          breweryPhone: response[i].phone,
         };
         AllBreweryObjects.push(BreweryObject);
       }
@@ -45,6 +46,7 @@ $(document).ready(function () {
     var renderedBreweryName;
     var renderedBreweryAddress;
     var renderedBreweryWebsite;
+    var renderedBreweryPhone;
     var matchCheck;
     var directionsLink;
     var directions;
@@ -87,6 +89,11 @@ $(document).ready(function () {
           //     AllBreweryObjects[i].breweryName +
           //     "</a>"
           // );
+
+        renderedBreweryPhone = $("<div style=font-size:125%;>")
+          .attr("id", "phone")
+          .addClass("card-body userBackground")
+          .html("<a href=" + AllBreweryObjects[i].breweryPhone + " + target=_blank" + ">" + "Give them a buzz" + "</a>");
 
         renderedBreweryWebsite = $("<div style=font-size:125%;>")
           .attr("id", "cardBack")
@@ -131,6 +138,7 @@ $(document).ready(function () {
   
         cardDiv.append(
           renderedBreweryName,
+          renderedBreweryPhone,
           renderedBreweryWebsite,
           renderedBreweryAddress,
           directionsLink
