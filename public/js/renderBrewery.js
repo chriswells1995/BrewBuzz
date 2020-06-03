@@ -6,7 +6,7 @@ var thisBreweryId = path.split("/")[2];
 // This function takes in a brewery name and renders it to the page
 function cardHearder(brewery) {
   var cardBrewery = $("<h4>")
-    .addClass("card-body headerBrewery")
+    .addClass("card-body text-center headerBrewery")
     .html(
       "<h1 id=headerName style=color:black;>" + brewery + "</h1>"
     )
@@ -170,9 +170,8 @@ console.log(response)
 
     var testImage = $("<img>")
    .attr("src", response.image_results[0].image)
-   .attr("height", "10%" )
-   .attr("width", "10%")
-   $("#brewery-title").append(testImage);
+   .attr("id", "breweryLogo")
+   $(".headerBrewery").append(testImage);
 
   //  TODO: Update brewery in DB by adding logoSRC
 

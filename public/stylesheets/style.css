@@ -30,9 +30,10 @@ ul {
   background-color: rgb(255, 199, 71);
   /* opacity: 80%; */
   border-radius: 15px;
-  border:3px solid #ccc;
-  border-bottom:4px solid rgba(187, 187, 187, 0.699);
-  border-top:3px solid rgba(221, 221, 221, 0.719);
+  border:2px solid #ccc;
+  border-bottom:3px solid rgba(187, 187, 187, 0.589);
+  border-top:2px solid rgba(221, 221, 221, 0.582);
+  box-shadow: 5px 5px 2px rgba(128, 128, 128, 0.507);
 }
 
 .navFont {
@@ -71,6 +72,17 @@ ul {
 .reviewBtn:hover {
   background-color:rgb(255, 196, 0);
   color: black;
+}
+
+#reviewInput {
+  width: 100%;
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
+
+#reviewButton {
+  text-align: center;
+  margin: auto;
 }
 
 .oneOfUs {
@@ -199,4 +211,15 @@ ul {
 #beeChasing {
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+#breweryLogo {
+  width: 35%;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+  background-color: white;
+  margin-top: 10px;
+  box-shadow: 5px 5px 2px rgba(128, 128, 128, 0.507);
 }
