@@ -33,9 +33,11 @@ function displayUserCards() {
     .addClass("text-center");
   }
 
-  function userCards(breweryId, brewery, review) {
+  function userCards(breweryId, brewery, review, reviewId) {
     var cardDiv = $("<h4>")
-    .addClass("col-sm-12");   
+    .addClass("col-sm-12")
+    .attr("id", reviewId);
+
     var cardBrewery = $("<h5>")
       .addClass("card-body headerFont")
       .text("Brewery: " + brewery) // this will display the brewery
@@ -50,7 +52,7 @@ function displayUserCards() {
 
     // The delete function will be added back in after presentation. The look of the website took precedence over this function
     var deleteBtn = $("<button>")
-      .attr("id", "cardBack")
+      .attr("id", "deleteBtn")
       .text("Delete")
       .addClass("reviewBtn deleteBtn btn btn-dark")
 
@@ -59,15 +61,19 @@ function displayUserCards() {
     // $("#user-title").append(cardBrewery) -- will add in a welcome whoever part here
 
     $("#OpenBreweries").prepend(cardDiv);
+
+    $("#deleteBtn").on("click", function(){
+      console.log("Delete Button Clicked")
+      var deleteId = event.target.closest("h4").id;
+      console.log("The delete id is: ")
+      console.log(deleteId)
+      $.ajax({
+        method: "DELETE",
+        url: "/api/reviews/" + deleteId
+      }).then(displayUserCards);
+      // TODO: fire off function for AJAX call to delete review from DB
+    })
   }
-  // event listener for delete will go here
-
-  // $("#deleteBtn").on("click", function(){
-  //   event.preventDefault();
-
-  //   var reviewInput = $("#reviewInput").val();
-
-  //   console.log(reviewInput)
 
   function renderTheseReviews(){  
     // ajax call to get all reviews for this brewery
@@ -81,7 +87,7 @@ function displayUserCards() {
         console.log("ajax response")
         console.log(response)
         for (i=response.length-1; i<response.length; i--){
-              userCards(response[i].Brewery.id, response[i].Brewery.name, response[i].review)
+              userCards(response[i].Brewery.id, response[i].Brewery.name, response[i].review, response[i].id)
         }    
       });
   }
