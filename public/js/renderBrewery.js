@@ -171,7 +171,7 @@ console.log(response)
     var testImage = $("<img>")
    .attr("src", response.image_results[0].image)
    .attr("id", "breweryLogo")
-   $("#headerName").append(testImage);
+   $(".headerBrewery").append(testImage);
 
   //  TODO: Update brewery in DB by adding logoSRC
 
