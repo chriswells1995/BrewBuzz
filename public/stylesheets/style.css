@@ -156,10 +156,24 @@ ul {
   }
 }
 
+.linkStyle {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.linkStyle a:first-child {
+  color:black;
+}
+
+.linkStyle a:first-child:hover {
+  text-decoration: none;
+}
+
 .headerFont {
   font-family: impact, charcoal, sans-serif;
   font-size: 225%;
   margin-bottom: -20px;
+  margin-left: 0px;
 }
 
 #headerName {
