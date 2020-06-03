@@ -63,11 +63,14 @@ function displayUserCards() {
     $("#OpenBreweries").prepend(cardDiv);
 
     $("#deleteBtn").on("click", function(){
-      event.preventDefault();
       console.log("Delete Button Clicked")
       var deleteId = event.target.closest("h4").id;
       console.log("The delete id is: ")
       console.log(deleteId)
+      $.ajax({
+        method: "DELETE",
+        url: "/api/reviews/" + deleteId
+      }).then(displayUserCards);
       // TODO: fire off function for AJAX call to delete review from DB
     })
   }
