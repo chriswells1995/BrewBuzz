@@ -28,7 +28,6 @@ ul {
 .col-sm-12 {
   margin-bottom: 15px;
   background-color: rgb(255, 199, 71);
-  /* opacity: 80%; */
   border-radius: 15px;
   border:2px solid #ccc;
   border-bottom:3px solid rgba(187, 187, 187, 0.589);
@@ -86,6 +85,11 @@ ul {
   margin-left: 40px;
 }
 
+#reviewButton:hover {
+  background-color:rgb(255, 196, 0);
+  color: black;
+}
+
 .oneOfUs {
   background-image: url("assets/cheers.png");
   background-size: cover;
@@ -105,7 +109,6 @@ ul {
     margin-top: 50px;
     background-color: rgba(245, 245, 245, 0.883);
   }
-
 }
 
 .show {
@@ -200,8 +203,6 @@ ul {
 
 .emailLinks {
   color: black;
-  /* font-family: impact, charcoal, sans-serif;
-  font-size: 100%; */
   margin-left: -5px;
   margin-bottom: 20px;
   padding: 30px;
