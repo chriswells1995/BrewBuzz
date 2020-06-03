@@ -73,6 +73,17 @@ ul {
   color: black;
 }
 
+#reviewInput {
+  width: 100%;
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
+
+#reviewButton {
+  text-align: center;
+  margin: auto;
+}
+
 .oneOfUs {
   background-image: url("assets/cheers.png");
   background-size: cover;
@@ -199,4 +210,14 @@ ul {
 #beeChasing {
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+#breweryLogo {
+  width: 35%;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+  background-color: white;
+  margin-top: 10px;
 }
