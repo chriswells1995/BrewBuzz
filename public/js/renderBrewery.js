@@ -140,11 +140,16 @@ function renderTheseReviews() {
     console.log(breweryResponse[0].name);
 
     breweryName = breweryResponse[0].name;
+    breweryLogo = breweryResponse[0].logo;
 
     cardHearder(breweryName);
 
     if (breweryResponse[0].logo){
       // TODO: Grab image from response and render it
+      var testImage = $("<img>")
+      .attr("src", breweryLogo)
+      .attr("id", "breweryLogo")
+      $(".headerBrewery").append(testImage);
 
     }
     else{
