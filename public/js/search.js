@@ -230,11 +230,13 @@ $(document).ready(function () {
         };
         
         $.ajax(settings2).then(function (ourBreweryDB) {
-          console.log(ourBreweryDB.length);
-          var newestID =ourBreweryDB.length;
+          console.log(ourBreweryDB);
+          //var newestID =ourBreweryDB.length;
+          var newestID =ourBreweryDB[ourBreweryDB.length-1].id;
+
           console.log(newestID);
 
-        window.location.href = "/brewery/"+ newestID;
+         window.location.href = "/brewery/"+ newestID;
 
         });
 
