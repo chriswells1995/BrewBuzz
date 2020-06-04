@@ -44,15 +44,46 @@ router.post("/api/brewery", function(req, res) {
     .catch((err) => res.status(500).json(err))
 });
 
-router.put("/api/brewery/:id", function(req, res){
-  db.Brewery.update(
-    {logo: req.body.logo},
-    {where: req.params.id}
-  )
-  .then(()=> res.json(true))
-  .catch((err)=>res.status(500).json(err))
+// router.put("/api/brewery", function(req, res){
+//   db.Brewery.update(
+//     {
+//       where: {
+//        id: req.body.id
+//       }
+//     }
+//   )
+//   .then(function(dbPost) {
+//     res.json(dbPost);
+//   });
+// });
 
+// const newData = {
+//   name: 'Maxy-boi-boi'
+// };
+
+
+
+router.put("/api/breweries", function(req, res){
+db.Brewery.update( {logo: req.body.logo }, {where: { id: req.body.id } })
+.then(updatedBrewery => {
+  res.json(updatedBrewery)
+})
 });
+
+// const newData = {
+//   name: 'Maxy-boi-boi'
+// };
+
+
+
+
+// function updateTodo(todo) {
+//   $.ajax({
+//     method: "PUT",
+//     url: "/api/todos",
+//     data: todo
+//   }).then(getTodos);
+// }
 
 
 
