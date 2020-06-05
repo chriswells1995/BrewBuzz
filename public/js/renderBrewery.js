@@ -68,8 +68,8 @@ $("#reviewButton").on("click", function () {
   event.preventDefault();
 
   var reviewInput = $("#reviewInput").val();
-  
-  console.log(reviewInput)
+
+  $("#reviewInput").children('input').val('');
 
   // make ajax get for user ID
 
