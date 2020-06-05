@@ -65,7 +65,7 @@ function buildCard(review_id, brewery, email, review, userID, username) {
 // event listener for review input
 
 $("#reviewButton").on("click", function () {
-  event.preventDefault();
+  // event.preventDefault();
 
   var reviewInput = $("#reviewInput").val();
 
