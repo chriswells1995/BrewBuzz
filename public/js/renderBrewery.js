@@ -12,6 +12,22 @@ function cardHeader(brewery) {
   $("#brewery-title").append(cardBrewery);
 }
 
+function cardRating(rating) {
+  var breweryRating = $("<ul>")
+    .addClass("card-body text-center breweryRating")
+    .html("<li id=headerName style=color:black;>" + "Star Rating: " + rating + "</li>");
+
+  $("#brewery-rating").append(breweryRating);
+}
+
+function cardNoRating() {
+  var breweryRating = $("<ul>")
+    .addClass("card-body text-center breweryRating")
+    .html("<li id=headerName style=color:black;>" + "No Ratings Submitted" + "</li>");
+
+  $("#brewery-rating").append(breweryRating);
+}
+
 // this function takes in the review properties and renders a review to the page
 function buildCard(review_id, brewery, email, review, userID, username) {
   var cardDiv = $("<li>")
@@ -97,19 +113,29 @@ $("#reviewButton").on("click", function () {
 function renderTheseReviews() {
   // ajax call to get brewery name
 
-  var brewereyNameSettings = {
+  var breweryNameSettings = {
     url: "/api/brewery/" + thisBreweryId,
     method: "GET",
     timeout: 0,
   };
 
-  $.ajax(brewereyNameSettings).then(function (breweryResponse) {
+  $.ajax(breweryNameSettings).then(function (breweryResponse) {
     console.log(breweryResponse[0].name);
+    console.log(breweryResponse[0]);
+    console.log(breweryResponse[0].totalRating);
 
     breweryName = breweryResponse[0].name;
     breweryLogo = breweryResponse[0].logo;
+    breweryRating = breweryResponse[0].totalRating;
 
     cardHeader(breweryName);
+
+    if (breweryRating) {
+    cardRating(breweryRating);
+    } else {
+      cardNoRating()
+    }
+
 
     if (breweryResponse[0].logo) {
       // TODO: Grab image from response and render it
@@ -120,9 +146,9 @@ function renderTheseReviews() {
     } else {
       var q = breweryName.replace(/ /g, "+");
       q = breweryName.replace(/&/g, "+");
-      console.log("name", breweryName);
-      console.log("q");
-      console.log(q);
+      // console.log("name", breweryName);
+      // console.log("q");
+      // console.log(q);
       var logoURL =
         "https://api.serpwow.com/live/search?api_key=B03F416BACF94C8C86F2123D183281B8&q=" +
         q +
