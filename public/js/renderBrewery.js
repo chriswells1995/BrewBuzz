@@ -69,7 +69,7 @@ $("#reviewButton").on("click", function () {
 
   var reviewInput = $("#reviewInput").val();
 
-  $("#reviewInput").children('input').val('');
+  $("#reviewInput").empty();
 
   // make ajax get for user ID
 
