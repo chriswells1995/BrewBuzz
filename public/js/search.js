@@ -5,6 +5,8 @@ $(document).ready(function () {
   $("#searchButton").on("click", function () {
     event.preventDefault();
     $("#brewery-title").empty();
+     $("#headerName").empty();
+
     $("#addReviewDiv").empty();
 
     $("#OpenBreweries").empty();
@@ -105,8 +107,8 @@ $(document).ready(function () {
           directions = AllBreweryObjects[i].breweryAddress.replace(/,/g, "%2C")
           directions = directions.replace(/ /g, "+")           
          directions = 'https://www.google.com/maps/search/?api=1&query='+directionName +directions 
-          console.log("working")
-         console.log(directions)
+        //   console.log("working")
+        //  console.log(directions)
 
           directionsLink = $("<div style=font-size:125%;>")
           .attr("id", "cardBack")
@@ -209,7 +211,8 @@ $(document).ready(function () {
         data: {
           name: AllBreweryObjects[event.target.value].breweryName,
           website: AllBreweryObjects[event.target.value].breweryWebsite,
-          streetAddress: AllBreweryObjects[event.target.value].breweryAddress,
+          streetAddress: AllBreweryObjects[event.target.value].breweryAddress
+
         },
       };
 

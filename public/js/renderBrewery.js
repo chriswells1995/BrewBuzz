@@ -130,7 +130,7 @@ function renderTheseReviews() {
 
     cardHeader(breweryName);
 
-    if (breweryRating == 0.0) {
+    if (breweryRating === 0.0 || breweryRating===null) {
       cardNoRating()
     } else {
       cardRating(breweryRating);
@@ -139,13 +139,16 @@ function renderTheseReviews() {
 
     if (breweryResponse[0].logo) {
       // TODO: Grab image from response and render it
-      var testImage = $("<img>")
+      console.log("logo already existed in database")
+      var logoImage = $("<img>")
         .attr("src", breweryLogo)
         .attr("id", "breweryLogo");
-      $(".headerBrewery").append(testImage);
+      $(".headerBrewery").append(logoImage);
     } else {
+      console.log("logo did not already exist in databse")
       var q = breweryName.replace(/ /g, "+");
-      q = breweryName.replace(/&/g, "+");
+      q = q.replace(/&/g, "+");
+      q = q.replace(/-/g, "+");
       // console.log("name", breweryName);
       // console.log("q");
       // console.log(q);
@@ -162,21 +165,57 @@ function renderTheseReviews() {
         method: "GET",
         timeout: 0,
       };
-      var logoSRC;
+      // var logoSRC;
       $.ajax(settingsLogo).then(function (response) {
         console.log("logo response");
         console.log(response);
         console.log(response.image_results[0].image);
-        logoSRC = response.image_results[0].image;
-        // end
 
-        var testImage = $("<img>")
-          .attr("src", response.image_results[0].image)
+        var logoSRC = response.image_results[0].image;
+        var imageNumber=0;
+        console.log(response.image_results[imageNumber].brand)
+        if (response.image_results[imageNumber].brand === "Facebook"){
+           while(response.image_results[imageNumber].brand==="Facebook"){
+             imageNumber++
+             logoSRC = response.image_results[imageNumber].image;
+             console.log(response.image_results[imageNumber].brand)
+
+
+           }          
+        }
+
+        console.log(logoSRC)
+
+        var logoImage = $("<img>")
+          .attr("src", logoSRC)
           .attr("id", "breweryLogo");
-        $(".headerBrewery").append(testImage);
+        $(".headerBrewery").append(logoImage);
 
         //  TODO: Update brewery in DB by adding logoSRC
-      });
+        return logoSRC;
+      })
+      .then(function(logoSRC){
+
+        var putSettings = {
+          "url": "/api/breweries",
+          "method": "PUT",
+          "timeout": 0,
+          "headers": {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          "data": {
+            "id": thisBreweryId,
+            "logo": logoSRC
+          }
+        };
+        
+        $.ajax(putSettings).then(function (response) {
+          console.log(response);
+        });
+
+
+
+      })
     }
 
     // ajax call to get all reviews for this brewery
