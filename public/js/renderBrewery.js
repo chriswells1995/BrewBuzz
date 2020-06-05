@@ -130,10 +130,10 @@ function renderTheseReviews() {
 
     cardHeader(breweryName);
 
-    if (breweryRating) {
-    cardRating(breweryRating);
-    } else {
+    if (breweryRating == 0.0) {
       cardNoRating()
+    } else {
+      cardRating(breweryRating);
     }
 
 
