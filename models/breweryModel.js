@@ -12,7 +12,8 @@ var Brewery = sequelize.define("Brewery", {
   name: DataTypes.STRING,
   website: DataTypes.STRING,
   streetAddress: DataTypes.STRING,
-  logo: DataTypes.STRING
+  logo: DataTypes.STRING,
+  totalRating: DataTypes.STRING
 });
 
 // Brewery has many reviews
