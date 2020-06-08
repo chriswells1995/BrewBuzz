@@ -29,7 +29,7 @@ function cardNoRating() {
 }
 
 // this function takes in the review properties and renders a review to the page
-function buildCard(review_id, brewery, email, review, userID, username) {
+function buildCard(review_id, brewery, email, review, userID, username, rating) {
   var cardDiv = $("<li>")
     .addClass("col-sm-12")
     .attr("id", "review" + review_id);
@@ -44,12 +44,24 @@ function buildCard(review_id, brewery, email, review, userID, username) {
     // .html("<a href = /user/"+ user_id+"></a>")
     .text(username + " said: " + review); // this will display the review
 
+    var ratingText;
+    if (rating == "0.0"){
+      ratingText = "No rating given"
+  }
+  else{
+    ratingText = rating + " stars out of 5"
+  }
+    var cardRating = $("<div style=font-size:125%;>")
+  .attr("id", "cardBack")
+  .addClass("card-body headerFont")
+  .text(ratingText); // this will display the review
+
   var profile = $("<a>")
     .attr("href", "/user/" + userID)
     .addClass("emailLinks")
     .text("See all of " + username + "'s reviews");
 
-  cardDiv.append(cardUser, cardReview, profile);
+  cardDiv.append(cardUser, cardReview, cardRating, profile);
 
   // $("#brewery-title").empty();
 
@@ -61,8 +73,19 @@ function buildCard(review_id, brewery, email, review, userID, username) {
 
 $("#reviewButton").on("click", function () {
   var reviewInput = $("#reviewInput").val();
+  var ratingInput = $("#ratingInput").val();
+  // var roundedRatingInput = Math.ceil(reviewInput)
+
+  if (!ratingInput || ratingInput<1 || ratingInput >5 ){
+    event.preventDefault();
+    alert("You need to enter a rating between 1 and 5")
+
+    return;
+  }
+
 
   $("#reviewInput").empty();
+  $("#ratingInput").empty();
 
   // make ajax get for user ID
 
@@ -93,6 +116,7 @@ $("#reviewButton").on("click", function () {
           review: reviewInput,
           UserId: currentUserId,
           BreweryId: thisBreweryId,
+          rating: ratingInput
         },
       };
 
@@ -234,7 +258,8 @@ function renderTheseReviews() {
           response[i].User.email,
           response[i].review,
           response[i].User.id,
-          response[i].User.username
+          response[i].User.username,
+          response[i].rating
         );
       }
     });
