@@ -4,7 +4,8 @@ $(document).ready(function () {
   // event listener that goes off when the search button is clicked. The input in the search bar is sent to the Open Brewery DB API. Then renderCards() is called
   $("#searchButton").on("click", function () {
     event.preventDefault();
-    $("#brewery-title").empty();
+    // TODO: One of these is also emptying the BrewBuzz logo, which we would like to stay
+     $("#brewery-title").empty();
      $("#headerName").empty();
 
     $("#addReviewDiv").empty();
@@ -45,6 +46,7 @@ $(document).ready(function () {
   function renderCards(AllBreweryObjects) {
     $("#OpenBreweries").empty();
     var AddBreweryButton;
+    var existinglogo;
     var renderedBreweryName;
     var renderedBreweryAddress;
     var renderedBreweryWebsite;
@@ -161,6 +163,16 @@ $(document).ready(function () {
                 "<a href = /brewery/"+allOurBreweries[j].id+ " id=headerName style=color:black;>" +
                   AllBreweryObjects[i].breweryName +
                   "</a>")
+
+                  // TODO: This is where we append the brewery logo to the card. Move this to a better spot
+                  if (allOurBreweries[j].logo){
+                  existinglogo = $("<img>")
+                  .addClass("logo")
+                  .attr("src", allOurBreweries[j].logo)
+                  cardDiv.append(existinglogo)
+
+                  }
+
   
             }
         }
