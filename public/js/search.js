@@ -162,8 +162,11 @@ $(document).ready(function () {
               // take ID from allOurBreweries[j].id and give the AddReviewButton that value
               AddReviewButton.attr("href", "/brewery/"+allOurBreweries[j].id)
               renderedBreweryName.html(
-                "<a href = /brewery/"+allOurBreweries[j].id+ " id=headerName style=color:black;>" +
-                  AllBreweryObjects[i].breweryName + '\n' + AllBreweryObjects[i].breweryAddress +
+                // "<a href = /brewery/"+allOurBreweries[j].id+ " id=headerName style=color:black;>" +
+                //   AllBreweryObjects[i].breweryName + '<br>' + AllBreweryObjects[i].breweryAddress +
+                //   "</a>")
+                  "<a href = /brewery/"+allOurBreweries[j].id+ " class=row id=headerName style=color:black;>" +
+                  AllBreweryObjects[i].breweryName + "<br>" + AllBreweryObjects[i].breweryAddress +
                   "</a>")
 
                   // TODO: This is where we append the brewery logo to the card. Move this to a better spot

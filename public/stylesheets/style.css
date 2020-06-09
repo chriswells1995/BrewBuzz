@@ -8,12 +8,17 @@ form.login {
 }
 
 .logo {
-  max-width: 100px;
+  width: 35%;
+  height: 35%;
+  object-fit: contain;
   background-color: whitesmoke;
   border-radius: 5px;
   border-style: solid;
   border-color: black;
-  float: left;
+}
+
+h4 {
+  display: flex;
 }
 
 .bannerlogo {
@@ -183,10 +188,11 @@ ul {
 
 #headerName {
   border: transparent;
-  font-size: 36px;
+  font-size: 24px;
   border-radius: 5px;
   padding-left: 5px;
   padding-right: 5px;
+  margin-left: 5px;
 }
 
 /* fix this garbage later */
