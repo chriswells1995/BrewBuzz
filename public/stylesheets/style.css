@@ -8,7 +8,12 @@ form.login {
 }
 
 .logo {
-  max-width: 40px;
+  max-width: 100px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: black;
+  float: left;
 }
 
 .bannerlogo {
@@ -171,7 +176,7 @@ ul {
 
 .headerFont {
   font-family: impact, charcoal, sans-serif;
-  font-size: 225%;
+  font-size: 100%;
   margin-bottom: -20px;
   margin-left: 0px;
 }

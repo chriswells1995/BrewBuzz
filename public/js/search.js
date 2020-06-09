@@ -48,7 +48,7 @@ $(document).ready(function () {
     var AddBreweryButton;
     var existinglogo;
     var renderedBreweryName;
-    var renderedBreweryAddress;
+    // var renderedBreweryAddress;
     var renderedBreweryWebsite;
     var renderedBreweryPhone;
     var matchCheck;
@@ -80,12 +80,13 @@ $(document).ready(function () {
       if (AllBreweryObjects[i].breweryName!==null  &&  AllBreweryObjects[i].breweryWebsite!==null && AllBreweryObjects[i].breweryAddress[0]!==","){
 
         matchCheck=false;
+
         var cardDiv = $("<li>")
           .addClass("col-sm-12")
-          .attr("id", "cardNumber " + i);
+          .attr("id", "cardNumber" + i);
   
-        renderedBreweryName = $("<h2>")
-          .text(AllBreweryObjects[i].breweryName)
+        renderedBreweryName = $("<h4>")
+          .text(AllBreweryObjects[i].breweryName + AllBreweryObjects[i].breweryAddress)
           .attr("value", i)
           .addClass("card-body headerFont")
 
@@ -99,10 +100,10 @@ $(document).ready(function () {
           .addClass("card-body userBackground linkStyle")
           .html("<a href=" + AllBreweryObjects[i].breweryWebsite + " + target=_blank" + ">" + "Visit Site" + "</a>");
   
-        renderedBreweryAddress = $("<div style=font-size:125%;>")
-          .attr("id", "cardBack")
-          .addClass("card-body userBackground linkStyle")
-          .text(AllBreweryObjects[i].breweryAddress);
+        // renderedBreweryAddress = $("<a>")
+        //   // .attr("id", "cardBack")
+        //   .addClass("headerName")
+        //   .text(AllBreweryObjects[i].breweryAddress);
 
           directionName = AllBreweryObjects[i].breweryName.replace(/,/g, "%2C")
           directionName = directionName.replace(/ /g, "+")
@@ -137,11 +138,12 @@ $(document).ready(function () {
   
         cardDiv.append(
           renderedBreweryName,
-          renderedBreweryAddress,
           renderedBreweryPhone,
           renderedBreweryWebsite,
           directionsLink
         );
+
+        
   
   
               // TODO: There's a better way to do this using filter, I'm sure
@@ -161,7 +163,7 @@ $(document).ready(function () {
               AddReviewButton.attr("href", "/brewery/"+allOurBreweries[j].id)
               renderedBreweryName.html(
                 "<a href = /brewery/"+allOurBreweries[j].id+ " id=headerName style=color:black;>" +
-                  AllBreweryObjects[i].breweryName +
+                  AllBreweryObjects[i].breweryName + '\n' + AllBreweryObjects[i].breweryAddress +
                   "</a>")
 
                   // TODO: This is where we append the brewery logo to the card. Move this to a better spot
@@ -169,11 +171,8 @@ $(document).ready(function () {
                   existinglogo = $("<img>")
                   .addClass("logo")
                   .attr("src", allOurBreweries[j].logo)
-                  cardDiv.append(existinglogo)
-
+                  renderedBreweryName.prepend(existinglogo)
                   }
-
-  
             }
         }
   
