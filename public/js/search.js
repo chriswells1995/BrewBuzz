@@ -1,38 +1,38 @@
 $(document).ready(function () {
-
-
+  
+  
   // event listener that goes off when the search button is clicked. The input in the search bar is sent to the Open Brewery DB API. Then renderCards() is called
   $("#searchButton").on("click", function () {
     event.preventDefault();
     // TODO: One of these is also emptying the BrewBuzz logo, which we would like to stay
-     $("#brewery-title").empty();
-     $("#headerName").empty();
-
+    $("#brewery-title").empty();
+    $("#headerName").empty();
+    
     $("#addReviewDiv").empty();
-
+    
     $("#OpenBreweries").empty();
     var input = $("#searchInput").val();
     $("#searchInput").val("");
     var inputURL =
-      "https://api.openbrewerydb.org/breweries/search?query=" + input;
-
+    "https://api.openbrewerydb.org/breweries/search?query=" + input;
+    
     $.ajax({
       url: inputURL,
       method: "GET",
       crossDomain: true
     }).then(function (response) {
-     
+      
       var BreweryObject = {};
       var AllBreweryObjects = [];
       for (i = 0; i < response.length; i++) {
         BreweryObject = {
           breweryName: response[i].name,
           breweryAddress:
-            response[i].street +
-            ", " +
-            response[i].city +
-            ", " +
-            response[i].state,
+          response[i].street +
+          ", " +
+          response[i].city +
+          ", " +
+          response[i].state,
           breweryWebsite: response[i].website_url,
           breweryPhone: response[i].phone,
         };
@@ -41,8 +41,8 @@ $(document).ready(function () {
       renderCards(AllBreweryObjects);
     });
   });
-
-
+  
+  
   function renderCards(AllBreweryObjects) {
     $("#OpenBreweries").empty();
     var AddBreweryButton;
@@ -55,55 +55,50 @@ $(document).ready(function () {
     var directionsLink;
     var directions;
     var directionsName;
-                                // This makes the ajax call to OUR breweries API to GET all of out breweries.
-                                // TODO: This looks weird because I wanted to put this ajax call in a seperate function, 
-                                // but for some reason I struggled with passing the resonse out of it. 
-                                // Would still like to re-structure, so it's seperate from the rest right now.
-                                var settings = {
-                                  "url": "/api/breweries/",
-                                  "method": "GET",
-                                  "timeout": 0,
-                                  "headers": {
-                                    "Content-Type": "application/x-www-form-urlencoded"
-                                  }
-                                };
+    // This makes the ajax call to OUR breweries API to GET all of out breweries.
+    // TODO: This looks weird because I wanted to put this ajax call in a seperate function, 
+    // but for some reason I struggled with passing the resonse out of it. 
+    // Would still like to re-structure, so it's seperate from the rest right now.
+    var settings = {
+      "url": "/api/breweries/",
+      "method": "GET",
+      "timeout": 0,
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    };
+    
+    $.ajax(settings).then(function (response) {
       
-                              $.ajax(settings).then(function (response) {
-
-                                return response;
-                                // TODO: Again, I would like to restructure. The only way I could get this to work was putting the rest of the function in 
-                                // one big .then callback.
-                              }).then(function(allOurBreweries){
-
-    // This for loop will go through each brewery returned by the third party API, and render them to the page along with a button
-    for (i = 0; i < AllBreweryObjects.length; i++) {
-      if (AllBreweryObjects[i].breweryName!==null  &&  AllBreweryObjects[i].breweryWebsite!==null && AllBreweryObjects[i].breweryAddress[0]!==","){
-
-        matchCheck=false;
-
-        var cardDiv = $("<li>")
+      return response;
+      // TODO: Again, I would like to restructure. The only way I could get this to work was putting the rest of the function in 
+      // one big .then callback.
+    }).then(function(allOurBreweries){
+      
+      // This for loop will go through each brewery returned by the third party API, and render them to the page along with a button
+      for (i = 0; i < AllBreweryObjects.length; i++) {
+        if (AllBreweryObjects[i].breweryName!==null  &&  AllBreweryObjects[i].breweryWebsite!==null && AllBreweryObjects[i].breweryAddress[0]!==","){
+          
+          matchCheck=false;
+          
+          var cardDiv = $("<li>")
           .addClass("col-sm-12")
           .attr("id", "cardNumber" + i);
-  
-        renderedBreweryName = $("<h4>")
+          
+          renderedBreweryName = $("<h4>")
           .text(AllBreweryObjects[i].breweryName + AllBreweryObjects[i].breweryAddress)
           .attr("value", i)
           .addClass("card-body headerFont")
-
-        renderedBreweryPhone = $("<div style=font-size:125%;>")
+          
+          renderedBreweryPhone = $("<div style=font-size:125%;>")
           .addClass("card-body userBackground linkStyle")
-          .html("<a href=" + "tel:" + AllBreweryObjects[i].breweryPhone + ">" + "Give them a buzz" + "</a>")
+          .html("<a href=" + "tel:" + AllBreweryObjects[i].breweryPhone + ">" + "<img id=callButton src=" + `stylesheets/assets/Phone.png` + "/>" + "</a>")
           .attr("id", "phone");
 
         renderedBreweryWebsite = $("<div style=font-size:125%;>")
           .attr("id", "cardBack")
           .addClass("card-body userBackground linkStyle")
           .html("<a href=" + AllBreweryObjects[i].breweryWebsite + " + target=_blank" + ">" + "Visit Site" + "</a>");
-  
-        // renderedBreweryAddress = $("<a>")
-        //   // .attr("id", "cardBack")
-        //   .addClass("headerName")
-        //   .text(AllBreweryObjects[i].breweryAddress);
 
           directionName = AllBreweryObjects[i].breweryName.replace(/,/g, "%2C")
           directionName = directionName.replace(/ /g, "+")
@@ -122,7 +117,6 @@ $(document).ready(function () {
           .attr("value", i)
           .text("Write their first review!")
           .addClass("addBtn btn btn-dark")
-          // .attr("href", "brewery.html");
   
           // AddReviewButton = $("<button>")
           // // .attr("value", i)
