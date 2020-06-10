@@ -262,3 +262,7 @@ ul {
       width: 80%;
   }
 }
+
+#callButton {
+  max-width: 40px;
+}
