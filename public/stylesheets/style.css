@@ -33,7 +33,6 @@ li {
 }
 
 ul {
-  margin: 0;
   padding: 15px;
 }
 
@@ -186,15 +185,16 @@ ul {
 }
 
 .headerFont {
+  margin-left: 10%;
+  margin-right: 10%;
   font-family: impact, charcoal, sans-serif;
   font-size: 100%;
-  margin-bottom: -20px;
-  flex: inherit;
+  flex: 100%;
 }
 
 #headerName {
-  text-align: center;
-  font-size: 24px;
+  align-items: center;
+  font-size: 18px;
   flex: 25%;
 }
 
