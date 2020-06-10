@@ -8,16 +8,15 @@ form.login {
 }
 
 .logo {
-  font-size: 24px;
+  flex: 25%;
   max-width: 100%;
-  text-align: center;
-  border-radius: 5px;
-  padding: 5px;
-  align-items: stretch;
-  padding-right: 5px;
-  margin: 5px;
-  background-color: whitesmoke;
   border-color: black;
+  border-radius: 15px;
+  border-style: solid;
+  padding: 10px;
+  background-color: white;
+  margin-top: 10px !important;
+  box-shadow: 5px 5px 2px rgba(128, 128, 128, 0.507);
 }
 
 h4 {
@@ -68,14 +67,21 @@ ul {
   bottom: 3px;
 }
 
+#OpenBreweries {
+  justify-content: center;
+}
+
 .addBtn:hover {
   background-color:rgb(255, 196, 0); 
   color: black;
 }
 
 .reviewBtn {
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 15px;
+  margin-left: 40px;
+  margin-right: 40px;
+  flex: 25%;
 }
 
 .reviewBtn:hover {
@@ -183,18 +189,13 @@ ul {
   font-family: impact, charcoal, sans-serif;
   font-size: 100%;
   margin-bottom: -20px;
-  margin-left: 0px;
+  flex: inherit;
 }
 
 #headerName {
-  border: transparent;
-  font-size: 24px;
   text-align: center;
-  border-radius: 5px;
-  padding-left: 5px;
-  align-items: stretch;
-  padding-right: 5px;
-  margin-left: 5px;
+  font-size: 24px;
+  flex: 25%;
 }
 
 /* fix this garbage later */
@@ -275,6 +276,7 @@ ul {
 .redirectButton {
   justify-content: center;
   margin-top: 10px;
+  margin-bottom: 10px;
   max-width: 40px;
 }
 

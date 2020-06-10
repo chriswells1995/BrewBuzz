@@ -94,7 +94,7 @@ $(document).ready(function () {
 
             renderedBreweryPhone = $("<div>")
               .attr("id", "callButton")
-              .addClass("column text-center text-center")
+              .addClass("column")
               .html(
                 "<a href=" +
                   "tel:" +
@@ -108,7 +108,7 @@ $(document).ready(function () {
 
             renderedBreweryWebsite = $("<div>")
               .attr("id", "websiteButton")
-              .addClass("column text-center")
+              .addClass("column")
               .html(
                 "<a href=" +
                   AllBreweryObjects[i].breweryWebsite +
@@ -139,7 +139,7 @@ $(document).ready(function () {
 
             directionsLink = $("<div>")
               .attr("id", "directionLink")
-              .addClass("column text-center")
+              .addClass("column")
               .html(
                 "<a href=" +
                   directions +
@@ -152,7 +152,7 @@ $(document).ready(function () {
 
             shareLink = $("<div>")
               .attr("id", "shareLink")
-              .addClass("column text-center")
+              .addClass("column")
               .html(
                 "<a href=#" +
                   ">" +
@@ -214,7 +214,7 @@ $(document).ready(function () {
                 // TODO: This is where we append the brewery logo to the card. Move this to a better spot
                 if (allOurBreweries[j].logo) {
                   existinglogo = $("<img>")
-                    .addClass("logo")
+                    .addClass("logo column")
                     .attr("src", allOurBreweries[j].logo);
                   renderedBreweryName.before(existinglogo);
                 }
