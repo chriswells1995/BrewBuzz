@@ -8,12 +8,15 @@ form.login {
 }
 
 .logo {
-  width: 35%;
-  height: 35%;
-  object-fit: contain;
-  background-color: whitesmoke;
+  font-size: 24px;
+  max-width: 100%;
+  text-align: center;
   border-radius: 5px;
-  border-style: solid;
+  padding: 5px;
+  align-items: stretch;
+  padding-right: 5px;
+  margin: 5px;
+  background-color: whitesmoke;
   border-color: black;
 }
 
@@ -73,9 +76,6 @@ ul {
 .reviewBtn {
   margin-top: 10px;
   margin-bottom: 15px;
-  position: relative;
-  left: 20px;
-  bottom: 3px;
 }
 
 .reviewBtn:hover {
@@ -263,7 +263,19 @@ ul {
   }
 }
 
-#callButton {
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 25%;
+  margin: 0px;
+}
+
+.redirectButton {
+  justify-content: center;
   margin-top: 10px;
   max-width: 40px;
 }
+
+
