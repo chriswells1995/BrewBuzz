@@ -92,7 +92,7 @@ $(document).ready(function () {
           
           renderedBreweryPhone = $("<div style=font-size:125%;>")
           .addClass("card-body userBackground linkStyle")
-          .html("<a href=" + "tel:" + AllBreweryObjects[i].breweryPhone + ">" + "<img id=callButton src=" + `stylesheets/assets/Phone.png` + "/>" + "</a>")
+          .html("<a href=" + "tel:" + AllBreweryObjects[i].breweryPhone + ">" + "<img id=callButton src=" + `https://img.pngio.com/icono-simple-telefono-en-circulo-png-transparente-stickpng-icono-telefono-png-512_512.png` + ">" + "</a>")
           .attr("id", "phone");
 
         renderedBreweryWebsite = $("<div style=font-size:125%;>")
