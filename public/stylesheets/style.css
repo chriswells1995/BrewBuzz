@@ -264,5 +264,6 @@ ul {
 }
 
 #callButton {
+  margin-top: 10px;
   max-width: 40px;
 }
