@@ -8,7 +8,19 @@ form.login {
 }
 
 .logo {
-  max-width: 40px;
+  flex: 25%;
+  max-width: 100%;
+  border-color: black;
+  border-radius: 15px;
+  border-style: solid;
+  padding: 10px;
+  background-color: white;
+  margin-top: 10px !important;
+  box-shadow: 5px 5px 2px rgba(128, 128, 128, 0.507);
+}
+
+h4 {
+  display: flex;
 }
 
 .bannerlogo {
@@ -21,7 +33,6 @@ li {
 }
 
 ul {
-  margin: 0;
   padding: 15px;
 }
 
@@ -55,17 +66,21 @@ ul {
   bottom: 3px;
 }
 
+#OpenBreweries {
+  justify-content: center;
+}
+
 .addBtn:hover {
   background-color:rgb(255, 196, 0); 
   color: black;
 }
 
 .reviewBtn {
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 15px;
-  position: relative;
-  left: 20px;
-  bottom: 3px;
+  margin-left: 40px;
+  margin-right: 40px;
+  flex: 25%;
 }
 
 .reviewBtn:hover {
@@ -170,18 +185,17 @@ ul {
 }
 
 .headerFont {
+  margin-left: 10%;
+  margin-right: 10%;
   font-family: impact, charcoal, sans-serif;
-  font-size: 225%;
-  margin-bottom: -20px;
-  margin-left: 0px;
+  font-size: 100%;
+  flex: 100%;
 }
 
 #headerName {
-  border: transparent;
-  font-size: 36px;
-  border-radius: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
+  align-items: center;
+  font-size: 18px;
+  flex: 25%;
 }
 
 /* fix this garbage later */
@@ -249,3 +263,21 @@ ul {
       width: 80%;
   }
 }
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 25%;
+  margin: 0px;
+}
+
+.redirectButton {
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-width: 40px;
+}
+
+
