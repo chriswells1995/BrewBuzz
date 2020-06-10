@@ -98,7 +98,7 @@ $(document).ready(function () {
         renderedBreweryWebsite = $("<div style=font-size:125%;>")
           .attr("id", "cardBack")
           .addClass("card-body userBackground linkStyle")
-          .html("<a href=" + AllBreweryObjects[i].breweryWebsite + " + target=_blank" + ">" + "Visit Site" + "</a>");
+          .html("<a href=" + AllBreweryObjects[i].breweryWebsite + " + target=_blank" + ">" +  "<img id=callButton src=" + `https://image.flaticon.com/icons/svg/2301/2301129.svg` + ">" +  "</a>");
 
           directionName = AllBreweryObjects[i].breweryName.replace(/,/g, "%2C")
           directionName = directionName.replace(/ /g, "+")
@@ -111,8 +111,13 @@ $(document).ready(function () {
           directionsLink = $("<div style=font-size:125%;>")
           .attr("id", "cardBack")
           .addClass("card-body userBackground linkStyle")
-          .html("<a href=" + directions + ">" + "Directions" + "</a>");
+          .html("<a href=" + directions + ">" + "<img id=callButton src=" + `https://image.flaticon.com/icons/svg/2948/2948111.svg` + ">" + "</a>");
   
+        shareButton = $("<div>")
+          .attr("id", "cardBack")
+          .addClass("card-body userBackground linkStyle")
+          .html("<a href=#" + ">" + "<img id=callButton src=" + `https://image.flaticon.com/icons/svg/3039/3039401.svg` + ">" + "</a>")
+        
         AddBreweryButton = $("<button>")
           .attr("value", i)
           .text("Write their first review!")
@@ -134,7 +139,8 @@ $(document).ready(function () {
           renderedBreweryName,
           renderedBreweryPhone,
           renderedBreweryWebsite,
-          directionsLink
+          directionsLink,
+          shareButton
         );
 
         
