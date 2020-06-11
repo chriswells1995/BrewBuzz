@@ -61,11 +61,11 @@ ul {
 }
 
 .addBtn {
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 15px;
-  position: relative;
-  left: 20px;
-  bottom: 3px;
+  margin-left: 40px;
+  margin-right: 40px;
+  flex: 25%;
 }
 
 #OpenBreweries {
