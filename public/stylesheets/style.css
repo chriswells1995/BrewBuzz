@@ -292,4 +292,7 @@ ul {
   max-width: 40px;
 }
 
+.reviewText {
+  flex: 100%;
+}
 
