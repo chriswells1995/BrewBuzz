@@ -204,7 +204,7 @@ $(document).ready(function () {
                 renderedBreweryName.html(
                   "<a href = /brewery/" +
                     allOurBreweries[j].id +
-                    " class=row id=headerName style=color:black;>" +
+                    " class=row text-center id=headerName style=color:black;>" +
                     AllBreweryObjects[i].breweryName +
                     "<br>" +
                     AllBreweryObjects[i].breweryAddress +

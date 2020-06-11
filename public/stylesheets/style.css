@@ -190,14 +190,24 @@ ul {
   margin-left: 10%;
   margin-right: 10%;
   font-family: impact, charcoal, sans-serif;
-  font-size: 100%;
   flex: 100%;
 }
 
 #headerName {
-  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
   font-size: 18px;
   flex: 25%;
+}
+@media(min-width:768px){
+  #headerName{
+      margin-left: 10%;
+  }
+}
+@media(min-width:992px){
+  #headerName{
+      margin-left: 22%;
+  }
 }
 
 /* fix this garbage later */
