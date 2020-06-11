@@ -13,6 +13,7 @@ function displayCards() {
     for (let i = responseData.length - 1; i >= 0; i--) {
       BreweryObject = {
         breweryId: responseData[i].Brewery.id,
+        breweryLogo: responseData[i].Brewery.logo,
         breweryName: responseData[i].Brewery.name,
         breweryAddress: responseData[i].Brewery.streetAddress,
         breweryWebsite: responseData[i].Brewery.website,
@@ -31,15 +32,6 @@ function displayCards() {
 
   function renderCards(AllBreweryObjects) {
     $("#OpenBreweries").empty();
-    var AddBreweryButton;
-    var existinglogo;
-    var renderedBreweryName;
-    // var renderedBreweryAddress;
-    var renderedBreweryWebsite;
-    var renderedBreweryPhone;
-    var directionsLink;
-    var directions;
-    var directionsName;
     // This makes the ajax call to OUR breweries API to GET all of out breweries.
     var settings = {
       url: "/api/breweries/",
@@ -57,16 +49,20 @@ function displayCards() {
           .addClass("col-sm-12 row")
           .attr("id", "cardNumber" + i);
 
-        renderedBreweryName = $("<h4>")
-          .text(
-            AllBreweryObjects[i].breweryName +
-              AllBreweryObjects[i].breweryAddress
-          )
-          .attr("value", i)
-          .addClass("card-body headerFont");
+          renderedBreweryName = $("<h4>")
+            .html(
+            "<a href = /brewery/" +
+              AllBreweryObjects[i].breweryId +
+              " class=row text-center id=headerName style=color:black;>" +
+              AllBreweryObjects[i].breweryName +
+              "<br>" +
+              AllBreweryObjects[i].breweryAddress +
+              "</a>"
+          );
 
         renderedReview = $("<p>")
           .text(
+            AllBreweryObjects[i].username + " said: " +
             AllBreweryObjects[i].review
           )
           .attr("id", "userReview" + i)
@@ -136,11 +132,12 @@ function displayCards() {
 
         cardDiv.append(
           renderedBreweryName,
-          renderedReview,
           renderedBreweryPhone,
           renderedBreweryWebsite,
           directionsLink,
-          shareLink
+          // TODO: research how to get this up and running
+          shareLink,
+          renderedReview
         );
 
         $("#OpenBreweries").append(cardDiv);
