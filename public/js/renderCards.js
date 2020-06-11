@@ -134,17 +134,6 @@ function displayCards() {
               "</a>"
           );
 
-        AddBreweryButton = $("<button>")
-          .attr("value", i)
-          .text("Write their first review!")
-          .addClass("addBtn btn btn-dark");
-
-        AddReviewButton = $("<a>")
-          .attr("value", i)
-          .text("Write a review!")
-          .addClass("reviewBtn btn btn-dark");
-        // .attr("href", "brewery.html");
-
         cardDiv.append(
           renderedBreweryName,
           renderedReview,
