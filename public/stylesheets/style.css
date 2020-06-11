@@ -30,9 +30,11 @@ h4 {
 
 li {
   list-style-type: none;
+  margin-left: 30px;
 }
 
 ul {
+  /* margin-left: 20px !important; */
   padding: 15px;
 }
 
@@ -59,11 +61,11 @@ ul {
 }
 
 .addBtn {
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 15px;
-  position: relative;
-  left: 20px;
-  bottom: 3px;
+  margin-left: 40px;
+  margin-right: 40px;
+  flex: 25%;
 }
 
 #OpenBreweries {
@@ -188,14 +190,24 @@ ul {
   margin-left: 10%;
   margin-right: 10%;
   font-family: impact, charcoal, sans-serif;
-  font-size: 100%;
   flex: 100%;
 }
 
 #headerName {
-  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
   font-size: 18px;
   flex: 25%;
+}
+@media(min-width:768px){
+  #headerName{
+      margin-left: 10%;
+  }
+}
+@media(min-width:992px){
+  #headerName{
+      margin-left: 22%;
+  }
 }
 
 /* fix this garbage later */
@@ -280,4 +292,7 @@ ul {
   max-width: 40px;
 }
 
+.reviewText {
+  flex: 100%;
+}
 
