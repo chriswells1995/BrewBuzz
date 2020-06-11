@@ -30,9 +30,11 @@ h4 {
 
 li {
   list-style-type: none;
+  margin-left: 30px;
 }
 
 ul {
+  /* margin-left: 20px !important; */
   padding: 15px;
 }
 
