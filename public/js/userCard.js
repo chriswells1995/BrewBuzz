@@ -23,7 +23,7 @@ function displayUserCards() {
 
   function userCardsHeader (email) {
     var cardDiv = $("<li>")
-    .addClass("col-sm-12")
+    .addClass("col-sm-12 column")
     .attr("id", "review");
 
     // TODO: make more general
