@@ -50,6 +50,7 @@ function displayCards() {
           .attr("id", "cardNumber" + i);
 
           renderedBreweryName = $("<h4>")
+            .addClass("column")
             .html(
             "<a href = /brewery/" +
               AllBreweryObjects[i].breweryId +
