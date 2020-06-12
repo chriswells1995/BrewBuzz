@@ -31,7 +31,7 @@ function cardNoRating() {
 // this function takes in the review properties and renders a review to the page
 function buildCard(review_id, brewery, email, review, userID, username, rating) {
   var cardDiv = $("<li>")
-    .addClass("col-sm-12")
+    .addClass("col-sm-12 column")
     .attr("id", "review" + review_id);
 
   var cardUser = $("<div style=font-size:125%;>")
