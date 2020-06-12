@@ -49,6 +49,10 @@ function displayCards() {
           .addClass("col-sm-12 row")
           .attr("id", "cardNumber" + i);
 
+          renderedLogo = $("<img>")
+          .addClass("logo column")
+          .attr("src", AllBreweryObjects[i].breweryLogo);
+
           renderedBreweryName = $("<h4>")
             .addClass("column")
             .html(
@@ -132,6 +136,7 @@ function displayCards() {
           );
 
         cardDiv.append(
+          renderedLogo,
           renderedBreweryName,
           renderedBreweryPhone,
           renderedBreweryWebsite,
