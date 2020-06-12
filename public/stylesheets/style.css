@@ -20,10 +20,12 @@ form.login {
 }
 
 h4.column {
-  margin-left: 10%;
-  margin-right: 10%;
-  display: flex;
   flex: 100%;
+}
+
+a.row {
+  justify-content: center;
+  flex:100%
 }
 
 .bannerlogo {
