@@ -4,6 +4,7 @@ $(document).ready(function() {
   var emailInput = $("input#email-input");
   var usernameInput = $("input#username-input");
   var passwordInput = $("input#password-input");
+  var ageTOSInput = $("input#ageTOS-input");
   // var dateInput = $("input#date-input");
   // var currentDate = Date.now();
   // var yearsago = (currentDate -662256000000 )
@@ -19,12 +20,12 @@ $(document).ready(function() {
       password: passwordInput.val().trim(),
       //birthDate: dateInput.val()
     };
-   
+    console.log("age val", )
     //if birthdate is less than 662256000000 ms, don't allow account
-    // userData.birthDate = new Date(userData.birthDate).getTime();
-    // if (!userData.email || !userData.username || !userData.password ) {
-    //   return;
-    // }
+    //userData.birthDate = new Date(userData.birthDate).getTime();
+    if (!userData.email || !userData.username || !userData.password || !ageTOSInput[0].checked) {
+      return;
+    }
     // else if((currentDate - userData.birthDate) < 662695446000){
     //   return;
     // }
