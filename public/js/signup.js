@@ -20,7 +20,6 @@ $(document).ready(function() {
       password: passwordInput.val().trim(),
       //birthDate: dateInput.val()
     };
-    console.log("age val", )
     //if birthdate is less than 662256000000 ms, don't allow account
     //userData.birthDate = new Date(userData.birthDate).getTime();
     if (!userData.email || !userData.username || !userData.password || !ageTOSInput[0].checked) {
@@ -30,8 +29,7 @@ $(document).ready(function() {
     //   return;
     // }
 
-    //else if(){}
-    // If we have an email and password, run the signUpUser function
+    // If we have an email, username, password, and verification run the signUpUser function
     signUpUser(userData.email, userData.username, userData.password);
     emailInput.val("");
     usernameInput.val("");
