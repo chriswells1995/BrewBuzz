@@ -227,6 +227,8 @@ ul {
   font-size: 225%;
   margin-bottom: 20px;
   padding: 30px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 #addReviewDiv {
@@ -301,3 +303,15 @@ ul {
   flex: 100%;
 }
 
+#mainUl {
+  margin-left: 0px; 
+}
+
+#userEmail {
+  margin-left: 0px;
+}
+
+li.openBreweriesCenter {
+  margin-left: 0px;
+  margin-right: 0px;
+}
