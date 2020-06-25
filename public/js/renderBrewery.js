@@ -56,12 +56,45 @@ function buildCard(review_id, brewery, email, review, userID, username, rating) 
   .addClass("card-body headerFont")
   .text(ratingText); // this will display the review
 
+  // var newStars = $("<form>")
+  // .html(
+  //   "<fieldset class=starability-basic>"+
+  //   "<legend>Basic star rating:</legend>"+
+  //   "<input type=radio id=no-rate class=input-no-rate name=rating value=0 checked aria-label=No rating. />"+
+
+  //   "<input type=radio id=rate1 name=rating value=1 />"+
+  //   "<label for=rate1>1 star.</label>"+
+
+  //   "<input type=radio id=rate2 name=rating value=2 />"+
+  //   "<label for=rate2>2 stars.</label>"+
+
+  //   "<input type=radio id=rate3 name=rating value=3 />"+
+  //   "<label for=rate3>3 stars.</label>"+
+
+  //   "<input type=radio id=rate4 name=rating value=4 />"+
+  //   "<label for=rate4>4 stars.</label>"+
+
+  //   "<input type=radio id=rate5 name=rating value=5 />"+
+  //   "<label for=rate5>5 stars.</label>"+
+
+  //   "<span class=starability-focus-ring></span>"+
+  // "</fieldset>"
+  
+  // );
+
+  var oldStars = $("<p>")
+  .addClass("starability-result")
+  .attr("data-rating", rating.split(".")[0])
+
+ 
+
+
   var profile = $("<a>")
     .attr("href", "/user/" + userID)
     .addClass("emailLinks")
     .text("See all of " + username + "'s reviews");
 
-  cardDiv.append(cardUser, cardReview, cardRating, profile);
+  cardDiv.append(cardUser, cardReview, cardRating, oldStars, profile);
 
   // $("#brewery-title").empty();
 
@@ -75,8 +108,33 @@ $("#reviewButton").on("click", function () {
   var reviewInput = $("#reviewInput").val();
   var ratingInput = $("#ratingInput").val();
   // var roundedRatingInput = Math.ceil(reviewInput)
+  var starInput;
+  console.log(document.getElementById("rate1").checked)
+  console.log(document.getElementById("rate2").checked)
+  console.log(document.getElementById("rate3").checked)
+  console.log(document.getElementById("rate4").checked)
+  console.log(document.getElementById("rate5").checked)
 
-  if (!ratingInput || ratingInput<1 || ratingInput >5 ){
+  if (document.getElementById("rate1").checked ){
+    starInput=1;
+  }
+  else if ( document.getElementById("rate2").checked){
+    starInput=2;
+  }
+  else if ( document.getElementById("rate3").checked){
+    starInput=3;
+  }
+  else if ( document.getElementById("rate4").checked){
+    starInput=4;
+  }
+  else if ( document.getElementById("rate5").checked){
+    starInput=5;
+  }
+  else {
+    starInput=null;
+  }
+
+  if (!starInput){
     event.preventDefault();
     alert("You need to enter a rating between 1 and 5")
 
@@ -116,7 +174,7 @@ $("#reviewButton").on("click", function () {
           review: reviewInput,
           UserId: currentUserId,
           BreweryId: thisBreweryId,
-          rating: ratingInput
+          rating: starInput
         },
       };
 
