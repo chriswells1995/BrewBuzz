@@ -70,6 +70,12 @@ db.Brewery.update( {logo: req.body.logo }, {where: { id: req.body.id } })
 })
 });
 
+router.put("/api/breweries/rating", function(req, res){
+  db.Brewery.update( {totalRating: req.body.totalRating}, {where: { id: req.body.id } })
+  .then(updatedBrewery => {
+    res.json(updatedBrewery)
+  })
+  });
 // const newData = {
 //   name: 'Maxy-boi-boi'
 // };
