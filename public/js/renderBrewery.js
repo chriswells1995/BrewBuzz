@@ -20,7 +20,7 @@ function cardRating(rating) {
 
     var avgStars = $("<p>")
   .addClass("starability-result")
-  .attr("data-rating", parseInt(rating) )
+  .attr("data-rating", Math.round(rating*2)/2 )
   
 
   $("#brewery-rating").append(breweryRating);
