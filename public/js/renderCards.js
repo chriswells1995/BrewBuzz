@@ -17,7 +17,7 @@ function displayCards() {
         breweryName: responseData[i].Brewery.name,
         breweryAddress: responseData[i].Brewery.streetAddress,
         breweryWebsite: responseData[i].Brewery.website,
-        // breweryPhone: responseData[i].
+        breweryPhone: responseData[i].Brewery.phoneNumber,
         username: responseData[i].User.username,
         review_id: responseData[i].id,
         review: responseData[i].review,
