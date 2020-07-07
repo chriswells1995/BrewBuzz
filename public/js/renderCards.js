@@ -82,7 +82,7 @@ function displayCards() {
               AllBreweryObjects[i].breweryPhone +
               ">" +
               "<img class=redirectButton src=" +
-              `https://img.pngio.com/icono-simple-telefono-en-circulo-png-transparente-stickpng-icono-telefono-png-512_512.png` +
+              `stylesheets/assets/Phone.png` +
               ">" +
               "</a>"
           );
@@ -96,7 +96,7 @@ function displayCards() {
               " + target=_blank" +
               ">" +
               "<img class=redirectButton src=" +
-              `https://image.flaticon.com/icons/svg/2301/2301129.svg` +
+              `stylesheets/assets/webicon.png` +
               ">" +
               "</a>"
           );
@@ -118,7 +118,7 @@ function displayCards() {
               directions +
               ">" +
               "<img class=redirectButton src=" +
-              `https://image.flaticon.com/icons/svg/2948/2948111.svg` +
+              `stylesheets/assets/directionicon.png` +
               ">" +
               "</a>"
           );
@@ -130,7 +130,7 @@ function displayCards() {
             "<a href=#" +
               ">" +
               "<img class=redirectButton src=" +
-              `https://image.flaticon.com/icons/svg/3039/3039401.svg` +
+              `stylesheets/assets/shareicon.png` +
               ">" +
               "</a>"
           );
