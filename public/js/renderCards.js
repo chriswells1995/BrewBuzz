@@ -53,12 +53,20 @@ function displayCards() {
           .addClass("logo column")
           .attr("src", AllBreweryObjects[i].breweryLogo);
 
+          // TODO: Make the image clickable with link to specific brewery.html page
+          // code to do that below, need to figure out how to link to dynamic element
+          // .html(
+          //   "<a href = /brewery/" +
+          //     AllBreweryObjects[i].breweryId +
+          //   ">" +
+          //   "</a>");
+
           renderedBreweryName = $("<h4>")
             .addClass("column")
             .html(
             "<a href = /brewery/" +
               AllBreweryObjects[i].breweryId +
-              " class=row text-center id=headerName style=color:black;>" +
+              " class=row text-center id=headerName style=font-size:100%;>" +
               AllBreweryObjects[i].breweryName +
               "<br>" +
               AllBreweryObjects[i].breweryAddress +

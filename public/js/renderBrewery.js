@@ -4,27 +4,20 @@ var thisBreweryId = path.split("/")[2];
 
 // This function takes in a brewery name and renders it to the page
 function cardHeader(brewery) {
-  var cardBrewery = $("<h4>")
+  var cardBrewery = $("<div>")
     .addClass("card-body text-center headerBrewery")
-    .html("<h1 id=headerName style=color:black;>" + brewery + "</h1>");
-  $("#brewery-title").empty();
+    .html("<p id=headerName style=color:black;>" + brewery + "</p>");
 
-  $("#brewery-title").append(cardBrewery);
+  $("#brewery-title").prepend(cardBrewery);
 }
 
 function cardRating(rating) {
-  // TODO: Probably either delete or restructure var breweryRating
-  var breweryRating = $("<ul>")
-    .addClass("card-body text-center breweryRating")
-    .html("<li id=headerName style=color:black;>" + "Average Star Rating: " + rating + "</li>");
 
-    var avgStars = $("<p>")
+  var avgStars = $("<object>")
   .addClass("starability-result")
   .attr("data-rating", Math.round(rating*2)/2 )
   
-
-  $("#brewery-rating").append(breweryRating);
-  $("#brewery-rating").append(avgStars);
+  $("#brewery-rating").prepend(avgStars);
 
 }
 
@@ -123,10 +116,6 @@ $("#reviewButton").on("click", function () {
     return;
   }
 
-
-  $("#reviewInput").empty();
-  // $("#ratingInput").empty();
-
   // make ajax get for user ID
 
   var userSettings = {
@@ -163,6 +152,11 @@ $("#reviewButton").on("click", function () {
       $.ajax(postSettings).then(function (response) {
         console.log(response);
 
+        $("#brewery-title").empty();
+        $("#brewery-rating").empty();
+        $("#brewery-logo").empty();
+        $("#addReviewDiv").empty();
+        $("#reviewButton").hide();
         $("#OpenBreweries").empty();
         // renderTheseReviews is re-ran to now include the newest review on the page
         renderTheseReviews();
@@ -207,9 +201,9 @@ function renderTheseReviews() {
       var logoImage = $("<img>")
         .attr("src", breweryLogo)
         .attr("id", "breweryLogo");
-      $(".headerBrewery").append(logoImage);
+      $("#brewery-logo").append(logoImage);
     } else {
-      console.log("logo did not already exist in databse")
+      console.log("logo did not already exist in database")
       var q = breweryName.replace(/ /g, "+");
       q = q.replace(/&/g, "+");
       q = q.replace(/-/g, "+");
@@ -252,7 +246,7 @@ function renderTheseReviews() {
         var logoImage = $("<img>")
           .attr("src", logoSRC)
           .attr("id", "breweryLogo");
-        $(".headerBrewery").append(logoImage);
+        $("#brewery-logo").append(logoImage);
 
         //  Update brewery in DB by adding logoSRC with a PUT route
         return logoSRC;
