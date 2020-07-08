@@ -5,9 +5,10 @@ $(document).ready(function () {
     // TODO: One of these is also emptying the BrewBuzz logo, which we would like to stay
     $("#brewery-title").empty();
     $("#headerName").empty();
-
+    $("#brewery-rating").empty();
+    $("#brewery-logo").empty();
     $("#addReviewDiv").empty();
-
+    $("#reviewButton").hide();
     $("#OpenBreweries").empty();
     var input = $("#searchInput").val();
     $("#searchInput").val("");
