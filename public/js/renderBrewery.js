@@ -35,43 +35,28 @@ function buildCard(review_id, brewery, email, review, userID, username, rating) 
     .addClass("col-sm-12 column")
     .attr("id", "review" + review_id);
 
-  var cardUser = $("<div style=font-size:125%;>")
-    .attr("id", "cardBack")
-    .addClass("card-body headerFont");
-
   var cardReview = $("<div style=font-size:125%;>")
     .attr("id", "cardBack")
-    .addClass("card-body userBackground")
+    .addClass("card-body centeredBrewery userBackground")
     // .html("<a href = /user/"+ user_id+"></a>")
     .text(username + " said: " + review); // this will display the review
-
-    var ratingText;
-    if (rating == "0.0"){
-      ratingText = "No rating given"
-  }
-  else{
-    ratingText = rating + " stars out of 5"
-  }
-    var cardRating = $("<div style=font-size:125%;>")
-  .attr("id", "cardBack")
-  .addClass("card-body headerFont")
-  .text(ratingText); // this will display the review
 
   // This uses the stars CSS to create a <p> element which is actually the star image
   // It uses the rating value, which needs the ".0" removed to work
   var oldStars = $("<p>")
-  .addClass("starability-result")
+  .addClass("starability-result centeredBrewery")
   .attr("data-rating", rating.split(".")[0])
+  .attr("id", "starBackground")
 
  
 
 
   var profile = $("<a>")
     .attr("href", "/user/" + userID)
-    .addClass("emailLinks")
+    .addClass("emailLinks centeredBrewery")
     .text("See all of " + username + "'s reviews");
 
-  cardDiv.append(cardUser, cardReview, cardRating, oldStars, profile);
+  cardDiv.append(cardReview, oldStars, profile);
 
   // $("#brewery-title").empty();
 
