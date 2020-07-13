@@ -13,7 +13,7 @@ function cardHeader(brewery) {
 
 function cardRating(rating) {
 
-  var avgStars = $("<object>")
+  var avgStars = $("<p>")
   .addClass("starability-result")
   .attr("data-rating", Math.round(rating*2)/2 )
   
