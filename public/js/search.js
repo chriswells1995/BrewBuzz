@@ -242,8 +242,8 @@ $(document).ready(function () {
   function assignClick(AllBreweryObjects) {
     $(".addBtn").on("click", function (event) {
       event.preventDefault();
-      console.log("event");
-      console.log(event.target.value);
+      console.log("eventTarget")
+      console.log(event.target.value)
       var settings = {
         url: "/api/brewery",
         method: "POST",
@@ -254,6 +254,7 @@ $(document).ready(function () {
         data: {
           name: AllBreweryObjects[event.target.value].breweryName,
           website: AllBreweryObjects[event.target.value].breweryWebsite,
+          phoneNumber: AllBreweryObjects[event.target.value].breweryPhone,
           streetAddress: AllBreweryObjects[event.target.value].breweryAddress,
         },
       };

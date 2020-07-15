@@ -39,7 +39,8 @@ router.post("/api/brewery", function(req, res) {
     // adding req.body(response) to name, website, streetAddress
     name: req.body.name,
     website: req.body.website,
-    streetAddress: req.body.streetAddress
+    streetAddress: req.body.streetAddress,
+    phoneNumber: req.body.phoneNumber
   }).then(() => res.json(true))
     .catch((err) => res.status(500).json(err))
 });
