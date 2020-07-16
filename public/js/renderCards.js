@@ -33,6 +33,8 @@ function displayCards() {
   function renderCards(AllBreweryObjects) {
     $("#OpenBreweries").empty();
     // This makes the ajax call to OUR breweries API to GET all of out breweries.
+
+    // TODO: check if we need lines 38 through 47, delete if not needed.
     var settings = {
       url: "/api/breweries/",
       method: "GET",
@@ -48,6 +50,13 @@ function displayCards() {
         var cardDiv = $("<li>")
           .addClass("col-sm-12 row")
           .attr("id", "cardNumber" + i);
+
+          var avgStars = $("<p>")
+          .addClass("starability-result")
+          .attr("data-rating", Math.round(parseInt(AllBreweryObjects[i].rating)*2)/2 )
+
+          console.log("Is this a number?")
+          console.log(AllBreweryObjects[i].rating)
 
           renderedLogo = $("<img>")
           .addClass("logo column")
@@ -145,6 +154,7 @@ function displayCards() {
 
         cardDiv.append(
           renderedLogo,
+          avgStars,
           renderedBreweryName,
           renderedBreweryPhone,
           renderedBreweryWebsite,
