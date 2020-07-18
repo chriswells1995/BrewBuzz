@@ -74,6 +74,13 @@ ul {
 
 #OpenBreweries {
   justify-content: center;
+} @media(min-width:768px){
+  #OpenBreweries {
+    /* justify-content: center; */
+    max-width: 60%;
+    margin-left: 21%;
+    margin-right: 0px;
+  }
 }
 
 .addBtn:hover {
