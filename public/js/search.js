@@ -219,6 +219,14 @@ $(document).ready(function () {
                     .attr("src", allOurBreweries[j].logo);
                   renderedBreweryName.before(existinglogo);
                 }
+                if (allOurBreweries[j].totalRating){
+                  var avgStars = $("<p>")
+                  .addClass("starability-result")
+                  .attr("data-rating", Math.round(parseInt(allOurBreweries[j].totalRating)*2)/2 );
+                  renderedBreweryName.prepend(avgStars);
+                }
+                console.log("jallbrewery")
+                console.log(allOurBreweries[j].totalRating)
               }
             }
 
