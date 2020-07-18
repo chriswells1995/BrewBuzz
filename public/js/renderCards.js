@@ -55,9 +55,6 @@ function displayCards() {
           .addClass("starability-result")
           .attr("data-rating", Math.round(parseInt(AllBreweryObjects[i].rating)*2)/2 )
 
-          console.log("Is this a number?")
-          console.log(AllBreweryObjects[i].rating)
-
           renderedLogo = $("<img>")
           .addClass("logo column")
           .attr("src", AllBreweryObjects[i].breweryLogo);
@@ -71,7 +68,7 @@ function displayCards() {
           //   "</a>");
 
           renderedBreweryName = $("<h4>")
-            .addClass("column")
+            .addClass("column centeredBreweryName")
             .html(
             "<a href = /brewery/" +
               AllBreweryObjects[i].breweryId +
