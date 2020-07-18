@@ -11,9 +11,8 @@
       crossorigin="anonymous"
     />
     <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link href="/stylesheets/stars.css" rel="stylesheet" />
   </head>
-
-  <!-- Bees are neat. -->
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navBackgroundClear">
@@ -39,7 +38,7 @@
             <ul id="login-dp" class="dropdown-menu">
               <li>
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-12 column">
                     <form class="form" id="login-nav">
                         <div class="form-group" id="login"> 
                           <label class="sr-only" for="exampleInputEmail2">Email address</label>
@@ -73,53 +72,70 @@
       </div>
     </nav>
 
-<!-- I did some hacking and chopping here, it is NOT organized correctly now. I will correct this after presentation, but it gets the job done for now. -->
-
+    <!-- beginning of code refactoring -->
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <ul class="text-center">
-            <li id ="brewery-title"></li>
-            <li>
-            <li id ="brewery-rating"></li>
-            <li>
-              <div id="addReviewDiv" class="container">
-                <div class="row">
-                  <div class="col-md-12">
-          
-          
-                    <form class="form-inline my-2 my-lg-0">
-                      <!-- input now has ID reviewInput -->
-                      <input
-                        id="reviewInput"
-                        class="form-control mr-sm-2"
-                        placeholder="Add a New Review!"
-          
-                      />
-                      <input
-                        id="ratingInput"
-                        class="form-control mr-sm-2"
-                        placeholder="Enter a rating! (1 - 5)"
-          
-                      />                      
-                      <!-- The  button now has ID reviewButton -->
-                      <button
-                        id="reviewButton"
-                        class="btn btn-warning my-2 my-sm-0"
-                        type="submit"
-                      >
-                        Add
-                      </button>
-          
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li id="OpenBreweries"></li>
-          </ul>
-        </div>
+      <div class="row centeredBrewery" id="brewery-title">
+        <!-- put the Brewery Title in this div -->
+      </div>
+      <div>
+        <p class="text-center">Buzz Rated</p>
+      </div>
+      <div class="row centeredBrewery" id="brewery-rating">
+        <!-- insert brewery average rating here -->
+      </div>
+      <div class="row centeredBrewery" id="brewery-logo">
+        <!-- insert brewery logo here -->
+      </div>
+      <!-- Add Review Section -->
+        <form class="row centeredBrewery" id="addReviewDiv">
+          <!-- input now has ID reviewInput -->
+          <input
+            id="reviewInput"
+            class="row centeredBrewery"
+            placeholder="Add a New Review!"
+          />
+          <!-- add stars -->
+          <form>
+            <!-- Change starability-basic to different class to see animations. -->
+            <fieldset class="row centeredBrewery starability-basic">
+              <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+        
+              <input type="radio" id="rate1" name="rating" value="1" />
+              <label for="rate1">1 star.</label>
+        
+              <input type="radio" id="rate2" name="rating" value="2" />
+              <label for="rate2">2 stars.</label>
+        
+              <input type="radio" id="rate3" name="rating" value="3" />
+              <label for="rate3">3 stars.</label>
+        
+              <input type="radio" id="rate4" name="rating" value="4" />
+              <label for="rate4">4 stars.</label>
+        
+              <input type="radio" id="rate5" name="rating" value="5" />
+              <label for="rate5">5 stars.</label>
+        
+              <span class="row centeredBrewery starability-focus-ring"></span>
+            </fieldset>
+          </form>
+
+          <!-- The  button now has ID reviewButton -->
+          <div class="row centeredBrewery">
+            <button
+              id="reviewButton"
+              class="btn btn-warning my-2 my-sm-0"
+              type="submit"
+            >
+              Add
+            </button>
+          </div>
+      <div class="row centeredBrewery">
+        <ul class="ulMargin" id="OpenBreweries">
+          <!-- put the LI elements here (brewery cards) -->
+        </ul>
       </div>
     </div>
+    <!-- end of code refactoring -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 

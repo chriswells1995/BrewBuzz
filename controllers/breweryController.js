@@ -39,7 +39,8 @@ router.post("/api/brewery", function(req, res) {
     // adding req.body(response) to name, website, streetAddress
     name: req.body.name,
     website: req.body.website,
-    streetAddress: req.body.streetAddress
+    streetAddress: req.body.streetAddress,
+    phoneNumber: req.body.phoneNumber
   }).then(() => res.json(true))
     .catch((err) => res.status(500).json(err))
 });
@@ -70,6 +71,12 @@ db.Brewery.update( {logo: req.body.logo }, {where: { id: req.body.id } })
 })
 });
 
+router.put("/api/breweries/rating", function(req, res){
+  db.Brewery.update( {totalRating: req.body.totalRating}, {where: { id: req.body.id } })
+  .then(updatedBrewery => {
+    res.json(updatedBrewery)
+  })
+  });
 // const newData = {
 //   name: 'Maxy-boi-boi'
 // };

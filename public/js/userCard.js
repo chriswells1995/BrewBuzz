@@ -23,7 +23,7 @@ function displayUserCards() {
 
   function userCardsHeader (email) {
     var cardDiv = $("<li>")
-    .addClass("col-sm-12")
+    .addClass("col-sm-12 column")
     .attr("id", "review");
 
     // TODO: make more general
@@ -33,10 +33,14 @@ function displayUserCards() {
     .addClass("text-center");
   }
 
-  function userCards(breweryId, brewery, review, reviewId) {
+  function userCards(breweryId, brewery, review, reviewId, breweryWebsite, breweryRating, breweryLogo) {
     var cardDiv = $("<h4>")
     .addClass("col-sm-12")
     .attr("id", reviewId);
+
+    var existingLogo = $("<img>")
+      .addClass("logo column")
+      .attr("src", breweryLogo);
 
     var cardBrewery = $("<h5>")
       .addClass("card-body headerFont")
@@ -56,7 +60,7 @@ function displayUserCards() {
       .text("Delete")
       .addClass("reviewBtn deleteBtn btn btn-dark")
 
-    cardDiv.append(cardBrewery, cardReview, deleteBtn);
+    cardDiv.append(existingLogo, cardBrewery, cardReview, deleteBtn);
 
     // $("#user-title").append(cardBrewery) -- will add in a welcome whoever part here
 
@@ -87,7 +91,7 @@ function displayUserCards() {
         console.log("ajax response")
         console.log(response)
         for (i=response.length-1; i<response.length; i--){
-              userCards(response[i].Brewery.id, response[i].Brewery.name, response[i].review, response[i].id)
+              userCards(response[i].Brewery.id, response[i].Brewery.name, response[i].review, response[i].id, response[i].Brewery.website, response[i].Brewery.totalRating, response[i].Brewery.logo)
         }    
       });
   }

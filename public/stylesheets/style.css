@@ -19,8 +19,13 @@ form.login {
   box-shadow: 5px 5px 2px rgba(128, 128, 128, 0.507);
 }
 
-h4 {
-  display: flex;
+h4.column {
+  flex: 100%;
+}
+
+a.row {
+  justify-content: center;
+  flex:100%
 }
 
 .bannerlogo {
@@ -30,6 +35,7 @@ h4 {
 
 li {
   list-style-type: none;
+  margin-left: 30px;
 }
 
 ul {
@@ -59,11 +65,11 @@ ul {
 }
 
 .addBtn {
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 15px;
-  position: relative;
-  left: 20px;
-  bottom: 3px;
+  margin-left: 40px;
+  margin-right: 40px;
+  flex: 25%;
 }
 
 #OpenBreweries {
@@ -73,6 +79,12 @@ ul {
 .addBtn:hover {
   background-color:rgb(255, 196, 0); 
   color: black;
+}
+
+input#reviewInput {
+  width: 100%;
+  margin-left: 60px;
+  margin-right: 60px;
 }
 
 .reviewBtn {
@@ -88,16 +100,8 @@ ul {
   color: black;
 }
 
-#reviewInput {
-  width: 100%;
-  margin-left: 40px;
-  margin-bottom: 10px;
-}
-
 #reviewButton {
-  text-align: center;
-  margin: auto;
-  margin-left: 40px;
+  margin-top: -30px !important;
 }
 
 #reviewButton:hover {
@@ -188,20 +192,53 @@ ul {
   margin-left: 10%;
   margin-right: 10%;
   font-family: impact, charcoal, sans-serif;
-  font-size: 100%;
   flex: 100%;
 }
 
 #headerName {
-  align-items: center;
-  font-size: 18px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 30px;
   flex: 25%;
+}
+@media(min-width:768px){
+  #headerName{
+      margin-left: 10%;
+  }
+}
+@media(min-width:992px){
+  #headerName{
+      margin-left: 22%;
+  }
 }
 
 /* fix this garbage later */
 #headerName:hover {
   text-decoration: none;
-  color: rgb(255, 208, 0);
+  color: whitesmoke;
+}
+
+.centeredBrewery {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* thing */
+div.centeredBrewery {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* thing */
+input.div.centeredBrewery {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #review {
@@ -209,24 +246,26 @@ ul {
   font-size: 225%;
   margin-bottom: 20px;
   padding: 30px;
-}
-
-#addReviewDiv {
-  margin-top: 15px;
-  margin-left: -15px;
-  margin-bottom: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .headerBrewery {
-  margin-left: -75px;
-  margin-bottom: -25px;
+  margin-bottom: -50px;
   font-size: 36px;
   font-family: impact, charcoal, sans-serif;
 }
 
+a#headerName {
+  color: black;
+}
+
 #brewery-title {
-  text-align: center;
-  margin-left: 80px;
+  margin-bottom: 25px;
+}
+
+#brewery-rating {
+  margin-top: -20px;
 }
 
 .emailLinks {
@@ -270,7 +309,6 @@ ul {
 
 .column {
   flex: 25%;
-  margin: 0px;
 }
 
 .redirectButton {
@@ -278,6 +316,32 @@ ul {
   margin-top: 10px;
   margin-bottom: 10px;
   max-width: 40px;
+  max-height: 40px;
 }
 
+.reviewText {
+  flex: 100%;
+}
 
+#mainUl {
+  margin-left: 0px; 
+}
+
+#userEmail {
+  margin-left: 0px;
+}
+
+li.openBreweriesCenter {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.ulMargin {
+  margin-left: -30px;
+  margin-right: 30px;
+}
+
+#starBackground {
+  margin-left: 35%;
+  margin-left: 35%;
+}

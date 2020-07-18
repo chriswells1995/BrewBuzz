@@ -1,0 +1,200 @@
+.starability-result {
+  position: relative;
+  width: 150px;
+  height: 30px;
+  background-image: url("assets/star_images/stars1.png");
+  font-size: 0.1em;
+  color: transparent;
+}
+
+.starability-result:after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  height: 30px;
+  background-image: url("assets/star_images/stars1.png");
+  background-position: 0 -30px;
+}
+
+.starability-result[data-rating="5"]::after {
+  width: 150px;
+}
+.starability-result[data-rating="4.5"]::after {
+  width: 135px;
+}
+.starability-result[data-rating="4"]::after {
+  width: 120px;
+}
+.starability-result[data-rating="3.5"]::after {
+  width: 105px;
+}
+.starability-result[data-rating="3"]::after {
+  width: 90px;
+}
+.starability-result[data-rating="2.5"]::after {
+  width: 75px;
+}
+.starability-result[data-rating="2"]::after {
+  width: 60px;
+}
+
+.starability-result[data-rating="1.5"]::after {
+  width: 45px;
+}
+
+.starability-result[data-rating="1"]::after {
+  width: 30px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi) {
+  .starability-result {
+    background-image: url("assets/star_images/stars2.png");
+    background-size: 30px auto;
+  }
+  .starability-result:after {
+    background-image: url("assets/star_images/stars2.png");
+    background-size: 30px auto;
+  }
+}
+
+.starability-basic {
+  display: block;
+  position: relative;
+  width: 150px;
+  min-height: 60px;
+  padding: 0;
+  border: none;
+}
+
+.starability-basic > input {
+  position: absolute;
+  margin-right: -100%;
+  opacity: 0;
+}
+
+.starability-basic > input:checked ~ label,
+.starability-basic > input:focus ~ label {
+  background-position: 0 0;
+}
+
+.starability-basic > input:checked + label,
+.starability-basic > input:focus + label {
+  background-position: 0 -30px;
+}
+
+.starability-basic > input[disabled]:hover + label {
+  cursor: default;
+}
+
+.starability-basic > input:not([disabled]):hover ~ label {
+  background-position: 0 0;
+}
+
+.starability-basic > input:not([disabled]):hover + label {
+  background-position: 0 -30px;
+}
+
+.starability-basic > input:not([disabled]):hover + label::before {
+  opacity: 1;
+}
+
+.starability-basic > input:focus + label {
+  outline: 1px dotted #999;
+}
+
+.starability-basic .starability-focus-ring {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  outline: 2px dotted #999;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.starability-basic > .input-no-rate:focus ~ .starability-focus-ring {
+  opacity: 1;
+}
+
+.starability-basic > label {
+  position: relative;
+  display: inline-block;
+  float: left;
+  width: 30px;
+  height: 30px;
+  font-size: 0.1em;
+  color: transparent;
+  cursor: pointer;
+  background-image: url("assets/star_images/stars1.png");
+  background-repeat: no-repeat;
+  background-position: 0 -30px;
+}
+
+.starability-basic > label::before {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 30px;
+  background-image: url("assets/star_images/stars1.png");
+  background-position: 0 30px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.starability-basic > label:nth-of-type(5)::before {
+  width: 120px;
+  left: -120px;
+}
+
+.starability-basic > label:nth-of-type(4)::before {
+  width: 90px;
+  left: -90px;
+}
+
+.starability-basic > label:nth-of-type(3)::before {
+  width: 60px;
+  left: -60px;
+}
+
+.starability-basic > label:nth-of-type(2)::before {
+  width: 30px;
+  left: -30px;
+}
+
+.starability-basic > label:nth-of-type(1)::before {
+  width: 0px;
+  left: 0px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi) {
+  .starability-basic > label {
+    background-image: url("assets/star_images/stars2.png");
+    background-size: 30px auto;
+  }
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .starability-basic {
+    width: auto;
+  }
+  .starability-basic > input {
+    position: static;
+    margin-right: 0;
+    opacity: 1;
+  }
+  .starability-basic .input-no-rate {
+    display: none;
+  }
+  .starability-basic > label {
+    display: inline;
+    float: none;
+    width: auto;
+    height: auto;
+    font-size: 1em;
+    color: inherit;
+    background: none;
+  }
+  .starability-basic > label::before, .starability-basic > label::after {
+    display: none;
+  }
+}

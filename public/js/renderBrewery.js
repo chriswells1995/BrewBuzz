@@ -4,20 +4,21 @@ var thisBreweryId = path.split("/")[2];
 
 // This function takes in a brewery name and renders it to the page
 function cardHeader(brewery) {
-  var cardBrewery = $("<h4>")
+  var cardBrewery = $("<div>")
     .addClass("card-body text-center headerBrewery")
-    .html("<h1 id=headerName style=color:black;>" + brewery + "</h1>");
-  $("#brewery-title").empty();
+    .html("<p id=headerName style=color:black;>" + brewery + "</p>");
 
-  $("#brewery-title").append(cardBrewery);
+  $("#brewery-title").prepend(cardBrewery);
 }
 
 function cardRating(rating) {
-  var breweryRating = $("<ul>")
-    .addClass("card-body text-center breweryRating")
-    .html("<li id=headerName style=color:black;>" + "Star Rating: " + rating + "</li>");
 
-  $("#brewery-rating").append(breweryRating);
+  var avgStars = $("<p>")
+  .addClass("starability-result")
+  .attr("data-rating", Math.round(rating*2)/2 )
+  
+  $("#brewery-rating").prepend(avgStars);
+
 }
 
 function cardNoRating() {
@@ -28,40 +29,34 @@ function cardNoRating() {
   $("#brewery-rating").append(breweryRating);
 }
 
-// this function takes in the review properties and renders a review to the page
+// this function takes in the review properties and renders a single review to the page
 function buildCard(review_id, brewery, email, review, userID, username, rating) {
   var cardDiv = $("<li>")
-    .addClass("col-sm-12")
+    .addClass("col-sm-12 column")
     .attr("id", "review" + review_id);
-
-  var cardUser = $("<div style=font-size:125%;>")
-    .attr("id", "cardBack")
-    .addClass("card-body headerFont");
 
   var cardReview = $("<div style=font-size:125%;>")
     .attr("id", "cardBack")
-    .addClass("card-body userBackground")
+    .addClass("card-body centeredBrewery userBackground")
     // .html("<a href = /user/"+ user_id+"></a>")
     .text(username + " said: " + review); // this will display the review
 
-    var ratingText;
-    if (rating == "0.0"){
-      ratingText = "No rating given"
-  }
-  else{
-    ratingText = rating + " stars out of 5"
-  }
-    var cardRating = $("<div style=font-size:125%;>")
-  .attr("id", "cardBack")
-  .addClass("card-body headerFont")
-  .text(ratingText); // this will display the review
+  // This uses the stars CSS to create a <p> element which is actually the star image
+  // It uses the rating value, which needs the ".0" removed to work
+  var oldStars = $("<p>")
+  .addClass("starability-result centeredBrewery")
+  .attr("data-rating", rating.split(".")[0])
+  .attr("id", "starBackground")
+
+ 
+
 
   var profile = $("<a>")
     .attr("href", "/user/" + userID)
-    .addClass("emailLinks")
+    .addClass("emailLinks centeredBrewery")
     .text("See all of " + username + "'s reviews");
 
-  cardDiv.append(cardUser, cardReview, cardRating, profile);
+  cardDiv.append(cardReview, oldStars, profile);
 
   // $("#brewery-title").empty();
 
@@ -69,23 +64,42 @@ function buildCard(review_id, brewery, email, review, userID, username, rating) 
   $("#OpenBreweries").prepend(cardDiv);
 }
 
-// event listener for review input
 
+// event listener for review input (activated by clicking the "Add" button)
 $("#reviewButton").on("click", function () {
   var reviewInput = $("#reviewInput").val();
-  var ratingInput = $("#ratingInput").val();
+  // var ratingInput = $("#ratingInput").val();
   // var roundedRatingInput = Math.ceil(reviewInput)
 
-  if (!ratingInput || ratingInput<1 || ratingInput >5 ){
+  // These "if" statements check what star rating the user gave, then set the starInput variable to that raitng
+  // TODO: Make more DRY (maybe with for loop and "rate" + i.toString()?)
+  var starInput;
+  if (document.getElementById("rate1").checked ){
+    starInput=1;
+  }
+  else if ( document.getElementById("rate2").checked){
+    starInput=2;
+  }
+  else if ( document.getElementById("rate3").checked){
+    starInput=3;
+  }
+  else if ( document.getElementById("rate4").checked){
+    starInput=4;
+  }
+  else if ( document.getElementById("rate5").checked){
+    starInput=5;
+  }
+  else {
+    starInput=null;
+  }
+
+  // If the star input is null, the user will get a message saying they need to select a star rating
+  if (!starInput){
     event.preventDefault();
     alert("You need to enter a rating between 1 and 5")
 
     return;
   }
-
-
-  $("#reviewInput").empty();
-  $("#ratingInput").empty();
 
   // make ajax get for user ID
 
@@ -116,15 +130,20 @@ $("#reviewButton").on("click", function () {
           review: reviewInput,
           UserId: currentUserId,
           BreweryId: thisBreweryId,
-          rating: ratingInput
+          rating: starInput
         },
       };
 
       $.ajax(postSettings).then(function (response) {
         console.log(response);
 
+        $("#brewery-title").empty();
+        $("#brewery-rating").empty();
+        $("#brewery-logo").empty();
+        $("#addReviewDiv").empty();
+        $("#reviewButton").hide();
         $("#OpenBreweries").empty();
-
+        // renderTheseReviews is re-ran to now include the newest review on the page
         renderTheseReviews();
       });
     } else {
@@ -133,9 +152,9 @@ $("#reviewButton").on("click", function () {
     }
   });
 });
-
+// This function iterates around the info and calls buildCard() multiple times to render ALL reviews
 function renderTheseReviews() {
-  // ajax call to get brewery name
+  // use breweryID to make ajax call to get this page's brewery's name, logo, and total rating
 
   var breweryNameSettings = {
     url: "/api/brewery/" + thisBreweryId,
@@ -160,22 +179,20 @@ function renderTheseReviews() {
       cardRating(breweryRating);
     }
 
-
+    // if brewery doesn't already have a logo, make ajax call to serpwow to get a logo
     if (breweryResponse[0].logo) {
-      // TODO: Grab image from response and render it
+      //Grab image from response and render it
       console.log("logo already existed in database")
       var logoImage = $("<img>")
         .attr("src", breweryLogo)
         .attr("id", "breweryLogo");
-      $(".headerBrewery").append(logoImage);
+      $("#brewery-logo").append(logoImage);
     } else {
-      console.log("logo did not already exist in databse")
+      console.log("logo did not already exist in database")
       var q = breweryName.replace(/ /g, "+");
       q = q.replace(/&/g, "+");
       q = q.replace(/-/g, "+");
-      // console.log("name", breweryName);
-      // console.log("q");
-      // console.log(q);
+
       var logoURL =
         "https://api.serpwow.com/live/search?api_key=B03F416BACF94C8C86F2123D183281B8&q=" +
         q +
@@ -197,6 +214,7 @@ function renderTheseReviews() {
 
         var logoSRC = response.image_results[0].image;
         var imageNumber=0;
+        // Because there are issues taking images from facebook, make sure it comes from a different website
         console.log(response.image_results[imageNumber].brand)
         if (response.image_results[imageNumber].brand === "Facebook"){
            while(response.image_results[imageNumber].brand==="Facebook"){
@@ -213,9 +231,9 @@ function renderTheseReviews() {
         var logoImage = $("<img>")
           .attr("src", logoSRC)
           .attr("id", "breweryLogo");
-        $(".headerBrewery").append(logoImage);
+        $("#brewery-logo").append(logoImage);
 
-        //  TODO: Update brewery in DB by adding logoSRC
+        //  Update brewery in DB by adding logoSRC with a PUT route
         return logoSRC;
       })
       .then(function(logoSRC){
@@ -251,6 +269,41 @@ function renderTheseReviews() {
 
     $.ajax(settings).then(function (response) {
 
+      // TODO: find the average of all the reviews,  
+      
+      var avgRating=0;
+      var counter=0;
+      for (i=0; i<response.length; i++){
+        if (response[i].rating && parseInt(response[i].rating)>0 ){
+          avgRating+=parseInt(response[i].rating);
+          counter++;
+        }
+      }
+      if(counter>0){
+      avgRating=avgRating/counter;
+      console.log(avgRating);
+      }
+      
+      // TODO: Use a PUT route to update the brewery's rating
+      var putSettings2 = {
+        "url": "/api/breweries/rating",
+        "method": "PUT",
+        "timeout": 0,
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "data": {
+          "id": thisBreweryId,
+          "totalRating": avgRating
+        }
+      };
+      
+      $.ajax(putSettings2).then(function (putResponse) {
+        console.log("updating avg rating")
+        console.log(putResponse);
+      });
+
+      // run buildCard() once for every review the brewery has
       for (i = 0; i < response.length; i++) {
         buildCard(
           response[i].id,
@@ -260,6 +313,7 @@ function renderTheseReviews() {
           response[i].User.id,
           response[i].User.username,
           response[i].rating
+          //avgRating
         );
       }
     });

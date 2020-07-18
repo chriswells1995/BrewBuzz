@@ -5,9 +5,10 @@ $(document).ready(function () {
     // TODO: One of these is also emptying the BrewBuzz logo, which we would like to stay
     $("#brewery-title").empty();
     $("#headerName").empty();
-
+    $("#brewery-rating").empty();
+    $("#brewery-logo").empty();
     $("#addReviewDiv").empty();
-
+    $("#reviewButton").hide();
     $("#OpenBreweries").empty();
     var input = $("#searchInput").val();
     $("#searchInput").val("");
@@ -204,7 +205,7 @@ $(document).ready(function () {
                 renderedBreweryName.html(
                   "<a href = /brewery/" +
                     allOurBreweries[j].id +
-                    " class=row id=headerName style=color:black;>" +
+                    " class=row text-center id=headerName style=color:black;>" +
                     AllBreweryObjects[i].breweryName +
                     "<br>" +
                     AllBreweryObjects[i].breweryAddress +
@@ -241,8 +242,8 @@ $(document).ready(function () {
   function assignClick(AllBreweryObjects) {
     $(".addBtn").on("click", function (event) {
       event.preventDefault();
-      console.log("event");
-      console.log(event.target.value);
+      console.log("eventTarget")
+      console.log(event.target.value)
       var settings = {
         url: "/api/brewery",
         method: "POST",
@@ -253,6 +254,7 @@ $(document).ready(function () {
         data: {
           name: AllBreweryObjects[event.target.value].breweryName,
           website: AllBreweryObjects[event.target.value].breweryWebsite,
+          phoneNumber: AllBreweryObjects[event.target.value].breweryPhone,
           streetAddress: AllBreweryObjects[event.target.value].breweryAddress,
         },
       };
