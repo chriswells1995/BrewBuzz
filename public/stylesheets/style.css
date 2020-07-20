@@ -74,6 +74,13 @@ ul {
 
 #OpenBreweries {
   justify-content: center;
+} @media(min-width:768px){
+  #OpenBreweries {
+    /* justify-content: center; */
+    max-width: 60%;
+    margin-left: 21%;
+    margin-right: 0px;
+  }
 }
 
 .addBtn:hover {
@@ -200,7 +207,6 @@ input#reviewInput {
   margin-left: 10px;
   margin-right: 10px;
   font-size: 30px;
-  flex: 25%;
 }
 @media(min-width:768px){
   #headerName{
@@ -258,6 +264,8 @@ input.div.centeredBrewery {
 
 a#headerName {
   color: black;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 #brewery-title {
@@ -344,4 +352,8 @@ li.openBreweriesCenter {
 #starBackground {
   margin-left: 35%;
   margin-left: 35%;
+}
+
+.starability-result {
+  margin-top: 20px;
 }
