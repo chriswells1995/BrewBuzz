@@ -163,12 +163,12 @@ function renderTheseReviews() {
   };
 
   $.ajax(breweryNameSettings).then(function (breweryResponse) {
-    console.log(breweryResponse[0].name);
-    console.log(breweryResponse[0]);
-    console.log(breweryResponse[0].totalRating);
 
     breweryName = breweryResponse[0].name;
     breweryLogo = breweryResponse[0].logo;
+    breweryPhone = breweryResponse[0].phoneNumber;
+    breweryAddress = breweryResponse[0].streetAddress;
+    breweryWebsite = breweryResponse[0].website;
     breweryRating = breweryResponse[0].totalRating;
 
     cardHeader(breweryName);
