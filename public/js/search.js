@@ -10,6 +10,7 @@ $(document).ready(function () {
     $("#addReviewDiv").empty();
     $("#reviewButton").hide();
     $("#OpenBreweries").empty();
+    $(".noResultsMessage").empty();
     var input = $("#searchInput").val();
     $("#searchInput").val("");
     var inputURL =
@@ -20,6 +21,14 @@ $(document).ready(function () {
       method: "GET",
       crossDomain: true,
     }).then(function (response) {
+      console.log(response)
+      if (response.length ===0){
+        console.log("There are no results");
+        var noResults = $("<li>")
+        .html("<h1>No Results Found</h1>")
+        .addClass("noResultsMessage");
+        $("#OpenBreweries").after(noResults);
+      }
       var BreweryObject = {};
       var AllBreweryObjects = [];
       for (i = 0; i < response.length; i++) {
@@ -37,7 +46,9 @@ $(document).ready(function () {
         AllBreweryObjects.push(BreweryObject);
       }
       renderCards(AllBreweryObjects);
-    });
+    }).catch(function (error){
+      console.log(error)
+    })
   });
 
   function renderCards(AllBreweryObjects) {
