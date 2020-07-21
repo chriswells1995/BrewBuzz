@@ -137,15 +137,17 @@ function displayCards() {
               "</a>"
           );
 
-        shareLink = $("<div>")
+          shareLink = $("<div>")
           .attr("id", "shareLink")
           .addClass("column")
           .html(
             "<a href=#" +
               ">" +
+              "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>"+
               "<img class=redirectButton src=" +
-              `stylesheets/assets/shareicon.png` +
+              `https://image.flaticon.com/icons/svg/3039/3039401.svg` +
               ">" +
+              "</button>"+
               "</a>"
           );
 
