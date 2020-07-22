@@ -107,8 +107,8 @@ input#reviewInput {
   color: black;
 }
 
-#reviewButton {
-  margin-top: -30px !important;
+#shareBtn {
+  margin-top: 2px;
 }
 
 #reviewButton:hover {
@@ -325,6 +325,10 @@ a#headerName {
   margin-bottom: 10px;
   max-width: 40px;
   max-height: 40px;
+}
+
+#shareBtn {
+  padding-top: -30px !important;
 }
 
 .reviewText {

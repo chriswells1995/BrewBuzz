@@ -144,7 +144,7 @@ function displayCards() {
             "<a href=#" +
               ">" +
               "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>"+
-              "<img class=redirectButton src=" +
+              "<img id=shareBtn class=redirectButton src=" +
               `https://image.flaticon.com/icons/svg/3039/3039401.svg` +
               ">" +
               "</button>"+
