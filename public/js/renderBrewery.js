@@ -25,7 +25,7 @@ function cardRating(rating) {
                   "tel:" +
                   breweryPhone +
                   ">" +
-                  "<img class=redirectButton src=" +
+                  "<img class=redirectButton text-center src=" +
                   `https://img.pngio.com/icono-simple-telefono-en-circulo-png-transparente-stickpng-icono-telefono-png-512_512.png` +
                   ">" +
                   "</a>"
@@ -39,7 +39,7 @@ function cardRating(rating) {
                   breweryWebsite +
                   " + target=_blank" +
                   ">" +
-                  "<img class=redirectButton src=" +
+                  "<img class=" + "redirectButton text-center" + " src=" +
                   `https://image.flaticon.com/icons/svg/2301/2301129.svg` +
                   ">" +
                   "</a>"
@@ -67,7 +67,7 @@ function cardRating(rating) {
                 "<a href=" +
                   directions +
                   ">" +
-                  "<img class=redirectButton src=" +
+                  "<img class=redirectButton text-center src=" +
                   `https://image.flaticon.com/icons/svg/2948/2948111.svg` +
                   ">" +
                   "</a>"
@@ -80,14 +80,15 @@ function cardRating(rating) {
                 "<a href=#" +
                   ">" +
                   "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>"+
-                  "<img id=shareBtn class=redirectButton src=" +
+                  "<img id=shareBtn class=redirectButton text-center src=" +
                   `https://image.flaticon.com/icons/svg/3039/3039401.svg` +
                   ">" +
                   "</button>"+
                   "</a>"
               );
   
-  $("#brewery-rating").prepend(avgStars, shareLink, renderedBreweryPhone, renderedBreweryWebsite, directionsLink);
+  $("#brewery-rating").prepend(avgStars);
+  $("#addReviewDiv").prepend(renderedBreweryPhone, renderedBreweryWebsite, directionsLink, shareLink);
 
 }
 
@@ -233,7 +234,6 @@ function renderTheseReviews() {
   };
 
   $.ajax(breweryNameSettings).then(function (breweryResponse) {
-
     breweryName = breweryResponse[0].name;
     breweryLogo = breweryResponse[0].logo;
     breweryPhone = breweryResponse[0].phoneNumber;
