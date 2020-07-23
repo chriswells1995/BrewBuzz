@@ -16,8 +16,79 @@ function cardRating(rating) {
   var avgStars = $("<p>")
   .addClass("starability-result")
   .attr("data-rating", Math.round(rating*2)/2 )
+
+            var renderedBreweryPhone = $("<div>")
+              .attr("id", "callButton")
+              .addClass("column")
+              .html(
+                "<a href=" +
+                  "tel:" +
+                  breweryPhone +
+                  ">" +
+                  "<img class=redirectButton text-center src=" +
+                  `https://img.pngio.com/icono-simple-telefono-en-circulo-png-transparente-stickpng-icono-telefono-png-512_512.png` +
+                  ">" +
+                  "</a>"
+              )
+
+            var renderedBreweryWebsite = $("<div>")
+              .attr("id", "websiteButton")
+              .addClass("column")
+              .html(
+                "<a href=" +
+                  breweryWebsite +
+                  " + target=_blank" +
+                  ">" +
+                  "<img class=" + "redirectButton text-center" + " src=" +
+                  `https://image.flaticon.com/icons/svg/2301/2301129.svg` +
+                  ">" +
+                  "</a>"
+              );
+
+            directionName = breweryName.replace(
+              /,/g,
+              "%2C"
+            );
+            directionName = directionName.replace(/ /g, "+");
+            directions = breweryAddress.replace(
+              /,/g,
+              "%2C"
+            );
+            directions = directions.replace(/ /g, "+");
+            directions =
+              "https://www.google.com/maps/search/?api=1&query=" +
+              directionName +
+              directions;
+
+            var directionsLink = $("<div>")
+              .attr("id", "directionLink")
+              .addClass("column")
+              .html(
+                "<a href=" +
+                  directions +
+                  ">" +
+                  "<img class=redirectButton text-center src=" +
+                  `https://image.flaticon.com/icons/svg/2948/2948111.svg` +
+                  ">" +
+                  "</a>"
+              );
+
+            var shareLink = $("<div>")
+              .attr("id", "shareLink")
+              .addClass("column")
+              .html(
+                "<a href=#" +
+                  ">" +
+                  "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>"+
+                  "<img id=shareBtn class=redirectButton text-center src=" +
+                  `https://image.flaticon.com/icons/svg/3039/3039401.svg` +
+                  ">" +
+                  "</button>"+
+                  "</a>"
+              );
   
   $("#brewery-rating").prepend(avgStars);
+  $("#addReviewDiv").prepend(renderedBreweryPhone, renderedBreweryWebsite, directionsLink, shareLink);
 
 }
 
@@ -163,12 +234,11 @@ function renderTheseReviews() {
   };
 
   $.ajax(breweryNameSettings).then(function (breweryResponse) {
-    console.log(breweryResponse[0].name);
-    console.log(breweryResponse[0]);
-    console.log(breweryResponse[0].totalRating);
-
     breweryName = breweryResponse[0].name;
     breweryLogo = breweryResponse[0].logo;
+    breweryPhone = breweryResponse[0].phoneNumber;
+    breweryAddress = breweryResponse[0].streetAddress;
+    breweryWebsite = breweryResponse[0].website;
     breweryRating = breweryResponse[0].totalRating;
 
     cardHeader(breweryName);
