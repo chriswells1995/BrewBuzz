@@ -32,6 +32,14 @@ Brewery.associate =function (models){
 
   })
 
+  Brewery.hasMany(models.Event, {
+    //adds breweryID to beer list
+    foreignKey: {
+      allowNull: false
+    }
+
+  })
+
 
 }
 

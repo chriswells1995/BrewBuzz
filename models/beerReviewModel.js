@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
     
       })
     
-      BeerReview.belongsTo(models.Brewery, {
+      BeerReview.belongsTo(models.Beer, {
         // this will add a column called BreweryID
     
         foreignKey: {

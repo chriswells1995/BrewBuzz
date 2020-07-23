@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
       state: DataTypes.STRING,
       zip: DataTypes.STRING,
       description: DataTypes.STRING,
-      dateTime: DataTypes.DATETIME,
+      dateTime: DataTypes.DATE,
       status: DataTypes.STRING
       // userID: DataTypes.INTEGER,
       // breweryID: DataTypes.INTEGER
