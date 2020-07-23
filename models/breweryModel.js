@@ -24,6 +24,14 @@ Brewery.associate =function (models){
   // ie we are going to referecne the Review model
   Brewery.hasMany(models.Review, {} )
 
+  Brewery.hasMany(models.BeerList, {
+    //adds breweryID to beer list
+    foreignKey: {
+      allowNull: false
+    }
+
+  })
+
 
 }
 
