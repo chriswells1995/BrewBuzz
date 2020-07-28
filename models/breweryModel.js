@@ -13,7 +13,7 @@ var Brewery = sequelize.define("Brewery", {
   website: DataTypes.STRING,
   streetAddress: DataTypes.STRING,
   city: DataTypes.STRING,
-  zipCode: DataTypes.STRING,
+  postalCode: DataTypes.STRING,
   state: DataTypes.STRING, 
   latitude: DataTypes.STRING, 
   longitude: DataTypes.STRING, 
