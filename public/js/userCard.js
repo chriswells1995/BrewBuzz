@@ -38,6 +38,9 @@ function displayUserCards() {
     .addClass("col-sm-12")
     .attr("id", reviewId);
 
+    var logoLink = $("<a href=/brewery/" +
+    breweryId + ">")
+
     var existingLogo = $("<img>")
       .addClass("logo column")
       .attr("src", breweryLogo);
@@ -60,7 +63,11 @@ function displayUserCards() {
       .text("Delete")
       .addClass("reviewBtn deleteBtn btn btn-dark")
 
-    cardDiv.append(existingLogo, cardBrewery, cardReview, deleteBtn);
+    cardDiv.append(logoLink, cardBrewery, cardReview, deleteBtn);
+
+    logoLink.append(
+      existingLogo
+    );
 
     // $("#user-title").append(cardBrewery) -- will add in a welcome whoever part here
 

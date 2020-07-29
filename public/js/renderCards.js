@@ -51,6 +51,9 @@ function displayCards() {
           .addClass("col-sm-12 row")
           .attr("id", "cardNumber" + i);
 
+          var logoLink = $("<a href=/brewery/" +
+          AllBreweryObjects[i].breweryId + ">")
+
           var avgStars = $("<p>")
           .addClass("starability-result")
           .attr("data-rating", Math.round(parseInt(AllBreweryObjects[i].rating)*2)/2 )
@@ -152,7 +155,7 @@ function displayCards() {
           );
 
         cardDiv.append(
-          renderedLogo,
+          logoLink,
           avgStars,
           renderedBreweryName,
           renderedBreweryPhone,
@@ -161,6 +164,10 @@ function displayCards() {
           // TODO: research how to get this up and running
           shareLink,
           renderedReview
+        );
+
+        logoLink.append(
+          renderedLogo
         );
 
         $("#OpenBreweries").append(cardDiv);
