@@ -59,8 +59,8 @@ function displayUserCards() {
       .attr("id", "deleteBtn")
       .text("Delete")
       .addClass("reviewBtn deleteBtn btn btn-dark")
-// TODO: need to figure out how to pull current user ID here
-    if(currentUserId==4){
+// TODO: need to figure out how to pull current user ID here (potentially local storage?)
+    if(currentUserId==1){
     cardDiv.append(existingLogo, cardBrewery, cardReview, deleteBtn)
     } else {
       cardDiv.append(existingLogo, cardBrewery, cardReview)
