@@ -59,8 +59,12 @@ function displayUserCards() {
       .attr("id", "deleteBtn")
       .text("Delete")
       .addClass("reviewBtn deleteBtn btn btn-dark")
-
-    cardDiv.append(existingLogo, cardBrewery, cardReview, deleteBtn);
+// TODO: need to figure out how to pull current user ID here (potentially local storage?)
+    if(currentUserId==1){
+    cardDiv.append(existingLogo, cardBrewery, cardReview, deleteBtn)
+    } else {
+      cardDiv.append(existingLogo, cardBrewery, cardReview)
+    }
 
     // $("#user-title").append(cardBrewery) -- will add in a welcome whoever part here
 
