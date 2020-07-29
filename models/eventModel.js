@@ -35,14 +35,7 @@ module.exports = function(sequelize, DataTypes) {
     
       })
     
-      Event.belongsTo(models.Event, {
-        // this will add a column called BreweryID
-    
-        foreignKey: {
-          allowNull: false
-        }
-    
-      })
+     
     
     
     }
