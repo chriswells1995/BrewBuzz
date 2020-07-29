@@ -95,6 +95,10 @@ $(document).ready(function () {
             var cardDiv = $("<li>")
               .addClass("col-sm-12 row")
               .attr("id", "cardNumber" + i);
+// TODO: This was added
+            var  renderedLogo = $("<img>")
+              .addClass("logo column")
+              .attr("src", AllBreweryObjects[i].breweryLogo);
 
             renderedBreweryName = $("<h4>")
               .text(
@@ -189,6 +193,8 @@ $(document).ready(function () {
             // .attr("href", "brewery.html");
 
             cardDiv.append(
+              // TODO: this was added
+              renderedLogo,
               renderedBreweryName,
               renderedBreweryPhone,
               renderedBreweryWebsite,
@@ -231,7 +237,9 @@ $(document).ready(function () {
                   existinglogo = $("<img>")
                     .addClass("logo column")
                     .attr("src", allOurBreweries[j].logo);
-                  renderedBreweryName.before(existinglogo);
+                    // TODO: This was added Project will need to swap out this line for logoLink.append(renderedLogo);
+                  // renderedBreweryName.before(existinglogo);
+                  logoLink.append(renderedLogo);
                 }
                 if (allOurBreweries[j].totalRating){
                   var avgStars = $("<p>")
