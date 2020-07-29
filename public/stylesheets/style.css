@@ -8,8 +8,12 @@ form.login {
 }
 
 .logo {
+  display: block;
   flex: 25%;
   max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   border-color: black;
   border-radius: 15px;
   border-style: solid;
