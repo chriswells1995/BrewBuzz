@@ -361,3 +361,14 @@ li.openBreweriesCenter {
 .starability-result {
   margin-top: 20px;
 }
+
+.footerStyle {
+  color: black;
+  margin-bottom: 0px;
+  text-decoration: none;
+}
+
+.footerStyle:hover {
+  color:rgb(255, 196, 0);
+}
+
