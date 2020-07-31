@@ -10,16 +10,44 @@
 module.exports = function(sequelize, DataTypes) {
 var Brewery = sequelize.define("Brewery", {
   name: DataTypes.STRING,
-  website: DataTypes.STRING,
-  streetAddress: DataTypes.STRING,
-  city: DataTypes.STRING,
-  postalCode: DataTypes.STRING,
-  state: DataTypes.STRING, 
-  latitude: DataTypes.STRING, 
-  longitude: DataTypes.STRING, 
-  logo: DataTypes.STRING,
+  
+  website: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
+  streetAddress: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
+  city: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
+  postalCode: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
+  state: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
+  latitude: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
+  longitude: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
+  logo: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
   totalRating: DataTypes.DECIMAL,
-  phoneNumber: DataTypes.STRING
+  phoneNumber: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  }
 });
 
 // Brewery has many reviews
