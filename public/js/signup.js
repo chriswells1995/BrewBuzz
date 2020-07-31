@@ -4,6 +4,12 @@ $(document).ready(function() {
   var emailInput = $("input#email-input");
   var usernameInput = $("input#username-input");
   var passwordInput = $("input#password-input");
+  var ageTOSInput = $("input#ageTOS-input");
+  // var dateInput = $("input#date-input");
+  // var currentDate = Date.now();
+  // var yearsago = (currentDate -662256000000 )
+  // var dateString = new Date(yearsago)
+  
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function(event) {
@@ -11,13 +17,19 @@ $(document).ready(function() {
     var userData = {
       email: emailInput.val().trim(),
       username: usernameInput.val().trim(),
-      password: passwordInput.val().trim()
+      password: passwordInput.val().trim(),
+      //birthDate: dateInput.val()
     };
-
-    if (!userData.email || !userData.username || !userData.password) {
+    //if birthdate is less than 662256000000 ms, don't allow account
+    //userData.birthDate = new Date(userData.birthDate).getTime();
+    if (!userData.email || !userData.username || !userData.password || !ageTOSInput[0].checked) {
       return;
     }
-    // If we have an email and password, run the signUpUser function
+    // else if((currentDate - userData.birthDate) < 662695446000){
+    //   return;
+    // }
+
+    // If we have an email, username, password, and verification run the signUpUser function
     signUpUser(userData.email, userData.username, userData.password);
     emailInput.val("");
     usernameInput.val("");

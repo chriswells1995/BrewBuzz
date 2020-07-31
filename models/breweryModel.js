@@ -10,11 +10,44 @@
 module.exports = function(sequelize, DataTypes) {
 var Brewery = sequelize.define("Brewery", {
   name: DataTypes.STRING,
-  website: DataTypes.STRING,
-  streetAddress: DataTypes.STRING,
-  logo: DataTypes.STRING,
+  
+  website: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
+  streetAddress: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
+  city: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
+  postalCode: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
+  state: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
+  latitude: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
+  longitude: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
+  logo: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  },
   totalRating: DataTypes.DECIMAL,
-  phoneNumber: DataTypes.STRING
+  phoneNumber: {
+    type: DataTypes.STRING,
+    allowNull:true,
+  }
 });
 
 // Brewery has many reviews
@@ -23,6 +56,22 @@ Brewery.associate =function (models){
   // models will allow us to reference other models synced with this database
   // ie we are going to referecne the Review model
   Brewery.hasMany(models.Review, {} )
+
+  Brewery.hasMany(models.BeerList, {
+    //adds breweryID to beer list
+    foreignKey: {
+      allowNull: false
+    }
+
+  })
+
+  Brewery.hasMany(models.Event, {
+    //adds breweryID to beer list
+    foreignKey: {
+      allowNull: false
+    }
+
+  })
 
 
 }
