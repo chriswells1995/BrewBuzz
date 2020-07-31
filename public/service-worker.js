@@ -4,6 +4,7 @@ const FILES_TO_CACHE = [
     "/signup.html",
     "/user.html",
     "/brewery.html",
+    "/search.html",
     "/js/login.js",
     "/js/renderBrewery.js",
     "/js/renderCards.js",

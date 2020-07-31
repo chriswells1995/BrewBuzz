@@ -26,6 +26,11 @@ router.get("/brewery/:id", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/brewery.html"));
 });
 
+// brewery html
+router.get("/search/:input", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/search.html"));
+});
+
 // user html
 router.get("/user/:id", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/user.html"));
