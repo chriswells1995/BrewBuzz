@@ -19,30 +19,30 @@ var Brewery = sequelize.define("Brewery", {
     type: DataTypes.STRING,
     allowNull:true,
   },
-  city: {
-    type: DataTypes.STRING,
-    allowNull:true,
-  },
-  postalCode: {
-    type: DataTypes.STRING,
-    allowNull:true,
-  },
-  state: {
-    type: DataTypes.STRING,
-    allowNull:true,
-  },
-  latitude: {
-    type: DataTypes.STRING,
-    allowNull:true,
-  },
-  longitude: {
-    type: DataTypes.STRING,
-    allowNull:true,
-  },
-  logo: {
-    type: DataTypes.STRING,
-    allowNull:true,
-  },
+  //city: {
+  //  type: DataTypes.STRING,
+  //  allowNull:true,
+  //},
+  //postalCode: {
+  //  type: DataTypes.STRING,
+  //  allowNull:true,
+  //},
+  //state: {
+  //  type: DataTypes.STRING,
+  //  allowNull:true,
+  //},
+  //latitude: {
+  //  type: DataTypes.STRING,
+  //  allowNull:true,
+  //},
+  //longitude: {
+  //  type: DataTypes.STRING,
+  // allowNull:true,
+  //},
+  //logo: {
+  //  type: DataTypes.STRING,
+  //  allowNull:true,
+  //},
   totalRating: DataTypes.DECIMAL,
   phoneNumber: {
     type: DataTypes.STRING,
