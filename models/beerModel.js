@@ -10,13 +10,18 @@
 module.exports = function(sequelize, DataTypes) {
     var Beer = sequelize.define("Beer", {
       beer: DataTypes.STRING,
+      photo: DataTypes.STRING,
       style: DataTypes.STRING,
       style2: DataTypes.STRING,
       ibuScore: DataTypes.STRING,
       abv: DataTypes.STRING,
+      hops: DataTypes.STRING,
+      malts: DataTypes.STRING,
       description: DataTypes.STRING,
       releaseDate: DataTypes.DATE,
-      releaseNotes: DataTypes.STRING
+      releaseNotes: DataTypes.STRING,
+      status: DataTypes.STRING,
+      availability: DataTypes.STRING
     });
     
     
