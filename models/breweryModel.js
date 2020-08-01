@@ -39,10 +39,10 @@ var Brewery = sequelize.define("Brewery", {
   //  type: DataTypes.STRING,
   // allowNull:true,
   //},
-  //logo: {
-  //  type: DataTypes.STRING,
-  //  allowNull:true,
-  //},
+  logo: {
+   type: DataTypes.STRING,
+   allowNull:true,
+  },
   totalRating: DataTypes.DECIMAL,
   phoneNumber: {
     type: DataTypes.STRING,
