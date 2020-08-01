@@ -43,6 +43,7 @@ function displayCards() {
         "Content-Type": "application/x-www-form-urlencoded",
       },
     };
+    
 
     $.ajax(settings).then(function () {
       // This for loop will go through each brewery returned by the third party API, and render them to the page along with a button
