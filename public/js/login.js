@@ -56,6 +56,8 @@ $(document).ready(function() {
     // add var dashboard to hide link if not logged in
     $.ajax(userSettings).then(function (response) {
       var currentUserId=response.id;
+      console.log("user current", currentUserId)
+      window.localStorage.setItem('userID', currentUserId)
       var login = document.getElementById("loginVisibility")
       var logout = document.getElementById("logout")
       var dashboard = document.getElementById("dashboardLink")
