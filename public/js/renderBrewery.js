@@ -253,10 +253,15 @@ function renderTheseReviews() {
     if (breweryResponse[0].logo) {
       //Grab image from response and render it
       console.log("logo already existed in database")
+
+      var webLink = $("<a href=" + breweryWebsite + " + target_blank" + ">")
+      .attr("id", "webLink")
+      $("#brewery-logo").append(webLink);
+
       var logoImage = $("<img>")
         .attr("src", breweryLogo)
         .attr("id", "breweryLogo");
-      $("#brewery-logo").append(logoImage);
+      $("#webLink").append(logoImage);
     } else {
       console.log("logo did not already exist in database")
       var q = breweryName.replace(/ /g, "+");
