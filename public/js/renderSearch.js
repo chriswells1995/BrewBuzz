@@ -37,7 +37,7 @@ $(document).ready(function () {
   
   for (i=0; i<response.length; i++){
     console.log(response[i].name)
-    console.log(response[i].streetAddress)
+    console.log(response[i].street)
 
     if (((response[i].street).toLowerCase()).includes(input.toLowerCase())||
     ((response[i].name).toLowerCase()).includes(input.toLowerCase())) {
