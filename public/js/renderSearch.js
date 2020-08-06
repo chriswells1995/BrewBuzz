@@ -39,7 +39,7 @@ $(document).ready(function () {
     console.log(response[i].name)
     console.log(response[i].streetAddress)
 
-    if (((response[i].streetAddress).toLowerCase()).includes(input.toLowerCase())||
+    if (((response[i].street).toLowerCase()).includes(input.toLowerCase())||
     ((response[i].name).toLowerCase()).includes(input.toLowerCase())) {
       console.log(true);
       AllBreweryObjects.push(response[i])
