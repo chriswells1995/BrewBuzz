@@ -59,7 +59,6 @@ function renderCards(AllBreweryObjects){
     var AddBreweryButton;
     var existinglogo;
     var renderedBreweryName;
-    // var renderedstreetAddress;
     var renderedBreweryWebsite;
     var renderedBreweryPhone;
     var matchCheck;
@@ -69,7 +68,7 @@ function renderCards(AllBreweryObjects){
 
     for (i=0; i<AllBreweryObjects.length; i++){
 
-
+    var streetAddress = AllBreweryObjects[i].street + " " + AllBreweryObjects[i].city + " " + AllBreweryObjects[i].state
 
     var cardDiv = $("<li>")
     .addClass("col-sm-12 row")
@@ -78,7 +77,7 @@ function renderCards(AllBreweryObjects){
   renderedBreweryName = $("<h4>")
     .text(
       AllBreweryObjects[i].name +
-        AllBreweryObjects[i].streetAddress
+        streetAddress
     )
     .attr("value", i)
     .addClass("card-body headerFont");
@@ -89,7 +88,7 @@ function renderCards(AllBreweryObjects){
         " class=row text-center id=headerName style=color:black;>" +
         AllBreweryObjects[i].name +
         "<br>" +
-        AllBreweryObjects[i].streetAddress +
+        streetAddress +
         "</a>"
     );
 
@@ -123,7 +122,7 @@ function renderCards(AllBreweryObjects){
 
   directionName = AllBreweryObjects[i].name.replace(/,/g,"%2C");
   directionName = directionName.replace(/ /g, "+");
-  directions = AllBreweryObjects[i].streetAddress.replace(/,/g,"%2C");
+  directions = streetAddress.replace(/,/g,"%2C");
   directions = directions.replace(/ /g, "+");
   directions ="https://www.google.com/maps/search/?api=1&query=" + directionName + directions;
   //   console.log("working")
