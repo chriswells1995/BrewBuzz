@@ -36,12 +36,8 @@ $(document).ready(function () {
   var AllBreweryObjects=[];
   
   for (i=0; i<response.length; i++){
-    console.log(response[i].name)
-    console.log(response[i].street)
-
-    if (((response[i].city).toLowerCase()).includes(input.toLowerCase())||
-    ((response[i].state).toLowerCase()).includes(input.toLowerCase())||
-    ((response[i].name).toLowerCase()).includes(input.toLowerCase())) {
+    
+    if (((response[i].tags).toLowerCase()).includes(input.toLowerCase())) {
       console.log(true);
       AllBreweryObjects.push(response[i])
     }
