@@ -237,7 +237,7 @@ function renderTheseReviews() {
     breweryName = breweryResponse[0].name;
     breweryLogo = breweryResponse[0].logo;
     breweryPhone = breweryResponse[0].phoneNumber;
-    breweryAddress = breweryResponse[0].streetAddress;
+    breweryAddress = breweryResponse[0].street + breweryResponse[0].city + breweryResponse[0].state;
     breweryWebsite = breweryResponse[0].website;
     breweryRating = breweryResponse[0].totalRating;
 
