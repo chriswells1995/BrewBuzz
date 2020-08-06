@@ -289,17 +289,44 @@ function renderTheseReviews() {
 
         var logoSRC = response.image_results[0].image;
         var imageNumber=0;
-        // Because there are issues taking images from facebook, make sure it comes from a different website
+        // Because there are issues taking images from facebook, and when logos have an http instead of https,
+        // we use this while loop to check if the image is acceptable, and if not, we try the next one (100 possible images)
+        // TODO: Find a way to bypass CORS so we can grab facebook images
+        console.log(imageNumber)
         console.log(response.image_results[imageNumber].brand)
-        if (response.image_results[imageNumber].brand === "Facebook"){
-           while(response.image_results[imageNumber].brand==="Facebook"){
+        console.log(response.image_results[imageNumber].image)
+        if ((response.image_results[imageNumber].brand === "Facebook")
+        || (!(response.image_results[imageNumber].image).includes("https"))){
+           while((response.image_results[imageNumber].brand==="Facebook")
+           ||(!(response.image_results[imageNumber].image).includes("https"))){
+             console.log("THIS EITHER CAME FROM FACEBOOK or has HTTP")
              imageNumber++
+             console.log(imageNumber)
              logoSRC = response.image_results[imageNumber].image;
              console.log(response.image_results[imageNumber].brand)
+             console.log(response.image_results[imageNumber].image)
 
 
            }          
         }
+        else{
+          console.log("not facebook nor http")
+        }
+
+      //   if (!(response.image_results[imageNumber].image).includes("https")){
+      //     while(!(response.image_results[imageNumber].image).includes("https")){
+      //       console.log("THIS DOES NOT INCLUDE HTTPS")
+      //       imageNumber++
+      //       console.log(imageNumber)
+      //        logoSRC = response.image_results[imageNumber].image;
+      //       console.log(response.image_results[imageNumber].image)
+
+
+      //     }          
+      //  }
+      //  else{
+      //    console.log("includes https")
+      //  }
 
         console.log(logoSRC)
 
