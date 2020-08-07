@@ -1,6 +1,6 @@
 {
-    "name": "BrewBuzz App",
-    "short_name": "BrewBuzz App",
+    "name": "BrewBuzz",
+    "short_name": "BrewBuzz",
     "icons": [
       {
         "src": "/stylesheets/assets/icon-72x72.png",
