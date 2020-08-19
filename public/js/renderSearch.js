@@ -98,7 +98,7 @@ function renderCards(AllBreweryObjects){
         AllBreweryObjects[i].phoneNumber +
         ">" +
               "<img class=redirectButton src=" +
-              `stylesheets/assets/Phone.png` +
+              `../stylesheets/assets/Phone.png` +
               ">" +
               "</a>"
     )
@@ -112,7 +112,7 @@ function renderCards(AllBreweryObjects){
         " + target=_blank" +
         ">" +
         "<img class=redirectButton src=" +
-        `stylesheets/assets/webicon.png` +
+        `../stylesheets/assets/webicon.png` +
         ">" +
         "</a>"
     );
@@ -133,7 +133,7 @@ function renderCards(AllBreweryObjects){
         directions +
         ">" +
         "<img class=redirectButton src=" +
-        `stylesheets/assets/directionicon.png` +
+        `../stylesheets/assets/directionicon.png` +
         ">" +
         "</a>"
     );
@@ -146,7 +146,7 @@ function renderCards(AllBreweryObjects){
       ">" +
       "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>"+
       "<img id=shareBtn class=redirectButton text-center src=" +
-      `stylesheets/assets/shareicon.png` +
+      `../stylesheets/assets/shareicon.png` +
       ">" +
       "</button>"+
       "</a>"
