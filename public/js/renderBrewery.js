@@ -5,8 +5,8 @@ var thisBreweryId = path.split("/")[2];
 // This function takes in a brewery name and renders it to the page
 function cardHeader(brewery) {
   var cardBrewery = $("<div>")
-    .addClass("card-body text-center headerBrewery")
-    .html("<p id=headerName style=color:black;>" + brewery + "</p>");
+    .addClass("card-body centeredBrewery headerBrewery")
+    .html("<p id=headerName class=centeredBrewery style=color:black;>" + brewery + "</p>");
 
   $("#brewery-title").prepend(cardBrewery);
 }
@@ -94,7 +94,7 @@ function cardRating(rating) {
 
 function cardNoRating() {
   var breweryRating = $("<ul>")
-    .addClass("card-body text-center breweryRating")
+    .addClass("col-sm-12")
     .html("<li id=headerName style=color:black;>" + "No Ratings Submitted" + "</li>");
 
   $("#brewery-rating").append(breweryRating);
@@ -103,7 +103,7 @@ function cardNoRating() {
 // this function takes in the review properties and renders a single review to the page
 function buildCard(review_id, brewery, email, review, userID, username, rating) {
   var cardDiv = $("<li>")
-    .addClass("col-sm-12 column")
+    .addClass("col-sm-12 correctUlMargin")
     .attr("id", "review" + review_id);
 
   var cardReview = $("<div style=font-size:125%;>")
@@ -256,6 +256,7 @@ function renderTheseReviews() {
 
       var webLink = $("<a href=" + breweryWebsite + " + target_blank" + ">")
       .attr("id", "webLink")
+      .addClass("centeredBrewery")
       $("#brewery-logo").append(webLink);
 
       var logoImage = $("<img>")
