@@ -5,8 +5,8 @@ var thisBreweryId = path.split("/")[2];
 // This function takes in a brewery name and renders it to the page
 function cardHeader(brewery) {
   var cardBrewery = $("<div>")
-    .addClass("card-body text-center headerBrewery")
-    .html("<p id=headerName style=color:black;>" + brewery + "</p>");
+    .addClass("card-body centeredBrewery headerBrewery")
+    .html("<p id=headerName class=centeredBrewery style=color:black;>" + brewery + "</p>");
 
   $("#brewery-title").prepend(cardBrewery);
 }
@@ -94,7 +94,7 @@ function cardRating(rating) {
 
 function cardNoRating() {
   var breweryRating = $("<ul>")
-    .addClass("card-body text-center breweryRating")
+    .addClass("card-body centeredBrewery breweryRating")
     .html("<li id=headerName style=color:black;>" + "No Ratings Submitted" + "</li>");
 
   $("#brewery-rating").append(breweryRating);
@@ -256,6 +256,7 @@ function renderTheseReviews() {
 
       var webLink = $("<a href=" + breweryWebsite + " + target_blank" + ">")
       .attr("id", "webLink")
+      .addClass("centeredBrewery")
       $("#brewery-logo").append(webLink);
 
       var logoImage = $("<img>")

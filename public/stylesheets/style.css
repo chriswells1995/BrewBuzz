@@ -10,15 +10,13 @@ form.login {
 .logo {
   width: 100%;
   height: 100% !important;
+  border: solid black;
   border-radius: 15px;
-  border-style: solid;
-  border-color: black;
   padding: 10px;
   background-color: white;
   margin-top: 10px;
   box-shadow: 5px 5px 2px rgba(128, 128, 128, 0.507);
   display: block;
-  /* flex: 25%; */
 }
 
 h4.column {
@@ -206,11 +204,11 @@ input#reviewInput {
 
 #headerName {
   margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  /* margin-left: 10px;
+  margin-right: 10px; */
   font-size: 30px;
 }
-@media(min-width:768px){
+/* @media(min-width:768px){
   #headerName{
       margin-left: 10%;
   }
@@ -219,7 +217,7 @@ input#reviewInput {
   #headerName{
       margin-left: 22%;
   }
-}
+} */
 
 /* fix this garbage later */
 #headerName:hover {
@@ -358,10 +356,6 @@ li.openBreweriesCenter {
 #starBackground {
   margin-left: 35%;
   margin-left: 35%;
-}
-
-.starability-result {
-  margin-top: 20px;
 }
 
 .footerStyle {
