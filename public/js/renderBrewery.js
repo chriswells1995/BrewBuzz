@@ -25,8 +25,8 @@ function cardRating(rating) {
                   "tel:" +
                   breweryPhone +
                   ">" +
-                  "<img class=redirectButton text-center src=" +
-                  `https://img.pngio.com/icono-simple-telefono-en-circulo-png-transparente-stickpng-icono-telefono-png-512_512.png` +
+                  "<img class=redirectButton src=" +
+                  `../stylesheets/assets/Phone.png` +
                   ">" +
                   "</a>"
               )
@@ -39,8 +39,8 @@ function cardRating(rating) {
                   breweryWebsite +
                   " + target=_blank" +
                   ">" +
-                  "<img class=" + "redirectButton text-center" + " src=" +
-                  `https://image.flaticon.com/icons/svg/2301/2301129.svg` +
+                  "<img class=redirectButton src=" +
+                  `../stylesheets/assets/webicon.png` +
                   ">" +
                   "</a>"
               );
@@ -67,8 +67,8 @@ function cardRating(rating) {
                 "<a href=" +
                   directions +
                   ">" +
-                  "<img class=redirectButton text-center src=" +
-                  `https://image.flaticon.com/icons/svg/2948/2948111.svg` +
+                  "<img class=redirectButton src=" +
+                  `../stylesheets/assets/directionicon.png` +
                   ">" +
                   "</a>"
               );
@@ -81,7 +81,7 @@ function cardRating(rating) {
                   ">" +
                   "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>"+
                   "<img id=shareBtn class=redirectButton text-center src=" +
-                  `https://image.flaticon.com/icons/svg/3039/3039401.svg` +
+                  '../stylesheets/assets/shareicon.png' +
                   ">" +
                   "</button>"+
                   "</a>"

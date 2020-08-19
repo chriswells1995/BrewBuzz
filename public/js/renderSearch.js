@@ -97,10 +97,10 @@ function renderCards(AllBreweryObjects){
         "tel:" +
         AllBreweryObjects[i].phoneNumber +
         ">" +
-        "<img class=redirectButton src=" +
-        `https://img.pngio.com/icono-simple-telefono-en-circulo-png-transparente-stickpng-icono-telefono-png-512_512.png` +
-        ">" +
-        "</a>"
+              "<img class=redirectButton src=" +
+              `stylesheets/assets/Phone.png` +
+              ">" +
+              "</a>"
     )
 
   renderedBreweryWebsite = $("<div>")
@@ -112,7 +112,7 @@ function renderCards(AllBreweryObjects){
         " + target=_blank" +
         ">" +
         "<img class=redirectButton src=" +
-        `https://image.flaticon.com/icons/svg/2301/2301129.svg` +
+        `stylesheets/assets/webicon.png` +
         ">" +
         "</a>"
     );
@@ -133,7 +133,7 @@ function renderCards(AllBreweryObjects){
         directions +
         ">" +
         "<img class=redirectButton src=" +
-        `https://image.flaticon.com/icons/svg/2948/2948111.svg` +
+        `stylesheets/assets/directionicon.png` +
         ">" +
         "</a>"
     );
@@ -143,13 +143,13 @@ function renderCards(AllBreweryObjects){
     .addClass("column")
     .html(
       "<a href=#" +
-        ">" +
-        "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>"+
-        "<img id=shareBtn class=redirectButton src=" +
-        `https://image.flaticon.com/icons/svg/3039/3039401.svg` +
-        ">" +
-        "</button>"+
-        "</a>"
+      ">" +
+      "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>"+
+      "<img id=shareBtn class=redirectButton text-center src=" +
+      `stylesheets/assets/shareicon.png` +
+      ">" +
+      "</button>"+
+      "</a>"
     );
 
   AddReviewButton = $("<a>")
