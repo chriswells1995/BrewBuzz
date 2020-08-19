@@ -94,7 +94,7 @@ function cardRating(rating) {
 
 function cardNoRating() {
   var breweryRating = $("<ul>")
-    .addClass("card-body centeredBrewery breweryRating")
+    .addClass("col-sm-12")
     .html("<li id=headerName style=color:black;>" + "No Ratings Submitted" + "</li>");
 
   $("#brewery-rating").append(breweryRating);
@@ -103,7 +103,7 @@ function cardNoRating() {
 // this function takes in the review properties and renders a single review to the page
 function buildCard(review_id, brewery, email, review, userID, username, rating) {
   var cardDiv = $("<li>")
-    .addClass("col-sm-12 column")
+    .addClass("col-sm-12 correctUlMargin")
     .attr("id", "review" + review_id);
 
   var cardReview = $("<div style=font-size:125%;>")

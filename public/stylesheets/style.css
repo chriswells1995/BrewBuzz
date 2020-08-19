@@ -19,6 +19,10 @@ form.login {
   display: block;
 }
 
+.correctUlMargin {
+  margin-left: 0px;
+}
+
 h4.column {
   flex: 100%;
 }
@@ -74,14 +78,7 @@ ul {
 
 #OpenBreweries {
   justify-content: center;
-} @media(min-width:768px){
-  #OpenBreweries {
-    /* justify-content: center; */
-    max-width: 60%;
-    margin-left: 21%;
-    margin-right: 0px;
-  }
-}
+} 
 
 .addBtn:hover {
   background-color:rgb(255, 196, 0); 
@@ -204,20 +201,8 @@ input#reviewInput {
 
 #headerName {
   margin-top: 10px;
-  /* margin-left: 10px;
-  margin-right: 10px; */
   font-size: 30px;
 }
-/* @media(min-width:768px){
-  #headerName{
-      margin-left: 10%;
-  }
-}
-@media(min-width:992px){
-  #headerName{
-      margin-left: 22%;
-  }
-} */
 
 /* fix this garbage later */
 #headerName:hover {
@@ -346,11 +331,6 @@ a#headerName {
 li.openBreweriesCenter {
   margin-left: 0px;
   margin-right: 0px;
-}
-
-.ulMargin {
-  margin-left: -30px;
-  margin-right: 30px;
 }
 
 #starBackground {
