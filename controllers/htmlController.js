@@ -21,12 +21,17 @@ router.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/login.html"));
 });
 
+// landing html
+router.get("/landing", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/landing.html"));
+});
+
 // brewery html
 router.get("/brewery/:id", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/brewery.html"));
 });
 
-// brewery html
+// search html
 router.get("/search/:input", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/search.html"));
 });
