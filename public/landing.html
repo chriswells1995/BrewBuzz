@@ -21,10 +21,10 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0 menuMargin">
         <li class="nav-item active">
-          <a class="nav-link navActive" href="/login">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link navFont" href="/login">Home <span class="sr-only">(current)</span></a>
         </li>
         <li>
-          <a class="nav-link navFont" id="dashboardLink">Dashboard</a>
+          <a class="nav-link navActive" id="dashboardLink">Dashboard</a>
         </li>
         <li class="nav-item" id="logout">
           <a class="nav-link navFont" href="/logout">Log Out</a>
@@ -61,6 +61,12 @@
           </ul>
         </li>
       </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <!-- input now has ID searchInput -->
+        <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+        <!-- The search button now has ID searchButton -->
+        <button id="searchButton" class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </div>
   </nav>
   <div class="container">
@@ -73,9 +79,9 @@
         </br>
           <form class="centeredBrewery form-inline my-2 my-lg-0">
             <!-- input now has ID searchInput -->
-            <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search for a Brewery" aria-label="Search"/>
+            <input id="landingSearchInput" class="form-control mr-sm-2" type="search" placeholder="Search for a Brewery" aria-label="Search"/>
             <!-- The search button now has ID searchButton -->
-            <button id="searchButton" class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
+            <button id="landingSearchButton" class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
           <div class="card text-white bg-warning mb-3" style="color: black !important;">
@@ -97,7 +103,7 @@
           <div class="card text-white bg-warning mb-3" style="color: black !important;">
             <a href="/favorites.html" style="color: black !important;">
               <div class="card-body">
-              <h4 class="card-title text-center">Honey Do List</h4>
+              <h4 class="card-title text-center">My Breweries</h4>
               <p class="card-text text-center">You can't be everywhere at once, but you can go there later.</p>
             </div>
           </a>

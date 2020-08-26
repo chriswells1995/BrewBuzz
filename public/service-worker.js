@@ -1,5 +1,6 @@
 const FILES_TO_CACHE = [
     "/",
+    "/landing.html",
     "/login.html",
     "/signup.html",
     "/user.html",
