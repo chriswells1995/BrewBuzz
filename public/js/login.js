@@ -59,6 +59,9 @@ $(document).ready(function() {
       var login = document.getElementById("loginVisibility")
       var logout = document.getElementById("logout")
       var dashboard = document.getElementById("dashboardLink")
+
+      localStorage.setItem("userId", currentUserId);
+
       if (currentUserId){
         login.style.display = "none",
         logout.style.display = "block",
