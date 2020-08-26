@@ -25,13 +25,6 @@ $(document).ready(function () {
       crossDomain: true,
     }).then(function (response) {
       console.log(response)
-      if (response.length ===0){
-        console.log("There are no results");
-        var noResults = $("<li>")
-        .html("<h1>No Results Found</h1>")
-        .addClass("noResultsMessage");
-        $("#OpenBreweries").after(noResults);
-      }
   // var AllBreweryObjects = response.filter(brewery => (brewery.name.includes(input) || brewery.address.includes(input) )) 
   var AllBreweryObjects=[];
   
@@ -42,6 +35,14 @@ $(document).ready(function () {
       AllBreweryObjects.push(response[i])
     }
   }
+
+    if (AllBreweryObjects.length ===0){
+      console.log("There are no results");
+      var noResults = $("<li>")
+      .html("<h1>No Results Found</h1>")
+      .addClass("noResultsMessage centeredBrewery");
+      $("#OpenBreweries").before(noResults);
+    }
 
   console.log(AllBreweryObjects)
   renderCards(AllBreweryObjects);
