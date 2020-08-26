@@ -16,14 +16,14 @@ router.get("/signup", function(req, res) {
 router.get("/", function(req, res) {
   // If the user already has an account send them to the members page
   if (req.user) {
-    res.redirect("/login");
+    res.redirect("/landing");
   }
-  res.sendFile(path.join(__dirname, "../public/login.html"));
+  res.sendFile(path.join(__dirname, "../public/landing.html"));
 });
 
 // landing html
-router.get("/landing", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/landing.html"));
+router.get("/login", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/login.html"));
 });
 
 // brewery html
@@ -51,9 +51,9 @@ router.get("/login", isAuthenticated, function(req, res) {
 router.get("*", function(req, res) {
   // If the user already has an account send them to the members page
   if (req.user) {
-    res.redirect("/login");
+    res.redirect("/landing");
   }
-  res.sendFile(path.join(__dirname, "../public/login.html"));
+  res.sendFile(path.join(__dirname, "../public/landing.html"));
 });
 
 module.exports = router;
