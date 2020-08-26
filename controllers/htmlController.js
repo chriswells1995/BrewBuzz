@@ -16,13 +16,8 @@ router.get("/signup", function(req, res) {
 router.get("/", function(req, res) {
   // If the user already has an account send them to the members page
   if (req.user) {
-    res.redirect("/landing");
+    res.redirect("/login");
   }
-  res.sendFile(path.join(__dirname, "../public/landing.html"));
-});
-
-// landing html
-router.get("/login", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/login.html"));
 });
 
@@ -31,7 +26,7 @@ router.get("/brewery/:id", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/brewery.html"));
 });
 
-// search html
+// brewery html
 router.get("/search/:input", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/search.html"));
 });
@@ -51,9 +46,10 @@ router.get("/login", isAuthenticated, function(req, res) {
 router.get("*", function(req, res) {
   // If the user already has an account send them to the members page
   if (req.user) {
-    res.redirect("/landing");
+    res.redirect("/login");
   }
-  res.sendFile(path.join(__dirname, "../public/landing.html"));
+  res.sendFile(path.join(__dirname, "../public/login.html"));
 });
 
 module.exports = router;
+
