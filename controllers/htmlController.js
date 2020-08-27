@@ -8,7 +8,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 router.get("/", function(req, res) {
   // If the user already has an account send them to their user page
   if (req.user) {
-    res.redirect("/user/" + req.user.id);
+    res.redirect("/login");
   }
   // Else send them to the landing page
   res.sendFile(path.join(__dirname, "../public/landing.html"));
