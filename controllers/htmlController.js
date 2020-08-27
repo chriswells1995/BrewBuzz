@@ -16,11 +16,16 @@ router.get("/", function(req, res) {
 
 router.get("/signup", function(req, res) {
   // If the user already has an account send them to their user page
-  if (req.user) {
-    res.redirect("/user/" + req.user.id);
-  }
-  // Else send them to the signup page
   res.sendFile(path.join(__dirname, "../public/signup.html"));
+});
+
+router.get("/landing", function(req, res) {
+  // If the user already has an account send them to their user page
+  if (req.user) {
+    res.redirect("/login");
+  }
+  // Else send them to the landing page
+  res.sendFile(path.join(__dirname, "../public/landing.html"));
 });
 
 // brewery html
