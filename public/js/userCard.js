@@ -65,9 +65,9 @@ function displayUserCards() {
 
     // cardDiv.append(logoLink, cardBrewery, cardReview, deleteBtn);
     if(currentUserId===localStorage.getItem("userId")){
-      cardDiv.append(existingLogo, cardBrewery, cardReview, deleteBtn)
+      cardDiv.append(logoLink, cardBrewery, cardReview, deleteBtn)
       } else {
-        cardDiv.append(existingLogo, cardBrewery, cardReview)
+        cardDiv.append(logoLink, cardBrewery, cardReview)
       }
 
     logoLink.append(
