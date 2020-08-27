@@ -5,20 +5,22 @@ const router = express.Router();
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
-router.get("/signup", function(req, res) {
-  // If the user already has an account send them to the members page
-  if (req.user) {
-    res.redirect("/signup");
-  }
-  res.sendFile(path.join(__dirname, "../public/signup.html"));
-});
-
 router.get("/", function(req, res) {
-  // If the user already has an account send them to the members page
+  // If the user already has an account send them to their user page
   if (req.user) {
     res.redirect("/login");
   }
-  res.sendFile(path.join(__dirname, "../public/login.html"));
+  // Else send them to the landing page
+  res.sendFile(path.join(__dirname, "../public/landing.html"));
+});
+
+router.get("/signup", function(req, res) {
+  // If the user already has an account send them to their user page
+  if (req.user) {
+    res.redirect("/user/" + req.user.id);
+  }
+  // Else send them to the signup page
+  res.sendFile(path.join(__dirname, "../public/signup.html"));
 });
 
 // brewery html
@@ -45,10 +47,7 @@ router.get("/login", isAuthenticated, function(req, res) {
 
 router.get("*", function(req, res) {
   // If the user already has an account send them to the members page
-  if (req.user) {
-    res.redirect("/login");
-  }
-  res.sendFile(path.join(__dirname, "../public/login.html"));
+  res.sendFile(path.join(__dirname, "../public/landing.html"));
 });
 
 module.exports = router;
