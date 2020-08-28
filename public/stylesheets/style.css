@@ -317,7 +317,12 @@ a#headerName {
 }
 
 .reviewText {
+  color: black;
   flex: 100%;
+}
+
+.reviewLink:hover {
+  text-decoration: none !important;
 }
 
 #mainUl {

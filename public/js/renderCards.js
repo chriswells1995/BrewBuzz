@@ -19,6 +19,7 @@ function displayCards() {
         breweryWebsite: responseData[i].Brewery.website,
         breweryPhone: responseData[i].Brewery.phoneNumber,
         username: responseData[i].User.username,
+        user_id: responseData[i].User.id,
         review_id: responseData[i].id,
         review: responseData[i].review,
         rating: responseData[i].rating
@@ -59,17 +60,12 @@ function displayCards() {
           .addClass("starability-result")
           .attr("data-rating", Math.round(parseInt(AllBreweryObjects[i].rating)*2)/2 )
 
+          var reviewLink = $("<a href=/user/" +
+          AllBreweryObjects[i].user_id + " class=reviewLink" + ">")
+
           renderedLogo = $("<img>")
           .addClass("logo column")
           .attr("src", AllBreweryObjects[i].breweryLogo);
-
-          // TODO: Make the image clickable with link to specific brewery.html page
-          // code to do that below, need to figure out how to link to dynamic element
-          // .html(
-          //   "<a href = /brewery/" +
-          //     AllBreweryObjects[i].breweryId +
-          //   ">" +
-          //   "</a>");
 
           renderedBreweryName = $("<h4>")
             .addClass("column centeredBreweryName")
@@ -83,7 +79,7 @@ function displayCards() {
               "</a>"
           );
 
-        renderedReview = $("<p>")
+        renderedReview = $("<p " + "style=color:black;" + ">")
           .text(
             AllBreweryObjects[i].username + " said: " +
             AllBreweryObjects[i].review
@@ -164,11 +160,15 @@ function displayCards() {
           directionsLink,
           // TODO: research how to get this up and running
           shareLink,
-          renderedReview
+          reviewLink
         );
 
         logoLink.append(
           renderedLogo
+        );
+
+        reviewLink.append(
+          renderedReview
         );
 
         $("#OpenBreweries").append(cardDiv);
