@@ -94,7 +94,7 @@ function cardRating(rating) {
 
 function cardNoRating() {
   var breweryRating = $("<ul>")
-    .addClass("col-sm-12")
+    .addClass("centeredBrewery")
     .html("<li id=headerName style=color:black;>" + "No Ratings Submitted" + "</li>");
 
   $("#brewery-rating").append(breweryRating);
