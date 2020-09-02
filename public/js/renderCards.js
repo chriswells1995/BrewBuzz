@@ -61,7 +61,8 @@ function displayCards() {
           .attr("data-rating", Math.round(parseInt(AllBreweryObjects[i].rating)*2)/2 )
 
           var reviewLink = $("<a href=/user/" +
-          AllBreweryObjects[i].user_id + " class=reviewLink" + ">")
+          AllBreweryObjects[i].user_id + ">")
+          .addClass("reviewLink")
 
           renderedLogo = $("<img>")
           .addClass("logo column")
@@ -85,7 +86,7 @@ function displayCards() {
             AllBreweryObjects[i].review
           )
           .attr("id", "userReview" + i)
-          .addClass("card-body reviewText");
+          .addClass("card-body reviewText centeredBrewery");
 
         renderedBreweryPhone = $("<div>")
           .attr("id", "callButton")
