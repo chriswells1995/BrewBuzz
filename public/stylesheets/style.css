@@ -353,3 +353,18 @@ li.openBreweriesCenter {
   color:rgb(255, 196, 0);
 }
 
+.short-rule {
+  background-color: rgba(0, 0, 0, 0.699);
+  height: 4px;
+  width: 20%;
+  margin-left: 40%;
+  margin-right: 40%;
+  margin-top: 10px;
+}
+
+#cellFulton {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 80%;
+}
+
