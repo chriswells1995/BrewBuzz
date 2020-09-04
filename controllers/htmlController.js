@@ -10,7 +10,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 router.get("/", function(req, res) {
   // If the user already has an account send them to their user page
   if (req.user) {
-    res.redirect("/login");
+    res.redirect("/userlanding");
   }
   // Else send them to the landing page
   res.sendFile(path.join(__dirname, "../public/landing.html"));
@@ -19,6 +19,11 @@ router.get("/", function(req, res) {
 router.get("/signup", function(req, res) {
   // If the user already has an account send them to their user page
   res.sendFile(path.join(__dirname, "../public/signup.html"));
+});
+
+router.get("/userlanding", function(req, res) {
+  // If the user already has an account send them to their user page
+  res.sendFile(path.join(__dirname, "../public/userLanding.html"));
 });
 
 router.get("/landing", function(req, res) {
