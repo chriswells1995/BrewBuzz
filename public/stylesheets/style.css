@@ -2,6 +2,10 @@ body{
   background-image: url(assets/beehive_reversed.png);
 }
 
+.menuMargin {
+  margin-left: -25px;
+}
+
 form.signup,
 form.login {
   margin-top: 50px;
@@ -147,6 +151,10 @@ input#reviewInput {
   background: rgba(0, 0, 0, 0.89) !important;
   padding-top: 0px;
   padding-bottom: 0px;
+}
+
+#login-nav{
+  margin-left: -30px;
 }
 
 #login-dp{
