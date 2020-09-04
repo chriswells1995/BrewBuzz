@@ -200,6 +200,10 @@ input#reviewInput {
   text-decoration: none;
 }
 
+#formMargin {
+  margin-bottom: 10px !important;
+}
+
 .headerFont {
   margin-left: 10%;
   margin-right: 10%;
