@@ -21,10 +21,19 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0 menuMargin">
         <li class="nav-item active">
-          <a class="nav-link navFont" href="/landing">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link navActive" href="/landing">Home</a>
         </li>
         <li>
-          <a class="nav-link navActive" id="dashboardLink">Dashboard</a>
+          <a class="nav-link navFont" href="/login">Hive</a>
+        </li>
+        <li>
+          <a class="nav-link navFont" href="/nearby">Explore</a>
+        </li>
+        <li>
+          <a class="nav-link navFont" id="favoritesNav" href="/favorites">Favorites</a>
+        </li>
+        <li>
+          <a class="nav-link navFont" id="dashboardLink">Dashboard</a>
         </li>
         <li class="nav-item" id="logout">
           <a class="nav-link navFont" href="/logout">Log Out</a>
@@ -51,10 +60,10 @@
                         <button type="submit" class="btn btn-warning btn-block loginBtn">Sign in</button>
                       </div>
                   </form>
-                </div>
-                <div style="padding: 15px; margin-left: 45px;" class="text-center">
-                  <!-- I am 100% aware this is crazy sloppy. Will fix properly in the polishing phase -->
-                  New here? <a style="color: rgb(255, 196, 0);" href="/signup"><b>Join Us</b></a>
+                  <div style="margin: 0px 0px 10px -25px;" class="text-center">
+                    <!-- I am 100% aware this is crazy sloppy. Will fix properly in the polishing phase -->
+                    New here? <a style="color: rgb(255, 196, 0);" href="/signup"><b>Join Us</b></a>
+                  </div>
                 </div>
               </div>
             </li>

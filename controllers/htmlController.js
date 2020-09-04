@@ -50,15 +50,18 @@ router.get("/user/:id", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/user.html"));
 });
 
-
-// Here we've add our isAuthenticated middleware to this route.
-// If a user who is not logged in tries to access this route they will be redirected to the signup page
-router.get("/login", isAuthenticated, function(req, res) {
+// login html (A.K.A. hive)
+router.get("/login", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/login.html"));
 });
 
+// catchall route
 router.get("*", function(req, res) {
-  // If the user already has an account send them to the members page
+  // If the user already has an account send them to user landing page
+  if (req.user) {
+    res.redirect("/userLanding.html");
+  }
+  // Else send them to the landing page
   res.sendFile(path.join(__dirname, "../public/landing.html"));
 });
 
