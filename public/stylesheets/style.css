@@ -368,3 +368,23 @@ li.openBreweriesCenter {
   max-width: 80%;
 }
 
+#nearbyBrewery {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 80%;
+}
+
+#aboutBrewBuzz {
+  margin-top: 20px;
+  margin-left: 10%;
+  width: 80%;
+  margin-right: 10%;
+  padding: 15px;
+  background-color: rgb(255, 199, 71);
+  border-radius: 15px;
+  border:2px solid #ccc;
+  border-bottom:3px solid rgba(187, 187, 187, 0.589);
+  border-top:2px solid rgba(221, 221, 221, 0.582);
+  box-shadow: 5px 5px 2px rgba(128, 128, 128, 0.507);
+}
+
