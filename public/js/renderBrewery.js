@@ -79,7 +79,7 @@ function cardRating(rating) {
               .html(
                 "<a href=#" +
                   ">" +
-                  "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>"+
+                  "<button type=button class=btn btn-primary data-toggle=modal data-target=#shareModal>"+
                   "<img id=shareBtn class=redirectButton text-center src=" +
                   '../stylesheets/assets/shareicon.png' +
                   ">" +

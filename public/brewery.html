@@ -86,6 +86,11 @@
       <div class="row centeredBrewery" id="brewery-title">
         <!-- put the Brewery Title in this div -->
       </div>
+      <div class = "text-center">
+        <a href= "#"> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#flagModal"> FLAG THIS BREWERY
+        </button>
+        </a>
+      </div>
       <div>
         <p class="text-center">Buzz Rated</p>
       </div>
@@ -147,12 +152,12 @@
     <!-- end of code refactoring -->
 
     <!-- Just throwing the Modal here for now -->
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Share Modal -->
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Post to Social Media</h5>
+        <h5 class="modal-title" id="shareLabel">Post to Social Media</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -169,6 +174,35 @@
         Share on Twitter
       </button>
       </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Flag Modal -->
+<div class="modal fade" id="flagModal" tabindex="-1" role="dialog" aria-labelledby="flagLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="flagLabel">Flag this Brewery</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+<div>
+
+<input type="radio" id="flagOption0" name="flagReason" value="0">
+<label for="flagOption0">It closed down permanently</label><br>
+<input type="radio" id="flagOption1" name="flagReason" value="1">
+<label for="flagOption1">It moved to a different location</label><br>
+<input type="radio" id="flagOption2" name="flagReason" value="2">
+<label for="flagOption2">There is a typo/misspelling in our page</label><br>
+<input type="radio" id="flagOption3" name="flagReason" value="3">
+<label for="flagOption3">Other</label><br>
+</div>
+<input type="text" name="flagNote" id="flagNote" placeholder="Please describe the problem">
+
       </div>
     </div>
   </div>
