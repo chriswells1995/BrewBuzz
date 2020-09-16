@@ -87,9 +87,9 @@
         <!-- put the Brewery Title in this div -->
       </div>
       <div class = "text-center">
-        <a href= "#"> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#flagModal"> FLAG THIS BREWERY
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#flagModal"> FLAG THIS BREWERY
         </button>
-        </a>
+       
       </div>
       <div>
         <p class="text-center">Buzz Rated</p>
@@ -177,7 +177,6 @@
       </div>
     </div>
   </div>
-</div>
 
 <!-- Flag Modal -->
 <div class="modal fade" id="flagModal" tabindex="-1" role="dialog" aria-labelledby="flagLabel" aria-hidden="true">
@@ -202,11 +201,30 @@
 <label for="flagOption3">Other</label><br>
 </div>
 <input type="text" name="flagNote" id="flagNote" placeholder="Please describe the problem">
+<div>
+  <!-- <button class = "btn-primary" id = "submitBreweryFlag">Submit</button> -->
+  <button id = "submitBreweryFlag" type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#thankYouModal">Submit</button>
+
+</div>
 
       </div>
     </div>
   </div>
-</div>
+
+  <!-- thank you modal -->
+<div class="modal fade" id="thankYouModal" tabindex="-1" role="dialog" aria-labelledby="thankYouLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="thankYouLabel">Thank you</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      </div>
+    </div>
+  </div>
+
 <!-- footer -->
     <footer class="text-center">
       <a class="footerStyle" href = "https://www.termsfeed.com/live/6ea83ad4-0ebe-4b39-8706-fff4c37e43de" target = "blank">Privacy Policy
@@ -226,6 +244,8 @@
     <script type="text/javascript" src="/js/login.js"></script>
     <script type="text/javascript" src="/js/search.js"></script>
     <script type="text/javascript" src="/js/renderBrewery.js"></script>
+    <script type="text/javascript" src="/js/flagBrewery.js"></script>
+
 
   </body>
 </html>
