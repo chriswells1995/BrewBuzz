@@ -2,23 +2,9 @@
 const path = require("path");
 const express = require('express');
 const router = express.Router();
-const nodemailer = require('nodemailer');
-require('dotenv').config();
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-
-// Configuring Nodemailer SMTP credentials
-const transport = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
-  port: process.env.EMAIL_PORT,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-});
-
 
 router.get("/", function(req, res) {
   // If the user already has an account send them to their user page
@@ -41,6 +27,10 @@ router.get("/landing", function(req, res) {
   }
   // Else send them to the landing page
   res.sendFile(path.join(__dirname, "../public/landing.html"));
+});
+
+router.get("/forgotpassword", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/forgot-password.html"));
 });
 
 // brewery html

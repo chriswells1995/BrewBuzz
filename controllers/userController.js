@@ -3,6 +3,21 @@
 const express = require('express')
 const router = express.Router();
 const db = require("../models");
+const nodemailer = require('nodemailer');
+const crypto = require('crypto');
+require('dotenv').config();
+
+// Configuring Nodemailer SMTP credentials
+const transport = nodemailer.createTransport({
+  host: process.env.EMAIL_HOST,
+  port: process.env.EMAIL_PORT,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+});
+
 
 // Routes
 // =============================================================
@@ -31,13 +46,13 @@ router.get("/api/user/:id", function(req, res) {
 
   // Get route for forgot-password
   router.get('/forgot-password', function(req, res, next) {
-    res.render('user/forgot-password', { });
+    res.render('/user/forgot-password', { });
   });
 
   // Post route for forgot-password
-  router.post('/forgot-password', async function(req, res, next) {
+  router.post('/user/forgotpassword', async function(req, res, next) {
     //ensure that you have a user with this email
-    var email = await User.findOne({where: { email: req.body.email }});
+    var email = await db.User.findOne({where: { email: req.body.email }});
     if (email == null) {
     /**
      * we don't want to tell attackers that an
@@ -52,7 +67,7 @@ router.get("/api/user/:id", function(req, res) {
      * set for this user. That prevents old tokens
      * from being used.
      **/
-    await ResetToken.update({
+    await db.ResetToken.update({
         used: 1
       },
       {
@@ -62,14 +77,16 @@ router.get("/api/user/:id", function(req, res) {
     });
    
     //Create a random reset token
-    var fpSalt = crypto.randomBytes(64).toString('base64');
+    var token = crypto.randomBytes(64).toString('base64');
    
     //token expires after one hour
-    var expireDate = new Date();
-    expireDate.setDate(expireDate.getDate() + 1/24);
+    // var expireDate = new Date();
+    // expireDate.setDate(expireDate.getDate() + 1/24);
+
+    var expireDate = "2020-09-16 12:17:00"
    
     //insert token data into DB
-    await ResetToken.create({
+    await db.ResetToken.create({
       email: req.body.email,
       expiration: expireDate,
       token: token,
