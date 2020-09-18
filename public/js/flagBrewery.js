@@ -6,7 +6,7 @@ var flagBreweryNote;
 var path = window.location.pathname;
 var flaggedBreweryId= path.split("/")[2];
 
-    for(i =0; i<4; i++){
+    for(i =1; i<5; i++){
         if (document.getElementById("flagOption" + i).checked){
             flagBreweryOption = i;
         }
@@ -17,6 +17,24 @@ var flaggedBreweryId= path.split("/")[2];
     console.log(flagBreweryNote)
     console.log(flaggedBreweryId)
 
-// ajax call to post to breweryflags
+// ajax call to post to breweryflags  
+var settingsFlag = {
+  "url": "http://localhost:8080/api/flaggedbrewery",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "Content-Type": "application/x-www-form-urlencoded",
+  },
+  "data": {
+    "BreweryId": flaggedBreweryId,
+    "flagoptionsId": flagBreweryOption,
+    "note": flagBreweryNote
+  }
+};
+
+$.ajax(settingsFlag).then(function (response) {
+  console.log(response);
+});
 
 })
+

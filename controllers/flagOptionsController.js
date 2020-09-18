@@ -8,28 +8,26 @@ const db = require("../models");
 // =============================================================
 
   // Get all options
-router.get("/api/flaggedbreweries", function(req, res) {
+router.get("/api/flagoptions", function(req, res) {
   // Finding all Breweries, and then returning them to the user as JSON.
   // Sequelize queries are asynchronous, which helps with perceived speed.
-  db.FlaggedBreweries.findAll({
-  
-     include: [db.FlagOptions, db.Brewery]
-  })  .then(results => res.json(results))
+  db.FlagOptions.findAll({})
+  .then(results => res.json(results))
   .catch(err => res.status(500).json(err))
 });
 
 
 
 // Add an option
-router.post("/api/flaggedbrewery", function(req, res) {
+router.post("/api/flagoption", function(req, res) {
   // reference the brewery model and then utilize the sequelize.create
   // built in method to create a new brewery
   // inside .create() we reference the author and body columns we feed
   // those columns values from req.body
-  db.FlaggedBreweries.create(
-    //  TODO: may need to deconstruct this later
-    req.body
-  ).then(() => res.json(true))
+  db.FlagOptions.create({
+    // adding req.body(response) to name, website, streetAddress
+    flagType: req.body.flagType
+  }).then(() => res.json(true))
     .catch((err) => res.status(500).json(err))
 });
 
