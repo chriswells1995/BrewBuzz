@@ -129,6 +129,11 @@ router.get("/api/user/:id", function(req, res) {
     });
    
     //find the token
+    console.log("record contents")
+    console.log(email)
+    console.log(expiration)
+    console.log(token)
+    console.log(used)
     var record = await db.ResetToken.findOne({
       where: {
         email: req.query.email,
