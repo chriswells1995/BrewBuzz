@@ -2,7 +2,6 @@
 const path = require("path");
 const express = require('express');
 const router = express.Router();
-const nodemailer = require('nodemailer');
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -33,6 +32,16 @@ router.get("/landing", function(req, res) {
   }
   // Else send them to the landing page
   res.sendFile(path.join(__dirname, "../public/landing.html"));
+});
+
+// forgot password
+router.get("/forgotpassword", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/forgot-password.html"));
+});
+
+// reset password
+router.get("/resetpassword", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/reset-password.html"));
 });
 
 // brewery html
