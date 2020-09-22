@@ -29,8 +29,14 @@ router.get("/landing", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/landing.html"));
 });
 
+// forgot password
 router.get("/forgotpassword", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/forgot-password.html"));
+});
+
+// reset password
+router.get("/resetpassword", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/reset-password.html"));
 });
 
 // brewery html
