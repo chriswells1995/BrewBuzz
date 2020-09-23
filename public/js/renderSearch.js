@@ -43,7 +43,7 @@ $(document).ready(function () {
     }
   }
 
-  console.log(AllBreweryObjects)
+  console.log('render ',AllBreweryObjects)
   renderCards(AllBreweryObjects);
   input = '';
     }).catch(function (error){
@@ -64,9 +64,10 @@ function renderCards(AllBreweryObjects){
     var directionsName;
 
     for (i=0; i<AllBreweryObjects.length; i++){
+    stageLocation(AllBreweryObjects[i].latitude, AllBreweryObjects[i].longitude)
 
     var streetAddress = AllBreweryObjects[i].street + " " + AllBreweryObjects[i].city + " " + AllBreweryObjects[i].state
-
+      
     var cardDiv = $("<li>")
     .addClass("col-sm-12 row")
     .attr("id", "cardNumber" + i);
@@ -87,6 +88,20 @@ function renderCards(AllBreweryObjects){
         "<br>" +
         streetAddress +
         "</a>"
+    );
+    renderedDistance = $("<h4>")
+    .text(
+      'howdy'
+    )
+    .attr("value", i)
+    .addClass("card-body headerFont");
+    
+    renderedDistance.html(
+      "<p>" +
+        "lat " + AllBreweryObjects[i].latitude +
+        "lon " +
+        AllBreweryObjects[i].longitude +
+        "</p>"
     );
 
   renderedBreweryPhone = $("<div>")
@@ -163,6 +178,7 @@ function renderCards(AllBreweryObjects){
     renderedBreweryPhone,
     renderedBreweryWebsite,
     directionsLink,
+    renderedDistance,
     shareLink
   );
 

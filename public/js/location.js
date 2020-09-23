@@ -9,6 +9,7 @@ let userDistance;
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
+        console.log('loc enabled')
     } else {
         console.log('Please enable location services')
     }
@@ -17,10 +18,17 @@ function getLocation() {
 function showPosition(position) {
     userLat = position.coords.latitude
     userLng = position.coords.longitude
+    console.log('lat ',userLat, '  lon ', userLng)
+}
+
+function stageLocation(brewLat, brewLng){
+    console.log('stage loc')
+    distance(userLat,userLng, brewLat, brewLng)
 }
 
 //equation to caculate distance between two sets of coordinates 
 function distance(lat1, lon1, lat2, lon2, unit) {
+    console.log('distance')
     if ((lat1 == lat2) && (lon1 == lon2)) {
         return 0;
     }
@@ -39,5 +47,8 @@ function distance(lat1, lon1, lat2, lon2, unit) {
         if (unit == "K") { dist = dist * 1.609344 }
         if (unit == "N") { dist = dist * 0.8684 }
         userDistance = dist;
+        console.log(userDistance, 'miles away')
     }
 }
+
+getLocation();
