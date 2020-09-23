@@ -13,7 +13,7 @@ router.get("/api/flaggedbreweries", function(req, res) {
   // Sequelize queries are asynchronous, which helps with perceived speed.
   db.FlaggedBreweries.findAll({
   
-     include: [db.FlagOptions, db.Brewery]
+     include: [db.FlagOptions, db.Brewery, db.User]
   })  .then(results => res.json(results))
   .catch(err => res.status(500).json(err))
 });

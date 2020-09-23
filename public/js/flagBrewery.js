@@ -1,6 +1,23 @@
 
 $("#submitBreweryFlag").on("click", function(){
 
+    // make ajax get for user ID
+
+    var userSettings = {
+      url: "/api/user_data",
+      method: "GET",
+      timeout: 0,
+    };
+  
+    $.ajax(userSettings).then(function (response) {
+      console.log("user");
+      console.log(response);
+  
+      if (response.id) {
+        console.log("it works");
+        console.log(response.id);
+        var currentUserId = response.id;
+
 var flagBreweryOption;
 var flagBreweryNote;
 var path = window.location.pathname;
@@ -28,13 +45,25 @@ var settingsFlag = {
   "data": {
     "BreweryId": flaggedBreweryId,
     "flagoptionsId": flagBreweryOption,
-    "note": flagBreweryNote
+    "note": flagBreweryNote,
+    "UserId": currentUserId
   }
 };
 
 $.ajax(settingsFlag).then(function (response) {
   console.log(response);
 });
+
+
+  
+
+      } else {
+        // TODO: something more fancy than an alert maybe
+        alert("You need to sign in to flag a brewery");
+      }
+    });
+
+
 
 })
 

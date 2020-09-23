@@ -425,3 +425,5 @@ function renderTheseReviews() {
 
 $("#OpenBreweries").empty();
 renderTheseReviews();
+
+

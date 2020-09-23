@@ -43,7 +43,14 @@ module.exports = function(sequelize, DataTypes) {
     
       })
 
-      
+      FlaggedBreweries.belongsTo(models.User, {
+        // this will add a column called BreweryID
+    
+        foreignKey: {
+          allowNull: false
+        }
+    
+      })
     
     
     }
