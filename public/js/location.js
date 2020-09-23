@@ -1,7 +1,7 @@
 let userLat;
 let userLng;
-let brewLat;
-let brewLong;
+// let brewLat;
+// let brewLng;
 let userDistance;
 
 
@@ -22,8 +22,14 @@ function showPosition(position) {
 }
 
 function stageLocation(brewLat, brewLng){
-    console.log('stage loc')
-    distance(userLat,userLng, brewLat, brewLng)
+    console.log('stage loc', ' lat ',brewLat, ' lon ', brewLng )
+    if(brewLat === ''){
+        console.log('no lat!!')
+    }
+    else{
+        distance(userLat,userLng, brewLat, brewLng)
+    }
+    
 }
 
 //equation to caculate distance between two sets of coordinates 
