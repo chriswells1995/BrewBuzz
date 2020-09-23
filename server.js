@@ -25,6 +25,8 @@ app.use(require("./controllers/authController.js"))
 app.use(require("./controllers/breweryController.js"))
 app.use(require("./controllers/reviewController.js"))
 app.use(require("./controllers/userController.js"))
+app.use(require("./controllers/flaggedBreweriesController.js"))
+app.use(require("./controllers/flagOptionsController.js"))
 app.use(require("./controllers/htmlController.js"))
 
 
