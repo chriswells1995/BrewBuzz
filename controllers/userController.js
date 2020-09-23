@@ -7,7 +7,6 @@ const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
-require('dotenv').config();
 
 // Configuring Nodemailer SMTP credentials
 const transport = nodemailer.createTransport({
@@ -103,7 +102,7 @@ router.get("/api/user/:id", function(req, res) {
         to: req.body.email,
         replyTo: process.env.REPLYTO_ADDRESS,
         subject: process.env.FORGOT_PASS_SUBJECT_LINE,
-        text: 'To reset your password, please click the link below.\n\nhttps://'+process.env.DOMAIN+'/user/resetpassword?token='+encodeURIComponent(token)+'&email='+req.body.email
+        text: 'To reset your password, please click the link below.\n\nhttps://'+process.env.DOMAIN+'/resetpassword?token='+encodeURIComponent(token)+'&email='+req.body.email
     };
    
     //send email
@@ -129,11 +128,6 @@ router.get("/api/user/:id", function(req, res) {
     });
    
     //find the token
-    console.log("record contents")
-    console.log(email)
-    console.log(expiration)
-    console.log(token)
-    console.log(used)
     var record = await db.ResetToken.findOne({
       where: {
         email: req.query.email,
@@ -144,13 +138,13 @@ router.get("/api/user/:id", function(req, res) {
     });
    
     if (record == null) {
-      return res.render('user/reset-password', {
+      return res.render('/user/reset-password', {
         message: 'Token has expired. Please try password reset again.',
         showForm: false
       });
     }
    
-    res.render('user/reset-password', {
+    res.render('/user/reset-password', {
       showForm: true,
       record: record
     });
