@@ -36,7 +36,7 @@ var flaggedBreweryId= path.split("/")[2];
 
 // ajax call to post to breweryflags  
 var settingsFlag = {
-  "url": "http://localhost:8080/api/flaggedbrewery",
+  "url": "/api/flaggedbrewery",
   "method": "POST",
   "timeout": 0,
   "headers": {
