@@ -7,14 +7,6 @@ const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
-var url = window.location.href;
-var record =url.split("?")[1].split("&");
-var token = record.split("=")[0];
-var email =record.split("=")[0];
-
-console.log("records token and email")
-console.log(token)
-console.log(email)
 
 // Configuring Nodemailer SMTP credentials
 const transport = nodemailer.createTransport({
@@ -90,49 +82,11 @@ router.get("/api/user/:id", function(req, res) {
    
     //token expires after one hour
 
-    // TODO: had to create the dateOrb and timeOrb functions to provide a proper DATETIME format for expiry. 
-    // get this working properly BEGINNING OF CODE BLOCK
+    // TODO: get the date to auto create and increment + 1 hr
+    // var expireDate = new Date();
+    // expireDate.setDate(expireDate.getDate() + 1/24);
 
-    function dateOrb() {
-      var currentDate = new Date();
-      var year = currentDate.getFullYear();
-      var month = currentDate.getMonth();
-      var date = currentDate.getDate();
-   
-          var dateString = 
-          year
-          +
-          "-"
-          +
-          ("0"+(month+1))
-          +
-          "-"
-          +
-          date;
-  
-      timeOrb(dateString)
-      
-  }
-  
-  function timeOrb(dateString) {
-  
-      var currentDate = new Date();
-      var hours = currentDate.getHours() + 1;
-      var minutes = currentDate.getMinutes();
-      var seconds = currentDate.getSeconds();
-      var formattedTime = hours + ":" + minutes + ":" + seconds;
-  
-      var expireDate = ((dateString) + " " + (formattedTime))
-
-      console.log(expireDate)
-      return expireDate;
-  }
-  
-  dateOrb();
-
-  // END OF CODE BLOCK
-
-  var expireDate = "2020-09-28 16:54:00"
+    var expireDate = "2020-09-16 12:17:00"
    
     //insert token data into DB
     await db.ResetToken.create({
