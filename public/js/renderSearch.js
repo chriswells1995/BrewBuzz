@@ -40,8 +40,9 @@ $(document).ready(function () {
       console.log("There are no results");
       var noResults = $("<li>")
       .html("<h1>No Results Found</h1>")
-      .addClass("noResultsMessage centeredBrewery");
+      .addClass("noResultsMessage");
       $("#OpenBreweries").before(noResults);
+      $(".loader-wrapper").empty();
     }
 
   console.log(AllBreweryObjects)
@@ -54,6 +55,7 @@ $(document).ready(function () {
 // render cards ======================================================================================
 function renderCards(AllBreweryObjects){
     $("#OpenBreweries").empty();
+    $(".loader-wrapper").hide();
     var AddBreweryButton;
     var existinglogo;
     var renderedBreweryName;
@@ -192,6 +194,7 @@ function renderCards(AllBreweryObjects){
 
   $("#OpenBreweries").append(cardDiv);
     }
+
     
   };
 

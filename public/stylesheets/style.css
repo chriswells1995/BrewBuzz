@@ -83,6 +83,11 @@ form.login {
   margin-top: 50px;
 }
 
+.noResultsMessage {
+  width: 100%;
+  margin-left: 0%;
+}
+
 .logo {
   width: 100%;
   height: 100% !important;
