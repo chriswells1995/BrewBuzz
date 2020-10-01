@@ -141,7 +141,6 @@ router.get("/api/user/:id", function(req, res) {
      **/
     await db.ResetToken.destroy({
       where: {
-        // expiration: "2020-09-30 21:17:00",
         expiration: { [Op.lt]: Sequelize.fn('CURDATE')},
       }
     });
@@ -151,7 +150,6 @@ router.get("/api/user/:id", function(req, res) {
       where: {
         email: req.query.email,
         expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
-        // expiration: "2020-09-30 21:17:00",
         token: req.query.token,
         used: 0
       }
@@ -189,7 +187,6 @@ router.get("/api/user/:id", function(req, res) {
       where: {
         email: req.body.email,
         expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
-        // expiration: "2020-09-30 21:17:00",
         token: req.body.token,
         used: 0
       }
