@@ -19,6 +19,23 @@ const transport = nodemailer.createTransport({
   }
 });
 
+// DATETIME converter
+var currentDate = new Date();
+// pull current date info
+var year = currentDate.getFullYear();
+var month = currentDate.getMonth();
+var date = currentDate.getDate();
+// pull current time info
+var hours = currentDate.getHours() + 1;
+var minutes = currentDate.getMinutes();
+var seconds = currentDate.getSeconds();
+
+var expireDate = 
+// date
+year + "-" + ("0"+(month+1)) + "-" + date + " "
+// time
++ hours + ":" + minutes + ":" + seconds;
+
 
 // Routes
 // =============================================================
@@ -83,10 +100,11 @@ router.get("/api/user/:id", function(req, res) {
     //token expires after one hour
 
     // TODO: get the date to auto create and increment + 1 hr
+
     // var expireDate = new Date();
     // expireDate.setDate(expireDate.getDate() + 1/24);
 
-    var expireDate = "2020-09-16 12:17:00"
+    // var expireDate = "2020-09-16 12:17:00"
    
     //insert token data into DB
     await db.ResetToken.create({
@@ -123,6 +141,7 @@ router.get("/api/user/:id", function(req, res) {
      **/
     await db.ResetToken.destroy({
       where: {
+        // expiration: "2020-09-30 21:17:00",
         expiration: { [Op.lt]: Sequelize.fn('CURDATE')},
       }
     });
@@ -132,6 +151,7 @@ router.get("/api/user/:id", function(req, res) {
       where: {
         email: req.query.email,
         expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
+        // expiration: "2020-09-30 21:17:00",
         token: req.query.token,
         used: 0
       }
@@ -169,6 +189,7 @@ router.get("/api/user/:id", function(req, res) {
       where: {
         email: req.body.email,
         expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
+        // expiration: "2020-09-30 21:17:00",
         token: req.body.token,
         used: 0
       }

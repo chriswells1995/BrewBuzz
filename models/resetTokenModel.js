@@ -10,11 +10,11 @@
 module.exports = function(sequelize, DataTypes) {
     var ResetToken = sequelize.define("ResetToken", {
       email: DataTypes.STRING,
-      expiration: DataTypes.INTEGER,
       token: DataTypes.STRING,
+      expiration: DataTypes.INTEGER,
       used: DataTypes.INTEGER
     });
-    
+
     return ResetToken;
     }
     
