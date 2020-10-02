@@ -149,11 +149,14 @@ router.get("/api/user/:id", function(req, res) {
     var record = await db.ResetToken.findOne({
       where: {
         email: req.query.email,
-        expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
-        token: req.query.token,
+        // expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
+        // token: req.query.token,
         used: 0
       }
     });
+
+    console.log("record")
+    console.log(record)
    
     if (record == null) {
       return res.render('/user/reset-password', {
@@ -162,13 +165,13 @@ router.get("/api/user/:id", function(req, res) {
       });
     }
    
-    res.render('/user/reset-password', {
-      showForm: true,
-      record: record
-    });
+    // res.render('/user/reset-password', {
+    //   showForm: true,
+    //   record: record
+    // });
   });
 
-  router.post('/user/resetpassword', async function(req, res, next) {
+  router.post('/api/user/resetpassword', async function(req, res, next) {
     //compare passwords
     if (req.body.password1 !== req.body.password2) {
       return res.json({status: 'error', message: 'Passwords do not match. Please try again.'});
@@ -205,6 +208,7 @@ router.get("/api/user/:id", function(req, res) {
         }
     });
    
+    // TODO: Check this
     var newSalt = crypto.randomBytes(64).toString('hex');
     var newPassword = crypto.pbkdf2Sync(req.body.password1, newSalt, 10000, 64, 'sha512').toString('base64');
    
