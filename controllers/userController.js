@@ -62,12 +62,12 @@ router.get("/api/user/:id", function(req, res) {
     .catch(err => res.status(500).json(err))
   });
 
-  // Get route for forgot-password
-  router.get('/forgot-password', function(req, res, next) {
-    res.render('/user/forgot-password', { });
+  // Get route for forgotpassword
+  router.get('/forgotpassword', function(req, res, next) {
+    res.render('/user/forgotpassword', { });
   });
 
-  // Post route for forgot-password
+  // Post route for forgotpassword
   router.post('/user/forgotpassword', async function(req, res, next) {
     //ensure that you have a user with this email
     var email = await db.User.findOne({where: { email: req.body.email }});
@@ -132,7 +132,7 @@ router.get("/api/user/:id", function(req, res) {
     return res.json({status: 'ok'});
   });
 
-  router.get('/reset-password', async function(req, res, next) {
+  router.get('/resetpassword', async function(req, res, next) {
     /**
      * This code clears all expired tokens. You
      * should move this to a cronjob if you have a
@@ -159,7 +159,7 @@ router.get("/api/user/:id", function(req, res) {
     console.log(record)
    
     if (record == null) {
-      return res.render('/user/reset-password', {
+      return res.render('/user/resetpassword', {
         message: 'Token has expired. Please try password reset again.',
         showForm: false
       });

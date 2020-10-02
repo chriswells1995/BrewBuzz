@@ -19,19 +19,19 @@ $('#rpButton').on('click', function() {
 
     // TODO: Make sure this isn't functional
   
-          // $.post('/api/user/resetpassword', {
-          //   password1: $('#password1').val(),
-          //   password2: $('#password2').val(),
-          //   email: $('#emailRp').val(),
-          //   token: decodedToken
-          // }, function(resp) {
-          //   if (resp.status == 'ok') {
-          //     $('.reset-message').removeClass('alert-danger').addClass('alert-success').show().text(resp.message);
-          //     $('#resetPasswordForm').remove();
-          //   } else {
-          //     $('.reset-message').removeClass('alert-success').addClass('alert-danger').show().text(resp.message);
-          //   }
-          // });
+          $.post('/api/user/resetpassword', {
+            password1: $('#password1').val(),
+            password2: $('#password2').val(),
+            email: $('#emailRp').val(),
+            token: decodedToken 
+          }, function(resp) {
+            if (resp.status == 'ok') {
+              $('.reset-message').removeClass('alert-danger').addClass('alert-success').show().text(resp.message);
+              $('#resetPasswordForm').remove();
+            } else {
+              $('.reset-message').removeClass('alert-success').addClass('alert-danger').show().text(resp.message);
+            }
+          });
         });
 
 console.log("resetcredentials");
