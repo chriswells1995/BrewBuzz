@@ -63,7 +63,7 @@ router.get("/api/user/:id", function(req, res) {
   });
 
   // Get route for forgotpassword
-  router.get('/forgotpassword', function(req, res, next) {
+  router.get('/forgot-password', function(req, res, next) {
     res.render('/user/forgotpassword', { });
   });
 
@@ -78,6 +78,7 @@ router.get("/api/user/:id", function(req, res) {
      * them use this form to find ones that do
      * exist.
      **/
+
       return res.json({status: 'ok'});
     }
     /**
@@ -92,6 +93,8 @@ router.get("/api/user/:id", function(req, res) {
         where: {
           email: req.body.email
         }
+    }).catch (function (err) {
+      console.log("reset token update")
     });
    
     //Create a random reset token
@@ -112,6 +115,8 @@ router.get("/api/user/:id", function(req, res) {
       expiration: expireDate,
       token: token,
       used: 0
+    }).catch (function (err) {
+      console.log("reset token create")
     });
    
     //create email
@@ -133,6 +138,7 @@ router.get("/api/user/:id", function(req, res) {
   });
 
   router.get('/resetpassword', async function(req, res, next) {
+
     /**
      * This code clears all expired tokens. You
      * should move this to a cronjob if you have a
@@ -143,18 +149,23 @@ router.get("/api/user/:id", function(req, res) {
       where: {
         expiration: { [Op.lt]: Sequelize.fn('CURDATE')},
       }
+    }).catch (function (err) {
+      console.log("reset token destroy")
     });
    
     //find the token
     var record = await db.ResetToken.findOne({
+      
       where: {
         email: req.query.email,
         // expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
         // token: req.query.token,
         used: 0
       }
+      }).catch (function (err) {
+        console.log("reset token var record")
     });
-
+    
     console.log("record")
     console.log(record)
    
@@ -165,10 +176,15 @@ router.get("/api/user/:id", function(req, res) {
       });
     }
    
-    // res.render('/user/reset-password', {
-    //   showForm: true,
-    //   record: record
-    // });
+    res.render('/user/resetpassword', {
+      showForm: true,
+      record: record
+      
+    
+    });
+    // .catch (function (err) {
+    //   console.log("reset record true")
+    // })
   });
 
   router.post('/api/user/resetpassword', async function(req, res, next) {
@@ -193,6 +209,8 @@ router.get("/api/user/:id", function(req, res) {
         token: req.body.token,
         used: 0
       }
+    }).catch (function (err) {
+      console.log("reset token findone var record")
     });
    
     if (record == null) {
@@ -206,6 +224,8 @@ router.get("/api/user/:id", function(req, res) {
         where: {
           email: req.body.email
         }
+    }).catch (function (err) {
+      console.log("await update")
     });
    
     // TODO: Check this
@@ -220,6 +240,8 @@ router.get("/api/user/:id", function(req, res) {
       where: {
         email: req.body.email
       }
+    }).catch (function (err) {
+      console.log("await user update")
     });
    
     return res.json({status: 'ok', message: 'Password reset. Please login with your new password.'});
