@@ -18,7 +18,7 @@ function getLocation() {
 function showPosition(position) {
     userLat = position.coords.latitude
     userLng = position.coords.longitude
-    console.log('lat ',userLat, '  lon ', userLng)
+    console.log('user lat ',userLat, '  lon ', userLng)
 }
 
 function stageLocation(brewLat, brewLng){
@@ -27,7 +27,7 @@ function stageLocation(brewLat, brewLng){
         console.log('no lat!!')
     }
     else{
-        distance(userLat,userLng, brewLat, brewLng)
+        distance(userLat,userLng, brewLat, brewLng,'M')
     }
     
 }
