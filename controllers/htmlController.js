@@ -40,8 +40,9 @@ router.get("/forgotpassword", function(req, res) {
 });
 
 // reset password
+
 router.get("/resetpassword", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/reset-password.html"));
+  res.sendFile(path.join(__dirname, "../public/resetpassword.html"));
 });
 
 // brewery html

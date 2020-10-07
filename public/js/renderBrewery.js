@@ -119,9 +119,6 @@ function buildCard(review_id, brewery, email, review, userID, username, rating) 
   .attr("data-rating", rating.split(".")[0])
   .attr("id", "starBackground")
 
- 
-
-
   var profile = $("<a>")
     .attr("href", "/user/" + userID)
     .addClass("emailLinks centeredBrewery")
@@ -134,7 +131,6 @@ function buildCard(review_id, brewery, email, review, userID, username, rating) 
   // $("#brewery-title").append(cardBrewery);
   $("#OpenBreweries").prepend(cardDiv);
 }
-
 
 // event listener for review input (activated by clicking the "Add" button)
 $("#reviewButton").on("click", function () {
@@ -425,5 +421,3 @@ function renderTheseReviews() {
 
 $("#OpenBreweries").empty();
 renderTheseReviews();
-
-
