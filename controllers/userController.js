@@ -128,13 +128,13 @@ router.post('/user/forgotpassword', async function(req, res, next) {
 router.get('/resetpassword', async function(req, res, next) {
 
   // Clear all expired tokens
-  await db.ResetToken.destroy({
-    where: {
-      expiration: { [Op.lt]: Sequelize.fn('CURDATE')},
-    }
-  }).catch (function (err) {
-    console.log("reset token destroy")
-  });
+  // await db.ResetToken.destroy({
+  //   where: {
+  //     expiration: { [Op.lt]: '2020-10-08 20:07:00'},
+  //   }
+  // }).catch (function (err) {
+  //   console.log("reset token destroy")
+  // });
   
   //find the token
   var record = await db.ResetToken.findOne({
@@ -142,7 +142,7 @@ router.get('/resetpassword', async function(req, res, next) {
     where: {
       email: req.query.email,
       // expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
-      // token: req.query.token,
+      token: req.query.token,
       used: 0
     }
     }).catch (function (err) {
@@ -153,7 +153,7 @@ router.get('/resetpassword', async function(req, res, next) {
   console.log(record)
   
   if (record == null) {
-    return res.status(401).json('/user/resetpassword', {
+    return res.status(401).json({
       message: 'Token has expired. Please try password reset again.',
       showForm: false
     });
@@ -185,7 +185,7 @@ router.get('/resetpassword', async function(req, res, next) {
     var record = await db.ResetToken.findOne({
       where: {
         email: req.body.email,
-        expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
+        // expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
         token: req.body.token,
         used: 0
       }
@@ -213,8 +213,7 @@ router.get('/resetpassword', async function(req, res, next) {
     var newPassword = crypto.pbkdf2Sync(req.body.password1, newSalt, 10000, 64, 'sha512').toString('base64');
    
     await db.User.update({
-      password: newPassword,
-      salt: newSalt
+      password: req.body.password1,
     },
     {
       where: {
