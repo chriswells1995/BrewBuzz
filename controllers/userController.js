@@ -36,6 +36,8 @@ year + "-" + ("0"+(month+1)) + "-" + date + " "
 // time
 + hours + ":" + minutes + ":" + seconds;
 
+var stringDate = expireDate.toString();
+
 // Get all users
 router.get("/api/users", function(req, res) {
   // Finding all Breweries, and then returning them to the user as JSON.
@@ -99,7 +101,7 @@ router.post('/user/forgotpassword', async function(req, res, next) {
   //insert token data into DB
   await db.ResetToken.create({
     email: req.body.email,
-    expiration: expireDate,
+    expiration: stringDate,
     token: token,
     used: 0
   }).catch (function (err) {
