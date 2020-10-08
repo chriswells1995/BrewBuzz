@@ -162,9 +162,6 @@ router.get('/resetpassword', async function(req, res, next) {
     status: 'ok',
     record: record
   })
-  .catch (function (err) {
-    console.log("reset record true")
-  })
 });
 
   router.post('/api/user/resetpassword', async function(req, res, next) {
