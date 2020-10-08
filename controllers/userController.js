@@ -1,7 +1,6 @@
 // Dependencies
 const express = require('express')
 const router = express.Router();
-const path = require("path");
 const db = require("../models");
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
@@ -153,18 +152,19 @@ router.get('/resetpassword', async function(req, res, next) {
   console.log(record)
   
   if (record == null) {
-    return res.status(401).json('/user/resetpassword', {
+    return res.render('/user/resetpassword', {
       message: 'Token has expired. Please try password reset again.',
       showForm: false
     });
   }
   
-  res.status(202).sendFile(path.join(__dirname, "../public/resetpassword.html"))
-
-  // res.status(202).json({
-  //   status: 'ok',
-  //   record: record
-  // }).sendFile(path.join(__dirname, "../public/resetpassword.html"))
+  res.render('/user/resetpassword', {
+    showForm: true,
+    record: record
+  });
+  // .catch (function (err) {
+  //   console.log("reset record true")
+  // })
 });
 
   router.post('/api/user/resetpassword', async function(req, res, next) {
