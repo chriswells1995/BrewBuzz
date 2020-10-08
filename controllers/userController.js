@@ -152,19 +152,19 @@ router.get('/resetpassword', async function(req, res, next) {
   console.log(record)
   
   if (record == null) {
-    return res.render('/user/resetpassword', {
+    return res.status(401).json('/user/resetpassword', {
       message: 'Token has expired. Please try password reset again.',
       showForm: false
     });
   }
   
-  res.render('/user/resetpassword', {
-    showForm: true,
+  res.status(202).json({
+    status: 'ok',
     record: record
-  });
-  // .catch (function (err) {
-  //   console.log("reset record true")
-  // })
+  })
+  .catch (function (err) {
+    console.log("reset record true")
+  })
 });
 
   router.post('/api/user/resetpassword', async function(req, res, next) {
