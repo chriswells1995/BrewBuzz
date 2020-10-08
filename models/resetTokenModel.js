@@ -11,7 +11,8 @@ module.exports = function(sequelize, DataTypes) {
     var ResetToken = sequelize.define("ResetToken", {
       email: DataTypes.STRING,
       token: DataTypes.STRING,
-      expiration: DataTypes.INTEGER,
+      // TODO: this is removing everything after the first "-" in the DATETIME, not sure what to do here.
+      expiration: DataTypes.DATE,
       used: DataTypes.INTEGER
     });
 
