@@ -1,7 +1,6 @@
 // Dependencies
 const express = require('express')
 const router = express.Router();
-const path = require("path");
 const db = require("../models");
 const nodemailer = require('nodemailer');
 const bcrypt = require("bcryptjs");
@@ -161,11 +160,7 @@ router.get('/resetpassword', async function(req, res, next) {
   }
   
   res.status(202).sendFile(path.join(__dirname, "../public/resetpassword.html"))
-
-  // res.status(202).json({
-  //   status: 'ok',
-  //   record: record
-  // }).sendFile(path.join(__dirname, "../public/resetpassword.html"))
+  
 });
 
   router.post('/api/user/resetpassword', async function(req, res, next) {
