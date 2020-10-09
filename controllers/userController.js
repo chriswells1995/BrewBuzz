@@ -143,7 +143,7 @@ router.get('/resetpassword', async function(req, res, next) {
     where: {
       email: req.query.email,
       // expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
-      // token: req.query.token,
+      token: req.query.token,
       used: 0
     }
     }).catch (function (err) {
