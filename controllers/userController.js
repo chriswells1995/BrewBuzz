@@ -4,6 +4,7 @@ const router = express.Router();
 const path = require("path");
 const db = require("../models");
 const nodemailer = require('nodemailer');
+const bcrypt = require("bcryptjs");
 const crypto = require('crypto');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
@@ -209,11 +210,10 @@ router.get('/resetpassword', async function(req, res, next) {
     });
    
     // TODO: Check this
-    var newSalt = crypto.randomBytes(64).toString('hex');
-    var newPassword = crypto.pbkdf2Sync(req.body.password1, newSalt, 10000, 64, 'sha512').toString('base64');
+    var newPassword = bcrypt.hashSync(req.body.password1, bcrypt.genSaltSync(10), null);
    
     await db.User.update({
-      password: req.body.password1,
+      password: newPassword,
     },
     {
       where: {
@@ -223,7 +223,8 @@ router.get('/resetpassword', async function(req, res, next) {
       console.log("await user update")
     });
    
-    return res.json({status: 'ok', message: 'Password reset. Please login with your new password.'});
+    // return res.json({status: 'ok', message: 'Password reset. Please login with your new password.'});
+    return res.redirect(307, "/landing");
   });
 
 module.exports = router;
