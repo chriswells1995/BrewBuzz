@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router();
 const db = require("../models");
 const nodemailer = require('nodemailer');
+const bcrypt = require("bcryptjs");
 const crypto = require('crypto');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
@@ -127,13 +128,13 @@ router.post('/user/forgotpassword', async function(req, res, next) {
 router.get('/resetpassword', async function(req, res, next) {
 
   // Clear all expired tokens
-  await db.ResetToken.destroy({
-    where: {
-      expiration: { [Op.lt]: Sequelize.fn('CURDATE')},
-    }
-  }).catch (function (err) {
-    console.log("reset token destroy")
-  });
+  // await db.ResetToken.destroy({
+  //   where: {
+  //     expiration: { [Op.lt]: '2020-10-08 20:07:00'},
+  //   }
+  // }).catch (function (err) {
+  //   console.log("reset token destroy")
+  // });
   
   //find the token
   var record = await db.ResetToken.findOne({
@@ -141,7 +142,7 @@ router.get('/resetpassword', async function(req, res, next) {
     where: {
       email: req.query.email,
       // expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
-      // token: req.query.token,
+      token: req.query.token,
       used: 0
     }
     }).catch (function (err) {
@@ -152,19 +153,14 @@ router.get('/resetpassword', async function(req, res, next) {
   console.log(record)
   
   if (record == null) {
-    return res.render('/user/resetpassword', {
+    return res.status(401).json({
       message: 'Token has expired. Please try password reset again.',
       showForm: false
     });
   }
   
-  res.render('/user/resetpassword', {
-    showForm: true,
-    record: record
-  });
-  // .catch (function (err) {
-  //   console.log("reset record true")
-  // })
+  res.status(202).sendFile(path.join(__dirname, "../public/resetpassword.html"))
+  
 });
 
   router.post('/api/user/resetpassword', async function(req, res, next) {
@@ -185,7 +181,7 @@ router.get('/resetpassword', async function(req, res, next) {
     var record = await db.ResetToken.findOne({
       where: {
         email: req.body.email,
-        expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
+        // expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
         token: req.body.token,
         used: 0
       }
@@ -209,12 +205,10 @@ router.get('/resetpassword', async function(req, res, next) {
     });
    
     // TODO: Check this
-    var newSalt = crypto.randomBytes(64).toString('hex');
-    var newPassword = crypto.pbkdf2Sync(req.body.password1, newSalt, 10000, 64, 'sha512').toString('base64');
+    var newPassword = bcrypt.hashSync(req.body.password1, bcrypt.genSaltSync(10), null);
    
     await db.User.update({
       password: newPassword,
-      salt: newSalt
     },
     {
       where: {
@@ -224,7 +218,8 @@ router.get('/resetpassword', async function(req, res, next) {
       console.log("await user update")
     });
    
-    return res.json({status: 'ok', message: 'Password reset. Please login with your new password.'});
+    // return res.json({status: 'ok', message: 'Password reset. Please login with your new password.'});
+    return res.redirect(307, "/landing");
   });
 
 module.exports = router;
