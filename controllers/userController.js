@@ -1,6 +1,7 @@
-// Dependencies
+// Dependencies ALL GOOD 
 const express = require('express')
 const router = express.Router();
+const path = require('path');
 const db = require("../models");
 const nodemailer = require('nodemailer');
 const bcrypt = require("bcryptjs");
@@ -8,7 +9,7 @@ const crypto = require('crypto');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
-// Configuring Nodemailer SMTP credentials
+// Configuring Nodemailer SMTP credentials ALL GOOD 
 const transport = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
   port: process.env.EMAIL_PORT,
@@ -19,7 +20,7 @@ const transport = nodemailer.createTransport({
   }
 });
 
-// Creates a timestamp in datetime format one hour in the future
+// Creates a timestamp in datetime format one hour in the future ALL GOOD
 var currentDate = new Date();
 // pull current date info
 var year = currentDate.getFullYear();
@@ -36,7 +37,7 @@ year + "-" + ("0"+(month+1)) + "-" + date + " "
 // time
 + hours + ":" + minutes + ":" + seconds;
 
-// Get all users
+// Get all users ALL GOOD 
 router.get("/api/users", function(req, res) {
   // Finding all Breweries, and then returning them to the user as JSON.
   // Sequelize queries are asynchronous, which helps with perceived speed.
@@ -45,7 +46,7 @@ router.get("/api/users", function(req, res) {
   .catch(err => res.status(500).json(err))
 });
 
-// Get one user
+// Get one user ALL GOOD 
 router.get("/api/user/:id", function(req, res) {
     // Finding all Breweries, and then returning them to the user as JSON.
     // Sequelize queries are asynchronous, which helps with perceived speed.
@@ -124,8 +125,8 @@ router.post('/user/forgotpassword', async function(req, res, next) {
   return res.json({status: 'ok'});
   });
 
-// Post route for forgotpassword
-router.get('/resetpassword', async function(req, res, next) {
+// Post route for resetpassword
+router.get('/resetpassword', async function(req, res) {
 
   // Clear all expired tokens
   // await db.ResetToken.destroy({
@@ -159,11 +160,11 @@ router.get('/resetpassword', async function(req, res, next) {
     });
   }
   
-  res.status(202).sendFile(path.join(__dirname, "../public/resetpassword.html"))
+  return res.status(202).sendFile(path.join(__dirname, "../public/resetpassword.html"))
   
 });
 
-  router.post('/api/user/resetpassword', async function(req, res, next) {
+  router.post('/api/user/resetpassword', async function(req, res) {
     //compare passwords
     if (req.body.password1 !== req.body.password2) {
       return res.json({status: 'error', message: 'Passwords do not match. Please try again.'});
@@ -219,7 +220,7 @@ router.get('/resetpassword', async function(req, res, next) {
     });
    
     // return res.json({status: 'ok', message: 'Password reset. Please login with your new password.'});
-    return res.redirect(307, "/landing");
+    res.redirect('/landing');
   });
 
 module.exports = router;
