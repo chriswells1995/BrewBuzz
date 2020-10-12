@@ -17,21 +17,30 @@ $('#rpButton').on('click', function() {
     console.log(token)
     console.log(decodedToken)
 
-    // TODO: Make sure this isn't functional
-  
+  // TODO: add password 1 password2 verify here, pass to var password
+
+
           $.post('/api/user/resetpassword', {
             password1: $('#password1').val(),
             password2: $('#password2').val(),
             email: $('#emailRp').val(),
             token: decodedToken 
-          }, function(resp) {
+          }).then( function(resp) {
             if (resp.status == 'ok') {
-              $('.reset-message').removeClass('alert-danger').addClass('alert-success').show().text(resp.message);
-              $('#resetPasswordForm').remove();
+              console.log("ifworking")
+              // $('.reset-message').removeClass('alert-danger').addClass('alert-success').show().text(resp.message);
+              // $('#resetPasswordForm').remove();
+              window.location.href='/landing'
             } else {
+              console.log("elseworking")
               $('.reset-message').removeClass('alert-success').addClass('alert-danger').show().text(resp.message);
-            }
+          }
+          
+          }).catch(function(err) {
+            console.log("this is an error")
+            console.log(err)
           });
+          console.log("post api/user/password front end")
         });
 
 console.log("resetcredentials");
