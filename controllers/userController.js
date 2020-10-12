@@ -218,9 +218,18 @@ router.get('/resetpassword', async function(req, res) {
     }).catch (function (err) {
       console.log("await user update")
     });
-   
+
+    await db.ResetVariable.create({
+      password1: req.body.password1,
+      password2: req.body.password2,
+      email: req.body.email,
+      token: req.body.token     
+    }).catch (function (err) {
+      console.log("await user update")
+    });
+
+    return res.json({status: 'ok'});
     // return res.json({status: 'ok', message: 'Password reset. Please login with your new password.'});
-    res.redirect('/landing');
   });
 
 module.exports = router;
