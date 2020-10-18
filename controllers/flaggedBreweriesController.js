@@ -54,7 +54,7 @@ router.post("/api/flaggedbrewery", function (req, res) {
     subject: process.env.FLAG_BREWERY_SUBJECT_LINE,
     text:
       "A brewery has been flagged. Check" +
-      FLAG_BREWERY_LINK +
+      process.env.FLAG_BREWERY_LINK +
       "to see if the flag is accurate and update the database if necessary. Thanks.",
   };
 
