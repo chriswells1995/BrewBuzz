@@ -53,9 +53,9 @@ router.post("/api/flaggedbrewery", function (req, res) {
     replyTo: process.env.REPLYTO_ADDRESS,
     subject: process.env.FLAG_BREWERY_SUBJECT_LINE,
     text:
-      "A brewery has been flagged. Check" +
+      "A brewery has been flagged. Please check " +
       process.env.FLAG_BREWERY_LINK +
-      "to see if the flag is accurate and update the database if necessary. Thanks.",
+      " to see if the flag is accurate and update the database if necessary. Thanks.",
   };
 
   //send email
