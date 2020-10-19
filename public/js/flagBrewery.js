@@ -51,6 +51,8 @@ var settingsFlag = {
 };
 
 $.ajax(settingsFlag).then(function (response) {
+  console.log("POST")
+  console.log(settingsFlag)
   console.log(response);
 });
 

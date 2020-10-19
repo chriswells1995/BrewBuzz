@@ -39,9 +39,15 @@ router.post("/api/flaggedbrewery", function (req, res) {
   // built in method to create a new brewery
   // inside .create() we reference the author and body columns we feed
   // those columns values from req.body
-  db.FlaggedBreweries.create(
-    //  TODO: may need to deconstruct this later
-    req.body
+  db.FlaggedBreweries.create({
+    // adding req.body(response) to name, website, streetAddress
+    BreweryId: req.body.BreweryId,
+    note: req.body.note,
+    flagoptionsId: req.body.flagoptionsId,
+    UserId: req.body.UserId,
+    completed: 0
+  }
+
   )
     .then(() => res.json(true))
     .catch((err) => res.status(500).json(err));
