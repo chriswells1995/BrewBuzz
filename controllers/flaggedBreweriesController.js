@@ -45,10 +45,8 @@ router.post("/api/flaggedbrewery", function (req, res) {
     note: req.body.note,
     flagoptionsId: req.body.flagoptionsId,
     UserId: req.body.UserId,
-    completed: 0
-  }
-
-  )
+    completed: 0,
+  })
     .then(() => res.json(true))
     .catch((err) => res.status(500).json(err));
 
@@ -59,9 +57,18 @@ router.post("/api/flaggedbrewery", function (req, res) {
     replyTo: process.env.REPLYTO_ADDRESS,
     subject: process.env.FLAG_BREWERY_SUBJECT_LINE,
     text:
-      "A brewery has been flagged. Please check " +
-      process.env.FLAG_BREWERY_LINK +
-      " to see if the flag is accurate and update the database if necessary. Thanks.",
+      "Hello Creator," +
+      "\n\n" +
+      "BrewBuzz user " +
+      req.body.UserId +
+      " has flagged brewery number " +
+      req.body.BreweryId +
+      ". It has received a type " +
+      req.body.flagoptionsId +
+      " flag with the following notes:\n\n " +
+      req.body.note +
+      "\n\n" +
+      "Please validate the flag on the breweries website and update the database if necessary. Once completed, change value of the completed column in Flagged Breweries table to 1. Thanks.",
   };
 
   //send email
