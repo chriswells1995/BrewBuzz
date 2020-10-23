@@ -16,10 +16,6 @@ router.get("/", function (req, res) {
 });
 
 
-// temp
-router.get("/loop", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/loop.html"));
-});
 
 router.get("/signup", function(req, res) {
 
