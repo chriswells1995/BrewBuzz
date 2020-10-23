@@ -15,7 +15,14 @@ router.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "../public/landing.html"));
 });
 
-router.get("/signup", function (req, res) {
+
+// temp
+router.get("/loop", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/loop.html"));
+});
+
+router.get("/signup", function(req, res) {
+
   // If the user already has an account send them to their user page
   res.sendFile(path.join(__dirname, "../public/signup.html"));
 });
