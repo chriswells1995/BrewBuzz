@@ -13,6 +13,10 @@ module.exports = function(sequelize, DataTypes) {
       note: {
         type: DataTypes.STRING,
         allowNull:true,
+      },
+      completed: {
+        type: DataTypes.INTEGER,
+        allowNull: true
       }
 
     });

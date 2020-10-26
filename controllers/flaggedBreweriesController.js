@@ -1,85 +1,84 @@
 // Dependencies
 // =============================================================
-const express = require('express')
+const express = require("express");
 const router = express.Router();
 const db = require("../models");
+const nodemailer = require("nodemailer");
+
+// Mail Handling
+// =============================================================
+
+// Configuring Nodemailer SMTP credentials
+const transport = nodemailer.createTransport({
+  host: process.env.EMAIL_HOST,
+  port: process.env.EMAIL_PORT,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
 // Routes
 // =============================================================
 
-  // Get all options
-router.get("/api/flaggedbreweries", function(req, res) {
+// Get all options
+router.get("/api/flaggedbreweries", function (req, res) {
   // Finding all Breweries, and then returning them to the user as JSON.
   // Sequelize queries are asynchronous, which helps with perceived speed.
   db.FlaggedBreweries.findAll({
-  
-     include: [db.FlagOptions, db.Brewery, db.User]
-  })  .then(results => res.json(results))
-  .catch(err => res.status(500).json(err))
+    include: [db.FlagOptions, db.Brewery, db.User],
+  })
+    .then((results) => res.json(results))
+    .catch((err) => res.status(500).json(err));
 });
 
-
-
 // Add an option
-router.post("/api/flaggedbrewery", function(req, res) {
+router.post("/api/flaggedbrewery", function (req, res) {
   // reference the brewery model and then utilize the sequelize.create
   // built in method to create a new brewery
   // inside .create() we reference the author and body columns we feed
   // those columns values from req.body
-  db.FlaggedBreweries.create(
-    //  TODO: may need to deconstruct this later
-    req.body
-  ).then(() => res.json(true))
-    .catch((err) => res.status(500).json(err))
+  db.FlaggedBreweries.create({
+    // adding req.body(response) to name, website, streetAddress
+    BreweryId: req.body.BreweryId,
+    note: req.body.note,
+    flagoptionsId: req.body.flagoptionsId,
+    UserId: req.body.UserId,
+    completed: 0,
+  })
+    .then(() => res.json(true))
+    .catch((err) => res.status(500).json(err));
+
+  //create email
+  const message = {
+    from: process.env.SENDER_ADDRESS,
+    to: process.env.ADMIN_ADDRESS,
+    replyTo: process.env.REPLYTO_ADDRESS,
+    subject: process.env.FLAG_BREWERY_SUBJECT_LINE,
+    text:
+      "Hello Creator," +
+      "\n\n" +
+      "BrewBuzz user " +
+      req.body.UserId +
+      " has flagged brewery number " +
+      req.body.BreweryId +
+      ". It has received a type " +
+      req.body.flagoptionsId +
+      " flag with the following notes:\n\n " +
+      req.body.note +
+      "\n\n" +
+      "Please validate the flag on the breweries website and update the database if necessary. Once completed, change value of the completed column in Flagged Breweries table to 1. Thanks.",
+  };
+
+  //send email
+  transport.sendMail(message, function (err, info) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(info);
+    }
+  });
 });
-
-// router.put("/api/brewery", function(req, res){
-//   db.Brewery.update(
-//     {
-//       where: {
-//        id: req.body.id
-//       }
-//     }
-//   )
-//   .then(function(dbPost) {
-//     res.json(dbPost);
-//   });
-// });
-
-// const newData = {
-//   name: 'Maxy-boi-boi'
-// };
-
-
-
-// router.put("/api/breweries", function(req, res){
-// db.Brewery.update( {logo: req.body.logo }, {where: { id: req.body.id } })
-// .then(updatedBrewery => {
-//   res.json(updatedBrewery)
-// })
-// });
-
-// router.put("/api/breweries/rating", function(req, res){
-//   db.Brewery.update( {totalRating: req.body.totalRating}, {where: { id: req.body.id } })
-//   .then(updatedBrewery => {
-//     res.json(updatedBrewery)
-//   })
-//   });
-// const newData = {
-//   name: 'Maxy-boi-boi'
-// };
-
-
-
-
-// function updateTodo(todo) {
-//   $.ajax({
-//     method: "PUT",
-//     url: "/api/todos",
-//     data: todo
-//   }).then(getTodos);
-// }
-
-
 
 module.exports = router;
