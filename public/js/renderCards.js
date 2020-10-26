@@ -19,6 +19,7 @@ function displayCards() {
         breweryWebsite: responseData[i].Brewery.website,
         breweryPhone: responseData[i].Brewery.phoneNumber,
         username: responseData[i].User.username,
+        user_id: responseData[i].User.id,
         review_id: responseData[i].id,
         review: responseData[i].review,
         rating: responseData[i].rating
@@ -59,17 +60,13 @@ function displayCards() {
           .addClass("starability-result")
           .attr("data-rating", Math.round(parseInt(AllBreweryObjects[i].rating)*2)/2 )
 
+          var reviewLink = $("<a href=/user/" +
+          AllBreweryObjects[i].user_id + ">")
+          .addClass("reviewLink")
+
           renderedLogo = $("<img>")
           .addClass("logo column")
           .attr("src", AllBreweryObjects[i].breweryLogo);
-
-          // TODO: Make the image clickable with link to specific brewery.html page
-          // code to do that below, need to figure out how to link to dynamic element
-          // .html(
-          //   "<a href = /brewery/" +
-          //     AllBreweryObjects[i].breweryId +
-          //   ">" +
-          //   "</a>");
 
           renderedBreweryName = $("<h4>")
             .addClass("column centeredBreweryName")
@@ -83,13 +80,13 @@ function displayCards() {
               "</a>"
           );
 
-        renderedReview = $("<p>")
+        renderedReview = $("<p " + "style=color:black;" + ">")
           .text(
             AllBreweryObjects[i].username + " said: " +
             AllBreweryObjects[i].review
           )
           .attr("id", "userReview" + i)
-          .addClass("card-body reviewText");
+          .addClass("card-body reviewText centeredBrewery");
 
         renderedBreweryPhone = $("<div>")
           .attr("id", "callButton")
@@ -146,13 +143,13 @@ function displayCards() {
           .addClass("column")
           .html(
             "<a href=#" +
-              ">" +
-              "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>"+
-              "<img id=shareBtn class=redirectButton src=" +
-              `https://image.flaticon.com/icons/svg/3039/3039401.svg` +
-              ">" +
-              "</button>"+
-              "</a>"
+            ">" +
+            "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>"+
+            "<img id=shareBtn class=redirectButton text-center src=" +
+            `stylesheets/assets/shareicon.png` +
+            ">" +
+            "</button>"+
+            "</a>"
           );
 
         cardDiv.append(
@@ -164,11 +161,15 @@ function displayCards() {
           directionsLink,
           // TODO: research how to get this up and running
           shareLink,
-          renderedReview
+          reviewLink
         );
 
         logoLink.append(
           renderedLogo
+        );
+
+        reviewLink.append(
+          renderedReview
         );
 
         $("#OpenBreweries").append(cardDiv);

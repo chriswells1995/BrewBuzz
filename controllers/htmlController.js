@@ -2,23 +2,47 @@
 const path = require("path");
 const express = require('express');
 const router = express.Router();
+
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
-router.get("/signup", function(req, res) {
-  // If the user already has an account send them to the members page
+router.get("/", function(req, res) {
+  // If the user already has an account send them to their user page
   if (req.user) {
-    res.redirect("/signup");
+    res.redirect("/userlanding");
   }
+  // Else send them to the landing page
+  res.sendFile(path.join(__dirname, "../public/landing.html"));
+});
+
+router.get("/signup", function(req, res) {
+  // If the user already has an account send them to their user page
   res.sendFile(path.join(__dirname, "../public/signup.html"));
 });
 
-router.get("/", function(req, res) {
-  // If the user already has an account send them to the members page
+router.get("/userlanding", function(req, res) {
+  // If the user already has an account send them to their user page
+  res.sendFile(path.join(__dirname, "../public/userLanding.html"));
+});
+
+router.get("/landing", function(req, res) {
+  // If the user already has an account send them to their user page
   if (req.user) {
-    res.redirect("/login");
+    res.redirect("/userLanding.html");
   }
-  res.sendFile(path.join(__dirname, "../public/login.html"));
+  // Else send them to the landing page
+  res.sendFile(path.join(__dirname, "../public/landing.html"));
+});
+
+// forgot password
+router.get("/forgotpassword", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/forgot-password.html"));
+});
+
+// reset password
+
+router.get("/resetpassword", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/resetpassword.html"));
 });
 
 // brewery html
@@ -36,19 +60,20 @@ router.get("/user/:id", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/user.html"));
 });
 
-
-// Here we've add our isAuthenticated middleware to this route.
-// If a user who is not logged in tries to access this route they will be redirected to the signup page
-router.get("/login", isAuthenticated, function(req, res) {
+// login html (A.K.A. hive)
+router.get("/login", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/login.html"));
 });
 
+// catchall route
 router.get("*", function(req, res) {
-  // If the user already has an account send them to the members page
+  // If the user already has an account send them to user landing page
   if (req.user) {
-    res.redirect("/login");
+    res.redirect("/userLanding.html");
   }
-  res.sendFile(path.join(__dirname, "../public/login.html"));
+  // Else send them to the landing page
+  res.sendFile(path.join(__dirname, "../public/landing.html"));
 });
 
 module.exports = router;
+

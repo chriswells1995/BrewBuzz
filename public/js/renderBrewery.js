@@ -5,8 +5,8 @@ var thisBreweryId = path.split("/")[2];
 // This function takes in a brewery name and renders it to the page
 function cardHeader(brewery) {
   var cardBrewery = $("<div>")
-    .addClass("card-body text-center headerBrewery")
-    .html("<p id=headerName style=color:black;>" + brewery + "</p>");
+    .addClass("card-body centeredBrewery headerBrewery")
+    .html("<p id=headerName class=centeredBrewery style=color:black;>" + brewery + "</p>");
 
   $("#brewery-title").prepend(cardBrewery);
 }
@@ -25,8 +25,8 @@ function cardRating(rating) {
                   "tel:" +
                   breweryPhone +
                   ">" +
-                  "<img class=redirectButton text-center src=" +
-                  `https://img.pngio.com/icono-simple-telefono-en-circulo-png-transparente-stickpng-icono-telefono-png-512_512.png` +
+                  "<img class=redirectButton src=" +
+                  `../stylesheets/assets/Phone.png` +
                   ">" +
                   "</a>"
               )
@@ -39,8 +39,8 @@ function cardRating(rating) {
                   breweryWebsite +
                   " + target=_blank" +
                   ">" +
-                  "<img class=" + "redirectButton text-center" + " src=" +
-                  `https://image.flaticon.com/icons/svg/2301/2301129.svg` +
+                  "<img class=redirectButton src=" +
+                  `../stylesheets/assets/webicon.png` +
                   ">" +
                   "</a>"
               );
@@ -67,8 +67,8 @@ function cardRating(rating) {
                 "<a href=" +
                   directions +
                   ">" +
-                  "<img class=redirectButton text-center src=" +
-                  `https://image.flaticon.com/icons/svg/2948/2948111.svg` +
+                  "<img class=redirectButton src=" +
+                  `../stylesheets/assets/directionicon.png` +
                   ">" +
                   "</a>"
               );
@@ -79,9 +79,9 @@ function cardRating(rating) {
               .html(
                 "<a href=#" +
                   ">" +
-                  "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>"+
+                  "<button type=button class=btn btn-primary data-toggle=modal data-target=#shareModal>"+
                   "<img id=shareBtn class=redirectButton text-center src=" +
-                  `https://image.flaticon.com/icons/svg/3039/3039401.svg` +
+                  '../stylesheets/assets/shareicon.png' +
                   ">" +
                   "</button>"+
                   "</a>"
@@ -94,7 +94,7 @@ function cardRating(rating) {
 
 function cardNoRating() {
   var breweryRating = $("<ul>")
-    .addClass("card-body text-center breweryRating")
+    .addClass("centeredBrewery")
     .html("<li id=headerName style=color:black;>" + "No Ratings Submitted" + "</li>");
 
   $("#brewery-rating").append(breweryRating);
@@ -103,7 +103,7 @@ function cardNoRating() {
 // this function takes in the review properties and renders a single review to the page
 function buildCard(review_id, brewery, email, review, userID, username, rating) {
   var cardDiv = $("<li>")
-    .addClass("col-sm-12 column")
+    .addClass("col-sm-12 correctUlMargin")
     .attr("id", "review" + review_id);
 
   var cardReview = $("<div style=font-size:125%;>")
@@ -119,9 +119,6 @@ function buildCard(review_id, brewery, email, review, userID, username, rating) 
   .attr("data-rating", rating.split(".")[0])
   .attr("id", "starBackground")
 
- 
-
-
   var profile = $("<a>")
     .attr("href", "/user/" + userID)
     .addClass("emailLinks centeredBrewery")
@@ -134,7 +131,6 @@ function buildCard(review_id, brewery, email, review, userID, username, rating) 
   // $("#brewery-title").append(cardBrewery);
   $("#OpenBreweries").prepend(cardDiv);
 }
-
 
 // event listener for review input (activated by clicking the "Add" button)
 $("#reviewButton").on("click", function () {
@@ -256,6 +252,7 @@ function renderTheseReviews() {
 
       var webLink = $("<a href=" + breweryWebsite + " + target_blank" + ">")
       .attr("id", "webLink")
+      .addClass("centeredBrewery")
       $("#brewery-logo").append(webLink);
 
       var logoImage = $("<img>")

@@ -5,9 +5,6 @@
   <title>BrewBuzz | If it's beer, it's here</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="keywords" content="BrewBuzz, brewbuzz, brew, buzz, Beer, Breweries">
-  <meta name="description" content="BrewBuzz - if it's beer, it's here">
-  <meta name="author" content="R. Alan Williams, Chris J Wells, Lukas A Hirsch">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link href="/stylesheets/style.css" rel="stylesheet">
   <link href="/stylesheets/stars.css" rel="stylesheet" />
@@ -86,10 +83,57 @@
       <div class="col-md-12">
         <img class="bannerlogo" src="stylesheets/assets/Outline_BrewBuzz.png"
         alt="Brew Buzz logo, bumblebee holding frothy beer and the words brew buzz to the right">
-        <ul class="text-center row">
-          <li class ="column" id="OpenBreweries">
-          </li>
-        </ul>
+        <div>
+          <h5 class="text-right" style="margin-top: -20px;">If it's beer, it's here.</h5>
+        </br>
+          <form class="centeredBrewery form-inline my-2 my-lg-0" id="formMargin">
+            <!-- input now has ID searchInput -->
+            <input id="landingSearchInput" class="form-control mr-sm-2" type="search" placeholder="Search for a Brewery" aria-label="Search"/>
+            <!-- The search button now has ID searchButton -->
+            <button id="landingSearchButton" class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+          <div class="card text-white bg-warning mb-3" style="color: black !important;">
+            <a href="/signup.html" style="color: black !important;">
+            <div class="card-body">
+              <h4 class="card-title text-center">Join The Hive</h4>
+              <p class="card-text text-center">Sign up to access all BrewBuzz has to offer - write reviews, start conversations, and enjoy a cold one!</p>
+            </div>
+            </a>
+          </div>
+        <div class="card text-white bg-warning mb-3" style="color: black !important;">
+          <a href="/nearby.html" style="color: black !important;">
+            <div class="card-body">
+              <h4 class="card-title text-center">Nearby Breweries</h4>
+              <p class="card-text text-center">Are you new in town, traveling, or just looking for something new? See what's brewing nearby.</p>
+            </div>
+          </a>
+          </div>
+          <div class="card text-white bg-warning mb-3" style="color: black !important;">
+            <a href="#aboutBrewBuzz" style="color: black !important;">
+              <div class="card-body">
+              <h4 class="card-title text-center">About BrewBuzz</h4>
+              <p class="card-text text-center">A long time ago in a galaxy really, really close...</p>
+              </div>
+          </a>
+          </div>
+          <h2 class="text-center">
+            Sign In and Review Breweries
+            <div class="short-rule"></div>
+            <img src="stylesheets/assets/cellFulton.png" id="cellFulton">
+          </h2>
+          <h2 class="text-center">
+            Explore Breweries Near or Far
+            <div class="short-rule"></div>
+            <img src="stylesheets/assets/nearbyBrewery.png" id="nearbyBrewery">
+          </h2>
+          <h2 class="text-center" href="aboutBrewBuzz">
+            About the BrewBuzz Team
+            <div class="short-rule"></div>
+            <p class="text-center" id="aboutBrewBuzz">
+              The BrewBuzz team is comprised of three guys who love beer. As we all know, it can be hard to make critical decisions after knocking back a few, and that's where BrewBuzz comes in! BrewBuzz is an application that will let you search, review, and locate your local breweries (so you can call an Uber). Once you have enjoyed your chosen establishment's delicious nectar, you can write a review and help spread the word!
+            </p>
+          </h2>
       </div>
     </div>
   </div>

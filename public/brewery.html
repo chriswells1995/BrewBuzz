@@ -23,7 +23,16 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 menuMargin">
           <li class="nav-item active">
-            <a class="nav-link navFont" href="/login">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link navActive" href="/landing">Home</a>
+          </li>
+          <li>
+            <a class="nav-link navFont" href="/login">Feed</a>
+          </li>
+          <li>
+            <a class="nav-link navFont" href="/nearby">Explore</a>
+          </li>
+          <li>
+            <a class="nav-link navFont" id="favoritesNav" href="/favorites">Favorites</a>
           </li>
           <li>
             <a class="nav-link navFont" id="dashboardLink">Dashboard</a>
@@ -38,7 +47,7 @@
             <ul id="login-dp" class="dropdown-menu">
               <li>
                 <div class="row">
-                  <div class="col-md-12 column">
+                  <div class="col-md-12">
                     <form class="form" id="login-nav">
                         <div class="form-group" id="login"> 
                           <label class="sr-only" for="exampleInputEmail2">Email address</label>
@@ -47,16 +56,16 @@
                         <div class="form-group">
                           <label class="sr-only" for="exampleInputPassword2">Password</label>
                           <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                          <div class="help-block text-right"><a style="font-weight: bolder; background-color: white; color: rgb(255, 196, 0);" href="#">Forget your password?</a></div>
+                          <div class="help-block text-right"><a style="font-weight: bolder; background-color: transparent; color: rgb(255, 196, 0);" href="/forgotpassword">Forget your password?</a></div>
                         </div>
                         <div class="form-group">
                           <button type="submit" class="btn btn-warning btn-block loginBtn">Sign in</button>
                         </div>
                     </form>
-                  </div>
-                  <div style="padding: 15px; margin-left: 45px;" class="text-center">
-                    <!-- I am 100% aware this is crazy sloppy. Will fix properly in the polishing phase -->
-                    New here? <a style="color: rgb(255, 196, 0);" href="/signup"><b>Join Us</b></a>
+                    <div style="margin: 0px 0px 10px -25px;" class="text-center">
+                      <!-- I am 100% aware this is crazy sloppy. Will fix properly in the polishing phase -->
+                      New here? <a style="color: rgb(255, 196, 0);" href="/signup"><b>Join Us</b></a>
+                    </div>
                   </div>
                 </div>
               </li>
@@ -77,6 +86,11 @@
       <div class="row centeredBrewery" id="brewery-title">
         <!-- put the Brewery Title in this div -->
       </div>
+      <div class = "text-center">
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#flagModal"> FLAG THIS BREWERY
+        </button>
+       
+      </div>
       <div>
         <p class="text-center">Buzz Rated</p>
       </div>
@@ -89,11 +103,9 @@
       <!-- Add Review Section -->
         <form class="row text-center centeredBrewery" id="addReviewDiv">
           <!-- input now has ID reviewInput -->
-          <input
-            id="reviewInput"
-            class="row centeredBrewery"
-            placeholder="Add a New Review!"
-          />
+            <div class="row centeredBrewery">
+              <textarea class="centeredBrewery txta" id="reviewInput" placeholder="Add a New Review!" rows="4" cols="60"></textarea>
+          </div> 
           <!-- add stars -->
           <form>
             <!-- Change starability-basic to different class to see animations. -->
@@ -129,8 +141,8 @@
               Add
             </button>
           </div>
-      <div class="row centeredBrewery">
-        <ul class="ulMargin" id="OpenBreweries">
+      <div>
+        <ul id="OpenBreweries">
           <!-- put the LI elements here (brewery cards) -->
         </ul>
       </div>
@@ -138,12 +150,12 @@
     <!-- end of code refactoring -->
 
     <!-- Just throwing the Modal here for now -->
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Share Modal -->
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Post to Social Media</h5>
+        <h5 class="modal-title" id="shareLabel">Post to Social Media</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -163,7 +175,54 @@
       </div>
     </div>
   </div>
+
+<!-- Flag Modal -->
+<div class="modal fade" id="flagModal" tabindex="-1" role="dialog" aria-labelledby="flagLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="flagLabel">Flag this Brewery</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+<div>
+
+<input type="radio" id="flagOption1" name="flagReason" value="1">
+<label for="flagOption1">It closed down permanently</label><br>
+<input type="radio" id="flagOption2" name="flagReason" value="2">
+<label for="flagOption2">It moved to a different location</label><br>
+<input type="radio" id="flagOption3" name="flagReason" value="3">
+<label for="flagOption3">There is a typo/misspelling in our page</label><br>
+<input type="radio" id="flagOption4" name="flagReason" value="4">
+<label for="flagOption4">Other</label><br>
 </div>
+<input type="text" name="flagNote" id="flagNote" placeholder="Please describe the problem">
+<div>
+  <!-- <button class = "btn-primary" id = "submitBreweryFlag">Submit</button> -->
+  <button id = "submitBreweryFlag" type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#thankYouModal">Submit</button>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- thank you modal -->
+<div class="modal fade" id="thankYouModal" tabindex="-1" role="dialog" aria-labelledby="thankYouLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="thankYouLabel">Thank you</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      </div>
+    </div>
+  </div>
+
 <!-- footer -->
     <footer class="text-center">
       <a class="footerStyle" href = "https://www.termsfeed.com/live/6ea83ad4-0ebe-4b39-8706-fff4c37e43de" target = "blank">Privacy Policy
@@ -182,7 +241,10 @@
     ></script>
     <script type="text/javascript" src="/js/login.js"></script>
     <script type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript" src="/js/textArea.js"></script>
     <script type="text/javascript" src="/js/renderBrewery.js"></script>
+    <script type="text/javascript" src="/js/flagBrewery.js"></script>
+
 
   </body>
 </html>

@@ -21,7 +21,16 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0 menuMargin">
         <li class="nav-item active">
-          <a class="nav-link navActive" href="/login">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link navActive" href="/landing">Home</a>
+        </li>
+        <li>
+          <a class="nav-link navFont" href="/login">Feed</a>
+        </li>
+        <li>
+          <a class="nav-link navFont" href="/nearby">Explore</a>
+        </li>
+        <li>
+          <a class="nav-link navFont" id="favoritesNav" href="/favorites">Favorites</a>
         </li>
         <li>
           <a class="nav-link navFont" id="dashboardLink">Dashboard</a>
@@ -45,16 +54,16 @@
                       <div class="form-group">
                         <label class="sr-only" for="exampleInputPassword2">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                        <div class="help-block text-right"><a style="font-weight: bolder; background-color: white; color: rgb(255, 196, 0);" href="#">Forget your password?</a></div>
+                        <div class="help-block text-right"><a style="font-weight: bolder; background-color: transparent; color: rgb(255, 196, 0);" href="/forgotpassword">Forget your password?</a></div>
                       </div>
                       <div class="form-group">
                         <button type="submit" class="btn btn-warning btn-block loginBtn">Sign in</button>
                       </div>
                   </form>
-                </div>
-                <div style="padding: 15px; margin-left: 45px;" class="text-center">
-                  <!-- I am 100% aware this is crazy sloppy. Will fix properly in the polishing phase -->
-                  New here? <a style="color: rgb(255, 196, 0);" href="/signup"><b>Join Us</b></a>
+                  <div style="margin: 0px 0px 10px -25px;" class="text-center">
+                    <!-- I am 100% aware this is crazy sloppy. Will fix properly in the polishing phase -->
+                    New here? <a style="color: rgb(255, 196, 0);" href="/signup"><b>Join Us</b></a>
+                  </div>
                 </div>
               </div>
             </li>
@@ -69,18 +78,21 @@
       </form>
     </div>
   </nav>
+  <!-- TODO: Loader wrapper -->
+  
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <!-- <img class="bannerlogo" src="stylesheets/assets/Outline_BrewBuzz.png"
-        alt="Brew Buzz logo, bumblebee holding frothy beer and the words brew buzz to the right"> -->
         <ul class="text-center row">
           <li class ="column" id="OpenBreweries">
           </li>
         </ul>
+                    <div class="loader-wrapper">
+                      <span class="loader"><span class="loader-inner"></span></span>
+                    </div>
+        </div>
       </div>
     </div>
-  </div>
     <!-- Just throwing the Modal here for now -->
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -117,6 +129,11 @@
 <!-- sharer -->
 <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $(window).on("load",function(){
+      $(".loader-wrapper").fadeOut("slow");
+    });
+  </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script type="text/javascript" src="/js/search.js"></script>
   <script type="text/javascript" src="/js/login.js"></script>

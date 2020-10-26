@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /landing
+Allow: /login
+Allow: /signup
+
+Disallow: /user/*
+Disallow: /search/*
+Disallow: /brewery/*

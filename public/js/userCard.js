@@ -63,7 +63,12 @@ function displayUserCards() {
       .text("Delete")
       .addClass("reviewBtn deleteBtn btn btn-dark")
 
-    cardDiv.append(logoLink, cardBrewery, cardReview, deleteBtn);
+    // cardDiv.append(logoLink, cardBrewery, cardReview, deleteBtn);
+    if(currentUserId===localStorage.getItem("userId")){
+      cardDiv.append(logoLink, cardBrewery, cardReview, deleteBtn)
+      } else {
+        cardDiv.append(logoLink, cardBrewery, cardReview)
+      }
 
     logoLink.append(
       existingLogo

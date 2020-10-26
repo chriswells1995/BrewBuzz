@@ -1,8 +1,12 @@
 // Requiring necessary npm packages
 const express = require("express");
 const session = require("express-session");
+
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
+
+// require environment variables
+require('dotenv').config();
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
@@ -25,6 +29,8 @@ app.use(require("./controllers/authController.js"))
 app.use(require("./controllers/breweryController.js"))
 app.use(require("./controllers/reviewController.js"))
 app.use(require("./controllers/userController.js"))
+app.use(require("./controllers/flaggedBreweriesController.js"))
+app.use(require("./controllers/flagOptionsController.js"))
 app.use(require("./controllers/htmlController.js"))
 
 
