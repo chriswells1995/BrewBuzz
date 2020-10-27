@@ -83,7 +83,8 @@
     <div class="row">
       <div class="col-md-12">
         <ul class="text-center row">
-          <li class ="column" id="OpenBreweries">
+          <li id="map">
+              
           </li>
         </ul>
                     <div class="loader-wrapper">
@@ -92,6 +93,7 @@
         </div>
       </div>
     </div>
+
     <!-- Just throwing the Modal here for now -->
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -134,9 +136,11 @@
     });
   </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- TODO: find a way to inject the process.env.GMAPS into the script below -->
+  <script id="gmapScript" src="http://maps.google.com/maps/api/js?key=AIzaSyCpAOPXmD9CWaXAiNVJHA3-rhX-F3sLHKI"></script>
+  <script type="text/javascript" src="/js/geoTracking.js"></script>
   <script type="text/javascript" src="/js/search.js"></script>
   <script type="text/javascript" src="/js/login.js"></script>
-  <!-- <script type="text/javascript" src="/js/renderCards.js"></script> -->
   <script type="text/javascript" src="/js/renderSearch.js"></script>
 
 
