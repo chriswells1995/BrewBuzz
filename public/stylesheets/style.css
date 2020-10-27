@@ -110,7 +110,10 @@ form.login {
 }
 @media (max-width: 768px) {
   #map {
-    height: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    border-radius: 15px;
   }
 }
 
