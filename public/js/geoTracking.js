@@ -8,14 +8,14 @@ function success(position) {
   var myLat = position.coords.latitude;
   var myLong = position.coords.longitude;
 
-  var myLat2 = "44.9200";
-  var myLong2 = "-93.2198";
+  // var myLat2 = "44.9200";
+  // var myLong2 = "-93.2198";
 
   //   Google API ready Latitude and Longitude string
   var coords = new google.maps.LatLng(myLat, myLong);
 
   // TODO: Testing additional coordinates
-  var coords2 = new google.maps.LatLng(myLat2, myLong2);
+  // var coords2 = new google.maps.LatLng(myLat2, myLong2);
 
   // Setting up our Google Map
   var mapOptions = {
@@ -32,11 +32,11 @@ function success(position) {
     icon: iconSrc,
   });
 
-  var marker2 = new google.maps.Marker({
-    map: map,
-    position: coords2,
-    icon: iconSrc,
-  });
+  // var marker2 = new google.maps.Marker({
+  //   map: map,
+  //   position: coords2,
+  //   icon: iconSrc,
+  // });
 }
 
 function failure() {
