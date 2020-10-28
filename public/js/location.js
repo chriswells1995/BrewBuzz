@@ -1,5 +1,5 @@
 let userLat;
-let userLng;
+let userLon;
 // let brewLat;
 // let brewLng;
 let userDistance;
@@ -17,8 +17,8 @@ function getLocation() {
 //gets user coordinates
 function showPosition(position) {
     userLat = position.coords.latitude
-    userLng = position.coords.longitude
-    console.log('user lat ',userLat, '  lon ', userLng)
+    userLon = position.coords.longitude
+    console.log('user lat ',userLat, '  lon ', userLon)
 }
 
 function stageLocation(brewLat, brewLng){

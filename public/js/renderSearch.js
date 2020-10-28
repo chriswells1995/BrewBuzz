@@ -36,20 +36,7 @@ $(document).ready(function () {
     }
   }
 
-<<<<<<< HEAD
   console.log('render ',AllBreweryObjects)
-=======
-    if (AllBreweryObjects.length ===0){
-      console.log("There are no results");
-      var noResults = $("<li>")
-      .html("<h1>No Results Found</h1>")
-      .addClass("noResultsMessage");
-      $("#OpenBreweries").before(noResults);
-      $(".loader-wrapper").empty();
-    }
-
-  console.log(AllBreweryObjects)
->>>>>>> f335df9c3db84aa2d1c88a74d6eecf59a070635f
   renderCards(AllBreweryObjects);
   input = '';
     }).catch(function (error){
