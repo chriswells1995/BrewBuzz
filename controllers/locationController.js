@@ -11,21 +11,21 @@ router.get(`/api/nearby`, function (req, res) {
     //console.log('req full :',req)
     console.log('get request lat :', req.query);
     //console.log('minlat : ',minLat)
-    let intLat = parseFloat(req.query.userLat)
-    console.log('intlat ' , intLat)
-    let maxLat = (intLat + .2);
-    let minLat = (intLat - .2);
-    let intLon = parseFloat(req.query.userLon)
-    console.log('intLon ' , intLon)
-    let maxLon = (intLon + .2);
-    let minLon = (intLon - .2);
-    console.log(`user lat ${req.query.userLat}  maxLat ${maxLat}  minLat ${minLat} user Lon ${req.query.userLon}  maxLon ${maxLon}  minLon ${minLon}`)
-    let lon = req.body.userLon
-    console.log("route lat :", req.query.userLat)
-    console.log("route lon : ", req.query.userLon)
-     db.sequelize.query(`select * FROM breweries WHERE (latitude > ${minLat} AND latitude < ${maxLat}) AND (longitude > ${minLon} AND longitude < ${maxLon})`,{raw: true, type: db.sequelize.QueryTypes.SELECT})
+    let floatLat = parseFloat(req.query.userLat)
+    
+    let maxLat = (floatLat + .2);
+    let minLat = (floatLat - .2);
+    let floatLon = parseFloat(req.query.userLon)
+    console.log('floatLon ' , floatLon)
+    let maxLon = (floatLon + .2);
+    let minLon = (floatLon - .2);
+    // console.log(`user lat ${req.query.userLat}  maxLat ${maxLat}  minLat ${minLat} user Lon ${req.query.userLon}  maxLon ${maxLon}  minLon ${minLon}`)
+    // console.log("route lat :", req.query.userLat)
+    // console.log("route lon : ", req.query.userLon)
+     db.sequelize.query(`select * FROM breweries WHERE (latitude > ${minLat} AND latitude < ${maxLat}) AND (longitude > ${minLon} AND longitude < ${maxLon})`)
      .then(function(results){ 
-        console.log('sql results', results) 
+        console.log('sql res', res) ;
+        console.log('results : ', results)
         res.json(results)})
         .catch(error => res.json(error))
     })

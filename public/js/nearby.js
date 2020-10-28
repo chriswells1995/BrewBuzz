@@ -48,7 +48,7 @@ function showPosition(position) {
       };
       
       $.ajax(settings).then(function (response) {
-        console.log(response);
+        console.log('ajax response ',response);
       });
     }
 }
