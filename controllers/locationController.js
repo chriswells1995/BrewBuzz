@@ -8,10 +8,14 @@ const db = require("../models");
 // =============================================================
 router.get(`/api/nearby`, function (req, res) {
     //let minLat = (parseInt(req.body.userLat) -.3);
-    console.log('req full :',req)
+    //console.log('req full :',req)
     console.log('get request lat :', req.query);
     //console.log('minlat : ',minLat)
-    let maxLat = req.body.userLat;
+    let intLat = parseFloat(req.query.userLat)
+    console.log('intlat ' , intLat)
+    let maxLat = (intLat + .2);
+    let minLat = (intLat - .2);
+    console.log(`user lat ${req.query.userLat}  maxLat ${maxLat}  minLat ${minLat}`)
     let lon = req.body.userLon
     console.log("route lat :", req.query.userLat)
     console.log("route lon : ", req.query.userLon)
