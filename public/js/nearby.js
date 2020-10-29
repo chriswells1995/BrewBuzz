@@ -1,6 +1,7 @@
 // geoTracking.js dependencies
 const x = navigator.geolocation;
 const iconSrc = (src = "../stylesheets/assets/icon-48x48.png");
+const beerIconSrc = (src = "../stylesheets/assets/beer_icon_2.png")
 var map;
 $(document).ready(function () {
   let userLat;
@@ -52,7 +53,7 @@ $(document).ready(function () {
           ]);
           console.log("brewname : ", response[0][i].name);
         }
-        console.log(coordArray);
+        // console.log(coordArray);
         //console.log('ajax response ',response);
       }).then(function(){
 
@@ -119,18 +120,15 @@ $(document).ready(function () {
     var breweryMarkers =[];
 
     if (coordArray){
-      // var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-      console.log("insdie IF")
-      console.log(coordArray.length)
           for (i=0; i<coordArray.length; i++){
 
-            console.log("newLatLon")
-            console.log(coordArray[i][2]," ", coordArray[i][3])
+            // console.log("newLatLon")
+            // console.log(coordArray[i][2]," ", coordArray[i][3])
             var newBreweryMarker = new google.maps.Marker({
              map: map,
              position: new google.maps.LatLng(coordArray[i][2], coordArray[i][3]),
-              icon: iconSrc,
+              icon: beerIconSrc,
             });
 
       breweryMarkers.push(newBreweryMarker)
