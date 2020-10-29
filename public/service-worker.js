@@ -11,7 +11,6 @@ const FILES_TO_CACHE = [
   "/user.html",
   "/userlanding.html",
   "/js/flagBrewery.js",
-  "/js/geoTracking.js",
   "/js/login.js",
   "/js/nearby.js",
   "/js/renderBrewery.js",
