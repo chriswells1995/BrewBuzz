@@ -1,7 +1,7 @@
 // geoTracking.js dependencies
 const x = navigator.geolocation;
 const iconSrc = (src = "../stylesheets/assets/icon-48x48.png");
-
+var map;
 $(document).ready(function () {
   let userLat;
   let userLon;
@@ -45,6 +45,7 @@ $(document).ready(function () {
       $.ajax(settings).then(function (response) {
         for (i = 0; i < response[0].length; i++) {
           coordArray.push([
+            response[0][i].id,
             response[0][i].name,
             response[0][i].latitude,
             response[0][i].longitude,
@@ -53,6 +54,9 @@ $(document).ready(function () {
         }
         console.log(coordArray);
         //console.log('ajax response ',response);
+      }).then(function(){
+
+          makeManyMarkers();
       });
     }
   }
@@ -82,7 +86,7 @@ $(document).ready(function () {
       mapTypeId: google.maps.MapTypeId.ROADMAP,
     };
 
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
     var marker = new google.maps.Marker({
       map: map,
@@ -90,13 +94,19 @@ $(document).ready(function () {
       icon: iconSrc,
     });
 
+
     console.log("nearby jazz ", coordArray);
+
+
+
 
     // var marker2 = new google.maps.Marker({
     //   map: map,
     //   position: coords2,
     //   icon: iconSrc,
     // });
+              //makeManyMarkers(map);
+
   }
 
   function failure() {
@@ -104,6 +114,29 @@ $(document).ready(function () {
   }
 
   // end geoTracking.js copy
+
+  function makeManyMarkers(){
+    var breweryMarkers =[];
+
+    if (coordArray){
+      // var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+      console.log("insdie IF")
+      console.log(coordArray.length)
+          for (i=0; i<coordArray.length; i++){
+
+            console.log("newLatLon")
+            console.log(coordArray[i][2]," ", coordArray[i][3])
+            var newBreweryMarker = new google.maps.Marker({
+             map: map,
+             position: new google.maps.LatLng(coordArray[i][2], coordArray[i][3]),
+              icon: iconSrc,
+            });
+
+      breweryMarkers.push(newBreweryMarker)
+    }
+    }
+  }
 
   getNearbyLocation();
 });
