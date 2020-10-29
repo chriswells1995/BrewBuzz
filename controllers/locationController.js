@@ -23,7 +23,7 @@ router.get(`/api/nearby`, function (req, res) {
     // console.log(`user lat ${req.query.userLat}  maxLat ${maxLat}  minLat ${minLat} user Lon ${req.query.userLon}  maxLon ${maxLon}  minLon ${minLon}`)
     // console.log("route lat :", req.query.userLat)
     // console.log("route lon : ", req.query.userLon)
-     db.sequelize.query(`select id, name, latitude, longitude FROM breweries WHERE (latitude > ${minLat} AND latitude < ${maxLat}) AND (longitude > ${minLon} AND longitude < ${maxLon})`)
+     db.sequelize.query(`select id, name, latitude, longitude FROM Breweries WHERE (latitude > ${minLat} AND latitude < ${maxLat}) AND (longitude > ${minLon} AND longitude < ${maxLon})`)
      .then(function(results){ 
         // console.log('sql res', res) ;
         // console.log('results : ', results)
@@ -53,6 +53,6 @@ router.get(`/api/nearby`, function (req, res) {
       res.json(results);
     })
     .catch((error) => res.json(error));
-});
+
 
 module.exports = router;
