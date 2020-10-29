@@ -58,7 +58,7 @@ function renderCards(AllBreweryObjects){
     var directionsName;
 
     for (i=0; i<AllBreweryObjects.length; i++){
-    stageLocation(AllBreweryObjects[i].latitude, AllBreweryObjects[i].longitude)
+    //stageLocation(AllBreweryObjects[i].latitude, AllBreweryObjects[i].longitude)
 
     var streetAddress = AllBreweryObjects[i].street + " " + AllBreweryObjects[i].city + " " + AllBreweryObjects[i].state
       
@@ -83,20 +83,20 @@ function renderCards(AllBreweryObjects){
         streetAddress +
         "</a>"
     );
-    renderedDistance = $("<h4>")
-    .text(
-      'howdy'
-    )
-    .attr("value", i)
-    .addClass("card-body headerFont");
+    // //renderedDistance = $("<h4>")
+    // .text(
+    //   'howdy'
+    // )
+    // .attr("value", i)
+    // .addClass("card-body headerFont");
     
-    renderedDistance.html(
-      "<p>" +
-        "lat " + AllBreweryObjects[i].latitude +
-        "lon " +
-        AllBreweryObjects[i].longitude +
-        "</p>"
-    );
+    // //renderedDistance.html(
+    //   "<p>" +
+    //     "lat " + AllBreweryObjects[i].latitude +
+    //     "lon " +
+    //     AllBreweryObjects[i].longitude +
+    //     "</p>"
+    // );
 
   renderedBreweryPhone = $("<div>")
     .attr("id", "callButton")
@@ -172,7 +172,7 @@ function renderCards(AllBreweryObjects){
     renderedBreweryPhone,
     renderedBreweryWebsite,
     directionsLink,
-    renderedDistance,
+    //renderedDistance,
     shareLink
   );
 
