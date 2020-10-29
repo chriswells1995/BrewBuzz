@@ -2,9 +2,9 @@ $(document).ready(function() {
 
 let userLat;
 let userLon;
-// let brewLat;
-// let brewLng;
-let userDistance;
+//use to hold breweries to place on google map
+let coordArray = [];
+
 
 $('#coord').on('click', function(){
     console.log('click');
@@ -48,7 +48,13 @@ function showPosition(position) {
       };
       
       $.ajax(settings).then(function (response) {
-        console.log('ajax response ',response);
+          
+          for(i=0;i<response[0].length;i++){
+              coordArray.push([response[0][i].name, response[0][i].latitude, response[0][i].longitude])
+            console.log("brewname : ",response[0][i].name)
+          }
+          console.log(coordArray)
+        //console.log('ajax response ',response);
       });
     }
 }
