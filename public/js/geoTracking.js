@@ -32,6 +32,8 @@ function success(position) {
     icon: iconSrc,
   });
 
+  console.log("nearby jazz ", coordArray);
+
   // var marker2 = new google.maps.Marker({
   //   map: map,
   //   position: coords2,
