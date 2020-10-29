@@ -33,7 +33,4 @@ router.get(`/api/nearby`, function (req, res) {
         .catch(error => res.json(error))
     })
 
-
-
-
 module.exports = router;

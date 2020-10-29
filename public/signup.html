@@ -1,126 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>BrewBuzz | Sign Up</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <title>BrewBuzz | Sign Up</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link href="/stylesheets/style.css" rel="stylesheet">
-</head>
-
-<body class="oneOfUs">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navBackgroundClear">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-      aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 menuMargin">
-        <li class="nav-item active">
-          <a class="nav-link navActive" href="/landing">Home</a>
-        </li>
-        <li>
-          <a class="nav-link navFont" href="/login">Feed</a>
-        </li>
-        <li>
-          <a class="nav-link navFont" href="/nearby">Explore</a>
-        </li>
-        <li>
+  <body class="oneOfUs">
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark"
+      id="navBackgroundClear"
+    >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarTogglerDemo03"
+        aria-controls="navbarTogglerDemo03"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 menuMargin">
+          <li class="nav-item active">
+            <a class="nav-link navActive" href="/landing">Home</a>
+          </li>
+          <li>
+            <a class="nav-link navFont" href="/login">Feed</a>
+          </li>
+          <li>
+            <a class="nav-link navFont" href="/nearby">Explore</a>
+          </li>
+          <!-- <li>
           <a class="nav-link navFont" id="favoritesNav" href="/favorites">Favorites</a>
-        </li>
-        <li>
-          <a class="nav-link navFont" id="dashboardLink">Dashboard</a>
-        </li>
-        <li class="nav-item" id="logout">
-          <a class="nav-link navFont" href="/logout">Log Out</a>
-        </li>
-        <li class="nav-item dropdown" id="loginVisibility">
-          <a class="nav-link dropdown-toggle navFont" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Login
-          </a>
-          <ul id="login-dp" class="dropdown-menu">
-            <li>
-              <div class="row">
-                <div class="col-md-12">
-                  <form class="form" id="login-nav">
-                      <div class="form-group" id="login"> 
-                        <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+        </li> -->
+          <li>
+            <a class="nav-link navFont" id="dashboardLink">Dashboard</a>
+          </li>
+          <li class="nav-item" id="logout">
+            <a class="nav-link navFont" href="/logout">Log Out</a>
+          </li>
+          <li class="nav-item dropdown" id="loginVisibility">
+            <a
+              class="nav-link dropdown-toggle navFont"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Login
+            </a>
+            <ul id="login-dp" class="dropdown-menu">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <form class="form" id="login-nav">
+                      <div class="form-group" id="login">
+                        <label class="sr-only" for="exampleInputEmail2"
+                          >Email address</label
+                        >
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="exampleInputEmail2"
+                          placeholder="Email address"
+                          required
+                        />
                       </div>
                       <div class="form-group">
-                        <label class="sr-only" for="exampleInputPassword2">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                        <div class="help-block text-right"><a style="font-weight: bolder; background-color: transparent; color: rgb(255, 196, 0);" href="#">Forget your password?</a></div>
+                        <label class="sr-only" for="exampleInputPassword2"
+                          >Password</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="exampleInputPassword2"
+                          placeholder="Password"
+                          required
+                        />
+                        <div class="help-block text-right">
+                          <a
+                            style="
+                              font-weight: bolder;
+                              background-color: transparent;
+                              color: rgb(255, 196, 0);
+                            "
+                            href="#"
+                            >Forget your password?</a
+                          >
+                        </div>
                       </div>
                       <div class="form-group">
-                        <button type="submit" class="btn btn-warning btn-block loginBtn">Sign in</button>
+                        <button
+                          type="submit"
+                          class="btn btn-warning btn-block loginBtn"
+                        >
+                          Sign in
+                        </button>
                       </div>
-                  </form>
-                  <div style="margin: 0px 0px 10px -25px;" class="text-center">
-                    <!-- I am 100% aware this is crazy sloppy. Will fix properly in the polishing phase -->
-                    New here? <a style="color: rgb(255, 196, 0);" href="/signup"><b>Join Us</b></a>
+                    </form>
+                    <div style="margin: 0px 0px 10px -25px" class="text-center">
+                      <!-- I am 100% aware this is crazy sloppy. Will fix properly in the polishing phase -->
+                      New here?
+                      <a style="color: rgb(255, 196, 0)" href="/signup"
+                        ><b>Join Us</b></a
+                      >
+                    </div>
                   </div>
                 </div>
-              </div>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <!-- input now has ID searchInput -->
-        <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-        <!-- The search button now has ID searchButton -->
-        <button id="searchButton" class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3 formBackground">
-        <h2 class="text-center"><img
-          class="oneOfUs"
-        />Join the Hive!</h2>
-        <form class="signup">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="example@email.com">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputUsername1">Username</label>
-            <input type="text" class="form-control" id="username-input" placeholder="BrewBuzzBro">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="********">
-          </div>
-          <div>
-            <label for="ageTOS">I am over the age of 21</label>
-            <input type="checkbox" class="form-control" id='ageTOS-input'>
-          </div>
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> <span class="msg"></span>
-          </div>
-          <button style="float: left;" type="submit" class="btn btn-warning">Sign Up</button>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <!-- input now has ID searchInput -->
+          <input
+            id="searchInput"
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <!-- The search button now has ID searchButton -->
+          <button
+            id="searchButton"
+            class="btn btn-warning my-2 my-sm-0"
+            type="submit"
+          >
+            Search
+          </button>
         </form>
-        <a href="/">
-        <button style="float: right;" class="btn btn-warning">Log In</button>
-        </a>
-        <br />
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 formBackground">
+          <h2 class="text-center"><img class="oneOfUs" />Join the Hive!</h2>
+          <form class="signup">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email-input"
+                placeholder="example@email.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputUsername1">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username-input"
+                placeholder="BrewBuzzBro"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password-input"
+                placeholder="********"
+              />
+            </div>
+            <div>
+              <label for="ageTOS">I am over the age of 21</label>
+              <input type="checkbox" class="form-control" id="ageTOS-input" />
+            </div>
+            <div
+              style="display: none"
+              id="alert"
+              class="alert alert-danger"
+              role="alert"
+            >
+              <span
+                class="glyphicon glyphicon-exclamation-sign"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Error:</span> <span class="msg"></span>
+            </div>
+            <button style="float: left" type="submit" class="btn btn-warning">
+              Sign Up
+            </button>
+          </form>
+          <a href="/">
+            <button style="float: right" class="btn btn-warning">Log In</button>
+          </a>
+          <br />
+        </div>
       </div>
     </div>
-  </div>
-<!-- footer -->
-<footer class="text-center">
-  <a class="footerStyle" href = "https://www.termsfeed.com/live/6ea83ad4-0ebe-4b39-8706-fff4c37e43de" target = "blank">Privacy Policy
-  &copy; 2020 BrewBuzz All rights reserved.</a>
-</footer>  
+    <!-- footer -->
+    <footer class="text-center">
+      <a
+        class="footerStyle"
+        href="https://www.termsfeed.com/live/6ea83ad4-0ebe-4b39-8706-fff4c37e43de"
+        target="blank"
+        >Privacy Policy &copy; 2020 BrewBuzz All rights reserved.</a
+      >
+    </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="/js/signup.js"></script>
-
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="/js/signup.js"></script>
+  </body>
 </html>
