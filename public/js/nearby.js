@@ -118,16 +118,15 @@ $(document).ready(function () {
     if (coordArray) {
       for (i = 0; i < coordArray.length; i++) {
         // console.log("newLatLon")
+        var infoWindow = new google.maps.InfoWindow({
+          content: coordArray[i][1],
+        });
         // console.log(coordArray[i][2]," ", coordArray[i][3])
         var newBreweryMarker = new google.maps.Marker({
           map: map,
           position: new google.maps.LatLng(coordArray[i][2], coordArray[i][3]),
           icon: beerIconSrc,
-          content: coordArray[i][1],
-        });
-
-        var infoWindow = new google.maps.InfoWindow({
-          content: coordArray[i][1],
+          content: infoWindow,
         });
 
         newBreweryMarker.addListener("click", function () {
