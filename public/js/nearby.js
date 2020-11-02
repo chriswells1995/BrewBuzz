@@ -112,6 +112,12 @@ $(document).ready(function () {
 
   // end geoTracking.js copy
 
+  function addMarkerListener(newBreweryMarker, infoWindow) {
+    newBreweryMarker.addListener("click", function () {
+      infoWindow.open(map, newBreweryMarker);
+    });
+  }
+
   function makeManyMarkers() {
     var breweryMarkers = [];
 
@@ -127,11 +133,10 @@ $(document).ready(function () {
           position: new google.maps.LatLng(coordArray[i][2], coordArray[i][3]),
           icon: beerIconSrc,
           content: infoWindow,
+          title: coordArray[i][1],
         });
 
-        newBreweryMarker.addListener("click", function () {
-          infoWindow.open(map, newBreweryMarker);
-        });
+        addMarkerListener(newBreweryMarker, infoWindow);
 
         breweryMarkers.push(newBreweryMarker, infoWindow);
       }
