@@ -123,6 +123,7 @@ $(document).ready(function () {
           map: map,
           position: new google.maps.LatLng(coordArray[i][2], coordArray[i][3]),
           icon: beerIconSrc,
+          content: coordArray[i][1],
         });
 
         var infoWindow = new google.maps.InfoWindow({
