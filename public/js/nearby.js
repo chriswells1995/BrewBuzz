@@ -125,7 +125,15 @@ $(document).ready(function () {
           icon: beerIconSrc,
         });
 
-        breweryMarkers.push(newBreweryMarker);
+        var infoWindow = new google.maps.InfoWindow({
+          content: coordArray[i][1],
+        });
+
+        newBreweryMarker.addListener("click", function () {
+          infoWindow.open(map, newBreweryMarker);
+        });
+
+        breweryMarkers.push(newBreweryMarker, infoWindow);
       }
     }
   }
