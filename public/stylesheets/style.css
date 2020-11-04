@@ -105,11 +105,9 @@ form.login {
   height: 100%;
   border-radius: 15px;
 }
-@media (max-width: 768px) {
-  #map {
-    height: 100%;
-    border-radius: 15px;
-  }
+
+.map-wrapper {
+  height: 100%;
 }
 
 .txta {
