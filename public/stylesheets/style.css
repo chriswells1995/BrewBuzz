@@ -104,15 +104,15 @@ form.login {
 #map {
   margin-left: 25%;
   margin-right: 25%;
-  width: 100px;
-  height: 100px;
+  width: 50%;
+  height: 400px;
   border-radius: 15px;
 }
 @media (max-width: 768px) {
   #map {
     margin-left: 0px;
     margin-right: 0px;
-    width: 100px;
+    width: 100%;
     border-radius: 15px;
   }
 }
