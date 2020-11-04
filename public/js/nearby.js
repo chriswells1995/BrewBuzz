@@ -45,6 +45,7 @@ $(document).ready(function () {
 
       $.ajax(settings)
         .then(function (response) {
+          console.log("coordArray details ", response);
           for (i = 0; i < response[0].length; i++) {
             coordArray.push([
               response[0][i].id,
@@ -52,7 +53,7 @@ $(document).ready(function () {
               response[0][i].latitude,
               response[0][i].longitude,
             ]);
-            console.log("brewname : ", response[0][i].name);
+            // console.log("brewname : ", response[0][i].name);
           }
           // console.log(coordArray);
           //console.log('ajax response ',response);
@@ -96,7 +97,7 @@ $(document).ready(function () {
       icon: iconSrc,
     });
 
-    console.log("nearby jazz ", coordArray);
+    // console.log("nearby jazz ", coordArray);
 
     // var marker2 = new google.maps.Marker({
     //   map: map,
