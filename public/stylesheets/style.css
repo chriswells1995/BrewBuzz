@@ -119,7 +119,7 @@ form.login {
 @media (max-width: 750px) {
   #map {
     /* TODO: maybe tailor this to iphone?? */
-    height: 100px;
+    height: 100%;
   }
 }
 
