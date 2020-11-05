@@ -3,6 +3,13 @@ const x = navigator.geolocation;
 const iconSrc = (src = "../stylesheets/assets/icon-nobeer-48x48.png");
 const beerIconSrc = (src = "../stylesheets/assets/beer_48x48.png");
 var map;
+
+function initMap() {} // now it IS a function and it is in global
+
+function initMap() {
+  // your code
+}
+
 $(document).ready(function () {
   let userLat;
   let userLon;
