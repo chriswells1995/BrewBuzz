@@ -185,11 +185,21 @@ router.get("/resetpassword", async function (req, res) {
 router.post("/api/user/resetpassword", async function (req, res) {
   //compare passwords
   if (req.body.password1 !== req.body.password2) {
+    console.log("password length ", req.body.password.value.length);
     return res.json({
       status: "error",
       message: "Passwords do not match. Please try again.",
     });
   }
+
+  //TODO: uncomment after verified
+  // if (req.body.password.value.length < 8) {
+  //   console.log("length error");
+  //   return res.json({
+  //     status: "error",
+  //     message: "Password must contain at least 8 characters.",
+  //   });
+  // }
 
   /**
    * Ensure password is valid (isValidPassword
