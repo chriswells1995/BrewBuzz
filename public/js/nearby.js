@@ -131,9 +131,15 @@ $(document).ready(function () {
 
     if (coordArray) {
       for (i = 0; i < coordArray.length; i++) {
+        var contentString =
+          "<a href = /brewery/" +
+          coordArray[i][0] +
+          " style=color:black !important;>" +
+          coordArray[i][1] +
+          "</a>";
         // console.log("newLatLon")
         var infoWindow = new google.maps.InfoWindow({
-          content: coordArray[i][1],
+          content: contentString,
         });
         // console.log(coordArray[i][2]," ", coordArray[i][3])
         var newBreweryMarker = new google.maps.Marker({
