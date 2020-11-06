@@ -191,7 +191,7 @@ router.post("/api/user/resetpassword", async function (req, res) {
     });
   }
 
-  if (req.body.password.length < 8) {
+  if (req.body.password1.length < 8) {
     console.log("length error");
     return res.json({
       status: "error",
@@ -199,11 +199,6 @@ router.post("/api/user/resetpassword", async function (req, res) {
     });
   }
 
-  /**
-   * Ensure password is valid (isValidPassword
-   * function checks if password is >= 8 chars, alphanumeric,
-   * has special chars, etc)
-   **/
   if (!req.body.password1) {
     return res.json({
       status: "error",
