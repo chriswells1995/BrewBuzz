@@ -13,8 +13,6 @@ emailHTML.value = email;
 $("#rpButton").on("click", function () {
   var decodedToken = decodeURIComponent(token);
 
-  // TODO: add password 1 password2 verify here, pass to var password
-
   $.post("/api/user/resetpassword", {
     password1: $("#password1").val(),
     password2: $("#password2").val(),
