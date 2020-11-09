@@ -6,10 +6,6 @@ var map;
 
 function initMap() {} // now it IS a function and it is in global
 
-function initMap() {
-  // your code
-}
-
 $(document).ready(function () {
   let userLat;
   let userLon;
@@ -25,6 +21,7 @@ $(document).ready(function () {
       console.log("Please enable location services");
     }
   }
+
   //gets user coordinates
   function showPosition(position) {
     userLat = position.coords.latitude;
@@ -42,7 +39,6 @@ $(document).ready(function () {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          //"Cookie": "connect.sid=s%3AoIEFqz5QWyD5pX39dqY7H57QfjklWlUe.aDnK3c4jUP6G6rU0r0O%2F7P9KTQ278bd8WmsN54sM0zU"
         },
         data: {
           userLat: userLat,
@@ -71,17 +67,12 @@ $(document).ready(function () {
     }
   }
 
-  // start geoTracking.js copy
-
   x.getCurrentPosition(success, failure);
 
   function success(position) {
     // fetch the coordinates
     var myLat = position.coords.latitude;
     var myLong = position.coords.longitude;
-
-    // var myLat2 = "44.9200";
-    // var myLong2 = "-93.2198";
 
     //   Google API ready Latitude and Longitude string
     var geoTracCoords = new google.maps.LatLng(myLat, myLong);
@@ -103,26 +94,17 @@ $(document).ready(function () {
       position: geoTracCoords,
       icon: iconSrc,
     });
-
-    // console.log("nearby jazz ", coordArray);
-
-    // var marker2 = new google.maps.Marker({
-    //   map: map,
-    //   position: coords2,
-    //   icon: iconSrc,
-    // });
-    //makeManyMarkers(map);
   }
 
   function failure() {
-    $("#lat").html("<p>It didn't work, coordinates note available.</p>");
+    $("#map").html("<h1> This page requires location access, please close your browser, return to this page, and click Allow.</h1>");
   }
 
   // end geoTracking.js copy
 
   function addMarkerListener(newBreweryMarker, infoWindow) {
     newBreweryMarker.addListener("click", function () {
-      infoWindow.open(map, newBreweryMarker);
+      infoWindow.open(map, this);
     });
   }
 
@@ -134,13 +116,15 @@ $(document).ready(function () {
         var contentString =
           "<a href = /brewery/" +
           coordArray[i][0] +
-          " style=color:black !important;>" +
-          coordArray[i][1] +
+          " class=column style=color:black !important width: 100%;>" +
+          coordArray[i][1] + "<div>" + "<div> - More Info - </div>" + "</div>" +
           "</a>";
         // console.log("newLatLon")
         var infoWindow = new google.maps.InfoWindow({
           content: contentString,
         });
+
+        
         // console.log(coordArray[i][2]," ", coordArray[i][3])
         var newBreweryMarker = new google.maps.Marker({
           map: map,
@@ -149,7 +133,7 @@ $(document).ready(function () {
           content: infoWindow,
           title: coordArray[i][1],
         });
-
+        
         addMarkerListener(newBreweryMarker, infoWindow);
 
         breweryMarkers.push(newBreweryMarker, infoWindow);
