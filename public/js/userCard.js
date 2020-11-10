@@ -126,12 +126,14 @@ function userCheck(){
       // var pathUserID =path.split("/")[2];
       if (currentUserId){
         displayUserCards()
-      } else {
-        var img = document.createElement("img");
-        img.src = "../stylesheets/assets/No_Reviews_Clear.png"
-        var src = document.getElementById("beeChasing");
-        src.appendChild(img);
-        }
+      }
+      // this blocks non-users from reading reviews
+      //  else {
+      //   var img = document.createElement("img");
+      //   img.src = "../stylesheets/assets/No_Reviews_Clear.png"
+      //   var src = document.getElementById("beeChasing");
+      //   src.appendChild(img);
+      //   }
     })
 }
 
