@@ -123,13 +123,19 @@ router.post("/user/forgotpassword", async function (req, res, next) {
     to: req.body.email,
     replyTo: process.env.REPLYTO_ADDRESS,
     subject: process.env.FORGOT_PASS_SUBJECT_LINE,
-    text:
-      "To reset your password, please click the link below.\n\nhttps://" +
-      process.env.DOMAIN +
-      "/resetpassword?token=" +
-      encodeURIComponent(token) +
-      "&email=" +
-      req.body.email,
+    // text:
+    //   "To reset your password, please click the link below.\n\nhttps://" +
+    //   process.env.DOMAIN +
+    //   "/resetpassword?token=" +
+    //   encodeURIComponent(token) +
+    //   "&email=" +
+    //   req.body.email,
+    html: '<div><img src="cid:BrewBuzzLogo" alt="BrewBuzz bee holding frothy mug of beer"/></div><div><h2>To reset your password, please click this link:' + '<br>' + 'https://' + process.env.DOMAIN + "/resetpassword?token=" + encodeURIComponent(token) + "&email=" + req.body.email + "</h2></div><hr><h4>If you did not request a password reset don't worry, the token will expire in a few minutes and it has only been sent to you.</h4>",
+    attachments: [{
+      filename: 'BrewBuzz_Banner_Clear.png',
+      path: __dirname + '../public/stylesheets/assets/Outline_BrewBuzz.png',
+      cid: 'BrewBuzzLogo'
+    }],
   };
 
   //send email
