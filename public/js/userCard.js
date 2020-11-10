@@ -112,29 +112,30 @@ function displayUserCards() {
   renderTheseReviews();
 }
 
-function userCheck(){
-    var userSettings = {
-      "url": "/api/user_data",
-      "method": "GET",
-      "timeout": 0
-    };
+// function userCheck(){
+//     var userSettings = {
+//       "url": "/api/user_data",
+//       "method": "GET",
+//       "timeout": 0
+//     };
  
-    $.ajax(userSettings).then(function (response) {
-      var currentUserId=response.id;
+//     $.ajax(userSettings).then(function (response) {
+//       var currentUserId=response.id;
 
-      var path =  window.location.pathname;
-      // var pathUserID =path.split("/")[2];
-      if (currentUserId){
-        displayUserCards()
-      }
-      // this blocks non-users from reading reviews
-      //  else {
-      //   var img = document.createElement("img");
-      //   img.src = "../stylesheets/assets/No_Reviews_Clear.png"
-      //   var src = document.getElementById("beeChasing");
-      //   src.appendChild(img);
-      //   }
-    })
-}
+//       var path =  window.location.pathname;
+//       // var pathUserID =path.split("/")[2];
+//       if (currentUserId){
+//         displayUserCards()
+//       }
+//       // this blocks non-users from reading reviews
+//        else {
+//         var img = document.createElement("img");
+//         img.src = "../stylesheets/assets/No_Reviews_Clear.png"
+//         var src = document.getElementById("beeChasing");
+//         src.appendChild(img);
+//         }
+//     })
+// }
 
-userCheck();
+// userCheck();
+displayUserCards();
