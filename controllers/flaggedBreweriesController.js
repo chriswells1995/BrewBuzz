@@ -68,7 +68,9 @@ router.post("/api/flaggedbrewery", function (req, res) {
       " flag with the following notes:\n\n " +
       req.body.note +
       "\n\n" +
-      "Please validate the flag on the breweries website and update the database if necessary. Once completed, change value of the completed column in Flagged Breweries table to 1. Thanks.",
+      "Please validate the flag on the breweries website and update the database if necessary. Once completed, change value of the completed column in Flagged Breweries table to 1. Thanks." +
+      "\n\n" +
+      "Flag Types: 1 (Changed Location), 2 (Temporarily Closed), 3 (Permanently Closed), 4 (Other)"
   };
 
   //send email
