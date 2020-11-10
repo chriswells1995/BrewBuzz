@@ -35,9 +35,20 @@ $(document).ready(function () {
         // TODO: change to window.location.href = "/brewery/"+ UserID;
         location.reload();
       })
-      .catch(function (err) {
-        console.log(err);
-      });
+      .catch(handleLoginErr);
+  }
+
+  function handleLoginErr(err) {
+    // console.log("JSON res", err.responseText==="Unauthorized")
+
+    if(err.responseText==="Unauthorized") {
+      $("#alert .msg")
+      .text("Incorrect email or password.")
+    } else {
+      $("#alert .msg")
+      .text("Logged in.")
+    }
+    $("#alert").fadeIn(500);
   }
 
   function addLinkToDashboard(currentUserId) {
