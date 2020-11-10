@@ -14,11 +14,13 @@ function displayUserCards() {
     console.log(response);
     userCardsHeader(response[0].email)
     
-      var email = responseData[0].email;
+      // var email = responseData[0].email;
+      var reviewingUser = responseData[0].username;
       // var review = responseData[i].review;
       // var brewery = responseData[i].Brewery.name;
       // var breweryId = responseData[i].Brewery.id;
-      return email;
+      $("#review").html(reviewingUser + " has been a busy bee!");
+      return reviewingUser;
   });
 
   function userCardsHeader (email) {
@@ -33,7 +35,7 @@ function displayUserCards() {
     .addClass("text-center");
   }
 
-  function userCards(breweryId, brewery, review, reviewId, breweryWebsite, breweryRating, breweryLogo) {
+  function userCards(breweryId, brewery, review, reviewId, breweryWebsite, breweryRating, breweryLogo, reviewingUser) {
     var cardDiv = $("<h4>")
     .addClass("col-sm-12")
     .attr("id", reviewId);
@@ -66,8 +68,9 @@ function displayUserCards() {
     // cardDiv.append(logoLink, cardBrewery, cardReview, deleteBtn);
     if(currentUserId===localStorage.getItem("userId")){
       cardDiv.append(logoLink, cardBrewery, cardReview, deleteBtn)
-      } else {
-        cardDiv.append(logoLink, cardBrewery, cardReview)
+      $("#review").html("You've been a busy bee!")
+    } else {
+      cardDiv.append(logoLink, cardBrewery, cardReview)
       }
 
     logoLink.append(
