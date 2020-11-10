@@ -52,8 +52,14 @@ $(document).ready(function() {
   }
 
   function handleLoginErr(err) {
-    console.log(err.responseJSON)
-    $("#alert .msg").text("Email already registered.");
+    if(err.responseJSON.original.sqlMessage.includes("username")) {
+      $("#alert .msg")
+      // .text("Username already registered.")
+      .html("<h5>Username already registered.</h5><a href = /landing> Log In? </a>")
+    } else {
+      $("#alert .msg")
+      .html("<h5>Email already registered.</h5><a href = /landing> Log In? </a>")
+    }
     // $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }

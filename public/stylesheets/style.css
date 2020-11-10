@@ -215,6 +215,10 @@ ul {
   flex: 25%;
 }
 
+#alert {
+  margin-top: 20px;
+}
+
 #OpenBreweries {
   justify-content: center;
 }
