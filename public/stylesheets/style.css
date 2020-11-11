@@ -123,6 +123,10 @@ form.login {
   }
 }
 
+.modal-open {
+  padding-right: 0px !important;
+}
+
 .modal-content {
   border-radius: 25px;
   background-color: rgba(255, 255, 255, 0.918);

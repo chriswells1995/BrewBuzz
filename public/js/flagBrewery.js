@@ -8,14 +8,8 @@ $("#submitBreweryFlag").on("click", function () {
   };
 
   $.ajax(userSettings).then(function (response) {
-    console.log("user");
-    console.log(response);
-
     if (response.id) {
-      console.log("it works");
-      console.log(response.id);
       var currentUserId = response.email;
-
       var flagBreweryOption;
       var flagBreweryNote;
       var path = window.location.pathname;

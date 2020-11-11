@@ -4,8 +4,6 @@ $(document).ready(function () {
   var emailInput = $("input#exampleInputEmail2");
   var passwordInput = $("input#exampleInputPassword2");
 
-  console.log(loginForm, emailInput, passwordInput);
-
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", function (event) {
     event.preventDefault();
@@ -41,12 +39,10 @@ $(document).ready(function () {
   function handleLoginErr(err) {
     // console.log("JSON res", err.responseText==="Unauthorized")
 
-    if(err.responseText==="Unauthorized") {
-      $("#alert .msg")
-      .text("Incorrect email or password.")
+    if (err.responseText === "Unauthorized") {
+      $("#alert .msg").text("Incorrect email or password.");
     } else {
-      $("#alert .msg")
-      .text("Logged in.")
+      $("#alert .msg").text("Logged in.");
     }
     $("#alert").fadeIn(500);
   }
@@ -69,6 +65,12 @@ $(document).ready(function () {
       var login = document.getElementById("loginVisibility");
       var logout = document.getElementById("logout");
       var dashboard = document.getElementById("dashboardLink");
+      var flagLabel = document.getElementById("flagLabel");
+      var flagOptions = document.getElementById("flagOptions");
+      var flagNote = document.getElementById("flagNote");
+      var submitBreweryFlag = document.getElementById("submitBreweryFlag");
+
+      var reviewInput = document.getElementById("input#exampleInputPassword2");
 
       localStorage.setItem("userId", currentUserId);
 
@@ -79,7 +81,11 @@ $(document).ready(function () {
       } else {
         (login.style.display = "block"),
           (logout.style.display = "none"),
-          (dashboard.style.display = "none");
+          (dashboard.style.display = "none"),
+          (flagOptions.style.display = "none"),
+          (flagNote.style.display = "none"),
+          (submitBreweryFlag.style.display = "none"),
+          flagLabel.replaceWith("Please sign in to flag a brewery.");
       }
       addLinkToDashboard(currentUserId);
     });
