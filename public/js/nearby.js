@@ -97,7 +97,9 @@ $(document).ready(function () {
   }
 
   function failure() {
-    $("#map").html("<h1> This page requires location access, please close your browser, return to this page, and click Allow.</h1>");
+    $("#map").html(
+      "<div class=container><br><div class=row><div class=col-sm-12 row style=margin:25px;><h4> This page requires location access, please close your browser, return to this page, and click Allow.</h4></div></div></div>"
+    );
   }
 
   // end geoTracking.js copy
@@ -117,14 +119,16 @@ $(document).ready(function () {
           "<a href = /brewery/" +
           coordArray[i][0] +
           " class=column style=color:black !important width: 100%;>" +
-          coordArray[i][1] + "<div>" + "<div> - More Info - </div>" + "</div>" +
+          coordArray[i][1] +
+          "<div>" +
+          "<div> - More Info - </div>" +
+          "</div>" +
           "</a>";
         // console.log("newLatLon")
         var infoWindow = new google.maps.InfoWindow({
           content: contentString,
         });
 
-        
         // console.log(coordArray[i][2]," ", coordArray[i][3])
         var newBreweryMarker = new google.maps.Marker({
           map: map,
@@ -133,7 +137,7 @@ $(document).ready(function () {
           content: infoWindow,
           title: coordArray[i][1],
         });
-        
+
         addMarkerListener(newBreweryMarker, infoWindow);
 
         breweryMarkers.push(newBreweryMarker, infoWindow);
