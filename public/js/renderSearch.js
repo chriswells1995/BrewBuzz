@@ -51,7 +51,7 @@ $(document).ready(function () {
   // render cards ======================================================================================
   function renderCards(AllBreweryObjects) {
     $("#OpenBreweries").empty();
-    $("#OpenBreweries").fadeOut("slow");
+    $("#OpenBreweries").hide();
 
     var AddBreweryButton;
     var existinglogo;
