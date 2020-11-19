@@ -276,6 +276,7 @@ ul {
   background-size: cover;
   resize: both;
   overflow: scroll;
+  background-position: center center;
 }
 
 .formBackground {
