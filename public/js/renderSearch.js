@@ -208,8 +208,7 @@ $(document).ready(function () {
       cardDiv.append(AddReviewButton);
 
       $("#OpenBreweries").append(cardDiv);
+      hideLoader();
     }
-
-    hideLoader();
   }
 });
