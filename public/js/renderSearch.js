@@ -7,7 +7,6 @@ $(document).ready(function () {
   $("#addReviewDiv").empty();
   $("#reviewButton").hide();
   $("#OpenBreweries").empty();
-  $(".noResultsMessage").empty();
   var path = window.location.pathname;
   var input = path.split("/")[2];
 
@@ -63,153 +62,156 @@ $(document).ready(function () {
     var directions;
     var directionsName;
 
-    for (i = 0; i < AllBreweryObjects.length; i++) {
-      //stageLocation(AllBreweryObjects[i].latitude, AllBreweryObjects[i].longitude)
+    console.log("AllBreweryObjects.length", AllBreweryObjects.length);
 
-      var streetAddress =
-        AllBreweryObjects[i].street +
-        " " +
-        AllBreweryObjects[i].city +
-        " " +
-        AllBreweryObjects[i].state;
+    if (AllBreweryObjects.length === 0) {
+      $("#OpenBreweries").html("<h3>No results found.  </h3>");
+    } else {
+      for (i = 0; i < AllBreweryObjects.length; i++) {
+        //stageLocation(AllBreweryObjects[i].latitude, AllBreweryObjects[i].longitude)
 
-      var cardDiv = $("<li>")
-        .addClass("col-sm-12 row")
-        .attr("id", "cardNumber" + i);
+        var streetAddress =
+          AllBreweryObjects[i].street +
+          " " +
+          AllBreweryObjects[i].city +
+          " " +
+          AllBreweryObjects[i].state;
 
-      renderedBreweryName = $("<h4>")
-        .text(AllBreweryObjects[i].name + streetAddress)
-        .attr("value", i)
-        .addClass("card-body headerFont");
+        var cardDiv = $("<li>")
+          .addClass("col-sm-12 row")
+          .attr("id", "cardNumber" + i);
 
-      renderedBreweryName.html(
-        "<a href = /brewery/" +
-          AllBreweryObjects[i].id +
-          " class=row text-center id=headerName style=color:black;>" +
-          AllBreweryObjects[i].name +
-          "<br>" +
-          streetAddress +
-          "</a>"
-      );
-      // //renderedDistance = $("<h4>")
-      // .text(
-      //   'howdy'
-      // )
-      // .attr("value", i)
-      // .addClass("card-body headerFont");
+        renderedBreweryName = $("<h4>")
+          .text(AllBreweryObjects[i].name + streetAddress)
+          .attr("value", i)
+          .addClass("card-body headerFont");
 
-      // //renderedDistance.html(
-      //   "<p>" +
-      //     "lat " + AllBreweryObjects[i].latitude +
-      //     "lon " +
-      //     AllBreweryObjects[i].longitude +
-      //     "</p>"
-      // );
-
-      renderedBreweryPhone = $("<div>")
-        .attr("id", "callButton")
-        .addClass("column")
-        .html(
-          "<a href=" +
-            "tel:" +
-            AllBreweryObjects[i].phoneNumber +
-            ">" +
-            "<img class=redirectButton src=" +
-            `../stylesheets/assets/Phone.png` +
-            ">" +
+        renderedBreweryName.html(
+          "<a href = /brewery/" +
+            AllBreweryObjects[i].id +
+            " class=row text-center id=headerName style=color:black;>" +
+            AllBreweryObjects[i].name +
+            "<br>" +
+            streetAddress +
             "</a>"
         );
+        // //renderedDistance = $("<h4>")
+        // .text(
+        //   'howdy'
+        // )
+        // .attr("value", i)
+        // .addClass("card-body headerFont");
 
-      renderedBreweryWebsite = $("<div>")
-        .attr("id", "websiteButton")
-        .addClass("column")
-        .html(
-          "<a href=" +
-            AllBreweryObjects[i].website +
-            " + target=_blank" +
-            ">" +
-            "<img class=redirectButton src=" +
-            `../stylesheets/assets/webicon.png` +
-            ">" +
-            "</a>"
-        );
+        // //renderedDistance.html(
+        //   "<p>" +
+        //     "lat " + AllBreweryObjects[i].latitude +
+        //     "lon " +
+        //     AllBreweryObjects[i].longitude +
+        //     "</p>"
+        // );
 
-      directionName = AllBreweryObjects[i].name.replace(/,/g, "%2C");
-      directionName = directionName.replace(/ /g, "+");
-      directions = streetAddress.replace(/,/g, "%2C");
-      directions = directions.replace(/ /g, "+");
-      directions =
-        "https://www.google.com/maps/search/?api=1&query=" +
-        directionName +
-        directions;
-      //   console.log("working")
-      //  console.log(directions)
-
-      directionsLink = $("<div>")
-        .attr("id", "directionLink")
-        .addClass("column")
-        .html(
-          "<a href=" +
-            directions +
-            ">" +
-            "<img class=redirectButton src=" +
-            `../stylesheets/assets/directionicon.png` +
-            ">" +
-            "</a>"
-        );
-
-      shareLink = $("<div>")
-        .attr("id", "shareLink")
-        .addClass("column")
-        .html(
-          "<a href=#" +
-            ">" +
-            "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>" +
-            "<img id=shareBtn class=redirectButton text-center src=" +
-            `../stylesheets/assets/shareicon.png` +
-            ">" +
-            "</button>" +
-            "</a>"
-        );
-
-      AddReviewButton = $("<a>")
-        .attr("value", i)
-        .text("Write a review!")
-        .addClass("reviewBtn btn btn-dark");
-      // .attr("href", "brewery.html");
-
-      cardDiv.append(
-        renderedBreweryName,
-        renderedBreweryPhone,
-        renderedBreweryWebsite,
-        directionsLink,
-        //renderedDistance,
-        shareLink
-      );
-
-      if (AllBreweryObjects[i].logo) {
-        existinglogo = $("<img>")
-          .addClass("logo column")
-          .attr("src", AllBreweryObjects[i].logo);
-        renderedBreweryName.before(existinglogo);
-      }
-      if (AllBreweryObjects[i].totalRating) {
-        var avgStars = $("<p>")
-          .addClass("starability-result")
-          .attr(
-            "data-rating",
-            Math.round(parseInt(AllBreweryObjects[i].totalRating) * 2) / 2
+        renderedBreweryPhone = $("<div>")
+          .attr("id", "callButton")
+          .addClass("column")
+          .html(
+            "<a href=" +
+              "tel:" +
+              AllBreweryObjects[i].phoneNumber +
+              ">" +
+              "<img class=redirectButton src=" +
+              `../stylesheets/assets/Phone.png` +
+              ">" +
+              "</a>"
           );
-        renderedBreweryName.prepend(avgStars);
+
+        renderedBreweryWebsite = $("<div>")
+          .attr("id", "websiteButton")
+          .addClass("column")
+          .html(
+            "<a href=" +
+              AllBreweryObjects[i].website +
+              " + target=_blank" +
+              ">" +
+              "<img class=redirectButton src=" +
+              `../stylesheets/assets/webicon.png` +
+              ">" +
+              "</a>"
+          );
+
+        directionName = AllBreweryObjects[i].name.replace(/,/g, "%2C");
+        directionName = directionName.replace(/ /g, "+");
+        directions = streetAddress.replace(/,/g, "%2C");
+        directions = directions.replace(/ /g, "+");
+        directions =
+          "https://www.google.com/maps/search/?api=1&query=" +
+          directionName +
+          directions;
+        //   console.log("working")
+        //  console.log(directions)
+
+        directionsLink = $("<div>")
+          .attr("id", "directionLink")
+          .addClass("column")
+          .html(
+            "<a href=" +
+              directions +
+              ">" +
+              "<img class=redirectButton src=" +
+              `../stylesheets/assets/directionicon.png` +
+              ">" +
+              "</a>"
+          );
+
+        shareLink = $("<div>")
+          .attr("id", "shareLink")
+          .addClass("column")
+          .html(
+            "<a href=#" +
+              ">" +
+              "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>" +
+              "<img id=shareBtn class=redirectButton text-center src=" +
+              `../stylesheets/assets/shareicon.png` +
+              ">" +
+              "</button>" +
+              "</a>"
+          );
+
+        AddReviewButton = $("<a>")
+          .attr("value", i)
+          .text("Write a review!")
+          .addClass("reviewBtn btn btn-dark");
+        // .attr("href", "brewery.html");
+
+        cardDiv.append(
+          renderedBreweryName,
+          renderedBreweryPhone,
+          renderedBreweryWebsite,
+          directionsLink,
+          //renderedDistance,
+          shareLink
+        );
+
+        if (AllBreweryObjects[i].logo) {
+          existinglogo = $("<img>")
+            .addClass("logo column")
+            .attr("src", AllBreweryObjects[i].logo);
+          renderedBreweryName.before(existinglogo);
+        }
+        if (AllBreweryObjects[i].totalRating) {
+          var avgStars = $("<p>")
+            .addClass("starability-result")
+            .attr(
+              "data-rating",
+              Math.round(parseInt(AllBreweryObjects[i].totalRating) * 2) / 2
+            );
+          renderedBreweryName.prepend(avgStars);
+        }
+
+        AddReviewButton.attr("href", "/brewery/" + AllBreweryObjects[i].id);
+
+        cardDiv.append(AddReviewButton);
+        $("#OpenBreweries").append(cardDiv);
       }
-      console.log("brewery Rating");
-      console.log(AllBreweryObjects[i].totalRating);
-
-      AddReviewButton.attr("href", "/brewery/" + AllBreweryObjects[i].id);
-
-      cardDiv.append(AddReviewButton);
-
-      $("#OpenBreweries").append(cardDiv);
     }
   }
 });
