@@ -45,11 +45,13 @@ $(document).ready(function () {
 
   setTimeout(function renderCards() {
     $(".loader-wrapper").fadeOut("slow");
+    $("#OpenBreweries").show();
   }, 4000);
 
   // render cards ======================================================================================
   function renderCards(AllBreweryObjects) {
     $("#OpenBreweries").empty();
+    $("#OpenBreweries").hide();
 
     var AddBreweryButton;
     var existinglogo;

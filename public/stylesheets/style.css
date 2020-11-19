@@ -1,5 +1,6 @@
 body {
   background-image: url(assets/beehive_reversed.png);
+  margin-bottom: 25px !important;
 }
 
 body,
@@ -503,9 +504,15 @@ li.openBreweriesCenter {
 }
 
 .footerStyle {
-  color: black;
-  margin-bottom: 0px;
+  color: white;
   text-decoration: none;
+  background: rgba(5, 5, 5, 0.815);
+  position: fixed;
+  height: 25px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
 }
 
 .footerStyle:hover {
