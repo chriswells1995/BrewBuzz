@@ -44,14 +44,14 @@ $(document).ready(function () {
     });
 
   setTimeout(function renderCards() {
-    $(".loader-wrapper").fadeOut("slow");
-    $("#OpenBreweries").show();
+    $(".loader-wrapper").hide();
+    $("#OpenBreweries").fadeIn("slow");
   }, 4000);
 
   // render cards ======================================================================================
   function renderCards(AllBreweryObjects) {
     $("#OpenBreweries").empty();
-    $("#OpenBreweries").hide();
+    $("#OpenBreweries").fadeOut("slow");
 
     var AddBreweryButton;
     var existinglogo;
