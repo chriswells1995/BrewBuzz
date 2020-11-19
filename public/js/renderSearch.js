@@ -44,8 +44,8 @@ $(document).ready(function () {
     });
 
   setTimeout(function renderCards() {
-    $(".loader-wrapper").hide();
-  }, 3000);
+    $(".loader-wrapper").fadeOut("slow");
+  }, 4000);
 
   // render cards ======================================================================================
   function renderCards(AllBreweryObjects) {
