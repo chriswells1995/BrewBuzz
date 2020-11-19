@@ -271,14 +271,6 @@ ul {
   color: black;
 }
 
-.oneOfUs {
-  background-image: url("assets/cheers.png");
-  background-size: cover;
-  resize: both;
-  overflow: scroll;
-  background-position: center center;
-}
-
 .formBackground {
   left: 25%;
   margin-top: 50px;
