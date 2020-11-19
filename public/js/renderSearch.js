@@ -43,9 +43,9 @@ $(document).ready(function () {
       console.log(error);
     });
 
-  function hideLoader() {
+  setTimeout(function renderCards() {
     $(".loader-wrapper").hide();
-  }
+  }, 3000);
 
   // render cards ======================================================================================
   function renderCards(AllBreweryObjects) {
@@ -208,7 +208,6 @@ $(document).ready(function () {
       cardDiv.append(AddReviewButton);
 
       $("#OpenBreweries").append(cardDiv);
-      hideLoader();
     }
   }
 });
