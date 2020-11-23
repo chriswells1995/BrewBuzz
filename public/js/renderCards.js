@@ -63,6 +63,8 @@ function displayCards() {
             " style=margin:5px;>"
         ).addClass("row");
 
+        var starDiv = $("<div>").addClass("starCentering");
+
         var avgStars = $("<p>")
           .addClass("starability-result row")
           .attr(
@@ -163,9 +165,11 @@ function displayCards() {
               "</a>"
           );
 
+        starDiv.append(avgStars);
+
         cardDiv.append(
           logoLink,
-          avgStars,
+          starDiv,
           renderedBreweryName,
           renderedBreweryPhone,
           renderedBreweryWebsite,

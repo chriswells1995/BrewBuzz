@@ -9,7 +9,7 @@
 }
 
 .starability-result:after {
-  content: ' ';
+  content: " ";
   position: absolute;
   left: 0;
   height: 30px;
@@ -47,7 +47,8 @@
   width: 30px;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi) {
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi) {
   .starability-result {
     background-image: url("assets/star_images/stars2.png");
     background-size: 30px auto;
@@ -132,7 +133,7 @@
 }
 
 .starability-basic > label::before {
-  content: '';
+  content: "";
   position: absolute;
   display: block;
   height: 30px;
@@ -167,7 +168,8 @@
   left: 0px;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi) {
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi) {
   .starability-basic > label {
     background-image: url("assets/star_images/stars2.png");
     background-size: 30px auto;
@@ -195,7 +197,8 @@
     color: inherit;
     background: none;
   }
-  .starability-basic > label::before, .starability-basic > label::after {
+  .starability-basic > label::before,
+  .starability-basic > label::after {
     display: none;
   }
 }
