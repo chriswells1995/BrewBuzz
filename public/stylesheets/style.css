@@ -186,6 +186,10 @@ a.row {
   flex: 100%;
 }
 
+.starCentering {
+  margin-left: 20px;
+}
+
 .bannerlogo {
   margin-top: 25px;
   max-width: 100%;
