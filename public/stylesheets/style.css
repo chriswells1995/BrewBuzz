@@ -301,6 +301,15 @@ ul {
   background: white;
 }
 
+.navbar-toggler {
+  border-color: transparent !important;
+  margin-left: -25px;
+}
+
+.navbar-toggler:active {
+  border-color: red !important;
+}
+
 #navBackgroundClear {
   background-image: none;
   background: rgba(0, 0, 0, 0.89) !important;
