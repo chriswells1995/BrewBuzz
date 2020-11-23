@@ -15,14 +15,19 @@ function displayCards() {
         breweryId: responseData[i].Brewery.id,
         breweryLogo: responseData[i].Brewery.logo,
         breweryName: responseData[i].Brewery.name,
-        breweryAddress: responseData[i].Brewery.street + " " + responseData[i].Brewery.city+ " " + responseData[i].Brewery.state,
+        breweryAddress:
+          responseData[i].Brewery.street +
+          " " +
+          responseData[i].Brewery.city +
+          " " +
+          responseData[i].Brewery.state,
         breweryWebsite: responseData[i].Brewery.website,
         breweryPhone: responseData[i].Brewery.phoneNumber,
         username: responseData[i].User.username,
         user_id: responseData[i].User.id,
         review_id: responseData[i].id,
         review: responseData[i].review,
-        rating: responseData[i].rating
+        rating: responseData[i].rating,
       };
       AllBreweryObjects.push(BreweryObject);
     }
@@ -44,7 +49,6 @@ function displayCards() {
         "Content-Type": "application/x-www-form-urlencoded",
       },
     };
-    
 
     $.ajax(settings).then(function () {
       // This for loop will go through each brewery returned by the third party API, and render them to the page along with a button
@@ -53,24 +57,30 @@ function displayCards() {
           .addClass("col-sm-12 row")
           .attr("id", "cardNumber" + i);
 
-          var logoLink = $("<a href=/brewery/" +
-          AllBreweryObjects[i].breweryId + ">")
+        var logoLink = $(
+          "<a href=/brewery/" +
+            AllBreweryObjects[i].breweryId +
+            " style=margin:5px;>"
+        ).addClass("row");
 
-          var avgStars = $("<p>")
-          .addClass("starability-result")
-          .attr("data-rating", Math.round(parseInt(AllBreweryObjects[i].rating)*2)/2 )
+        var avgStars = $("<p>")
+          .addClass("starability-result row")
+          .attr(
+            "data-rating",
+            Math.round(parseInt(AllBreweryObjects[i].rating) * 2) / 2
+          );
 
-          var reviewLink = $("<a href=/user/" +
-          AllBreweryObjects[i].user_id + ">")
-          .addClass("reviewLink")
+        var reviewLink = $(
+          "<a href=/user/" + AllBreweryObjects[i].user_id + ">"
+        ).addClass("reviewLink");
 
-          renderedLogo = $("<img>")
+        renderedLogo = $("<img>")
           .addClass("logo column")
           .attr("src", AllBreweryObjects[i].breweryLogo);
 
-          renderedBreweryName = $("<h4>")
-            .addClass("column centeredBreweryName")
-            .html(
+        renderedBreweryName = $("<h4>")
+          .addClass("column centeredBreweryName")
+          .html(
             "<a href = /brewery/" +
               AllBreweryObjects[i].breweryId +
               " class=row text-center id=headerName style=font-size:100%;>" +
@@ -82,8 +92,9 @@ function displayCards() {
 
         renderedReview = $("<p " + "style=color:black;" + ">")
           .text(
-            AllBreweryObjects[i].username + " said: " +
-            AllBreweryObjects[i].review
+            AllBreweryObjects[i].username +
+              " said: " +
+              AllBreweryObjects[i].review
           )
           .attr("id", "userReview" + i)
           .addClass("card-body reviewText centeredBrewery");
@@ -138,18 +149,18 @@ function displayCards() {
               "</a>"
           );
 
-          shareLink = $("<div>")
+        shareLink = $("<div>")
           .attr("id", "shareLink")
           .addClass("column")
           .html(
             "<a href=#" +
-            ">" +
-            "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>"+
-            "<img id=shareBtn class=redirectButton text-center src=" +
-            `stylesheets/assets/shareicon.png` +
-            ">" +
-            "</button>"+
-            "</a>"
+              ">" +
+              "<button type=button class=btn btn-primary data-toggle=modal data-target=#exampleModal>" +
+              "<img id=shareBtn class=redirectButton text-center src=" +
+              `stylesheets/assets/shareicon.png` +
+              ">" +
+              "</button>" +
+              "</a>"
           );
 
         cardDiv.append(
@@ -164,13 +175,9 @@ function displayCards() {
           reviewLink
         );
 
-        logoLink.append(
-          renderedLogo
-        );
+        logoLink.append(renderedLogo);
 
-        reviewLink.append(
-          renderedReview
-        );
+        reviewLink.append(renderedReview);
 
         $("#OpenBreweries").append(cardDiv);
       }
