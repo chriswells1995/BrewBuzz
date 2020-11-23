@@ -91,6 +91,13 @@ form.login {
   margin-top: 50px;
 }
 
+.centerSearch {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .noResultsMessage {
   width: 100%;
   margin-left: 0%;
@@ -304,10 +311,6 @@ ul {
 .navbar-toggler {
   border-color: transparent !important;
   margin-left: -25px;
-}
-
-.navbar-toggler:active {
-  border-color: red !important;
 }
 
 #navBackgroundClear {
