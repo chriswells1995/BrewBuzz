@@ -533,13 +533,13 @@ li.openBreweriesCenter {
 #cellFulton {
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 450px;
+  width: 350px;
 }
 
 #nearbyBrewery {
   margin-top: 20px;
   margin-bottom: 20px;
-  max-width: 450px;
+  max-width: 350px;
 }
 
 #aboutBrewBuzz {
