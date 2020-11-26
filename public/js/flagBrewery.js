@@ -49,7 +49,7 @@ $("#submitBreweryFlag").on("click", function () {
       });
     } else {
       // TODO: something more fancy than an alert maybe
-      alert("You need to sign in to flag a brewery");
+      alert("Please sign in to flag a brewery.");
     }
   });
 });
