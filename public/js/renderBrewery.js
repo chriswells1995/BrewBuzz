@@ -1,8 +1,21 @@
 // global variables
 var path = window.location.pathname;
 var thisBreweryId = path.split("/")[2];
+var userLoggedIn = localStorage.getItem("userId");
 
-// This function takes in a brewery name and renders it to the page
+// TODO: Get this working. It requires a page reload to work properly.
+
+// if (userLoggedIn === "undefined") {
+//   document.getElementById("reviewInput").disabled = true;
+//   $("#reviewInput").attr(
+//     "placeholder",
+//     "Please log in before posting a review."
+//   );
+// } else {
+//   document.getElementById("reviewInput").disabled = false;
+//   $("#reviewInput").attr("placeholder", "Add a New Review!");
+// }
+
 function cardHeader(brewery) {
   var cardBrewery = $("<div>")
     .addClass("card-body centeredBrewery headerBrewery")
@@ -238,7 +251,16 @@ $("#reviewButton").on("click", function () {
   // If the star input is null, the user will get a message saying they need to select a star rating
   if (!starInput) {
     event.preventDefault();
-    alert("You need to enter a rating between 1 and 5");
+    alert("Please enter a star rating.");
+
+    return;
+  }
+
+  // If the review input is null, the user will get a message saying tey need to enter a review
+
+  if (!reviewInput) {
+    event.preventDefault();
+    alert("Please enter a review.");
 
     return;
   }
@@ -290,7 +312,7 @@ $("#reviewButton").on("click", function () {
       });
     } else {
       // TODO: something more fancy than an alert maybe
-      alert("You need to sign in to post a review");
+      alert("Please sign in to post a review.");
     }
   });
 });
@@ -492,6 +514,5 @@ function renderTheseReviews() {
     });
   });
 }
-
 $("#OpenBreweries").empty();
 renderTheseReviews();
