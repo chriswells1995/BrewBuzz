@@ -117,24 +117,10 @@ form.login {
 
 #map {
   height: 100%;
-  border-radius: 15px;
-}
-@media (max-width: 750px) {
-  #map {
-    /* TODO: maybe tailor this to iphone?? */
-    height: 100%;
-    border-radius: 15px;
-  }
 }
 
 .map-wrapper {
-  height: 100%;
-}
-@media (max-width: 750px) {
-  #map {
-    /* TODO: maybe tailor this to iphone?? */
-    height: 100%;
-  }
+  height: 90.9%;
 }
 
 .modal-open {
