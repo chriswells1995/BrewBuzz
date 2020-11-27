@@ -13,12 +13,12 @@ router.get(`/api/nearby`, function (req, res) {
   //console.log('minlat : ',minLat)
   let floatLat = parseFloat(req.query.userLat);
 
-  let maxLat = floatLat + 0.2;
-  let minLat = floatLat - 0.2;
+  let maxLat = floatLat + 0.3;
+  let minLat = floatLat - 0.3;
   let floatLon = parseFloat(req.query.userLon);
   console.log("floatLon ", floatLon);
-  let maxLon = floatLon + 0.2;
-  let minLon = floatLon - 0.2;
+  let maxLon = floatLon + 0.3;
+  let minLon = floatLon - 0.3;
   // console.log(`user lat ${req.query.userLat}  maxLat ${maxLat}  minLat ${minLat} user Lon ${req.query.userLon}  maxLon ${maxLon}  minLon ${minLon}`)
   // console.log("route lat :", req.query.userLat)
   // console.log("route lon : ", req.query.userLon)
