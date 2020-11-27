@@ -50,7 +50,7 @@ $(document).ready(function () {
   // render cards ======================================================================================
   function renderCards(AllBreweryObjects) {
     $("#OpenBreweries").empty();
-    $("#OpenBreweries").hide();
+    // $("#OpenBreweries").hide();
 
     var AddBreweryButton;
     var existinglogo;
