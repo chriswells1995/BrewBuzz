@@ -4,7 +4,7 @@ const iconSrc = (src = "../stylesheets/assets/icon-nobeer-48x48.png");
 const beerIconSrc = (src = "../stylesheets/assets/beer_48x48.png");
 var map;
 
-function initMap() {} // now it IS a function and it is in global
+function initMap() {}
 
 $(document).ready(function () {
   let userLat;
@@ -56,10 +56,7 @@ $(document).ready(function () {
               response[0][i].latitude,
               response[0][i].longitude,
             ]);
-            // console.log("brewname : ", response[0][i].name);
           }
-          // console.log(coordArray);
-          //console.log('ajax response ',response);
         })
         .then(function () {
           makeManyMarkers();
@@ -77,14 +74,14 @@ $(document).ready(function () {
     //   Google API ready Latitude and Longitude string
     var geoTracCoords = new google.maps.LatLng(myLat, myLong);
 
-    // TODO: Testing additional coordinates
-    // var coords2 = new google.maps.LatLng(myLat2, myLong2);
-
     // Setting up our Google Map
     var mapOptions = {
       zoom: 14,
       center: geoTracCoords,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeControl: false,
+      zoomControl: false,
+      fullscreenControl: false,
     };
 
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -101,8 +98,6 @@ $(document).ready(function () {
       "<div class=container><br><div class=row><div class=col-sm-12 row style=margin:25px;><h4> This page requires location access, please close your browser, return to this page, and click Allow.</h4></div></div></div>"
     );
   }
-
-  // end geoTracking.js copy
 
   function addMarkerListener(newBreweryMarker, infoWindow) {
     newBreweryMarker.addListener("click", function () {
@@ -124,12 +119,11 @@ $(document).ready(function () {
           "<div> - More Info - </div>" +
           "</div>" +
           "</a>";
-        // console.log("newLatLon")
+
         var infoWindow = new google.maps.InfoWindow({
           content: contentString,
         });
 
-        // console.log(coordArray[i][2]," ", coordArray[i][3])
         var newBreweryMarker = new google.maps.Marker({
           map: map,
           position: new google.maps.LatLng(coordArray[i][2], coordArray[i][3]),
