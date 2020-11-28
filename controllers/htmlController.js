@@ -74,6 +74,11 @@ router.get("/login", function (req, res) {
   res.sendFile(path.join(__dirname, "../public/login.html"));
 });
 
+
+router.get("/loop", function (req, res) {
+  res.sendFile(path.join(__dirname, "../public/loop.html"));
+});
+
 // catchall route
 router.get("*", function (req, res) {
   // If the user already has an account send them to user landing page
