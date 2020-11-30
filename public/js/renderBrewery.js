@@ -216,13 +216,35 @@ function buildCard(
     .attr("href", "/user/" + userID)
     .addClass("emailLinks centeredBrewery")
     .text("See all of " + username + "'s reviews");
+      console.log("userID, then userLoggenIn ID")
+      console.log(userID)
+      console.log(userLoggedIn)
+      // TODO: UN-COMMENT THESE WHEN WORKING ON EDITING REVIEWS
+  //   if(userID == userLoggedIn){
 
-  cardDiv.append(cardReview, oldStars, profile);
 
-  // $("#brewery-title").empty();
+  //   var editButton = $("<button>")
+  //   .text("Edit")
+  //   .attr("id", "edit"+review_id)
+  //   .attr("data-text", review )
+  // cardDiv.append(cardReview, oldStars, profile, editButton);
+  // $("#OpenBreweries").prepend(cardDiv);
+  // addEditEventListener("edit"+review_id)
 
-  // $("#brewery-title").append(cardBrewery);
-  $("#OpenBreweries").prepend(cardDiv);
+  //   }
+  //   else{
+  //     cardDiv.append(cardReview, oldStars, profile);
+  //     $("#OpenBreweries").prepend(cardDiv);
+
+  //   }
+
+    cardDiv.append(cardReview, oldStars, profile);
+    $("#OpenBreweries").prepend(cardDiv);
+
+
+
+
+
 }
 
 // event listener for review input (activated by clicking the "Add" button)
@@ -516,3 +538,17 @@ function renderTheseReviews() {
 }
 $("#OpenBreweries").empty();
 renderTheseReviews();
+
+function addEditEventListener(editId){
+
+
+  $("#"+editId).on("click", function(){
+
+      console.log("edit review")
+  console.log(editId)
+  var editReview = document.getElementById(editId).dataset.text
+
+  console.log(editReview)
+  })
+
+}
