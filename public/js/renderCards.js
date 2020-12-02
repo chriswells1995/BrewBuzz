@@ -63,10 +63,10 @@ function displayCards() {
             " style=margin:5px;>"
         ).addClass("row");
 
-        var starDiv = $("<div>").addClass("starCentering");
+        var starDiv = $("<div>").addClass("starFeedCentering");
 
         var avgStars = $("<p>")
-          .addClass("starability-result row")
+          .addClass("starability-result centeredBrewery row")
           .attr(
             "data-rating",
             Math.round(parseInt(AllBreweryObjects[i].rating) * 2) / 2

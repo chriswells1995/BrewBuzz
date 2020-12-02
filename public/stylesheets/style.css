@@ -507,6 +507,11 @@ li.openBreweriesCenter {
   margin-right: auto;
 }
 
+.starFeedCentering {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .footerStyle {
   color: white;
   text-decoration: none;
