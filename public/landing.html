@@ -14,6 +14,8 @@
   <link rel="apple-touch-icon" sizes="152x152" href="./stylesheets/assets/touch-icon-ipad.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./stylesheets/assets/touch-icon-iphone-retina.png">
   <link rel="apple-touch-icon" sizes="167x167" href="./stylesheets/assets/touch-icon-ipad-retina.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -92,7 +94,7 @@
         <!-- input now has ID searchInput -->
         <input id="searchInput" autocomplete="off" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
         <!-- The search button now has ID searchButton -->
-        <button id="searchButton" class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
+        <button id="searchButton" class="btn btn-warning my-2 my-sm-0 googleFontSecondary" type="submit">Search</button>
       </form>
     </div>
   </nav>
@@ -102,54 +104,56 @@
         <img class="bannerlogo" src="stylesheets/assets/Outline_BrewBuzz.png"
         alt="Brew Buzz logo, bumblebee holding frothy beer and the words brew buzz to the right">
         <div>
-          <h5 class="text-right" style="margin-top: -20px;">If it's beer, it's here.</h5>
+          <h5 class="text-right googleFont" style="margin-top: -20px;">If it's beer, it's here.</h5>
         </br>
           <form class="centeredBrewery form-inline my-2 my-lg-0" id="formMargin">
             <!-- input now has ID searchInput -->
             <input id="landingSearchInput" class="form-control mr-sm-2" autocomplete="off" type="search" placeholder="Search for a Brewery" aria-label="Search"/>
             <!-- The search button now has ID searchButton -->
-            <button id="landingSearchButton" class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
+            <button id="landingSearchButton" class="btn btn-warning my-2 my-sm-0 googleFontSecondary" type="submit">Search</button>
           </form>
         </div>
           <div class="card text-white bg-warning mb-3" style="color: black !important;">
             <a href="/signup.html" style="color: black !important;">
             <div class="card-body">
-              <h4 class="card-title text-center">Join The Hive</h4>
-              <p class="card-text text-center">Sign up to access all BrewBuzz has to offer - write reviews, start conversations, and enjoy a cold one!</p>
+              <h4 class="card-title text-center googleFont">Join The Hive</h4>
+              <p class="card-text text-center googleFontSecondary">Sign up to access all BrewBuzz has to offer - write reviews, start conversations, and enjoy a cold one!</p>
             </div>
             </a>
           </div>
         <div class="card text-white bg-warning mb-3" style="color: black !important;">
           <a href="/nearby.html" style="color: black !important;">
             <div class="card-body">
-              <h4 class="card-title text-center">Nearby Breweries</h4>
-              <p class="card-text text-center">Are you new in town, traveling, or just looking for something new? See what's brewing nearby.</p>
+              <h4 class="card-title text-center googleFont">Nearby Breweries</h4>
+              <p class="card-text text-center googleFontSecondary">Are you new in town, traveling, or just looking for something new? See what's brewing nearby.</p>
             </div>
           </a>
           </div>
           <div class="card text-white bg-warning mb-3" style="color: black !important;">
             <a href="#aboutBrewBuzz" style="color: black !important;">
               <div class="card-body">
-              <h4 class="card-title text-center">About BrewBuzz</h4>
-              <p class="card-text text-center">A long time ago in a galaxy really, really close...</p>
+              <h4 class="card-title text-center googleFont">About BrewBuzz</h4>
+              <p class="card-text text-center googleFontSecondary">A long time ago in a galaxy really, really close...</p>
               </div>
           </a>
           </div>
           <div class="container-fluid">
             <div class="row">
-          <h2 class="text-center col-sm">
+          <h2 class="text-center col-sm googleFont">
             Sign In and Review Breweries
             <div class="short-rule"></div>
             <img src="stylesheets/assets/cellFulton.png" id="cellFulton">
           </h2>
-          <h2 class="text-center nearbyFloat col-sm">
+          <h2 class="text-center nearbyFloat col-sm googleFont">
             Explore Breweries Near or Far
             <div class="short-rule"></div>
+            <a href=/nearby>
             <img src="stylesheets/assets/nearbyBrewery.png" id="nearbyBrewery">
+            </a>
           </h2>
             </div>
           <div class="row">
-          <h2 class="text-center col-sm" href="aboutBrewBuzz">
+          <h2 class="text-center col-sm googleFont" href="aboutBrewBuzz">
             About the BrewBuzz Team
             <div class="short-rule"></div>
             <p class="text-center" id="aboutBrewBuzz">
@@ -170,7 +174,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <div class="column">
-        <h5 class="modal-title column" id="qrLabel">BrewBuzz is best enjoyed on mobile. Please scan QR code to experience all BrewBuzz has to offer.</h5>
+        <h5 class="modal-title column googleFontSecondary" id="qrLabel">BrewBuzz is best enjoyed on mobile. Please scan QR code to experience all BrewBuzz has to offer.</h5>
         <div class="column" style="margin-top: 20px; margin-bottom: 20px;">
         <img src="../stylesheets/assets/QR_Code.png" alt="QR Code to load BrewBuzz on your mobile device" class="column" width="200" height="200">
         </div>
@@ -186,7 +190,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Post to Social Media</h5>
+        <h5 class="modal-title googleFont" id="exampleModalLabel">Post to Social Media</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

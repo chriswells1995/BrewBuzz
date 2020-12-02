@@ -360,8 +360,16 @@ ul {
 .headerFont {
   margin-left: 10%;
   margin-right: 10%;
-  font-family: impact, charcoal, sans-serif;
+  font-family: "Rubik", sans-serif;
   flex: 100%;
+}
+
+.googleFont {
+  font-family: "Rubik", sans-serif;
+}
+
+.googleFontSecondary {
+  font-family: "Karla", sans-serif;
 }
 
 #headerName {
@@ -510,6 +518,10 @@ li.openBreweriesCenter {
 .starFeedCentering {
   margin-left: auto;
   margin-right: auto;
+}
+
+.headerSpacing {
+  margin-top: -20px;
 }
 
 .footerStyle {

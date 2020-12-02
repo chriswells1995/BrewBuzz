@@ -85,14 +85,16 @@ function displayCards() {
           .html(
             "<a href = /brewery/" +
               AllBreweryObjects[i].breweryId +
-              " class=row text-center id=headerName style=font-size:100%;>" +
+              " class=row text-center id=headerName style=font-family:Rubik,sans-serif;>" +
               AllBreweryObjects[i].breweryName +
               "<br>" +
               AllBreweryObjects[i].breweryAddress +
               "</a>"
           );
 
-        renderedReview = $("<p " + "style=color:black;" + ">")
+        renderedReview = $(
+          "<p " + "style=font-family:'Karla',sans-serif;" + ">"
+        )
           .text(
             AllBreweryObjects[i].username +
               " said: " +

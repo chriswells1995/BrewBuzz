@@ -63,6 +63,7 @@ $(document).ready(function () {
     var directionsName;
 
     console.log("AllBreweryObjects.length", AllBreweryObjects.length);
+    console.log("all brewery objects stuff ", AllBreweryObjects);
 
     if (AllBreweryObjects.length === 0) {
       $("#OpenBreweries").html("<h3>No results found.  </h3>");
@@ -81,10 +82,14 @@ $(document).ready(function () {
           .addClass("col-sm-12 row")
           .attr("id", "cardNumber" + i);
 
+        var logoLink = $(
+          "<a href=/brewery/" + AllBreweryObjects[i].id + " style=margin:5px;>"
+        ).addClass("row");
+
         renderedBreweryName = $("<h4>")
           .text(AllBreweryObjects[i].name + streetAddress)
           .attr("value", i)
-          .addClass("card-body headerFont");
+          .addClass("card-body headerFont headerSpacing");
 
         renderedBreweryName.html(
           "<a href = /brewery/" +
@@ -195,11 +200,11 @@ $(document).ready(function () {
           existinglogo = $("<img>")
             .addClass("logo column")
             .attr("src", AllBreweryObjects[i].logo);
-          renderedBreweryName.before(existinglogo);
+          renderedBreweryName.before(logoLink);
         }
         if (AllBreweryObjects[i].totalRating) {
           var avgStars = $("<p>")
-            .addClass("starability-result")
+            .addClass("starability-result starFeedCentering")
             .attr(
               "data-rating",
               Math.round(parseInt(AllBreweryObjects[i].totalRating) * 2) / 2
@@ -210,6 +215,7 @@ $(document).ready(function () {
         AddReviewButton.attr("href", "/brewery/" + AllBreweryObjects[i].id);
 
         cardDiv.append(AddReviewButton);
+        logoLink.append(existinglogo);
         $("#OpenBreweries").append(cardDiv);
       }
     }
