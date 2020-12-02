@@ -503,8 +503,8 @@ li.openBreweriesCenter {
 }
 
 #starBackground {
-  margin-left: 35%;
-  margin-left: 35%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .footerStyle {
