@@ -1,6 +1,7 @@
 body {
   background-image: url(assets/beehive_reversed.png);
   margin-bottom: 25px !important;
+  min-height: 100vh !important;
 }
 
 body,
@@ -528,19 +529,26 @@ li.openBreweriesCenter {
   margin-top: -20px;
 }
 
-.footerStyle {
-  color: white;
-  text-decoration: none;
-  background: rgba(5, 5, 5, 0.815);
-  position: fixed;
-  height: 25px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin-bottom: 0px;
+.container {
+  min-height: calc(100vh - 65px);
 }
 
-.footerStyle:hover {
+.footerStyle {
+  text-align: center;
+  background-color: rgba(5, 5, 5, 0.815);
+  color: white;
+  text-decoration: none;
+  height: 25px;
+  bottom: 0;
+  width: 100%;
+}
+
+.footerText {
+  text-decoration: none;
+  color: white;
+}
+
+.footerText:hover {
   color: rgb(255, 196, 0);
 }
 
