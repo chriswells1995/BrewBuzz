@@ -576,10 +576,10 @@ li.openBreweriesCenter {
 #aboutBrewBuzz {
   font-size: 65%;
   margin-top: 20px;
-  margin-left: 10%;
+  margin-left: auto;
   margin-bottom: 50px;
-  width: 80%;
-  margin-right: 10%;
+  width: 100%;
+  margin-right: auto;
   padding: 15px;
   background-color: rgb(255, 199, 71);
   border-radius: 15px;
