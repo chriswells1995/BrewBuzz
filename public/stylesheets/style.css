@@ -92,6 +92,12 @@ form.login {
   margin-top: 50px;
 }
 
+.signRequire {
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 10px;
+}
+
 .centerSearch {
   margin-top: 10px;
   display: flex;
