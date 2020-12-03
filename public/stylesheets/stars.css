@@ -6,6 +6,7 @@
   background-image: url("assets/star_images/stars1.png");
   font-size: 0.1em;
   color: transparent;
+  border-color: black;
 }
 
 .starability-result:after {
