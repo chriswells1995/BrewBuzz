@@ -532,8 +532,9 @@ li.openBreweriesCenter {
   color: white;
   text-decoration: none;
   background: rgba(5, 5, 5, 0.815);
-  position: fixed;
+  /* position: fixed; */
   height: 25px;
+  width: 100%;
   bottom: 0px;
   left: 0px;
   right: 0px;
