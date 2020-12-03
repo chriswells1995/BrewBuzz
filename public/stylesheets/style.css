@@ -199,7 +199,11 @@ ul {
 
 .col-sm-12 {
   margin-bottom: 15px;
-  background-color: rgb(255, 199, 71);
+  background: linear-gradient(
+    to bottom,
+    rgb(255, 200, 71) 35%,
+    whitesmoke 100%
+  );
   border-radius: 15px;
   border: 2px solid #ccc;
   border-bottom: 3px solid rgba(187, 187, 187, 0.589);
