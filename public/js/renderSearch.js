@@ -66,7 +66,8 @@ $(document).ready(function () {
     console.log("all brewery objects stuff ", AllBreweryObjects);
 
     if (AllBreweryObjects.length === 0) {
-      $("#OpenBreweries").html("<h3>No results found.  </h3>");
+      $(".searchContainer").hide();
+      $(".loader-wrapper").hide();
     } else {
       for (i = 0; i < AllBreweryObjects.length; i++) {
         //stageLocation(AllBreweryObjects[i].latitude, AllBreweryObjects[i].longitude)
