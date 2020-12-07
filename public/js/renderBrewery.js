@@ -220,26 +220,31 @@ function buildCard(
       console.log(userID)
       console.log(userLoggedIn)
       // TODO: UN-COMMENT THESE WHEN WORKING ON EDITING REVIEWS
-  //   if(userID == userLoggedIn){
+    if(userID == userLoggedIn){
 
 
-  //   var editButton = $("<button>")
-  //   .text("Edit")
-  //   .attr("id", "edit"+review_id)
-  //   .attr("data-text", review )
-  // cardDiv.append(cardReview, oldStars, profile, editButton);
-  // $("#OpenBreweries").prepend(cardDiv);
-  // addEditEventListener("edit"+review_id)
+    var editButton = $("<button>")
+    .text("Edit")
+    .attr("id", "edit"+review_id)
+    .attr("data-text", review )
+    .attr("data-toggle", "modal")
+    .attr("data-target", "#editReviewModal")
+  cardDiv.append(cardReview, oldStars, profile, editButton);
+  $("#OpenBreweries").prepend(cardDiv);
+  addEditEventListener(review_id)
 
-  //   }
-  //   else{
-  //     cardDiv.append(cardReview, oldStars, profile);
-  //     $("#OpenBreweries").prepend(cardDiv);
+  //<button type="button" class="btn btn-warning" id="flagBtn" data-toggle="modal" data-target="#flagModal"> FLAG THIS BREWERY
 
-  //   }
 
-    cardDiv.append(cardReview, oldStars, profile);
-    $("#OpenBreweries").prepend(cardDiv);
+    }
+    else{
+      cardDiv.append(cardReview, oldStars, profile);
+      $("#OpenBreweries").prepend(cardDiv);
+
+    }
+
+    // cardDiv.append(cardReview, oldStars, profile);
+    // $("#OpenBreweries").prepend(cardDiv);
 
 
 
@@ -539,16 +544,63 @@ function renderTheseReviews() {
 $("#OpenBreweries").empty();
 renderTheseReviews();
 
-function addEditEventListener(editId){
+function addEditEventListener(reviewId){
 
-
+var editId = "edit"+reviewId
   $("#"+editId).on("click", function(){
 
       console.log("edit review")
   console.log(editId)
   var editReview = document.getElementById(editId).dataset.text
 
+  // TODO: Append stuff to modal
+
+  var editReviewContent =   $("#editModalContent")
+  var oldReview = $("<input>")
+  .attr("placeholder", editReview)
+  .attr("id", "input"+reviewId)
+  
+  editReviewContent.append(oldReview)
+
+  var updateReviewButton = $("<button>")
+  .text("Submit")
+  .attr("id", "button"+reviewId)
+  //.attr("onclick", updateEditedReview)
+
+  editReviewContent.append(updateReviewButton)
+
   console.log(editReview)
+
+  updateEditedReviewListener(reviewId)
+
+  })
+
+}
+
+function updateEditedReviewListener(reviewId){
+
+  $("#button"+reviewId).on("click", function(){
+      console.log("UPDATE EDITED REVIEW")
+  var newReview = $("#input"+reviewId).val()
+  console.log(newReview)
+
+  var putSettingsReview = {
+    url: "/api/reviews/"+reviewId,
+    method: "PUT",
+    timeout: 0,
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    data: {
+      id: reviewId,
+      review: newReview,
+    },
+  };
+
+  $.ajax(putSettingsReview).then(function (response) {
+    console.log(response);
+  });
+
   })
 
 }
