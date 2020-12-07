@@ -595,10 +595,13 @@ function updateEditedReviewListener(reviewId){
       id: reviewId,
       review: newReview,
     },
+
   };
 
   $.ajax(putSettingsReview).then(function (response) {
     console.log(response);
+  }).then(function(){
+    window.location.reload()
   });
 
   })
