@@ -46,5 +46,6 @@ $("#submitNewBrewery").on("click", function () {
   });
   // $(".formBackground").empty();
   $(".formBackground").hide();
+  $(".searchContainer").hide();
   $(".cheersContainer").show();
 });
