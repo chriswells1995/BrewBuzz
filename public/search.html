@@ -119,7 +119,7 @@
             <input
               type="text"
               class="form-control"
-              id="brewery-name-input"
+              id="breweryName"
               placeholder="Brewery Name"
               autocomplete="off"
             />
@@ -127,7 +127,7 @@
             <input
               type="text"
               class="form-control"
-              id="brewery-website-input"
+              id="breweryWebsite"
               placeholder="Website"
               autocomplete="off"
             />
@@ -135,7 +135,7 @@
             <input
               type="text"
               class="form-control"
-              id="brewery-street-input"
+              id="breweryStreet"
               placeholder="Street"
               autocomplete="off"
             />
@@ -143,7 +143,7 @@
             <input
               type="text"
               class="form-control"
-              id="brewery-city-input"
+              id="breweryCity"
               placeholder="City"
               autocomplete="off"
             />
@@ -151,7 +151,7 @@
             <input
               type="text"
               class="form-control"
-              id="brewery-state-input"
+              id="breweryState"
               placeholder="State"
               autocomplete="off"
             />
@@ -159,7 +159,7 @@
             <input
               type="text"
               class="form-control"
-              id="brewery-address-input"
+              id="breweryZip"
               placeholder="Zip Code"
               autocomplete="off"
             />
@@ -167,15 +167,17 @@
             <input
               type="text"
               class="form-control"
-              id="brewery-phone-input"
+              id="breweryPhone"
               placeholder="Phone Number"
               autocomplete="off"
             />
           </div>
           <button
-            type="submit"
+            type="button"
             class="btn btn-warning"
             style="margin-top: 10px"
+            id="submitNewBrewery"
+            data-dismiss="modal" data-toggle="modal" data-target="#thankYouModal"
           >
             Make BrewBuzz Better!
           </button>
@@ -213,6 +215,20 @@
   </div>
 </div>
 
+<!-- thank you modal -->
+<div class="modal fade" id="thankYouModal" tabindex="-1" role="dialog" aria-labelledby="thankYouLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="thankYouLabel">Thanks! We'll get this added right away.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      </div>
+    </div>
+  </div>
+
 <!-- footer -->
 <footer class="text-center footerStyle">
   <a class="footerText" href = "https://www.termsfeed.com/live/6ea83ad4-0ebe-4b39-8706-fff4c37e43de" target = "blank">Privacy Policy
@@ -226,6 +242,7 @@
   <script type="text/javascript" src="/js/search.js"></script>
   <script type="text/javascript" src="/js/login.js"></script>
   <script type="text/javascript" src="/js/location.js"></script>
+  <script type="text/javascript" src="/js/addBrewery.js"></script>
   <script type="text/javascript" src="/js/renderSearch.js"></script>
 
 </body>
