@@ -199,14 +199,25 @@ function buildCard(
     .addClass("col-sm-12 correctUlMargin")
     .attr("id", "review" + review_id);
 
+  var editButton = $("<img>")
+    .text("Edit")
+    .attr("src", "../stylesheets/assets/editicon.png")
+    .attr("id", "edit" + review_id)
+    .attr("data-text", review)
+    .attr("data-toggle", "modal")
+    .attr("data-target", "#editReviewModal")
+    .addClass("editIcons");
+
   var cardReview = $("<div style=font-size:125%;>")
     .attr("id", "cardBack")
-    .addClass("card-body centeredBrewery userBackground")
-    // .html("<a href = /user/"+ user_id+"></a>")
-    .text(username + " said: " + review); // this will display the review
+    .addClass("card-body centeredBrewery userBackground");
+  if (userID == userLoggedIn) {
+    cardReview.text("You said: " + review);
+  } else {
+    cardReview.text(username + " said: " + review);
+  }
 
-  // This uses the stars CSS to create a <p> element which is actually the star image
-  // It uses the rating value, which needs the ".0" removed to work
+  // Star rating images, uses the rating value, which needs the ".0" removed to work
   var oldStars = $("<p>")
     .addClass("starability-result centeredBrewery")
     .attr("data-rating", rating.split(".")[0])
@@ -216,42 +227,20 @@ function buildCard(
     .attr("href", "/user/" + userID)
     .addClass("emailLinks centeredBrewery")
     .text("See all of " + username + "'s reviews");
-      console.log("userID, then userLoggenIn ID")
-      console.log(userID)
-      console.log(userLoggedIn)
-      // TODO: UN-COMMENT THESE WHEN WORKING ON EDITING REVIEWS
-  //   if(userID == userLoggedIn){
 
-
-  //   var editButton = $("<button>")
-  //   .text("Edit")
-  //   .attr("id", "edit"+review_id)
-  //   .attr("data-text", review )
-  // cardDiv.append(cardReview, oldStars, profile, editButton);
-  // $("#OpenBreweries").prepend(cardDiv);
-  // addEditEventListener("edit"+review_id)
-
-  //   }
-  //   else{
-  //     cardDiv.append(cardReview, oldStars, profile);
-  //     $("#OpenBreweries").prepend(cardDiv);
-
-  //   }
-
+  if (userID == userLoggedIn) {
+    cardDiv.append(cardReview, editButton, oldStars, profile);
+    $("#OpenBreweries").prepend(cardDiv);
+    addEditEventListener(review_id);
+  } else {
     cardDiv.append(cardReview, oldStars, profile);
     $("#OpenBreweries").prepend(cardDiv);
-
-
-
-
-
+  }
 }
 
 // event listener for review input (activated by clicking the "Add" button)
 $("#reviewButton").on("click", function () {
   var reviewInput = $("#reviewInput").val();
-  // var ratingInput = $("#ratingInput").val();
-  // var roundedRatingInput = Math.ceil(reviewInput)
 
   // These "if" statements check what star rating the user gave, then set the starInput variable to that raitng
   // TODO: Make more DRY (maybe with for loop and "rate" + i.toString()?)
@@ -296,12 +285,7 @@ $("#reviewButton").on("click", function () {
   };
 
   $.ajax(userSettings).then(function (response) {
-    console.log("user");
-    console.log(response);
-
     if (response.id) {
-      console.log("it works");
-      console.log(response.id);
       var currentUserId = response.id;
 
       var postSettings = {
@@ -321,8 +305,6 @@ $("#reviewButton").on("click", function () {
       };
 
       $.ajax(postSettings).then(function (response) {
-        console.log(response);
-
         $("#brewery-title").empty();
         $("#brewery-rating").empty();
         $("#brewery-logo").empty();
@@ -370,8 +352,6 @@ function renderTheseReviews() {
     // if brewery doesn't already have a logo, make ajax call to serpwow to get a logo
     if (breweryResponse[0].logo) {
       //Grab image from response and render it
-      console.log("logo already existed in database");
-
       var webLink = $("<a href=" + breweryWebsite + " + target_blank" + ">")
         .attr("id", "webLink")
         .addClass("centeredBrewery");
@@ -382,7 +362,6 @@ function renderTheseReviews() {
         .attr("id", "breweryLogo");
       $("#webLink").append(logoImage);
     } else {
-      console.log("logo did not already exist in database");
       var q = breweryName.replace(/ /g, "+");
       q = q.replace(/&/g, "+");
       q = q.replace(/-/g, "+");
@@ -391,7 +370,6 @@ function renderTheseReviews() {
         "https://api.serpwow.com/live/search?api_key=B03F416BACF94C8C86F2123D183281B8&q=" +
         q +
         "+brewery+logo&search_type=images&num=1";
-      console.log(logoURL);
       var settingsLogo = {
         url:
           "https://api.serpwow.com/live/search?api_key=B03F416BACF94C8C86F2123D183281B8&q=" +
@@ -403,18 +381,10 @@ function renderTheseReviews() {
       // var logoSRC;
       $.ajax(settingsLogo)
         .then(function (response) {
-          console.log("logo response");
-          console.log(response);
-          console.log(response.image_results[0].image);
-
           var logoSRC = response.image_results[0].image;
           var imageNumber = 0;
           // Because there are issues taking images from facebook, and when logos have an http instead of https,
           // we use this while loop to check if the image is acceptable, and if not, we try the next one (100 possible images)
-          // TODO: Find a way to bypass CORS so we can grab facebook images
-          console.log(imageNumber);
-          console.log(response.image_results[imageNumber].brand);
-          console.log(response.image_results[imageNumber].image);
           if (
             response.image_results[imageNumber].brand === "Facebook" ||
             !response.image_results[imageNumber].image.includes("https")
@@ -423,32 +393,12 @@ function renderTheseReviews() {
               response.image_results[imageNumber].brand === "Facebook" ||
               !response.image_results[imageNumber].image.includes("https")
             ) {
-              console.log("THIS EITHER CAME FROM FACEBOOK or has HTTP");
               imageNumber++;
-              console.log(imageNumber);
               logoSRC = response.image_results[imageNumber].image;
-              console.log(response.image_results[imageNumber].brand);
-              console.log(response.image_results[imageNumber].image);
             }
           } else {
             console.log("not facebook nor http");
           }
-
-          //   if (!(response.image_results[imageNumber].image).includes("https")){
-          //     while(!(response.image_results[imageNumber].image).includes("https")){
-          //       console.log("THIS DOES NOT INCLUDE HTTPS")
-          //       imageNumber++
-          //       console.log(imageNumber)
-          //        logoSRC = response.image_results[imageNumber].image;
-          //       console.log(response.image_results[imageNumber].image)
-
-          //     }
-          //  }
-          //  else{
-          //    console.log("includes https")
-          //  }
-
-          console.log(logoSRC);
 
           var logoImage = $("<img>")
             .attr("src", logoSRC)
@@ -498,7 +448,6 @@ function renderTheseReviews() {
       }
       if (counter > 0) {
         avgRating = avgRating / counter;
-        console.log(avgRating);
       }
 
       // TODO: Use a PUT route to update the brewery's rating
@@ -530,7 +479,6 @@ function renderTheseReviews() {
           response[i].User.id,
           response[i].User.username,
           response[i].rating
-          //avgRating
         );
       }
     });
@@ -539,16 +487,51 @@ function renderTheseReviews() {
 $("#OpenBreweries").empty();
 renderTheseReviews();
 
-function addEditEventListener(editId){
+function addEditEventListener(reviewId) {
+  var editId = "edit" + reviewId;
+  $("#" + editId).on("click", function () {
+    var editReview = document.getElementById(editId).dataset.text;
+    var editReviewContent = $("#editModalContent");
+    var oldReview = $("<input>")
+      .attr("value", editReview)
+      .attr("id", "input" + reviewId)
+      .addClass("updateInput");
 
+    editReviewContent.append(oldReview);
 
-  $("#"+editId).on("click", function(){
+    var updateReviewButton = $("<button>")
+      .text("Submit")
+      .addClass("btn btn-outline-warning updateReviewStyling")
+      .attr("id", "button" + reviewId);
 
-      console.log("edit review")
-  console.log(editId)
-  var editReview = document.getElementById(editId).dataset.text
+    editReviewContent.append(updateReviewButton);
+    updateEditedReviewListener(reviewId);
+  });
+}
 
-  console.log(editReview)
-  })
+function updateEditedReviewListener(reviewId) {
+  $("#button" + reviewId).on("click", function () {
+    var newReview = $("#input" + reviewId).val();
 
+    var putSettingsReview = {
+      url: "/api/reviews/" + reviewId,
+      method: "PUT",
+      timeout: 0,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      data: {
+        id: reviewId,
+        review: newReview,
+      },
+    };
+
+    $.ajax(putSettingsReview)
+      .then(function (response) {
+        console.log(response);
+      })
+      .then(function () {
+        window.location.reload();
+      });
+  });
 }
