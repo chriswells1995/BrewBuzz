@@ -6,7 +6,7 @@ const session = require("express-session");
 const passport = require("./config/passport");
 
 // require environment variables
-require('dotenv').config();
+require("dotenv").config();
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
@@ -20,24 +20,30 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 // We need to use sessions to keep track of our user's login status
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Requiring our routes
-app.use(require("./controllers/authController.js"))
-app.use(require("./controllers/breweryController.js"))
-app.use(require("./controllers/reviewController.js"))
-app.use(require("./controllers/userController.js"))
-app.use(require("./controllers/flaggedBreweriesController.js"))
-app.use(require("./controllers/flagOptionsController.js"))
-app.use(require("./controllers/locationController"))
-app.use(require("./controllers/htmlController.js"))
-
+app.use(require("./controllers/addBreweryController.js"));
+app.use(require("./controllers/authController.js"));
+app.use(require("./controllers/breweryController.js"));
+app.use(require("./controllers/reviewController.js"));
+app.use(require("./controllers/userController.js"));
+app.use(require("./controllers/flaggedBreweriesController.js"));
+app.use(require("./controllers/flagOptionsController.js"));
+app.use(require("./controllers/locationController"));
+app.use(require("./controllers/htmlController.js"));
 
 // Syncing our database and logging a message to the user upon success
-db.sequelize.sync({ force:false }).then(function() {
-  app.listen(PORT, function() {
-    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+db.sequelize.sync({ force: false }).then(function () {
+  app.listen(PORT, function () {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
   });
 });

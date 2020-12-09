@@ -96,7 +96,7 @@
   <div class="loader-wrapper">
     <span class="loader"><span class="loader-inner"></span></span>
   </div>
-  <div class="container">
+  <div class="container searchContainer">
     <div class="row">
       <div class="col-md-12">
         <ul class="text-center row">
@@ -106,7 +106,90 @@
         </div>
       </div>
     </div>
-    <!-- Just throwing the Modal here for now -->
+
+  <!-- frankensteined join us code beginning -->
+  <div class="container" >
+    <div class="row" style="z-index: 1; position:relative">
+      <div class="col-md-6 col-md-offset-3 formBackground">
+        <h2 class="text-center suggestBrewery">Are we missing a brewery?</h2>
+        <h5 class="text-center">Tell us as much as you can! We'll fill in the rest.</h5>
+        <form class="signup formColor">
+          <div class="form-group">
+            <label for="Brewery-Name"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="breweryName"
+              placeholder="Brewery Name"
+              autocomplete="off"
+            />
+            <label for="Brewery-Website"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="breweryWebsite"
+              placeholder="Website"
+              autocomplete="off"
+            />
+            <label for="Brewery-Street-Address"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="breweryStreet"
+              placeholder="Street"
+              autocomplete="off"
+            />
+            <label for="Brewery-City-Address"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="breweryCity"
+              placeholder="City"
+              autocomplete="off"
+            />
+            <label for="Brewery-State-Address"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="breweryState"
+              placeholder="State"
+              autocomplete="off"
+            />
+            <label for="Brewery-Zip-Code"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="breweryZip"
+              placeholder="Zip Code"
+              autocomplete="off"
+            />
+            <label for="Brewery-Phone-Number"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="breweryPhone"
+              placeholder="Phone Number"
+              autocomplete="off"
+            />
+          </div>
+          <button
+            type="button"
+            class="btn btn-warning"
+            style="margin-top: 10px"
+            id="submitNewBrewery"
+          >
+            Make BrewBuzz Better!
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="cheersContainer" style="z-index: 0; position:fixed;">
+      <img class="cheersBees" src="../stylesheets/assets/cheers.png">
+      <h6>Thank you for your suggestion! We'll get it added right away.</h6>
+      <h1>Cheers!</h1>
+      </div>
+  </div>
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -147,6 +230,7 @@
   <script type="text/javascript" src="/js/search.js"></script>
   <script type="text/javascript" src="/js/login.js"></script>
   <script type="text/javascript" src="/js/location.js"></script>
+  <script type="text/javascript" src="/js/addBrewery.js"></script>
   <script type="text/javascript" src="/js/renderSearch.js"></script>
 
 </body>
