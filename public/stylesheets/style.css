@@ -163,6 +163,24 @@ form.login {
   margin-bottom: 20px;
 }
 
+.editIcons {
+  max-width: 25px;
+}
+
+.updateReviewStyling {
+  width: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.updateInput {
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
 .txta {
   width: 100%;
   max-width: 500px;

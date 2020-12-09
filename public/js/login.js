@@ -6,7 +6,6 @@ $(document).ready(function () {
 
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", function (event) {
-    event.preventDefault();
     var userData = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim(),
@@ -29,16 +28,12 @@ $(document).ready(function () {
       password: password,
     })
       .then(function () {
-        // TODO: perform another ajax to get UserID in this scope (or put the current ajax call in seperate)
-        // TODO: change to window.location.href = "/brewery/"+ UserID;
         location.reload();
       })
       .catch(handleLoginErr);
   }
 
   function handleLoginErr(err) {
-    // console.log("JSON res", err.responseText==="Unauthorized")
-
     if (err.responseText === "Unauthorized") {
       $("#alert .msg").text("Incorrect email or password.");
     } else {
