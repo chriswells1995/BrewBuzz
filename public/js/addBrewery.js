@@ -1,4 +1,5 @@
 $("#submitNewBrewery").on("click", function () {
+  event.preventDefault();
   // make ajax get for user ID
   var userSettings = {
     url: "/api/user_data",
@@ -45,7 +46,7 @@ $("#submitNewBrewery").on("click", function () {
     }
   });
   // $(".formBackground").empty();
-  $(".formBackground").hide();
+  $(".formBackground").fadeOut("slow");
   $(".searchContainer").hide();
-  $(".cheersContainer").show();
+  $(".cheersContainer").fadeIn(800);
 });
