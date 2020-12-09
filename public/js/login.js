@@ -28,7 +28,7 @@ $(document).ready(function () {
       password: password,
     })
       .then(function () {
-        location.reload();
+        location.replace("/");
       })
       .catch(handleLoginErr);
   }
