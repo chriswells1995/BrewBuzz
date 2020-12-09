@@ -44,4 +44,7 @@ $("#submitNewBrewery").on("click", function () {
       alert("Please sign in to suggest a brewery.");
     }
   });
+  // $(".formBackground").empty();
+  $(".formBackground").hide();
+  $(".cheersContainer").show();
 });

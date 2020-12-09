@@ -108,8 +108,8 @@
     </div>
 
   <!-- frankensteined join us code beginning -->
-  <div class="container">
-    <div class="row">
+  <div class="container" >
+    <div class="row" style="z-index: 1; position:relative">
       <div class="col-md-6 col-md-offset-3 formBackground">
         <h2 class="text-center suggestBrewery">Are we missing a brewery?</h2>
         <h5 class="text-center">Tell us as much as you can! We'll fill in the rest.</h5>
@@ -177,17 +177,19 @@
             class="btn btn-warning"
             style="margin-top: 10px"
             id="submitNewBrewery"
-            data-dismiss="modal" data-toggle="modal" data-target="#thankYouModal"
           >
             Make BrewBuzz Better!
           </button>
         </form>
       </div>
     </div>
+    <div class="cheersContainer" style="z-index: 0; position:fixed;">
+      <img class="cheersBees" src="../stylesheets/assets/cheers.png">
+      <h6>Thank you for your suggestion! We'll get it added right away.</h6>
+      <h1>Cheers!</h1>
+      </div>
   </div>
-  <!-- frankensteined join us code end -->
 
-    <!-- Just throwing the Modal here for now -->
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -214,20 +216,6 @@
     </div>
   </div>
 </div>
-
-<!-- thank you modal -->
-<div class="modal fade" id="thankYouModal" tabindex="-1" role="dialog" aria-labelledby="thankYouLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="thankYouLabel">Thanks! We'll get this added right away.</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      </div>
-    </div>
-  </div>
 
 <!-- footer -->
 <footer class="text-center footerStyle">
