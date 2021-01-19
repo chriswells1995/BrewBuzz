@@ -8,6 +8,7 @@ body,
 html {
   height: 100%;
   text-align: center;
+  scroll-behavior: smooth;
 }
 
 .loader-wrapper {
@@ -338,11 +339,20 @@ ul {
   margin-left: -25px;
 }
 
-#navBackgroundClear {
+#top-section {
   background-image: none;
   background: rgba(0, 0, 0, 0.89) !important;
   padding-top: 0px;
   padding-bottom: 0px;
+}
+
+.top-button {
+  margin: 55px;
+  z-index: 999;
+  position: fixed;
+  right: 0px;
+  bottom: -40px;
+  width: 10px;
 }
 
 #login-nav {
