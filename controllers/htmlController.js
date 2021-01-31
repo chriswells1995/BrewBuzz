@@ -75,9 +75,9 @@ router.get("/login", function (req, res) {
 });
 
 
-router.get("/loop", function (req, res) {
-  res.sendFile(path.join(__dirname, "../public/loop.html"));
-});
+// router.get("/loop", function (req, res) {
+//   res.sendFile(path.join(__dirname, "../public/loop.html"));
+// });
 
 // catchall route
 router.get("*", function (req, res) {
