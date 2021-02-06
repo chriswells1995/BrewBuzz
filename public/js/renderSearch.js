@@ -10,8 +10,25 @@ $(document).ready(function () {
   var path = window.location.pathname;
   var input = path.split("/")[2];
 
+  // need to remove words brewery, brewpub, company, brewing
   if (input.includes("%20")) {
     input = input.replace(/%20/g, " ");
+  }
+
+  if (input.includes("brewery")) {
+    input = input.replace(/brewery/g, " ");
+  }
+
+  if (input.includes("brewpub")) {
+    input = input.replace(/brewpub/g, " ");
+  }
+
+  if (input.includes("company")) {
+    input = input.replace(/company/g, " ");
+  }
+
+  if (input.includes("brewing")) {
+    input = input.replace(/brewing/g, " ");
   }
 
   $("#searchInput").val("");
@@ -45,7 +62,7 @@ $(document).ready(function () {
   setTimeout(function renderCards() {
     $(".loader-wrapper").hide();
     $("#OpenBreweries").fadeIn("slow");
-  }, 4000);
+  }, 1000);
 
   // render cards ======================================================================================
   function renderCards(AllBreweryObjects) {
