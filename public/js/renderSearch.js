@@ -16,19 +16,19 @@ $(document).ready(function () {
   }
 
   if (input.includes("brewery")) {
-    input = input.replace(/brewery/g, " ");
+    input = input.replace(/brewery/g, "");
   }
 
   if (input.includes("brewpub")) {
-    input = input.replace(/brewpub/g, " ");
+    input = input.replace(/brewpub/g, "");
   }
 
   if (input.includes("company")) {
-    input = input.replace(/company/g, " ");
+    input = input.replace(/company/g, "");
   }
 
   if (input.includes("brewing")) {
-    input = input.replace(/brewing/g, " ");
+    input = input.replace(/brewing/g, "");
   }
 
   $("#searchInput").val("");
