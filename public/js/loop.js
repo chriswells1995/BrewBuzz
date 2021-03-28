@@ -20,7 +20,7 @@ $("#apiLoop").on("click", function(){
       
 
         
-      if (((response[i].tags).toLowerCase()).includes("michigan")) {
+      if (((response[i].tags).toLowerCase()).includes("new york")) {
         console.log(true);
         AllBreweryObjects.push(response[i])
       }
