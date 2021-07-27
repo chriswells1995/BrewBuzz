@@ -1,8 +1,10 @@
 User-agent: *
 Allow: /landing
-Allow: /login
-Allow: /signup
 
+Disallow: /nearby/*
+Disallow: /forgotpassword/*
+Disallow: /login/*
+Disallow: /signup/*
 Disallow: /user/*
 Disallow: /search/*
 Disallow: /brewery/*
